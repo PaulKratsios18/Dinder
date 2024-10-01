@@ -5,7 +5,7 @@
     const fetch = (await import('node-fetch')).default;
   
     async function getNearbyRestaurants(options = {}) {
-      const apiKey = 'AIzaSyBp3lABmp2wDTEfHOErlb_2OpCfBMY1204';
+      const apiKey = 'PERSONAL_API_KEY';
       const location = options.location; // Example: Troy, NY
       const radius = options.distance || 5000;
       const type = 'restaurant';
