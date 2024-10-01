@@ -16,6 +16,3 @@ if __name__ == "__main__":
         print(f"Longitude: {longitude}")
     else:
         print("Unable to retrieve your GPS coordinates.")
-
-
-"AIzaSyBp3lABmp2wDTEfHOErlb_2OpCfBMY1204"
