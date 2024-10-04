@@ -1,0 +1,491 @@
+Input:
+    location: '42.7284,-73.6918',
+    distance: 11500, // Maximum distance in meters
+    price: [2, 3], // Min and Max Price. Levels -> [1,2,3,4]
+    rating: 4, // Minimum rating [0.0-5.0]
+    cuisine: 'Italian', // Type of cuisine [Any cuisine, American, Barbecue, Chinese, French, Hamburger, Indian, Italian, Japanese, Mexican, Pizza, Seafood, Steak, Sushi, Thai]
+
+Output:
+    (base) batten-72:Dinder paulkratsios$ node get_places_google.js
+    ---
+    Name: De Fazio's
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNy_k2d_bQq_Oip6Zn56FC9GrK3zBrWPhAXBRMahpbNWWUXn4rS2S9ek6u2iHId32DgAarhFYsh8LN9WEHt_tjZfoaVtljizlVeyIst3KrxqftdaFLJF8lhwyKv3yvEm1k00J1t7_WIapnVSlw323GYTWdcAYCzkRnS2a04LY109hn3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoEs4FrM1kuUZ6GT2Y9IHL4-J0a4EOrAhrPfPF64vYfrwihezhz2DeuENIMxYwdGviVY4kpa_hLZUvNeCbrFWYkG-1xdwi2osFrN1KS43RNJ9owLOd3qJlSHMiBJVslDhgWyWa2IBRW23m_JCh0_crSdUH3YSIWM5bPVOi-MsCGuAM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPigR3U6MiBQGwDHqjEN9ZuWdGvk0ZooFtS_BPmPWOrfyLf4rPRth1iGNC2OjuDw86_3LqQKXoJ2iUy16sybPnM7Nx6D2FOAUsM9IWJD5NvZ3N3ZwRbr1WZMfOdTvtHsMcXCU0qUhYOX3tPELx98-fkuuVgMvdpMLuDARdyrKk-fxFn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPcEj7Flj_zsB1qdpBBWReoe0UdrL9X-emZSxMKCf2zqwE6LBfu8QwWTgVqhQmaoyPcEC1niHNUqmvTkpusd-nlkqbENpAgkhYhF6elRIgJTQLFq_CoYT0Vq9VcdmsWNnpbSrmrSwwHqNRPmNwinBAgKI46lxAtcGdpWyyEmiCYn_Pp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPylJwDQVmZJM2bZ-Wm8TEaizjwi9cRX-2-ytOQ0SLvQSEnEZbQouZKd5cH0JWTuFxTV67pqbedNdKHZPfM0UAC3VKp2x4SKlg5VmUgj7dzFL8xCw-ngbVcqJwvTWPEE-tuS5CmVhiLOtz9ts_vOQcKvbT7z9RU3603BbG6BkeO0DLi&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 266 4th St, Troy, NY 12180, USA
+    Rating: 4.6
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Zotto's The Pine
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMhEEJHw2-JUN9ovvPn8t-AGOqxdGWrXsifB6t-8cW_z0ugboctUZA93hfX58erjKU5nNzjnQZLFMSmEQA13enu1WiltMUcvD6zPyQ-2-bY6Oa-lFGKiDs0ahyZ_NQEwn5djW9CxVaWiuoz1YW_1b0l7jYD1ohCVGnKDf6f5Sv3F0NG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN0YGMN362bHU6DjadKXVynN7RUA8YhHpwgeUw5EE87f7SWD5OXZnW5FQvQmLid9noCmtbne-MqtE3i-Pt4u4lGrssZAtONINuU2FiOnRA5pCYQ3i63tChF0sAjxbHcop1hUzTn44yl9sgmoPIxuoWlBupNuqf4CJf2Ml6_4o913yvf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNuVTun8Ivy5A71nhKXVcW4UpfD0rdmkO8hABC8WK1OP2hULfsQqIkHrK0yycbpjJ3oc6bWKtkfbyfFAjHPcsnRrn-qDbbHx1PpBgmDMqORgLu3SkghccOIsvp0x3LYvU5LR3Y_0MCCyzOUnslAej99c3GRWEUPHPEWc7dGf1pSDLEe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhWo2m3qYpmv-RZIpWWFbyT-Tf2IsRUtOKQ2Da-UJISAdpaLcNB6zy8O3RMmJrqNP3jPzy4x41R6nAlBtv_eqxaNvukGxvlEai7w_gIVb8OpskgYOJCRA07svfhI6N6y207r3swlc0Xukl9Ppey4bDSV9fbVISwNh9CFAkji1UnG5D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPieubryNQPjxpoUGKV53z9qTgCm9SC6I8HACqc409X_O8US7-2UWpemA7r0WpeP0WzNqm_AFxGAoQAfMS0qjrPk5IB3I0lAk_sJSv4Ar3YxrJS9lAN93y2-cgHKEZKSHFHUGQxVrALGZKLXlFHCK1aCvvjImXI0LzCVsS_1ZToLT8f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 814 Hoosick Rd, Troy, NY 12180, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Lanie's Cafe
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPO60aB5BaOwc0G1QvaEXi0HEnAd7AZAH3u1SmdADZejMDvRQJrBkox1NHSakG7v2cF700SyTnAUyYtswH3mHWgFBPq6xleEHXd_Q8m4puB5m6dX_qm5RXVyjKB4s0zpSvWRE4tfdj1CMRv_LsE-uHpDSQg77VZ8eTek_ozGGReyLDl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP8fYI0wszbwdOvVjZakGc78h4x__Bd9j5FXCC8QXdfWY3KC9bqDRUdNIqLQpu0f4c74w7sd9odsxDCYqBRfV0U0__rerJ33Qsz3N_cIVlvBenRQrFKhNmZ-7ItTV-GSUwGMvmdfRJp7icF9M9YampCFFzqEveIBCqKx6fwu9NGUkaW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMm8jQnlkbFll1-q3VgxNLKfFEMQ6TN9Zm2Lnqy9p9ejkMwSUVCRINRIoru7lm2ml_p0YaPjwmXZbuwJ9rMOaF6jV1rmdRcrxFjg0fjOdK0QcIJwdwSwH3J3YaFr7U1DpdgcolTro29KjV6LrdsAxNvBCQTHaDx80y7gOXMORLI4ShL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP5_62nbjQp0C-ZRTj2mW8Ias9XFBB-sbfYfA2zmNjPxeXKlh43YC2p0U4BG8tSyUUB837L3N_a7N1DoFO_-HunrAJArMfvT-9NfCn83yerELI6d6dbLmkWz8nB2Vazj9QNj7txANtHU2kD4rhELcqwQfGLaySRI1fX-2lL0DFdjTvd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOj93HN7Gk9-Wo0SXGfILEAv_L-ur7G65KAMZs0d427v1g0eCiDAR48we-k3PMZ3gCHo_dboR54BPca_8v5OyWGey6dQqYtp7caj2NvNlPdvreg0fa0kpwsxwrjm2fcUI6JcJIHklC7RiLAkv2EqYP6U6yNi3Xog5gxGePKZGf1SXc8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 471 Albany Shaker Rd, Loudonville, NY 12211, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: meal_takeaway, bar, food, point_of_interest, establishment
+    ---
+    Name: Ralph's Tavern
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMLZp1HgUcv3CmyzHHUTUJxeGJlimu4j46ug-bYb_jOQ6clkyk18phIccSK4iSeLvgi82O-FvdRr4yTAP17xaqNQ1g6w-WCEF4iBWSHadpoG9dBMO0mmxbf3hgJbWpv4Vj4VIyccGuC2e7gngovwFwWLIjUZMUQ4oNF-j7_k3CUqT-b&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtG_YC2h7gi4_Fw6e4Of_bh7vJXOfaIFTCABNyqgpPbvPAxf8-H2r-2NPxI-_bMjv4KYp33WlSH0U28GspWm2bLTzR2At97psYdy6DDhKjNX_hhACnr9pWB5f4WQBUYr1FLvg1V9Ov-rKRUntgSECd1mVWED9E-CACr_m5v6QO-b4f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMIw_if6FhTWo8QEFCTQuDghYKn3MGUOnLwr5tFVGBSBtxomWLt163NLB5-apyLNMcwYP9a_R5AyvJwVQfNXK9dyENDC0giyVzBj-jG9jZd0SzVONvIh97zEShA38q7kCr7CRuk1KQe5R7Agez4SquL7e5ss-GdcEuIGKPLn_Nv6ULw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOFce3U0NUHtZ3YZQPzXrzQ1ouYe84X5yYtIWnMOjRxOoIO8itAWIJFNVHuBDAU-wbt2DxKRGUIb9n6K6ck7U5igpkv1XiBPSSD19xX7RbN34zom6R7PqXyQrzIPMaIdEJ-qVTryJvZBgprNsYTR_a2uhzBaDscAZcaBdSUi8if_By2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONyygwZDUsX4Lmbgw_klFSDJSs2Z0sj5bjHkQMx2U_EpVA7zlQp1QRx4C6K8JmSy3ZLs3_PjQ_Sw0MK-vbuvksPJc8rivdooEV_2f2sMYu4hn5MiKO4g7F_8qS4s2rj3T8Dg9gJ1jIEbNBRyzpLR9azM6acnpXE5QZCRJW73IVpXk1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 1328 Central Ave, Albany, NY 12205, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: D'Raymonds
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMuFMTw81dSSVOuDov4LNAdpmMvNjTIxvxf7LdLk5guoTuoJUL0EtBp0um2OZxAij2cNUX9Vq3GTljX1P4wITu5BgLERQId0-X_g422a6Jv_5Yon6bvYoLYgwBKZxpqi4p-2We3rbLz7YWcqGCabkiTPUZ498DESaJBd-ytsONNaGSe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGWd0iT2jptxUW_zRbuG8vFlaQgTLGM23997mnxYwcjgMZyBvZIn_8VJwAlsKJnvGkdUDeVCaUPGh1UYXbShMmBZjdWfwsAJ_BeqnHVD0ZX3uVClvJNbeU1GIHLVOggcmHrnkqYoiBbOFVYRcfjGP5CyWfV7R4KMphksqkFa63yF0j&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPXirb4m3kEsIzuBUULr4W5wMb7eLvBuF-BHDh-CDajIrVBnUBtRU9j_weLgmjXHWreA852GSlFkPw6z3EymbuTr6etWieo6JEr0gmwoLIz0Flbr_GPAV8JRiUc-Tl7bXs4C14MHcyMyXaqZXAafdTkJGzsS3XedHSQD44bAW35LwRs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMala2wXl32GSmx0DiYm4NJe5tzwr1Yum4n-Jh_t3wWifNUU_zND57mS9nMnE14OZSv9n3WFyu0IIY-Iw4EMoaEHaARGRWhmylDO5LczYJQHxRleFq2bVB_2nkVAJD7HvaAV0RDqE_OO58zPq-ISmW_HOsoJocZx5E00Sa4KF5WdbJH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO5K4RbzCISX3q1VwiccfjmEp2VuD7RP43KExTVipoyUkkRkf8Y8sDaYN_kgzQCz2Uol1XsKPmK5Boz6Js1s_T6QFLjKac_MEK4G9Nd06kLACmi24j1mGSO31CfK20qAuDFnppkOmi_88LhSSIXJ5GWT9wl4WvY2UIh9egJVVyZyhhG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 269 Osborne Rd, Loudonville, NY 12211, USA
+    Rating: 4.5
+    Price: $$$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Testo's Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOR8n5gAf11rdKw7G_I1vto4StU8j3d0bdFZ1R36kGahoj25foktZlqRDg-GPIsQmUfad42EiSArtZK9rsSJLUFI56DgG4br5YGbemfHGNUIdqj77u-CsoFLq25D8Sgtx5kNacRqYPIrD__bgeeXC1XheeH3Z-2HvXfujhLQbmpTmMk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtxR9AdMuGBM4EJiF_zb-f1AUn-82SHlSrjNLQAYTtEWA5s7kCF8Gmr82PZU3PwbzuE5XM3OECuzOxGZy5VNZiXiIU8UQ1TTqAnWtm4jHDuxUmtLKlHe4ijYfW7Yj7jK6S6QmoTJY9lPnY1zyOSoh8mnw44QnX9umHWfG3wuCa9usN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNp_l9Mc9kDGSW1Jo-oGHQoF7IXotkmyzmhw3cV5q25GJ0I6yxzOSwKw4MKvU-oNctYrjwRA6bYmZxZ4BJHU4vYzqDPUvrc_FQ_c4plIjltZJsG0y8emaUPpQXXKubDxhGKscvat4hPa1-peLKEXJF5DSTdCidLGBSCD0shsroz1qxA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM9HMvAlk9pogIzlJkGNM6oOYdDXM4C2nZj1lfWLfV1PLuADvbw-efWERqOP4iYp2tMQNNbL1jgeHnvH0YWEr6bMotvFoo70xH6LLeK1ltir4nbMKRGYrHkzPLqt-vc5RMp_W-C4WqZEnWpLOIXiLQh7JAwYUr8AITdFADfALR533yI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmqrCuVf03ehEQtmbosyk2ftv9j4QEMuxXjXI34_SfxY2r52ucO-7A67kML-csnJiKrBxTeIXa-E9XOONfqkz_r4SFy4p6b23R9wWAvRSmBlOeF_sQ9zxmW8weEwyVydkyJEp2eHbsC8MRBNej9XiXVcQEh_M_Qsn8iiXUb0VuZDT3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 853 4th Ave, Troy, NY 12182, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Mercato's Italian grill and Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPzOPc_irZ0X6YPlkbfFrLbUeNMXQ0-SoNcRnsTQUiXhWPB_AxHsfumRd-e3p44uy_Nk4yi-ozRxzs0BO78kc6zjdYEZzB5Orh90Fan6QjDJGopEFv1pPQDWWLezFzAIufQha6hAcw1Qpu_WEY1p-ji7B3OTMzB2dfDZrH_xuylfACX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNDKZVvbaXQenhT2cMVw9c65x4MyKfymSxCZ3A6fvOra1ZRVQoMZr13u1nsFyGNk3I7TCTayX-uTAqwSD0uhK3kDAxjELhPAicrrby02vxpZ8mIYNaIkBXXL2mg8HVoj21mvtVv--Ck2TYL_jwq8b3aNcf41XBXJ8mOQqeSQvAifv0Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPsRSzn1K4f3-lJ3R7UQUAXwgQGApFMxHw3Gg-Hzg6tRh8-Sc74GBheQeVZvtyZXDEWyKenZlNwMEYDfh3kaFpJt16wEudAM0dWeozIaeiHYwSAwICvlfv9HCG1XcQzAKyWt8EjGOdCK1Tyl5Y4ceRR67rwCPTA8zQUVOO3e0gQwxJ2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPRom0mpguu55CeSn0yZfzISHmGNpUolh2sSrREZ78EPCrUzYHRZcKMbKW9O6DSyf09xiHxw-a43cnYXSPwnxldaCk4hFdaXNEOKzD-6akkuGxBIB8RBxYdjmwQW7JkbTNJvdqoGgKryvpWLGYRIi7KNhcYWxbd_0WaOW2ocCSZ48O0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMTgPc0QyRMRqK33XLldVEdGpDLt-q990598XFxUKcCLL8cvyIpfUvcpImWJFEAYKXYqetqgqDiFpSOrw2WapRGWDLraeX0utAPH_lZzs1_ajrwTGPctSo4-EyWpVBlG3gLT2iaWM--vazgT5L37t3FrfVjVCs7glT3nr4Qc4fJOxoo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 952 Troy-Schenectady Rd, Latham, NY 12110, USA
+    Rating: 4.3
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Taste of Italy 23
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObEj6glVMIQ5QpJkOcfM-rU4bNk4egSnl3sGeQiJGX9Q5I6nbxYPqk272maQn8A0OVU3VEhJxx0UmOM1P8rNGYkez-J1EOpPhR_2moKy3tfXw7cviFXMQhcbcFa2aGFIEX2Zg9zV_BGJj1PdqV2NAaNDp_PA6ZQNmcqcsxiWImvRvb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9swvAf1yNrRJogu_Hk4P9U5fOLroSaO20EpeMOGacMQG8j1aCO0SJG3MiKkVmG4VQS4zbabe2XOXUA8Ft-PELDomhNSKroSFr5Qsbh9C8OGIlc8cT49eAsQtegGwfX3wWNIpmwQZdY-UnaaHg21ZcEWCNZDKV3QF_FIEmetugEEUB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPjbwoBiP1CRntPcGV8QwpdV6W4OreD-iVrAf040nD1TR5TIWC3N5JK-6RHx8rqN50JeX4FE95Qfivx89gLY_kqxXncQz_4Dwc4hdCW_cjjYIgKIUTUKUlRde7x-vJ-ueMjUSVI0LmtrT0KCNKK5Nx94QzYrQooXeNRC7EUNThY2LfN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMR7PPMw1gnqaEdbr7pIqj9E-ooXM2Y8TNZON7reonZOVo_-vYB7IIIbRWGggiEa3zEjCULxJ70J5HuleRKbmK7muWm9osvG7_ujRiQlKMM3x2vQJccjShdgdMgGThld2CN7e7obIrisJ6gqKrF-A9WJv5i0ZkXu9kDBa6ZVhHb6zjs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNsSvQNbKgOl63ziH2C1Mn0C2aE_y5dpsd6t0DHU5zRQFJ9Ecj_jjlBk_kyjg6W319XdFRDaClpHBPutPeEM8D9Wu97qkd8oAavsw06n7j02tRy3bemWJaKsxJvA01tTfclMasxaBv51gLxNwmIWAaZQTHPy-RuTxX_SpNhXduq2Hlg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 800 Loudon Rd #960, Latham, NY 12110, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Labella Pizza of Wynantskill
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMb2fxH7djSPt8wUpJHnwA5RJZHx0R4EgcolQYN7yux8A3wjJSq2nANCaTBKk3GMlS_kCqgTGKwJoY2ofKcmbiKqWyFr0SDhNDkK5HdVMBXik3sX7EGV_FSK8vrFqTeQnGlGhv5I5GXHW4Xhm0fO8H7a5L1ihCSO1VXB-HfMs_uUa3d&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPgja5UDoGjoI83_gF5zsrv1WdqwEvpHp3ByDsnndAKq8hUx1O6UyX-FGmbChgFjPVGcA2sg8-kUGqYySQYU-CR0Y8OoYFwX8gfwLQECLTCGUAXRqWofgc-8WDzYZcjuiCVDVT3GomfytaNymKhr2IuZzmUqZl5bq1gq97Gaj96ohOs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOS9pIfSsJZTJfa36ZpaN-oP762tvh-lXPqDbIkW8vb9Zn70879NIlz05o5byTzvcQs6aq-NwgvWwNJK0niJnLNCJGH1-fXiiuSzGCpxzBUmiwDfXnv6lCH7gr2iSWJKiTfVAWjOLqxmS3PnZhQiCyl4Ps1La7cCudhNXtIB-KOZvJz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6FxCNCuNjTf2kwMR68ADgb88eGg8OqzWUtbbF__mXAAIYQy5lIkVP_baybnuF66s99hdbBOP2BDQLNOL9o7BW_2j0vGlx3qg9TwKZdY9fIkq_GxQjE7HVkJ1n2j6X29ieXOXX_CPJBEi3yVoELAFfddhulf5LqyT7H6z6qiJefDiR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMIyOXXjyA8VzFbRTgqxaM4FbP6LGpoDo6IWhiBF_ZcBMyf8p4Vd_e2wzEelcCGiCYNpTxuU_8QTHh-ZETCsuXONe75zyLRtkrqERTO43nxPEO-TgPDm0-orvQ3oxIi4S3Vonpge4HzjKsxb4xHulp3CxTFnDMfzbIQQJuboLkQRMmH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 174 Main Ave Suite 2, Wynantskill, NY 12198, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: meal_delivery, food, point_of_interest, establishment
+    ---
+    Name: The Fountain Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOB3Pfds_Jux44RNLjZ1v_PJ5bcJ17E5QN9ZwYajlMSBs8XBveEKomzMyl7vPh9DZw3MR_692EGKdX9IkjroPqGrbMU3FUu-dyiAq7Vt9tPUmmKgSSTnWPafhMKmGZO0F21D4FcHpplUUJZZKlXpnakZyYmPoAdO8t4Np6gjcX3O7N2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMms3vS50qbSAeR_bbdoC7MLqKNrH6VpJnE61fnmtyiMq3qcfSmpW9MQYs49LDYbdCW0GCshP2twCcF7faOvRZR08PGsXphzKfW-ArLW1COOW8_0KljZ7cle3bsYe0x0gxFK7h_PDAxVb-q6k3rvhuuLvjVqnfLZC1yu4UiiiwqvVLJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNY5bU2GGszYJqdQK_rCBGmNP2QPEe4UiUpRsXnn7fVmKRQB6SzlKmXyQHF2mCThDUwkH-PtZA7M5bsLCK4BIn0IlJz_EAtMAoV0aIpDR-fL0SkDHNNacvUe1qKeE2qI0MNIHFsvAZGmJKTejtJI6HELyHvADRCPll3JCfTh6fMnjbh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_mMDBvoharqTKvdipbnUeZAbbk8DJq6aM8Np7Upzf4l3hOzSuxVc_vUdljXs-LwxAD-uUIzd4VJGVUZ6ObKru5nBGzqwhMwidx60nW04ekzxj4mB5sFoBBYbRvlTcYQznYbOte0gb_fQ7Npw_pkhun6kEEy_sOpcueHt-qNJ531d_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfpj3Y7rd8VzyKXcv4t7_zKdwncMDxg-30Aya2qWhikzox0v5YhG1jZUCdRmKkfGz9CnLZii-WU2CDPf9PDEGnmckP2yK9mVKVEl1uAxXxtn3rNugXfkHgmoZWNOra-5lLvz1dfBpx2_jGqfvrTQju_cdSxLCuAOfdkTvOsUW5drJg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 283 New Scotland Ave, Albany, NY 12208, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: Midpoint Artisan Pizza
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMBYxCygEsuLFrdly7OTWwJ0a88PoLvcOS4fPBbIoXphOrgH0vm9LS-5hk3-v350eGn7ZvMr3Z8eXZnIPn_d5oDFsxScOcB9Ay33Vofy2N5ei8CsDwlP6Gz4o9QYOPbZFMc4-SxblH1h-kw43wUtr0Tzy1xOmkRWjdmmGunVAfMEm90&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkmcwkcpJx6i6JyuoIpPStnxfbv4AgMJVHObW7DVQsHSodLkbWfEOEBAN_4TGyYH520zz0lspUZcN0JIlaNfTMaouuxC9quSWrCB58ODqRdwqcdJwKm-JrpHuzQmYYkHLp5Kqauemwv8i5m9x04cEP2IOlXfTN6srvE2WLeYKx_WFz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO7A81GQReAPww3Vl8iD5gP5nXUk2r6XNrSc40Tfjc-VYqmG2G3azq7DBTpHBIKbEgAqg8XTcEvKaUr9f9boRGSrToO7llqnOLauMqueni_7dzQaFmgkYUOTM7xZ6esafmt9YSsA1uGJCiYW5GUa-Ps3TVt5kT4KnfLzqNb6ldOFGPE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNnb7njzptt38Lzyjm7z1Oeiwh9kFphE7Q48rMlYGDMn60MI1ua1aPqPWsQM9SXAHg_VGgiqA4JvidCMvXu5BWQmMBl7jU7AlzqBKlWi3UephW5zzaVOs5cbxDQc69PBVVobQmcV7Lh1C5rdntXCtE-raA9Y6jlnBa45vR0iQD7vDk-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpuLMvJB2Z_jFrIs7GDM3NeCiJ9uW4B5wbazfqnw-v0w3ukY2JvQUV3c5UwQBk68Jzo72pQvtFdKQT5lb_sv7a146LBUh0_qrIa_ZUDAdTAjsXcw1T6c0DDvbf4pQtOcA6cdXvfLVGY_8qxhl6NbIBF9TBwOQkCPrEJkzu3rerLx5H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 594 Loudon Rd, Latham, NY 12110, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: Giuseppe's Pizzeria & Deli
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNvuj6qn7AwMeCZ2KWDDc1-XMKXyP835n46Fpk0l8DKQ-F4k_-rl_FDGSUaUgaDlIQESLxVjS65UOV_bI9LGFIqyGJdmaZPrmsx-9_D9huQQw3LJB_Sw96Nm20yy4vp-RqiWly9OoRgoCJZxwkLiAMjydoCPP7liS0wrmgrerIK3CL4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMb0bmY9EVD09zMkxp-Sl6_T0g6kQdXy_AlyOlrAphbfvFfGQ3BJiivMrNWAMKPhqV2Juy111LcVtEmwvCgH3iyt6TnadOJ73UAaAUAJ9x3pWcdyV8Em_9gnxWuW_4iC7fsy4tmdQpKsvk2ppp0oiAzWsRwwK0DPaXhuDzrGXTv8Ow&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhwd6P9e0VIDEwhMnFjXwG4_bSPp0QnS6PQ2P0xQyQtmi5CMS46DizO6rNsRIRF2kaRGOwP1NeVjgXXrYUrfAwYT7voVL3NxcZFjUpMtH5Mh-jqIBkJE5i7c9lHZUlLaYp-6x6tvLKB6KLbSkmoPCGVmyOQuLTw6NcLaN3NIpMA-nE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPa-_j5D3rlNHud9xo9-3ZNmn3CjkzGSSkgoAVM_c_RmUsnqpRelme5O3rjImgf93Sk7hjFa4uyD3nrk7HUjJJ8SfkOICJuSHCabpSFv6uTGTyuRK9H06RIKH_IaNrRtBbVdYWMeS-rxq-9y_e1-ORcNYRSFhmA45bw_W3JnncNGDLS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfyfjimbBsEwU8UPkBp7vgn6XFY2kk93M5sd3KVqWBFDfIe2pMNjQH3LqNt14k7i0jW5xdI8qPUnHl3aH85v71WYuGY1p5AeSrBPzI77NlZZ7HMMUEU6q7jAf4dK1R15EIrMta2aOO-VE_8wv7r22QpQa05tPBHf50pSdaGTxF_l5I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 450 3rd Ave, Watervliet, NY 12189, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: meal_delivery, store, food, point_of_interest, establishment
+    ---
+    Name: Tuscan pie
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNRghdKt9lG2PJt5OuN4XzPtYIsfmSb3V1hIiY-DM6bm0m0A43CCle7Zw1orv9E7sXSd5WvfxWMNABJQrNDcWbJ1WKQZ6jb70UrrMVrugMxmfDII_kN6vGCT42cplZF-Cdrqh3OBJdFb8u8XVBxkDlkNW8dUOt9JSmNVmNv7xcO2O_T&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTLA7rw9_TgS_Hn4eNs_CPLZsDNvMByJXFVJSH7ShnbWwgBzjo2f4QXlCr6dHK4Un6R9jvKaoxyDy72Iu0paR8L8pjHlFRmbWhFqN58tJ0FUXmaEGxva7cNZljaD25w7joBZBvnZzCTAQHmphpTQFEW6u8ZS_6Jr6P2M4ZE5RMLlQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNHvfWbxBY4_hJiUp5gfCmMS7ydg7OElO6LscMmWnmdIT5cpYRXYaWNFllazAf2qiEkLBN-gCYwbDtSdvRytS9t6WvlXsJa--biBRF9EctMFbfD_bEKjVHjQTLW5F54jkaOGwmxmvkfhtcwTp-NCPmMl4ssnS1-MLSp7-ReYNnEXi-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfp_P9J3kmnYXtMBU3LrYdQf6ftGR7Xxrhpr86ytasAYCDfHHFY3SFhjCwe-wH07tT1TcvhbXZsYRDR5GPSttJCunjMa4DLUjkbAoEnIApcbYpdyAkDzSxn_7cIneIf2bXGYJPmH5urfOHsD-w5esGtv1UQrdVRy7CoOxlccOi9-2R&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoRbuOmBpqioMR-OF8Dkee2ufyq-IZ0ZE-GJ-x0_LuGOFho47jHrEyppT-fK5CdfLWjgSEzGD2hRRc-wG7QOV5IpGuuQ2UUwx7jcAvNX_pS9LGT1uvDOPSOOhmyBw5CFlqW5zPlqTq2VNwhy23zplyJZ6hDpwJz7LBPiqbURTEnTki&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 123 Madison Ave, Albany, NY 12202, USA
+    Rating: 4.9
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Camila’s to go
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoFcvEMtMCNeXL0XvYbcyyspZT3oKPi_qqsDdfWgh2KmHocr3593Z11rTSY4yjcTdpVLm6BUgn66ePGS2s8ivk6yvkunCBwnMkTgycY1wtk9rJhhymN8BcJ2KOkiHDzp5kXUQXB_QocBTRoZ80tGEMoSh3c2HK2tNeqFf2QKqdvwVd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPmXLb_tVjTyGgCtIhXp0OLFHK4e1vKgbQkiJpNR34DlRhB4mwrq6PSRyWAkmSnANxXrT1nuMeu1KVf-KED7oNZCYV48k8V6CdV5gPPpB15zwAeV-qVtOJJMSKEqDCGf9kXqcKaVwA0jJal-jErw6bynPNO81gpVfuAUVSqWW4rCBNY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJrQMmzXa9pk9mwPAE3WUWYT8sNI4bu2XuobEiq3lsMX_RGvSiXfMLDrvn9bBn51KagEWD2kwDoCVb-p1MY9AlZiySQETj58eZQh7IKx4TyhydjZxdM9vXXKS5HMVuxRPhHSYuybonfQlWJ6Z6Rcd2uzPQYMO_XSaS1zMxbpJ6PMaz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPTuqYSFofHXgm7jajbLjw5haa2ZJZGGaErGrqVBRBdvQI3Bntg8T8JjEJuxNEQP9ACNxq1BtyGujKVWpkNpPldD1424Oa0jMRzGVzGNsxZcf6K5Iwm2j3eN6wYALAKiv_Sd4ZhzT7FyAyPFuq6zs10UKyFLnl2qDjDGgGoSFd2y-U1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN7AvZuRTufwaILU6FD7gImlmLU8YHz0HdyaTFxQeT9uMh_eAHVnd7N-vtXvLSci9K9zuH2Woa_uE8WUL7WtprIHuZ1kcLnFpBvTUDMmHf40FBepyOt_JADD8xenla4t5TTl6bVBS1XRIdIaIR6Uw07k9wTUy_YuKF6an7vGTzZB2cT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 402 Albany Shaker Rd, Loudonville, NY 12211, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Milano
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpPDW3DteU_BzUMx7tiFiKTi2lTAITtKkhToJ1YH2TT9vbgwPAgnyzX0y2rFKmbZKH2Tur9gHBcRY2iFqu8dFi75gb77fUMPHS87YXKVZi69r2_DVd3WMTBVwJxLbO-yULImjaFS5mDzCOtkzJr1aaXzpY3G9VKb2c9cTqZtFJOhAl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPB2O0gxXWSsJrmZ1VoUmTcPGZ1a3h_YCa_gSz4hS4dxZCb7-fQ_Xeh0JvHpdCZjeGNEl1e5BT5R6PUNrmGPC6yJjRF-rxPQArFFeUGO0dez0A6zEfWT95JPex3Cj8648TDHkt6mhEFblhLKDk1bYEpn06u5gRBbjigz7qkGAGYjAyF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmoIqFFmhQVNeb3cPievBbgzcoqzZFZS9Ie-cHCaegj6O8T5sOzU7pNKcx8iv2k2az3jPBA1QCxygwbfK7OGq8rD72n2XuljSPe-HF-YkckbeA3G8a9ubkfaPdlVRJ3abfdCeyGv83lM7PUjGdKPDEA6Myad7_4H-Wocexv4ELWBXR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNHtaECHF1QPcS_u2KvXIeGZh9QS2ASbSKmNT4q_8YaX0aSVJjcyS54auT006pUA5egLNcjAqCEge1Ifdf6aVIUyyFkUJj6mTqXK9qGkrxGG905W8N6DQi80Sse2VJm2Vlp6-FIMN7klGHxmBATi6-1_Ur55ceYDN4eDJ2TZgT0wD6H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMmqPpsq2SmgRIQSEv-9G5fmnychiO5EXPqFKsPadEdiu-fmTYGb-yDTLw9LJKj-5Yj9I-LTRsaRnoYntlQRRWrr3mn54gCaGsgSueHaB8hfi5rJNVzyJ6H2KbsDxP8HG62ALF6un3JTOxHBw8k6Fr_w0kzak2VuBdubizNgGJtVdwQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 594 Loudon Rd, Latham, NY 12110, USA
+    Rating: 4.1
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: V&R Fine Italian Cuisine
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOnHN-mPmfW6GqnugfV66J274KoMUJkrPFT0LG_UPcH_fi6My1iJQcmDOeABueEIycf6ec-Du6yaS8Gaj2BA3dLDUUieXtPmBWsoINkv9swKCmMUrwa3iROo96erfJF-wGWv4N1tAXKjfx-87IdE1oz3e7s0ILr9VCpckNAemu2XTU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtp77AawPYoY8trd7on969l5Yy_Vf8om-lWBHNJpOx8NBgYj_08syWZsVnltcj9pE0GzSmJ-EUV2qI3TVcsXtocqBz4__yx0mjK806yKLDy7I6LBxt3dV7dSSQ-BwVPy6MptOimwi551tbvJ_vR4Mf3Rv3zGECsf0WDRw9gRw5g_-V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-Ezj0ARSenY8v8G1V600Rt7OIG8ZfVqqZsGaUPIiljPiFZhlZvEYunaOpvCRTqRI7eRImTA2re0Ug6D-jIkBC2gcOz3qg23M3cgRL7U2VlhZRih_FchmMlkVTyA7tXY6ZnR5C_ttzmMotm_PIA83NipXAJq4WYUz3e7gy9sZAfQG3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4bLbFhfXQ-1zB-wTt9c062vtaNF760wJm3T4U_0b-ov7ie4g2wT56p9RsJdwX3pGXaEk9CJCxpKpiHbkxmjB7mFq5H6EaIamgNnQgntSRqOCLc9Hltz-g8VqX9TqAjTNzQwHOG_jP7VqSAdxkZKefWx7uVLbySjuYH0oVd9tEUiVV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDQgN2pdv1xXp7Dp9iIjg11ooa6zarNa8zv4l-eYCAmAVyw3US77GvzpoEV2cWeLXCAyg514OqI5N7HZUz2cfZ1Nm7HpT9andp7_Sh0saQAPtiQsQ0DWX6tXr6f01UzE7IwaSa7DKX_aIz2LpP9zvLvQjKQEjr3QBPQxZekpBYr1Zt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 50 Exchange St, Albany, NY 12205, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Bellini's Counter
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOY69eT3906aCFxqOa3GSV34RltTXTPsiYCoKQKKTxWjnOUHInKQmqgVHDgeNBsFV-jCde9g3s5qMw1DJUnOUB7v4WDC3OCFrQp4IqSFkok2GoHgCw4SQ4Y7Iz5EN8Y9IRZn6w3oCBD1UgwfR7mRSrw7W3-Pd70LL6bYl2G9CqXpnl7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM31bp0EQA3uImZCA-GtYkGS_zNkNA29qUz-yKOuVtHVOyXVOw0MUrc5308rd5mj-mtl2BBzXKnwhnllTVu40JcEzqEZkO1XYt-1AVike9gu1PtakBbi5fS8gNAam-M2T2ikDxepTQDN5BNZCLaL4beDlb_lW9amFqKJ3JMyfdPNrvF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPQZbKZLREIenFmWaWnPH_7lrtBtY6NgbJUQ5NBy3GAVc6oPbXmHJTXhEuOZFiroh_Ks72OpOuMRIXW5v8kZCq5_A5eHAPrUad62dFhPHoM6lH0Xvo_xtpqOkArNAiGSspj66Ia485cELN4Z0YSd1G9bW9a_Tu7nwlIYcARXcHW6NZv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMSo8k9sYsHHrH-c9QFCB9KYSimKrV68nWr0pGxC_8CQ_KdlgkhX0CJGLm5heMOLuNB76HcEWOQK4GnE-1fSzNvJkx5NfnWx-_q3IqfLjfgCZINKGAKEx4okN2OiPEGrAE8LMP2y_yAXS_smQup3-AdEbkcTmNIPGePAz1dO-UIVeVt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO30nyUI3o6P6avsed-xy6kknxFgJs-eRUfXGAEkfzjlxau-ksfbl77ZMU8lq7RMSRrgOBFil-8YU7hmtz-3SAdocyjblLnOf_M63wF5DIGtBdo1iX_L0PjOWQc03bgPQXFHhZf_c8plpTVq1Z0oTy7C1WROv1GRdBfc7uDULBqVX-K&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 33 New Scotland Ave, Albany, NY 12208, USA
+    Rating: 4.3
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Risotto
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0KlNSOGBnS9ljSEV4YvH2htnYKFNZJRPhAlNsTKlCF7wGroByXxHdRQOZpLRMZzcHeNKDZEcl3cWpLBkcVhHkh-seE3pZvpe0jtRL7DqQuyJwqU0S8Pfxzos1Zb8JwREz7CB-EjaLPZPc9_vHlY9_LPI6QazHY60EwGU_ybmUyjhC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMz0lCo7q2CAx8QsMA64T6KQ4SGpAzDVcIb3fFftq99Obt-G6Mw_LHZsEB6WcQb3cEPx1ynKE7mXobOdm-5L5A9CAhQ1ISuvfVa6Bz8eQN29osi7Y5EWaM2tOAeG4duod2WGqleHcax7bFj6h8Qm1hoHQ42SBLNC9oZ5AnrRfKf0q-f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2apqMrtX-U2NxBtPQ6Hg9516sLfs2UfwCplitrT5ssoWk1Lf0HFUs1DWUnZM9Wmv8xecSOKzdkFaqgGrTF2xaXkIbJtK1ZvSAJl8A8h7H1dGEQMYxa8Oi5WRQ7PRERLw49637DV8cf7IuczeBB9QNj8DhZtjDa5JlELfRuqAJtCBX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_fG4hXNsDgqGkfk-8jIEyea5EIxsgvx_-yz3H5HkSIVczBLbNR0wBO4e0xiE_HLmY2tOup5x8w7fhaM_qmUvJoj37jPCBrFlSJUSYH6rdQ4Vdh-MoeZRx_4VnnOptVf-ZM0dMfILkRjpTFnuhT-wdEtPXA1sWzCIuDSMkKqLFF1OG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMo5vBcdQ14RZHQIxjkTlKSgAI8SSGj1GuvEyHYWZ0FsG6EpxUav7Lnl0QnEtAZxczxSsog_aRyyap0yMfwm8XS16RjsKabpI_MdCRSQ30p5tnXC1o63ivUZmam7fTDBcv0_NoF1fIe1exewsO4ToiYZxUoQrS6fSiB_DQyNqyxBXEZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 320 Northern Blvd, Albany, NY 12204, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Valente's Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPuVuXCGtHlPC2qFKhjqolN7m8r5y1GEYgIvo-88irL1Jji8Emz__Pe-nv9cw__-7JUQnOscbFliOssCSVFE2zjJWjAZXQdXcM3ez7ONRSxgy3cFeVc6-5yzRi0TxpsJT_mMzmBVxeruExhz-EJzV4uuYQ_0e6EQ3RPHPr24qU1EL6p&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNktY8Bewtahzavq8yx2cqc8GmQcpsBw9edAAlZEO1DzLQQF_z3SPdxRybgAtssI8cyxzRg34C2Pn9vtU0mbT5SE8CBWH11UAaipj3dE2zfiAKmAeia0OyGjunccDNk307OS0LB90Mc84W97hwtOucJMY8myyVsXidz4HqhEBie6dd-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOoZICMHSIku6NO3G-BcL5mJtr_Lv1I7q4mkxOO5knGDpK8qV1Idt7QK9PpOt7Sd8EObrl62w_VmwcP8RwLgueYc9571N0bXRMVPoh-eBCK9vuILDvCv9hyxFy-rWYtQS3Rbuh8Tj7NrRFL-vBYrOjTemdHbSevraTz3T9L0Zg3vemy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMxn8Jg1t-48bYjxKvAqlgRACH3yLl9TVNRMuQ5alKWXZzWpdcBafjo4GkdV2egPAb8CZFah6fOHJqsOEIelFzk9rlB9K6C758222dKsk1XZzLisoMipMpypKpNwyUu40zndhnAqhOCXAqDJuloE2M32Dfn_Kmq5t8pdjrZcdmxfUFc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0R5SWmxvXQPukuf1FVf8ptj_JRzM7M4CAqV3UG7UUWXB246YmIrSfgpz1dKITYBsdjyjEdFGTiwEpcDaz49nXQuZWZapuHpDWn63GCI96G4i8zxIjGqhHxGQERBHXNaF7AllA4KsYNlf_S2T1b45iSw9CUeBMHQvGq4qFxZCunsV6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 315 8th St #3631, Watervliet, NY 12189, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Cocina Nostra by D’Carlito
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNIqoBREcz50ZHzoeS0FBlXuyE1JqrxYWwvSFqGuI-219A862TEikQwuUHkaZEH-6OsY12LMK9SY6VQd50-bsDKFMO7boIEwf_A-gbr7gf8mX0wrBkrZNHkUjyCqrS0q-gUmOjgYxiE4qdvch3fO0Ffeax7bkpDB6LQxLE-xy8pjBCp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN49WocvPmXfCkPzyCc0gFCxErl1Q9UPUGjZuipNEFeyEPYIV1L4DRsZxvcTK3vczsuRVc57DkUuwg4ena1VcoMnlrwzyFZbBaWGcCsM1kMe5DUZ_yKbTT6j9CC4hrRe50Swx0oJP_fvy8FV9ko_A1poKKTnEsONilMg5b5Pd9VBRhQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5SzAvdyH9z7_tipOWPjY1B2XhVxZMg8O0oN2Le9RiwdjPI-J0DVXeBzPmg7naVIYQvz03xPfxu3aQahSRFcJzcZweyyxksCminMSEw9va_Qjj7K9btY_mK-OPhKtT4aoHBfnYXNX9yjQiO9roOp546ZKbzFCUMFN7oF5nPg7mYq_7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPAbBLpZl8M2cP1AuNau4gHVS3aCIwZdIL1NlXSgxASK9s6CldsNbL5W6Rsr6zlaihYOgTcD7L4Ukk3ggP2lNsoLPsP6MJdz-qv4pzZK2z35smYGDWM6Uz6m7OAr7DZxZ__dFuzKv58lPT1yImgEx4akCQTgga9prnna2jq5Lf-Dt8k&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMK7xfTMBxV-Zr7e7nMdjzfd3CDH6100QwozBcgYvqvOR63wjEWNPujkDWWUIqNtMk2zJ3MXhLE2KgIUBB2h-0Fc42qOoj0R57AbCJvGLiDYVKjUsQ8-u-xRSJAls6jIJuq0Zw65FAkqL8U_5kfRDRNCdr6ccflZyqw_VvJIC-Zrk7x&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 215 Western Ave, Albany, NY 12203, USA
+    Rating: 4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    (base) batten-72:Dinder paulkratsios$ (base) batten-72:Dinder paulkratsios$ node get_places_google.js
+    ---
+    Name: De Fazio's
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNy_k2d_bQq_Oip6Zn56FC9GrK3zBrWPhAXBRMahpbNWWUXn4rS2S9ek6u2iHId32DgAarhFYsh8LN9WEHt_tjZfoaVtljizlVeyIst3KrxqftdaFLJF8lhwyKv3yvEm1k00J1t7_WIapnVSlw323GYTWdcAYCzkRnS2a04LY109hn3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoEs4FrM1kuUZ6GT2Y9IHL4-J0a4EOrAhrPfPF64vYfrwihezhz2DeuENIMxYwdGviVY4kpa_hLZUvNeCbrFWYkG-1xdwi2osFrN1KS43RNJ9owLOd3qJlSHMiBJVslDhgWyWa2IBRW23m_JCh0_crSdUH3YSIWM5bPVOi-MsCGuAM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPigR3U6MiBQGwDHqjEN9ZuWdGvk0ZooFtS_BPmPWOrfyLf4rPRth1iGNC2OjuDw86_3LqQKXoJ2iUy16sybPnM7Nx6D2FOAUsM9IWJD5NvZ3N3ZwRbr1WZMfOdTvtHsMcXCU0qUhYOX3tPELx98-fkuuVgMvdpMLuDARdyrKk-fxFn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPcEj7Flj_zsB1qdpBBWReoe0UdrL9X-emZSxMKCf2zqwE6LBfu8QwWTgVqhQmaoyPcEC1niHNUqmvTkpusd-nlkqbENpAgkhYhF6elRIgJTQLFq_CoYT0Vq9VcdmsWNnpbSrmrSwwHqNRPmNwinBAgKI46lxAtcGdpWyyEmiCYn_Pp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPylJwDQVmZJM2bZ-Wm8TEaizjwi9cRX-2-ytOQ0SLvQSEnEZbQouZKd5cH0JWTuFxTV67pqbedNdKHZPfM0UAC3VKp2x4SKlg5VmUgj7dzFL8xCw-ngbVcqJwvTWPEE-tuS5CmVhiLOtz9ts_vOQcKvbT7z9RU3603BbG6BkeO0DLi&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 266 4th St, Troy, NY 12180, USA
+    Rating: 4.6
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Zotto's The Pine
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMhEEJHw2-JUN9ovvPn8t-AGOqxdGWrXsifB6t-8cW_z0ugboctUZA93hfX58erjKU5nNzjnQZLFMSmEQA13enu1WiltMUcvD6zPyQ-2-bY6Oa-lFGKiDs0ahyZ_NQEwn5djW9CxVaWiuoz1YW_1b0l7jYD1ohCVGnKDf6f5Sv3F0NG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN0YGMN362bHU6DjadKXVynN7RUA8YhHpwgeUw5EE87f7SWD5OXZnW5FQvQmLid9noCmtbne-MqtE3i-Pt4u4lGrssZAtONINuU2FiOnRA5pCYQ3i63tChF0sAjxbHcop1hUzTn44yl9sgmoPIxuoWlBupNuqf4CJf2Ml6_4o913yvf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNuVTun8Ivy5A71nhKXVcW4UpfD0rdmkO8hABC8WK1OP2hULfsQqIkHrK0yycbpjJ3oc6bWKtkfbyfFAjHPcsnRrn-qDbbHx1PpBgmDMqORgLu3SkghccOIsvp0x3LYvU5LR3Y_0MCCyzOUnslAej99c3GRWEUPHPEWc7dGf1pSDLEe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhWo2m3qYpmv-RZIpWWFbyT-Tf2IsRUtOKQ2Da-UJISAdpaLcNB6zy8O3RMmJrqNP3jPzy4x41R6nAlBtv_eqxaNvukGxvlEai7w_gIVb8OpskgYOJCRA07svfhI6N6y207r3swlc0Xukl9Ppey4bDSV9fbVISwNh9CFAkji1UnG5D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPieubryNQPjxpoUGKV53z9qTgCm9SC6I8HACqc409X_O8US7-2UWpemA7r0WpeP0WzNqm_AFxGAoQAfMS0qjrPk5IB3I0lAk_sJSv4Ar3YxrJS9lAN93y2-cgHKEZKSHFHUGQxVrALGZKLXlFHCK1aCvvjImXI0LzCVsS_1ZToLT8f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 814 Hoosick Rd, Troy, NY 12180, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Lanie's Cafe
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPO60aB5BaOwc0G1QvaEXi0HEnAd7AZAH3u1SmdADZejMDvRQJrBkox1NHSakG7v2cF700SyTnAUyYtswH3mHWgFBPq6xleEHXd_Q8m4puB5m6dX_qm5RXVyjKB4s0zpSvWRE4tfdj1CMRv_LsE-uHpDSQg77VZ8eTek_ozGGReyLDl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP8fYI0wszbwdOvVjZakGc78h4x__Bd9j5FXCC8QXdfWY3KC9bqDRUdNIqLQpu0f4c74w7sd9odsxDCYqBRfV0U0__rerJ33Qsz3N_cIVlvBenRQrFKhNmZ-7ItTV-GSUwGMvmdfRJp7icF9M9YampCFFzqEveIBCqKx6fwu9NGUkaW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMm8jQnlkbFll1-q3VgxNLKfFEMQ6TN9Zm2Lnqy9p9ejkMwSUVCRINRIoru7lm2ml_p0YaPjwmXZbuwJ9rMOaF6jV1rmdRcrxFjg0fjOdK0QcIJwdwSwH3J3YaFr7U1DpdgcolTro29KjV6LrdsAxNvBCQTHaDx80y7gOXMORLI4ShL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP5_62nbjQp0C-ZRTj2mW8Ias9XFBB-sbfYfA2zmNjPxeXKlh43YC2p0U4BG8tSyUUB837L3N_a7N1DoFO_-HunrAJArMfvT-9NfCn83yerELI6d6dbLmkWz8nB2Vazj9QNj7txANtHU2kD4rhELcqwQfGLaySRI1fX-2lL0DFdjTvd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOj93HN7Gk9-Wo0SXGfILEAv_L-ur7G65KAMZs0d427v1g0eCiDAR48we-k3PMZ3gCHo_dboR54BPca_8v5OyWGey6dQqYtp7caj2NvNlPdvreg0fa0kpwsxwrjm2fcUI6JcJIHklC7RiLAkv2EqYP6U6yNi3Xog5gxGePKZGf1SXc8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 471 Albany Shaker Rd, Loudonville, NY 12211, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: meal_takeaway, bar, food, point_of_interest, establishment
+    ---
+    Name: Ralph's Tavern
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMLZp1HgUcv3CmyzHHUTUJxeGJlimu4j46ug-bYb_jOQ6clkyk18phIccSK4iSeLvgi82O-FvdRr4yTAP17xaqNQ1g6w-WCEF4iBWSHadpoG9dBMO0mmxbf3hgJbWpv4Vj4VIyccGuC2e7gngovwFwWLIjUZMUQ4oNF-j7_k3CUqT-b&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtG_YC2h7gi4_Fw6e4Of_bh7vJXOfaIFTCABNyqgpPbvPAxf8-H2r-2NPxI-_bMjv4KYp33WlSH0U28GspWm2bLTzR2At97psYdy6DDhKjNX_hhACnr9pWB5f4WQBUYr1FLvg1V9Ov-rKRUntgSECd1mVWED9E-CACr_m5v6QO-b4f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMIw_if6FhTWo8QEFCTQuDghYKn3MGUOnLwr5tFVGBSBtxomWLt163NLB5-apyLNMcwYP9a_R5AyvJwVQfNXK9dyENDC0giyVzBj-jG9jZd0SzVONvIh97zEShA38q7kCr7CRuk1KQe5R7Agez4SquL7e5ss-GdcEuIGKPLn_Nv6ULw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOFce3U0NUHtZ3YZQPzXrzQ1ouYe84X5yYtIWnMOjRxOoIO8itAWIJFNVHuBDAU-wbt2DxKRGUIb9n6K6ck7U5igpkv1XiBPSSD19xX7RbN34zom6R7PqXyQrzIPMaIdEJ-qVTryJvZBgprNsYTR_a2uhzBaDscAZcaBdSUi8if_By2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONyygwZDUsX4Lmbgw_klFSDJSs2Z0sj5bjHkQMx2U_EpVA7zlQp1QRx4C6K8JmSy3ZLs3_PjQ_Sw0MK-vbuvksPJc8rivdooEV_2f2sMYu4hn5MiKO4g7F_8qS4s2rj3T8Dg9gJ1jIEbNBRyzpLR9azM6acnpXE5QZCRJW73IVpXk1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 1328 Central Ave, Albany, NY 12205, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: D'Raymonds
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMuFMTw81dSSVOuDov4LNAdpmMvNjTIxvxf7LdLk5guoTuoJUL0EtBp0um2OZxAij2cNUX9Vq3GTljX1P4wITu5BgLERQId0-X_g422a6Jv_5Yon6bvYoLYgwBKZxpqi4p-2We3rbLz7YWcqGCabkiTPUZ498DESaJBd-ytsONNaGSe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGWd0iT2jptxUW_zRbuG8vFlaQgTLGM23997mnxYwcjgMZyBvZIn_8VJwAlsKJnvGkdUDeVCaUPGh1UYXbShMmBZjdWfwsAJ_BeqnHVD0ZX3uVClvJNbeU1GIHLVOggcmHrnkqYoiBbOFVYRcfjGP5CyWfV7R4KMphksqkFa63yF0j&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPXirb4m3kEsIzuBUULr4W5wMb7eLvBuF-BHDh-CDajIrVBnUBtRU9j_weLgmjXHWreA852GSlFkPw6z3EymbuTr6etWieo6JEr0gmwoLIz0Flbr_GPAV8JRiUc-Tl7bXs4C14MHcyMyXaqZXAafdTkJGzsS3XedHSQD44bAW35LwRs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMala2wXl32GSmx0DiYm4NJe5tzwr1Yum4n-Jh_t3wWifNUU_zND57mS9nMnE14OZSv9n3WFyu0IIY-Iw4EMoaEHaARGRWhmylDO5LczYJQHxRleFq2bVB_2nkVAJD7HvaAV0RDqE_OO58zPq-ISmW_HOsoJocZx5E00Sa4KF5WdbJH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO5K4RbzCISX3q1VwiccfjmEp2VuD7RP43KExTVipoyUkkRkf8Y8sDaYN_kgzQCz2Uol1XsKPmK5Boz6Js1s_T6QFLjKac_MEK4G9Nd06kLACmi24j1mGSO31CfK20qAuDFnppkOmi_88LhSSIXJ5GWT9wl4WvY2UIh9egJVVyZyhhG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 269 Osborne Rd, Loudonville, NY 12211, USA
+    Rating: 4.5
+    Price: $$$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Testo's Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOR8n5gAf11rdKw7G_I1vto4StU8j3d0bdFZ1R36kGahoj25foktZlqRDg-GPIsQmUfad42EiSArtZK9rsSJLUFI56DgG4br5YGbemfHGNUIdqj77u-CsoFLq25D8Sgtx5kNacRqYPIrD__bgeeXC1XheeH3Z-2HvXfujhLQbmpTmMk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtxR9AdMuGBM4EJiF_zb-f1AUn-82SHlSrjNLQAYTtEWA5s7kCF8Gmr82PZU3PwbzuE5XM3OECuzOxGZy5VNZiXiIU8UQ1TTqAnWtm4jHDuxUmtLKlHe4ijYfW7Yj7jK6S6QmoTJY9lPnY1zyOSoh8mnw44QnX9umHWfG3wuCa9usN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNp_l9Mc9kDGSW1Jo-oGHQoF7IXotkmyzmhw3cV5q25GJ0I6yxzOSwKw4MKvU-oNctYrjwRA6bYmZxZ4BJHU4vYzqDPUvrc_FQ_c4plIjltZJsG0y8emaUPpQXXKubDxhGKscvat4hPa1-peLKEXJF5DSTdCidLGBSCD0shsroz1qxA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM9HMvAlk9pogIzlJkGNM6oOYdDXM4C2nZj1lfWLfV1PLuADvbw-efWERqOP4iYp2tMQNNbL1jgeHnvH0YWEr6bMotvFoo70xH6LLeK1ltir4nbMKRGYrHkzPLqt-vc5RMp_W-C4WqZEnWpLOIXiLQh7JAwYUr8AITdFADfALR533yI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmqrCuVf03ehEQtmbosyk2ftv9j4QEMuxXjXI34_SfxY2r52ucO-7A67kML-csnJiKrBxTeIXa-E9XOONfqkz_r4SFy4p6b23R9wWAvRSmBlOeF_sQ9zxmW8weEwyVydkyJEp2eHbsC8MRBNej9XiXVcQEh_M_Qsn8iiXUb0VuZDT3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 853 4th Ave, Troy, NY 12182, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Mercato's Italian grill and Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPzOPc_irZ0X6YPlkbfFrLbUeNMXQ0-SoNcRnsTQUiXhWPB_AxHsfumRd-e3p44uy_Nk4yi-ozRxzs0BO78kc6zjdYEZzB5Orh90Fan6QjDJGopEFv1pPQDWWLezFzAIufQha6hAcw1Qpu_WEY1p-ji7B3OTMzB2dfDZrH_xuylfACX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNDKZVvbaXQenhT2cMVw9c65x4MyKfymSxCZ3A6fvOra1ZRVQoMZr13u1nsFyGNk3I7TCTayX-uTAqwSD0uhK3kDAxjELhPAicrrby02vxpZ8mIYNaIkBXXL2mg8HVoj21mvtVv--Ck2TYL_jwq8b3aNcf41XBXJ8mOQqeSQvAifv0Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPsRSzn1K4f3-lJ3R7UQUAXwgQGApFMxHw3Gg-Hzg6tRh8-Sc74GBheQeVZvtyZXDEWyKenZlNwMEYDfh3kaFpJt16wEudAM0dWeozIaeiHYwSAwICvlfv9HCG1XcQzAKyWt8EjGOdCK1Tyl5Y4ceRR67rwCPTA8zQUVOO3e0gQwxJ2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPRom0mpguu55CeSn0yZfzISHmGNpUolh2sSrREZ78EPCrUzYHRZcKMbKW9O6DSyf09xiHxw-a43cnYXSPwnxldaCk4hFdaXNEOKzD-6akkuGxBIB8RBxYdjmwQW7JkbTNJvdqoGgKryvpWLGYRIi7KNhcYWxbd_0WaOW2ocCSZ48O0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMTgPc0QyRMRqK33XLldVEdGpDLt-q990598XFxUKcCLL8cvyIpfUvcpImWJFEAYKXYqetqgqDiFpSOrw2WapRGWDLraeX0utAPH_lZzs1_ajrwTGPctSo4-EyWpVBlG3gLT2iaWM--vazgT5L37t3FrfVjVCs7glT3nr4Qc4fJOxoo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 952 Troy-Schenectady Rd, Latham, NY 12110, USA
+    Rating: 4.3
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Taste of Italy 23
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObEj6glVMIQ5QpJkOcfM-rU4bNk4egSnl3sGeQiJGX9Q5I6nbxYPqk272maQn8A0OVU3VEhJxx0UmOM1P8rNGYkez-J1EOpPhR_2moKy3tfXw7cviFXMQhcbcFa2aGFIEX2Zg9zV_BGJj1PdqV2NAaNDp_PA6ZQNmcqcsxiWImvRvb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9swvAf1yNrRJogu_Hk4P9U5fOLroSaO20EpeMOGacMQG8j1aCO0SJG3MiKkVmG4VQS4zbabe2XOXUA8Ft-PELDomhNSKroSFr5Qsbh9C8OGIlc8cT49eAsQtegGwfX3wWNIpmwQZdY-UnaaHg21ZcEWCNZDKV3QF_FIEmetugEEUB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPjbwoBiP1CRntPcGV8QwpdV6W4OreD-iVrAf040nD1TR5TIWC3N5JK-6RHx8rqN50JeX4FE95Qfivx89gLY_kqxXncQz_4Dwc4hdCW_cjjYIgKIUTUKUlRde7x-vJ-ueMjUSVI0LmtrT0KCNKK5Nx94QzYrQooXeNRC7EUNThY2LfN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMR7PPMw1gnqaEdbr7pIqj9E-ooXM2Y8TNZON7reonZOVo_-vYB7IIIbRWGggiEa3zEjCULxJ70J5HuleRKbmK7muWm9osvG7_ujRiQlKMM3x2vQJccjShdgdMgGThld2CN7e7obIrisJ6gqKrF-A9WJv5i0ZkXu9kDBa6ZVhHb6zjs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNsSvQNbKgOl63ziH2C1Mn0C2aE_y5dpsd6t0DHU5zRQFJ9Ecj_jjlBk_kyjg6W319XdFRDaClpHBPutPeEM8D9Wu97qkd8oAavsw06n7j02tRy3bemWJaKsxJvA01tTfclMasxaBv51gLxNwmIWAaZQTHPy-RuTxX_SpNhXduq2Hlg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 800 Loudon Rd #960, Latham, NY 12110, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Labella Pizza of Wynantskill
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMb2fxH7djSPt8wUpJHnwA5RJZHx0R4EgcolQYN7yux8A3wjJSq2nANCaTBKk3GMlS_kCqgTGKwJoY2ofKcmbiKqWyFr0SDhNDkK5HdVMBXik3sX7EGV_FSK8vrFqTeQnGlGhv5I5GXHW4Xhm0fO8H7a5L1ihCSO1VXB-HfMs_uUa3d&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPgja5UDoGjoI83_gF5zsrv1WdqwEvpHp3ByDsnndAKq8hUx1O6UyX-FGmbChgFjPVGcA2sg8-kUGqYySQYU-CR0Y8OoYFwX8gfwLQECLTCGUAXRqWofgc-8WDzYZcjuiCVDVT3GomfytaNymKhr2IuZzmUqZl5bq1gq97Gaj96ohOs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOS9pIfSsJZTJfa36ZpaN-oP762tvh-lXPqDbIkW8vb9Zn70879NIlz05o5byTzvcQs6aq-NwgvWwNJK0niJnLNCJGH1-fXiiuSzGCpxzBUmiwDfXnv6lCH7gr2iSWJKiTfVAWjOLqxmS3PnZhQiCyl4Ps1La7cCudhNXtIB-KOZvJz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6FxCNCuNjTf2kwMR68ADgb88eGg8OqzWUtbbF__mXAAIYQy5lIkVP_baybnuF66s99hdbBOP2BDQLNOL9o7BW_2j0vGlx3qg9TwKZdY9fIkq_GxQjE7HVkJ1n2j6X29ieXOXX_CPJBEi3yVoELAFfddhulf5LqyT7H6z6qiJefDiR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMIyOXXjyA8VzFbRTgqxaM4FbP6LGpoDo6IWhiBF_ZcBMyf8p4Vd_e2wzEelcCGiCYNpTxuU_8QTHh-ZETCsuXONe75zyLRtkrqERTO43nxPEO-TgPDm0-orvQ3oxIi4S3Vonpge4HzjKsxb4xHulp3CxTFnDMfzbIQQJuboLkQRMmH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 174 Main Ave Suite 2, Wynantskill, NY 12198, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: meal_delivery, food, point_of_interest, establishment
+    ---
+    Name: The Fountain Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOB3Pfds_Jux44RNLjZ1v_PJ5bcJ17E5QN9ZwYajlMSBs8XBveEKomzMyl7vPh9DZw3MR_692EGKdX9IkjroPqGrbMU3FUu-dyiAq7Vt9tPUmmKgSSTnWPafhMKmGZO0F21D4FcHpplUUJZZKlXpnakZyYmPoAdO8t4Np6gjcX3O7N2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMms3vS50qbSAeR_bbdoC7MLqKNrH6VpJnE61fnmtyiMq3qcfSmpW9MQYs49LDYbdCW0GCshP2twCcF7faOvRZR08PGsXphzKfW-ArLW1COOW8_0KljZ7cle3bsYe0x0gxFK7h_PDAxVb-q6k3rvhuuLvjVqnfLZC1yu4UiiiwqvVLJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNY5bU2GGszYJqdQK_rCBGmNP2QPEe4UiUpRsXnn7fVmKRQB6SzlKmXyQHF2mCThDUwkH-PtZA7M5bsLCK4BIn0IlJz_EAtMAoV0aIpDR-fL0SkDHNNacvUe1qKeE2qI0MNIHFsvAZGmJKTejtJI6HELyHvADRCPll3JCfTh6fMnjbh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_mMDBvoharqTKvdipbnUeZAbbk8DJq6aM8Np7Upzf4l3hOzSuxVc_vUdljXs-LwxAD-uUIzd4VJGVUZ6ObKru5nBGzqwhMwidx60nW04ekzxj4mB5sFoBBYbRvlTcYQznYbOte0gb_fQ7Npw_pkhun6kEEy_sOpcueHt-qNJ531d_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfpj3Y7rd8VzyKXcv4t7_zKdwncMDxg-30Aya2qWhikzox0v5YhG1jZUCdRmKkfGz9CnLZii-WU2CDPf9PDEGnmckP2yK9mVKVEl1uAxXxtn3rNugXfkHgmoZWNOra-5lLvz1dfBpx2_jGqfvrTQju_cdSxLCuAOfdkTvOsUW5drJg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 283 New Scotland Ave, Albany, NY 12208, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: Midpoint Artisan Pizza
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMBYxCygEsuLFrdly7OTWwJ0a88PoLvcOS4fPBbIoXphOrgH0vm9LS-5hk3-v350eGn7ZvMr3Z8eXZnIPn_d5oDFsxScOcB9Ay33Vofy2N5ei8CsDwlP6Gz4o9QYOPbZFMc4-SxblH1h-kw43wUtr0Tzy1xOmkRWjdmmGunVAfMEm90&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkmcwkcpJx6i6JyuoIpPStnxfbv4AgMJVHObW7DVQsHSodLkbWfEOEBAN_4TGyYH520zz0lspUZcN0JIlaNfTMaouuxC9quSWrCB58ODqRdwqcdJwKm-JrpHuzQmYYkHLp5Kqauemwv8i5m9x04cEP2IOlXfTN6srvE2WLeYKx_WFz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO7A81GQReAPww3Vl8iD5gP5nXUk2r6XNrSc40Tfjc-VYqmG2G3azq7DBTpHBIKbEgAqg8XTcEvKaUr9f9boRGSrToO7llqnOLauMqueni_7dzQaFmgkYUOTM7xZ6esafmt9YSsA1uGJCiYW5GUa-Ps3TVt5kT4KnfLzqNb6ldOFGPE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNnb7njzptt38Lzyjm7z1Oeiwh9kFphE7Q48rMlYGDMn60MI1ua1aPqPWsQM9SXAHg_VGgiqA4JvidCMvXu5BWQmMBl7jU7AlzqBKlWi3UephW5zzaVOs5cbxDQc69PBVVobQmcV7Lh1C5rdntXCtE-raA9Y6jlnBa45vR0iQD7vDk-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpuLMvJB2Z_jFrIs7GDM3NeCiJ9uW4B5wbazfqnw-v0w3ukY2JvQUV3c5UwQBk68Jzo72pQvtFdKQT5lb_sv7a146LBUh0_qrIa_ZUDAdTAjsXcw1T6c0DDvbf4pQtOcA6cdXvfLVGY_8qxhl6NbIBF9TBwOQkCPrEJkzu3rerLx5H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 594 Loudon Rd, Latham, NY 12110, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: bar, food, point_of_interest, establishment
+    ---
+    Name: Giuseppe's Pizzeria & Deli
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNvuj6qn7AwMeCZ2KWDDc1-XMKXyP835n46Fpk0l8DKQ-F4k_-rl_FDGSUaUgaDlIQESLxVjS65UOV_bI9LGFIqyGJdmaZPrmsx-9_D9huQQw3LJB_Sw96Nm20yy4vp-RqiWly9OoRgoCJZxwkLiAMjydoCPP7liS0wrmgrerIK3CL4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMb0bmY9EVD09zMkxp-Sl6_T0g6kQdXy_AlyOlrAphbfvFfGQ3BJiivMrNWAMKPhqV2Juy111LcVtEmwvCgH3iyt6TnadOJ73UAaAUAJ9x3pWcdyV8Em_9gnxWuW_4iC7fsy4tmdQpKsvk2ppp0oiAzWsRwwK0DPaXhuDzrGXTv8Ow&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhwd6P9e0VIDEwhMnFjXwG4_bSPp0QnS6PQ2P0xQyQtmi5CMS46DizO6rNsRIRF2kaRGOwP1NeVjgXXrYUrfAwYT7voVL3NxcZFjUpMtH5Mh-jqIBkJE5i7c9lHZUlLaYp-6x6tvLKB6KLbSkmoPCGVmyOQuLTw6NcLaN3NIpMA-nE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPa-_j5D3rlNHud9xo9-3ZNmn3CjkzGSSkgoAVM_c_RmUsnqpRelme5O3rjImgf93Sk7hjFa4uyD3nrk7HUjJJ8SfkOICJuSHCabpSFv6uTGTyuRK9H06RIKH_IaNrRtBbVdYWMeS-rxq-9y_e1-ORcNYRSFhmA45bw_W3JnncNGDLS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfyfjimbBsEwU8UPkBp7vgn6XFY2kk93M5sd3KVqWBFDfIe2pMNjQH3LqNt14k7i0jW5xdI8qPUnHl3aH85v71WYuGY1p5AeSrBPzI77NlZZ7HMMUEU6q7jAf4dK1R15EIrMta2aOO-VE_8wv7r22QpQa05tPBHf50pSdaGTxF_l5I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 450 3rd Ave, Watervliet, NY 12189, USA
+    Rating: 4.5
+    Price: $$
+    Cuisine: meal_delivery, store, food, point_of_interest, establishment
+    ---
+    Name: Tuscan pie
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNRghdKt9lG2PJt5OuN4XzPtYIsfmSb3V1hIiY-DM6bm0m0A43CCle7Zw1orv9E7sXSd5WvfxWMNABJQrNDcWbJ1WKQZ6jb70UrrMVrugMxmfDII_kN6vGCT42cplZF-Cdrqh3OBJdFb8u8XVBxkDlkNW8dUOt9JSmNVmNv7xcO2O_T&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTLA7rw9_TgS_Hn4eNs_CPLZsDNvMByJXFVJSH7ShnbWwgBzjo2f4QXlCr6dHK4Un6R9jvKaoxyDy72Iu0paR8L8pjHlFRmbWhFqN58tJ0FUXmaEGxva7cNZljaD25w7joBZBvnZzCTAQHmphpTQFEW6u8ZS_6Jr6P2M4ZE5RMLlQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNHvfWbxBY4_hJiUp5gfCmMS7ydg7OElO6LscMmWnmdIT5cpYRXYaWNFllazAf2qiEkLBN-gCYwbDtSdvRytS9t6WvlXsJa--biBRF9EctMFbfD_bEKjVHjQTLW5F54jkaOGwmxmvkfhtcwTp-NCPmMl4ssnS1-MLSp7-ReYNnEXi-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfp_P9J3kmnYXtMBU3LrYdQf6ftGR7Xxrhpr86ytasAYCDfHHFY3SFhjCwe-wH07tT1TcvhbXZsYRDR5GPSttJCunjMa4DLUjkbAoEnIApcbYpdyAkDzSxn_7cIneIf2bXGYJPmH5urfOHsD-w5esGtv1UQrdVRy7CoOxlccOi9-2R&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoRbuOmBpqioMR-OF8Dkee2ufyq-IZ0ZE-GJ-x0_LuGOFho47jHrEyppT-fK5CdfLWjgSEzGD2hRRc-wG7QOV5IpGuuQ2UUwx7jcAvNX_pS9LGT1uvDOPSOOhmyBw5CFlqW5zPlqTq2VNwhy23zplyJZ6hDpwJz7LBPiqbURTEnTki&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 123 Madison Ave, Albany, NY 12202, USA
+    Rating: 4.9
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Camila’s to go
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoFcvEMtMCNeXL0XvYbcyyspZT3oKPi_qqsDdfWgh2KmHocr3593Z11rTSY4yjcTdpVLm6BUgn66ePGS2s8ivk6yvkunCBwnMkTgycY1wtk9rJhhymN8BcJ2KOkiHDzp5kXUQXB_QocBTRoZ80tGEMoSh3c2HK2tNeqFf2QKqdvwVd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPmXLb_tVjTyGgCtIhXp0OLFHK4e1vKgbQkiJpNR34DlRhB4mwrq6PSRyWAkmSnANxXrT1nuMeu1KVf-KED7oNZCYV48k8V6CdV5gPPpB15zwAeV-qVtOJJMSKEqDCGf9kXqcKaVwA0jJal-jErw6bynPNO81gpVfuAUVSqWW4rCBNY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJrQMmzXa9pk9mwPAE3WUWYT8sNI4bu2XuobEiq3lsMX_RGvSiXfMLDrvn9bBn51KagEWD2kwDoCVb-p1MY9AlZiySQETj58eZQh7IKx4TyhydjZxdM9vXXKS5HMVuxRPhHSYuybonfQlWJ6Z6Rcd2uzPQYMO_XSaS1zMxbpJ6PMaz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPTuqYSFofHXgm7jajbLjw5haa2ZJZGGaErGrqVBRBdvQI3Bntg8T8JjEJuxNEQP9ACNxq1BtyGujKVWpkNpPldD1424Oa0jMRzGVzGNsxZcf6K5Iwm2j3eN6wYALAKiv_Sd4ZhzT7FyAyPFuq6zs10UKyFLnl2qDjDGgGoSFd2y-U1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN7AvZuRTufwaILU6FD7gImlmLU8YHz0HdyaTFxQeT9uMh_eAHVnd7N-vtXvLSci9K9zuH2Woa_uE8WUL7WtprIHuZ1kcLnFpBvTUDMmHf40FBepyOt_JADD8xenla4t5TTl6bVBS1XRIdIaIR6Uw07k9wTUy_YuKF6an7vGTzZB2cT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 402 Albany Shaker Rd, Loudonville, NY 12211, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Milano
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpPDW3DteU_BzUMx7tiFiKTi2lTAITtKkhToJ1YH2TT9vbgwPAgnyzX0y2rFKmbZKH2Tur9gHBcRY2iFqu8dFi75gb77fUMPHS87YXKVZi69r2_DVd3WMTBVwJxLbO-yULImjaFS5mDzCOtkzJr1aaXzpY3G9VKb2c9cTqZtFJOhAl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPB2O0gxXWSsJrmZ1VoUmTcPGZ1a3h_YCa_gSz4hS4dxZCb7-fQ_Xeh0JvHpdCZjeGNEl1e5BT5R6PUNrmGPC6yJjRF-rxPQArFFeUGO0dez0A6zEfWT95JPex3Cj8648TDHkt6mhEFblhLKDk1bYEpn06u5gRBbjigz7qkGAGYjAyF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmoIqFFmhQVNeb3cPievBbgzcoqzZFZS9Ie-cHCaegj6O8T5sOzU7pNKcx8iv2k2az3jPBA1QCxygwbfK7OGq8rD72n2XuljSPe-HF-YkckbeA3G8a9ubkfaPdlVRJ3abfdCeyGv83lM7PUjGdKPDEA6Myad7_4H-Wocexv4ELWBXR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNHtaECHF1QPcS_u2KvXIeGZh9QS2ASbSKmNT4q_8YaX0aSVJjcyS54auT006pUA5egLNcjAqCEge1Ifdf6aVIUyyFkUJj6mTqXK9qGkrxGG905W8N6DQi80Sse2VJm2Vlp6-FIMN7klGHxmBATi6-1_Ur55ceYDN4eDJ2TZgT0wD6H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMmqPpsq2SmgRIQSEv-9G5fmnychiO5EXPqFKsPadEdiu-fmTYGb-yDTLw9LJKj-5Yj9I-LTRsaRnoYntlQRRWrr3mn54gCaGsgSueHaB8hfi5rJNVzyJ6H2KbsDxP8HG62ALF6un3JTOxHBw8k6Fr_w0kzak2VuBdubizNgGJtVdwQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 594 Loudon Rd, Latham, NY 12110, USA
+    Rating: 4.1
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: V&R Fine Italian Cuisine
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOnHN-mPmfW6GqnugfV66J274KoMUJkrPFT0LG_UPcH_fi6My1iJQcmDOeABueEIycf6ec-Du6yaS8Gaj2BA3dLDUUieXtPmBWsoINkv9swKCmMUrwa3iROo96erfJF-wGWv4N1tAXKjfx-87IdE1oz3e7s0ILr9VCpckNAemu2XTU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtp77AawPYoY8trd7on969l5Yy_Vf8om-lWBHNJpOx8NBgYj_08syWZsVnltcj9pE0GzSmJ-EUV2qI3TVcsXtocqBz4__yx0mjK806yKLDy7I6LBxt3dV7dSSQ-BwVPy6MptOimwi551tbvJ_vR4Mf3Rv3zGECsf0WDRw9gRw5g_-V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-Ezj0ARSenY8v8G1V600Rt7OIG8ZfVqqZsGaUPIiljPiFZhlZvEYunaOpvCRTqRI7eRImTA2re0Ug6D-jIkBC2gcOz3qg23M3cgRL7U2VlhZRih_FchmMlkVTyA7tXY6ZnR5C_ttzmMotm_PIA83NipXAJq4WYUz3e7gy9sZAfQG3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4bLbFhfXQ-1zB-wTt9c062vtaNF760wJm3T4U_0b-ov7ie4g2wT56p9RsJdwX3pGXaEk9CJCxpKpiHbkxmjB7mFq5H6EaIamgNnQgntSRqOCLc9Hltz-g8VqX9TqAjTNzQwHOG_jP7VqSAdxkZKefWx7uVLbySjuYH0oVd9tEUiVV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDQgN2pdv1xXp7Dp9iIjg11ooa6zarNa8zv4l-eYCAmAVyw3US77GvzpoEV2cWeLXCAyg514OqI5N7HZUz2cfZ1Nm7HpT9andp7_Sh0saQAPtiQsQ0DWX6tXr6f01UzE7IwaSa7DKX_aIz2LpP9zvLvQjKQEjr3QBPQxZekpBYr1Zt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 50 Exchange St, Albany, NY 12205, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Bellini's Counter
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOY69eT3906aCFxqOa3GSV34RltTXTPsiYCoKQKKTxWjnOUHInKQmqgVHDgeNBsFV-jCde9g3s5qMw1DJUnOUB7v4WDC3OCFrQp4IqSFkok2GoHgCw4SQ4Y7Iz5EN8Y9IRZn6w3oCBD1UgwfR7mRSrw7W3-Pd70LL6bYl2G9CqXpnl7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM31bp0EQA3uImZCA-GtYkGS_zNkNA29qUz-yKOuVtHVOyXVOw0MUrc5308rd5mj-mtl2BBzXKnwhnllTVu40JcEzqEZkO1XYt-1AVike9gu1PtakBbi5fS8gNAam-M2T2ikDxepTQDN5BNZCLaL4beDlb_lW9amFqKJ3JMyfdPNrvF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPQZbKZLREIenFmWaWnPH_7lrtBtY6NgbJUQ5NBy3GAVc6oPbXmHJTXhEuOZFiroh_Ks72OpOuMRIXW5v8kZCq5_A5eHAPrUad62dFhPHoM6lH0Xvo_xtpqOkArNAiGSspj66Ia485cELN4Z0YSd1G9bW9a_Tu7nwlIYcARXcHW6NZv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMSo8k9sYsHHrH-c9QFCB9KYSimKrV68nWr0pGxC_8CQ_KdlgkhX0CJGLm5heMOLuNB76HcEWOQK4GnE-1fSzNvJkx5NfnWx-_q3IqfLjfgCZINKGAKEx4okN2OiPEGrAE8LMP2y_yAXS_smQup3-AdEbkcTmNIPGePAz1dO-UIVeVt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO30nyUI3o6P6avsed-xy6kknxFgJs-eRUfXGAEkfzjlxau-ksfbl77ZMU8lq7RMSRrgOBFil-8YU7hmtz-3SAdocyjblLnOf_M63wF5DIGtBdo1iX_L0PjOWQc03bgPQXFHhZf_c8plpTVq1Z0oTy7C1WROv1GRdBfc7uDULBqVX-K&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 33 New Scotland Ave, Albany, NY 12208, USA
+    Rating: 4.3
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Risotto
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0KlNSOGBnS9ljSEV4YvH2htnYKFNZJRPhAlNsTKlCF7wGroByXxHdRQOZpLRMZzcHeNKDZEcl3cWpLBkcVhHkh-seE3pZvpe0jtRL7DqQuyJwqU0S8Pfxzos1Zb8JwREz7CB-EjaLPZPc9_vHlY9_LPI6QazHY60EwGU_ybmUyjhC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMz0lCo7q2CAx8QsMA64T6KQ4SGpAzDVcIb3fFftq99Obt-G6Mw_LHZsEB6WcQb3cEPx1ynKE7mXobOdm-5L5A9CAhQ1ISuvfVa6Bz8eQN29osi7Y5EWaM2tOAeG4duod2WGqleHcax7bFj6h8Qm1hoHQ42SBLNC9oZ5AnrRfKf0q-f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2apqMrtX-U2NxBtPQ6Hg9516sLfs2UfwCplitrT5ssoWk1Lf0HFUs1DWUnZM9Wmv8xecSOKzdkFaqgGrTF2xaXkIbJtK1ZvSAJl8A8h7H1dGEQMYxa8Oi5WRQ7PRERLw49637DV8cf7IuczeBB9QNj8DhZtjDa5JlELfRuqAJtCBX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_fG4hXNsDgqGkfk-8jIEyea5EIxsgvx_-yz3H5HkSIVczBLbNR0wBO4e0xiE_HLmY2tOup5x8w7fhaM_qmUvJoj37jPCBrFlSJUSYH6rdQ4Vdh-MoeZRx_4VnnOptVf-ZM0dMfILkRjpTFnuhT-wdEtPXA1sWzCIuDSMkKqLFF1OG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMo5vBcdQ14RZHQIxjkTlKSgAI8SSGj1GuvEyHYWZ0FsG6EpxUav7Lnl0QnEtAZxczxSsog_aRyyap0yMfwm8XS16RjsKabpI_MdCRSQ30p5tnXC1o63ivUZmam7fTDBcv0_NoF1fIe1exewsO4ToiYZxUoQrS6fSiB_DQyNqyxBXEZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 320 Northern Blvd, Albany, NY 12204, USA
+    Rating: 4.4
+    Price: $$
+    Cuisine: point_of_interest, food, establishment
+    ---
+    Name: Valente's Restaurant
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPuVuXCGtHlPC2qFKhjqolN7m8r5y1GEYgIvo-88irL1Jji8Emz__Pe-nv9cw__-7JUQnOscbFliOssCSVFE2zjJWjAZXQdXcM3ez7ONRSxgy3cFeVc6-5yzRi0TxpsJT_mMzmBVxeruExhz-EJzV4uuYQ_0e6EQ3RPHPr24qU1EL6p&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNktY8Bewtahzavq8yx2cqc8GmQcpsBw9edAAlZEO1DzLQQF_z3SPdxRybgAtssI8cyxzRg34C2Pn9vtU0mbT5SE8CBWH11UAaipj3dE2zfiAKmAeia0OyGjunccDNk307OS0LB90Mc84W97hwtOucJMY8myyVsXidz4HqhEBie6dd-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOoZICMHSIku6NO3G-BcL5mJtr_Lv1I7q4mkxOO5knGDpK8qV1Idt7QK9PpOt7Sd8EObrl62w_VmwcP8RwLgueYc9571N0bXRMVPoh-eBCK9vuILDvCv9hyxFy-rWYtQS3Rbuh8Tj7NrRFL-vBYrOjTemdHbSevraTz3T9L0Zg3vemy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMxn8Jg1t-48bYjxKvAqlgRACH3yLl9TVNRMuQ5alKWXZzWpdcBafjo4GkdV2egPAb8CZFah6fOHJqsOEIelFzk9rlB9K6C758222dKsk1XZzLisoMipMpypKpNwyUu40zndhnAqhOCXAqDJuloE2M32Dfn_Kmq5t8pdjrZcdmxfUFc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0R5SWmxvXQPukuf1FVf8ptj_JRzM7M4CAqV3UG7UUWXB246YmIrSfgpz1dKITYBsdjyjEdFGTiwEpcDaz49nXQuZWZapuHpDWn63GCI96G4i8zxIjGqhHxGQERBHXNaF7AllA4KsYNlf_S2T1b45iSw9CUeBMHQvGq4qFxZCunsV6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 315 8th St #3631, Watervliet, NY 12189, USA
+    Rating: 4.2
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    ---
+    Name: Cocina Nostra by D’Carlito
+    Images:
+    Photo 1: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNIqoBREcz50ZHzoeS0FBlXuyE1JqrxYWwvSFqGuI-219A862TEikQwuUHkaZEH-6OsY12LMK9SY6VQd50-bsDKFMO7boIEwf_A-gbr7gf8mX0wrBkrZNHkUjyCqrS0q-gUmOjgYxiE4qdvch3fO0Ffeax7bkpDB6LQxLE-xy8pjBCp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 2: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN49WocvPmXfCkPzyCc0gFCxErl1Q9UPUGjZuipNEFeyEPYIV1L4DRsZxvcTK3vczsuRVc57DkUuwg4ena1VcoMnlrwzyFZbBaWGcCsM1kMe5DUZ_yKbTT6j9CC4hrRe50Swx0oJP_fvy8FV9ko_A1poKKTnEsONilMg5b5Pd9VBRhQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 3: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5SzAvdyH9z7_tipOWPjY1B2XhVxZMg8O0oN2Le9RiwdjPI-J0DVXeBzPmg7naVIYQvz03xPfxu3aQahSRFcJzcZweyyxksCminMSEw9va_Qjj7K9btY_mK-OPhKtT4aoHBfnYXNX9yjQiO9roOp546ZKbzFCUMFN7oF5nPg7mYq_7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 4: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPAbBLpZl8M2cP1AuNau4gHVS3aCIwZdIL1NlXSgxASK9s6CldsNbL5W6Rsr6zlaihYOgTcD7L4Ukk3ggP2lNsoLPsP6MJdz-qv4pzZK2z35smYGDWM6Uz6m7OAr7DZxZ__dFuzKv58lPT1yImgEx4akCQTgga9prnna2jq5Lf-Dt8k&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Photo 5: https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMK7xfTMBxV-Zr7e7nMdjzfd3CDH6100QwozBcgYvqvOR63wjEWNPujkDWWUIqNtMk2zJ3MXhLE2KgIUBB2h-0Fc42qOoj0R57AbCJvGLiDYVKjUsQ8-u-xRSJAls6jIJuq0Zw65FAkqL8U_5kfRDRNCdr6ccflZyqw_VvJIC-Zrk7x&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg
+    Address: 215 Western Ave, Albany, NY 12203, USA
+    Rating: 4
+    Price: $$
+    Cuisine: food, point_of_interest, establishment
+    (base) batten-72:Dinder paulkratsios$ 
