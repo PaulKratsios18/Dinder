@@ -1,0 +1,15 @@
+footer {
+    background-color: #023047;
+    color: #fff;
+    padding: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
