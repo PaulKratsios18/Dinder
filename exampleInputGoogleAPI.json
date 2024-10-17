@@ -1,23 +1,23 @@
 [
     {
         "Name": "Paul",
+        "Price": [4, 5],
         "Distance":  11500,
-        "Price": [2, 3],
-        "Rating": 4,
-        "Cuisine": "Italian"
+        "Cuisine": "Italian",
+        "Rating": 4
     },
     {
         "Name": "Brendan",
-        "Distance":  5000,
         "Price": [1, 5],
-        "Rating": 3,
-        "Cuisine": "Mexican"
+        "Distance":  5000,
+        "Cuisine": "Mexican",
+        "Rating": 3
     },
     {
         "Name": "Ryan",
+        "Price": [2, 3],
         "Distance":  25000,
-        "Price": [1, 3],
-        "Rating": 4,
-        "Cuisine": "American"
+        "Cuisine": "American",
+        "Rating": 4
     }
 ]

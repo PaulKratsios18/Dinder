@@ -3,10 +3,6 @@ from get_location import get_gps_from_address
 from haversine import haversine, Unit
 
 def ranking_algorithm(restaurants, preferences, location):
-    PRICE_WEIGHT = 4
-    DISTANCE_WEIGHT = 3
-    CUISINE_WEIGHT = 2
-    RATING_WEIGHT = 1
     restaurantScores = []
     
     for restaurant in restaurants:
@@ -15,28 +11,36 @@ def ranking_algorithm(restaurants, preferences, location):
         restaurantDistance = calculateDistance(location, restaurant['Address'])
 
         for user in preferences:
-            if restaurantPrice <= user['Price'][1]:
-                priceScore = calculatePriceScore(restaurantPrice, user['Price'][1])
+            if restaurantPrice >= user['Price'][0] and restaurantPrice <= user['Price'][1]:
+                priceScore = 4
             else:
                 priceScore = 0
             
-            if restaurantDistance <= user['Distance']:
-                distanceScore = calculateDistanceScore(restaurantDistance, user['Distance'])
+            if restaurantDistance == -1:
+                distanceScore = 0
+            elif restaurantDistance <= (user['Distance']*0.000621371):
+                distanceScore = 3
             else:
                 distanceScore = 0
             
-            cuisineScore = 0
             if user['Cuisine'] in restaurant['Cuisine']:
-                cuisineScore = 1 
+                cuisineScore = 2
+            else:
+                cuisineScore = 0
+
+            if float(restaurant['Rating']) >= user['Rating']:
+                ratingScore = 1
+            else:
+                ratingScore = 0
             
-            ratingScore = calculateRatingScore(restaurant['Rating'], user['Rating'])
-            print(restaurant['Name'])
-            print(user['Name'])
-            print(priceScore)
-            print(distanceScore)
-            print(cuisineScore)
-            print(ratingScore)
-            totalScore += (priceScore * PRICE_WEIGHT) + (distanceScore * DISTANCE_WEIGHT) + (cuisineScore * CUISINE_WEIGHT) + (ratingScore * RATING_WEIGHT)
+            # print(restaurant['Name'])
+            # print(user['Name'])
+            # print(priceScore)
+            # print(distanceScore)
+            # print(cuisineScore)
+            # print(ratingScore)
+            totalScore += priceScore + distanceScore + cuisineScore + ratingScore
+            # totalScore += (priceScore * PRICE_WEIGHT) + (distanceScore * DISTANCE_WEIGHT) + (cuisineScore * CUISINE_WEIGHT) + (ratingScore * RATING_WEIGHT)
         
         restaurantScores.append((restaurant, totalScore))
         # print(restaurantScores)
@@ -62,15 +66,6 @@ def calculateDistance(location, endAddress):
     distance = haversine((lat1, lon1), (lat2, lon2), unit=Unit.MILES)
 
     return distance
-
-def calculatePriceScore(restaurantPrice, userMaxPrice):
-    return max(0, userMaxPrice - restaurantPrice)
-
-def calculateDistanceScore(restaurantDistance, userMaxDistance):
-    return max(0, userMaxDistance - restaurantDistance)
-
-def calculateRatingScore(restaurantRating, userMinRating):
-    return max(0, float(restaurantRating) - userMinRating)
 
 
 def main():
