@@ -1,0 +1,5 @@
+location: '42.7284,-73.6918',
+distance: 11500,
+price: [2, 3],
+rating: 4,
+cuisine: 'Italian'
