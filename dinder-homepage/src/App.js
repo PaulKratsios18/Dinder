@@ -7,9 +7,13 @@ import './App.css'; // General styles
 function App() {
   return (
     <div className="App">
-      <Header />
-      <MainSection />
+      <div className="page-container">
+      <div className="content-wrap">
+        <Header />
+        <MainSection />
+      </div>
       <Footer />
+    </div>
     </div>
   );
 }

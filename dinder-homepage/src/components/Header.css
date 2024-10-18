@@ -12,12 +12,13 @@ header {
   }
   
   header img {
-    height: 40px;
+    height: 60px;
     margin-right: 10px;
+    margin-left: 40px;
   }
   
   header h1 {
-    font-size: 1.5rem;
-    font-family: 'Spoof';
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
