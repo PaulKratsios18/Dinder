@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './MainSection.css';
 
-const LocationSearch = ({ onLocationSelect }) => {
-  const [searchInput, setSearchInput] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState(null);
+const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
+  const [searchInput, setSearchInput] = useState(selectedLocation?.address || '');
   const searchBoxRef = useRef(null);
   const autocompleteRef = useRef(null);
   const mapRef = useRef(null);
@@ -33,7 +32,7 @@ const LocationSearch = ({ onLocationSelect }) => {
         title: place.name
       });
       
-      setSelectedLocation(locationData);
+      setSearchInput(place.formatted_address);
       onLocationSelect?.(locationData);
     }
   }, [onLocationSelect]);
@@ -43,9 +42,19 @@ const LocationSearch = ({ onLocationSelect }) => {
       if (!window.google || !searchBoxRef.current || !mapRef.current) return;
 
       const map = new window.google.maps.Map(mapRef.current, {
-        center: { lat: 37.0902, lng: -95.7129 },
-        zoom: 4
+        center: selectedLocation 
+          ? { lat: selectedLocation.lat, lng: selectedLocation.lng }
+          : { lat: 37.0902, lng: -95.7129 },
+        zoom: selectedLocation ? 15 : 4
       });
+
+      if (selectedLocation) {
+        markerRef.current = new window.google.maps.Marker({
+          map,
+          position: { lat: selectedLocation.lat, lng: selectedLocation.lng },
+          title: selectedLocation.name
+        });
+      }
 
       autocompleteRef.current = new window.google.maps.places.Autocomplete(
         searchBoxRef.current,
@@ -58,18 +67,8 @@ const LocationSearch = ({ onLocationSelect }) => {
       autocompleteRef.current.addListener('place_changed', () => handlePlaceSelect(map));
     };
 
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places`;
-    script.async = true;
-    script.onload = initializeSearchBox;
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        document.head.removeChild(script);
-      }
-    };
-  }, [handlePlaceSelect]);
+    initializeSearchBox();
+  }, [handlePlaceSelect, selectedLocation]);
 
   return (
     <div className="location-search">
@@ -115,6 +114,8 @@ function MainSection() {
   const [distancePreferences, setDistancePreferences] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const [locationPreference, setLocationPreference] = useState(null);
+
   const validatePreferences = () => {
     const errors = [];
     
@@ -135,6 +136,9 @@ function MainSection() {
     }
     if (!distanceNoPreference && distancePreferences === null) {
       errors.push('Distance preferences');
+    }
+    if (!locationPreference) {
+      errors.push('Location');
     }
 
     return errors;
@@ -310,8 +314,10 @@ function MainSection() {
             <div className="location-options">
               <LocationSearch 
                 onLocationSelect={(location) => {
+                  setLocationPreference(location);
                   console.log('Selected location:', location);
                 }} 
+                selectedLocation={locationPreference}
               />
             </div>
           </div>
@@ -330,7 +336,13 @@ function MainSection() {
             type="text"
             placeholder="Enter Room Code"
             value={roomCode}
-            onChange={(e) => setRoomCode(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value.toUpperCase();
+              if (value.length <= 4) {
+                setRoomCode(value);
+              }
+            }}
+            maxLength={4}
           />
         </div>
         <div className="input-group">
