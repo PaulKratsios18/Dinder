@@ -1,30 +1,6 @@
 import React, { useState } from 'react';
 import './MainSection.css';
 
-const StarRating = ({ rating }) => {
-  const stars = [];
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 !== 0;
-
-  // Add full stars
-  for (let i = 0; i < fullStars; i++) {
-    stars.push(<span key={`full-${i}`}>★</span>);
-  }
-  
-  // Add half star if needed
-  if (hasHalfStar) {
-    stars.push(<span key="half">⯨</span>);
-  }
-  
-  // Add empty stars
-  const emptyStars = 5 - stars.length;
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-${i}`}>☆</span>);
-  }
-
-  return <div className="star-rating">{stars}</div>;
-};
-
 function MainSection() {
   const [activeTab, setActiveTab] = useState('cuisine');
   const [roomCode, setRoomCode] = useState('');
@@ -162,23 +138,45 @@ function MainSection() {
                 /> 
                 No Preference
               </label>
-              {[2.0, 2.5, 3.0, 3.5, 4.0, 4.5].map((rating) => (
-                <label key={rating}>
-                  <input 
-                    type="checkbox"
-                    disabled={ratingNoPreference}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setRatingPreferences([...ratingPreferences, rating]);
-                      } else {
-                        setRatingPreferences(ratingPreferences.filter(item => item !== rating));
-                      }
-                    }}
-                    checked={ratingPreferences.includes(rating)}
-                  />
-                  <StarRating rating={rating} />
-                </label>
-              ))}
+              {[2.0, 2.5, 3.0, 3.5, 4.0, 4.5].map((rating) => {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 !== 0;
+                
+                return (
+                  <label key={rating} className="rating-option">
+                    <input 
+                      type="checkbox"
+                      disabled={ratingNoPreference}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setRatingPreferences([...ratingPreferences, rating]);
+                        } else {
+                          setRatingPreferences(ratingPreferences.filter(item => item !== rating));
+                        }
+                      }}
+                      checked={ratingPreferences.includes(rating)}
+                    />
+                    <span>{rating}</span>
+                    <div className="star-display">
+                      {[...Array(fullStars)].map((_, index) => (
+                        <img 
+                          key={`full-${index}`}
+                          src="/full-star.png"
+                          alt="full star"
+                          className="star-image"
+                        />
+                      ))}
+                      {hasHalfStar && (
+                        <img 
+                          src="/half-star.png"
+                          alt="half star"
+                          className="star-image"
+                        />
+                      )}
+                    </div>
+                  </label>
+                );
+              })}
             </div>
           </div>
         );

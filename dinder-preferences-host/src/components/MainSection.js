@@ -1,28 +1,100 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './MainSection.css';
 
-const StarRating = ({ rating }) => {
-  const stars = [];
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 !== 0;
+const LocationSearch = ({ onLocationSelect }) => {
+  const [searchInput, setSearchInput] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const searchBoxRef = useRef(null);
+  const autocompleteRef = useRef(null);
+  const mapRef = useRef(null);
+  const markerRef = useRef(null);
 
-  // Add full stars
-  for (let i = 0; i < fullStars; i++) {
-    stars.push(<span key={`full-${i}`}>★</span>);
-  }
-  
-  // Add half star if needed
-  if (hasHalfStar) {
-    stars.push(<span key="half">⯨</span>);
-  }
-  
-  // Add empty stars
-  const emptyStars = 5 - stars.length;
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push(<span key={`empty-${i}`}>☆</span>);
-  }
+  const handlePlaceSelect = useCallback((map) => {
+    const place = autocompleteRef.current.getPlace();
+    
+    if (place.geometry) {
+      const locationData = {
+        address: place.formatted_address,
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+        name: place.name
+      };
+      
+      map.setCenter(place.geometry.location);
+      map.setZoom(15);
 
-  return <div className="star-rating">{stars}</div>;
+      if (markerRef.current) {
+        markerRef.current.setMap(null);
+      }
+
+      markerRef.current = new window.google.maps.Marker({
+        map,
+        position: place.geometry.location,
+        title: place.name
+      });
+      
+      setSelectedLocation(locationData);
+      onLocationSelect?.(locationData);
+    }
+  }, [onLocationSelect]);
+
+  useEffect(() => {
+    const initializeSearchBox = () => {
+      if (!window.google || !searchBoxRef.current || !mapRef.current) return;
+
+      const map = new window.google.maps.Map(mapRef.current, {
+        center: { lat: 37.0902, lng: -95.7129 },
+        zoom: 4
+      });
+
+      autocompleteRef.current = new window.google.maps.places.Autocomplete(
+        searchBoxRef.current,
+        {
+          types: ['establishment', 'geocode'],
+          componentRestrictions: { country: 'us' }
+        }
+      );
+
+      autocompleteRef.current.addListener('place_changed', () => handlePlaceSelect(map));
+    };
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places`;
+    script.async = true;
+    script.onload = initializeSearchBox;
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        document.head.removeChild(script);
+      }
+    };
+  }, [handlePlaceSelect]);
+
+  return (
+    <div className="location-search">
+      <div className="location-content">
+        <div className="search-container">
+          <input
+            ref={searchBoxRef}
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder="Enter a location"
+            className="location-search-input"
+          />
+        </div>
+        <div ref={mapRef} className="location-map"></div>
+        {selectedLocation && (
+          <div className="selected-location">
+            <h4>Selected Location:</h4>
+            <p>{selectedLocation.name}</p>
+            <p>{selectedLocation.address}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 function MainSection() {
@@ -30,7 +102,7 @@ function MainSection() {
   const [roomCode, setRoomCode] = useState('');
   const [name, setName] = useState('');
 
-  const tabs = ['Cuisine', 'Price', 'Rating', 'Distance'];
+  const tabs = ['Cuisine', 'Price', 'Rating', 'Distance', 'Location'];
 
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
   const [priceNoPreference, setPriceNoPreference] = useState(false);
@@ -76,7 +148,6 @@ function MainSection() {
     }
     
     setErrorMessage('');
-    // Add your save logic here
     console.log('Preferences saved!');
   };
 
@@ -162,23 +233,45 @@ function MainSection() {
                 /> 
                 No Preference
               </label>
-              {[2.0, 2.5, 3.0, 3.5, 4.0, 4.5].map((rating) => (
-                <label key={rating}>
-                  <input 
-                    type="checkbox"
-                    disabled={ratingNoPreference}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setRatingPreferences([...ratingPreferences, rating]);
-                      } else {
-                        setRatingPreferences(ratingPreferences.filter(item => item !== rating));
-                      }
-                    }}
-                    checked={ratingPreferences.includes(rating)}
-                  />
-                  <StarRating rating={rating} />
-                </label>
-              ))}
+              {[2.0, 2.5, 3.0, 3.5, 4.0, 4.5].map((rating) => {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 !== 0;
+                
+                return (
+                  <label key={rating} className="rating-option">
+                    <input 
+                      type="checkbox"
+                      disabled={ratingNoPreference}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setRatingPreferences([...ratingPreferences, rating]);
+                        } else {
+                          setRatingPreferences(ratingPreferences.filter(item => item !== rating));
+                        }
+                      }}
+                      checked={ratingPreferences.includes(rating)}
+                    />
+                    <span>{rating}</span>
+                    <div className="star-display">
+                      {[...Array(fullStars)].map((_, index) => (
+                        <img 
+                          key={`full-${index}`}
+                          src="/full-star.png"
+                          alt="full star"
+                          className="star-image"
+                        />
+                      ))}
+                      {hasHalfStar && (
+                        <img 
+                          src="/half-star.png"
+                          alt="half star"
+                          className="star-image"
+                        />
+                      )}
+                    </div>
+                  </label>
+                );
+              })}
             </div>
           </div>
         );
@@ -207,6 +300,19 @@ function MainSection() {
                   {`${miles} ${miles === 1 ? 'mile' : 'miles'}`}
                 </label>
               ))}
+            </div>
+          </div>
+        );
+      case 'location':
+        return (
+          <div className="tab-content">
+            <h3>Select Your Location</h3>
+            <div className="location-options">
+              <LocationSearch 
+                onLocationSelect={(location) => {
+                  console.log('Selected location:', location);
+                }} 
+              />
             </div>
           </div>
         );
