@@ -1,5 +1,5 @@
 {
-  "name": "dinder-homepage",
+  "name": "dinder-preferences-host",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
