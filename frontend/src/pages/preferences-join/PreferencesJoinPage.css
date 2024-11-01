@@ -1,0 +1,246 @@
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  min-height: calc(100vh - 120px);
+  padding: 2rem;
+  background-color: #ed7874;
+}
+
+.input-section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 1rem;
+}
+
+.input-section input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.preferences-container {
+  width: 100%;
+  max-width: 1200px;
+  background: #FAF1E5;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.preferences-table {
+  display: flex;
+  gap: 2rem;
+  min-height: 400px;
+  position: relative;
+}
+
+.tabs-section {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 2rem;
+  border-right: 2px solid #023047;
+}
+
+.tab-button {
+  padding: 1rem;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 1.3rem;
+}
+
+.tab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.tab-button.active {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+.content-section {
+  flex: 1;
+  padding: 1rem;
+  background-color: #FAF1E5;
+  border-radius: 5px;
+}
+
+.cuisine-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.cuisine-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.price-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.price-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.rating-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.rating-options .no-preference {
+  grid-column: 1 / -1;
+}
+
+.rating-options label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.star-rating {
+  color: #ed7874;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-shadow: -1px -1px 0 #000,  
+               1px -1px 0 #000,
+               -1px 1px 0 #000,
+               1px 1px 0 #000;
+}
+
+.star-rating span {
+  display: inline-block;
+}
+
+.distance-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.distance-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.no-preference {
+  grid-column: 1 / -1;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1.2rem;
+}
+
+.no-preference input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+input[type="checkbox"]:disabled + span {
+  color: #999;
+}
+
+.save-section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.save-button {
+  padding: 1rem 2rem;
+  background-color: #023047;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #034c6a;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.rating-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.star-display {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.star-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.star-image[src*="half-star"] {
+  margin-left: -16px;
+}
+
+.tab-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
