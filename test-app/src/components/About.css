@@ -1,0 +1,54 @@
+.about {
+    min-height: 95vh; /* Ensures it takes up full screen height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    height: 90px;
+    text-align: center;
+}
+
+.about h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    color: #ed7874;
+    margin: 10px 0; /* Removes extra space above and below */
+    padding-bottom: 10px; /* Minimal space below */
+}
+
+.about h2 {
+    font-family: 'Fredoka One', cursive; 
+    font-size: 2.5rem;
+    color: #ed7874;
+    margin: 10px 0; /* Reduces space above and below */
+}
+
+.description, .team {
+    max-width: 1400px; /* Limits the width for readability */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: center; /* Optional: makes text justified */
+    padding: 0 20px;
+    justify-content: center;
+    margin-bottom: 10px; /* Space between sections */
+}
+
+.team {
+    margin-top: 0 40px; /* Reduces space above the team section */
+    margin-bottom: 0; /* Space between sections */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 800px;
+    margin: 0 auto;
+}
+
+section.about .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
