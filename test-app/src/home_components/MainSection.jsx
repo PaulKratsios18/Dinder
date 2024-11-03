@@ -1,7 +1,14 @@
 import React from 'react';
 import './MainSection.css';
+import { useNavigate } from 'react-router-dom';
 
 function MainSection() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate('/get-started');
+  };
+  
   return (
     <section className="main-section" id="homepage">
       <div className="text-content">
@@ -15,7 +22,7 @@ function MainSection() {
           Welcome to Dinder! Click below to get started and find your ideal food spot today.
         </h2>
         <div className="button-container">
-          <button className="get-started-button">Get Started</button>
+          <button className="get-started-button" onClick={handleGetStarted}>Get Started</button>
           
         </div>
       </div>
