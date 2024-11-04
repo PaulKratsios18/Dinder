@@ -15,11 +15,6 @@
   flex-direction: column; /* Keep text and button in a column */
 }
 
-.icon-container {
-  display: flex; /* Align items in this container horizontally */
-  align-items: flex-start; /* Align the icon to the top */
-}
-
 
 .main-section h1 {
   font-family: 'Fredoka One', cursive;
@@ -30,7 +25,7 @@
 
 .main-section h2 {
   font-family: 'Fredoka One', cursive; 
-  font-size: 3.6rem;
+  font-size: 3rem;
   text-align: left;
   font-weight: 400; 
   color: #fff;
@@ -54,6 +49,7 @@
   text-align: left;
   font-size: 3rem;
   font-weight: bold;
+  margin-right: 400px;
 }
 
 .button-container {
@@ -61,7 +57,7 @@
   gap: 20px; /* Space between buttons */
   margin-top: 20px;
   justify-content: center; /* Center the buttons */
-  transform: translateX(80px) translateY(-150px);
+  transform: translateX(10px) translateY(-90px);
 }
 
 .get-started-button {
@@ -81,7 +77,7 @@
   box-sizing: border-box;
   font-family: 'Open Sans';
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  width: 500px;
   text-align: center;
 }
 
@@ -93,8 +89,14 @@
 
 
 .icon img {
-  width: 350px;
-  margin-right: 75px;
+  width: 400px;
+  margin-right: 60px;
   margin-bottom: 300px;
   margin-top: 75px;
+  transform: translateX(550px) translateY(-650px);
+}
+
+.icon-container {
+  display: flex; /* Align items in this container horizontally */
+  align-items: flex-start; /* Align the icon to the top */
 }

@@ -1,0 +1,160 @@
+.lobby-section {
+  min-height: calc(100vh - 200px);
+  background-color: #ed7874;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 84.3vh;
+}
+
+.join-instructions {
+  padding: 15px;
+  text-align: center;
+  color: black;
+  font-size: 1.2rem;
+  transform: translateY(-10px);
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.lobby-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  flex: 1;
+  position: relative;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 35%;
+  transform: translateX(-360px) translateY(-40px) scale(1.5);
+  font-family: 'Fredoka One', cursive;
+}
+
+.icon {
+  font-size: 1.6rem;
+}
+
+.room-code-input {
+  background-color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  margin: 0;
+  width: 300px;
+  text-align: left;
+  border: 1px solid #ccc;
+  outline: none;
+
+}
+
+.room-code-input::placeholder {
+  color: #aaa;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+}
+
+.lobby-button {
+  width: 300px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  border: 2px solid black;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: black;
+  transition: all 0.2s;
+}
+
+.lobby-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.members-panel {
+  background-color: #FAF1E5;
+  padding: 30px;
+  border-radius: 12px;
+  min-width: 500px;
+  position: absolute;
+  right: 35%;
+  transform: translateX(430px) translateY(-50px);
+}
+
+.members-panel h2 {
+margin-bottom: 20px;
+}
+
+.members-panel ol {
+  padding-left: 20px;
+  text-align: left;
+  list-style-position: inside;
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  gap: 20px;
+  font-family: 'Fredoka One', cursive;
+}
+
+.preferences-button, .start-button {
+  padding: 15px 30px;
+  border-radius: 22px;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  font-family: 'Fredoka One', cursive;
+  max-width: 43vw;
+}
+
+.preferences-button:hover, .start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.preferences-button {
+  background-color: white;
+}
+
+.start-button {
+  background-color: #001f3f;
+  color: white;
+}
+
+h2 {
+  font-family: 'Fredoka One', cursive;
+  color: #001f3f;
+  font-size: 1rem;
+}
+
+h4 {
+  font-family: 'Fredoka One', cursive;
+  color: #001f3f;
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.join-instructions h1 {
+font-family: 'Fredoka One', cursive;
+font-size: 2.5rem;
+text-align: center;
+font-weight: 200; 
+color: #fff; 
+}
+

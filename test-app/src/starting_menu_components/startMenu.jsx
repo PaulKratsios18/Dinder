@@ -1,9 +1,19 @@
-// src/pages/GetStarted.jsx
-
+// src/starting_menu_components/startMenu.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './startMenu.css';
 
 const Starter = () => {
+  const navigate = useNavigate();
+
+  const handleJoinSessionClick = () => {
+    navigate('/join-preferences');
+  };
+
+  const handleGroupLobbyHostClick = () => {
+    navigate('/groupLobby-host');
+  };
+
   return (
     <div className="get-started-container">
       <h1 className="greeting">Hi there!</h1>
@@ -14,7 +24,7 @@ const Starter = () => {
       </h2>
       
       <div className="session-buttons">
-        <button className="start-session-btn">
+        <button className="start-session-btn" onClick={handleGroupLobbyHostClick}>
           Start a group session <span className="arrow">→</span>
         </button>
         
@@ -22,7 +32,7 @@ const Starter = () => {
             <h3>or</h3>
         </div>
         
-        <button className="join-session-btn">
+        <button className="join-session-btn" onClick={handleJoinSessionClick}>
           Join a group session <span className="arrow">→</span>
         </button>
       </div>
