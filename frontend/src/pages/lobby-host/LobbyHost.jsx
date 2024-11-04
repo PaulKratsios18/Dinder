@@ -1,27 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './LobbyHost.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function GroupLobbyHost() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [roomCode, setRoomCode] = useState(location.state?.roomCode || '');
+  const [roomCode, setRoomCode] = useState('');
+  const [participants, setParticipants] = useState([]);
+  const wsRef = useRef(null);
 
-  // Only generate room code if one doesn't exist
   useEffect(() => {
-    if (!roomCode) {
-      const generateRoomCode = () => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let code = '';
-        for (let i = 0; i < 4; i++) {
-          code += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return code;
-      };
+    // Initialize WebSocket connection
+    wsRef.current = new WebSocket(process.env.REACT_APP_WS_URL || 'ws://localhost:5000');
+
+    wsRef.current.onopen = () => {
+      console.log('WebSocket Connected');
+      // Create a new session when component mounts
+      wsRef.current.send(JSON.stringify({
+        type: 'createSession',
+        hostName: 'Host' // You might want to get this from a form or context
+      }));
+    };
+
+    wsRef.current.onmessage = (event) => {
+      const message = JSON.parse(event.data);
       
-      setRoomCode(generateRoomCode());
-    }
-  }, [roomCode]);
+      switch (message.type) {
+        case 'sessionCreated':
+          setRoomCode(message.code);
+          break;
+        case 'participantJoined':
+          setParticipants(message.participants);
+          break;
+        case 'error':
+          console.error('WebSocket error:', message.message);
+          // Handle error (maybe show a toast notification)
+          break;
+      }
+    };
+
+    wsRef.current.onclose = () => {
+      console.log('WebSocket Disconnected');
+      // Implement reconnection logic if needed
+    };
+
+    // Cleanup on component unmount
+    return () => {
+      if (wsRef.current) {
+        wsRef.current.close();
+      }
+    };
+  }, []);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
@@ -66,6 +95,13 @@ function GroupLobbyHost() {
 
         <div className="members-panel">
           <h4>Members:</h4>
+          <ul>
+            {participants.map((participant, index) => (
+              <li key={index}>
+                {participant.name} {participant.isHost ? '(Host)' : ''}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

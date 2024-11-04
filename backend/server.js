@@ -2,15 +2,22 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const http = require('http');
+const WebSocket = require('ws');
 const User = require('./models/User');
+const Session = require('./models/Session');
 const connectDB = require('./config/db');
 
 dotenv.config();
 const app = express();
+const server = http.createServer(app);
+
+// WebSocket Server
+const wss = new WebSocket.Server({ server });
 
 // Middleware
 app.use(cors({
-  origin: '*',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 
@@ -19,8 +26,84 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
-// Routes
-app.post('/api/preferences', async (req, res) => {
+// WebSocket connection handling
+wss.on('connection', (ws) => {
+  console.log('New client connected');
+  
+  ws.on('message', async (data) => {
+    try {
+      const message = JSON.parse(data);
+      
+      switch (message.type) {
+        case 'createSession':
+          const sessionCode = generateSessionCode();
+          const session = new Session({
+            code: sessionCode,
+            participants: [{
+              name: message.hostName,
+              isHost: true
+            }],
+            status: 'waiting'
+          });
+          
+          await session.save();
+          ws.sessionCode = sessionCode;
+          
+          ws.send(JSON.stringify({
+            type: 'sessionCreated',
+            code: sessionCode
+          }));
+          break;
+          
+        case 'joinSession':
+          const existingSession = await Session.findOne({ 
+            code: message.code,
+            status: 'waiting'
+          });
+          
+          if (existingSession) {
+            existingSession.participants.push({
+              name: message.name,
+              isHost: false
+            });
+            await existingSession.save();
+            
+            ws.sessionCode = message.code;
+            
+            // Broadcast to all clients in this session
+            wss.clients.forEach((client) => {
+              if (client.sessionCode === message.code) {
+                client.send(JSON.stringify({
+                  type: 'participantJoined',
+                  participants: existingSession.participants
+                }));
+              }
+            });
+          } else {
+            ws.send(JSON.stringify({
+              type: 'error',
+              message: 'Session not found'
+            }));
+          }
+          break;
+      }
+    } catch (error) {
+      console.error('WebSocket error:', error);
+      ws.send(JSON.stringify({
+        type: 'error',
+        message: 'Internal server error'
+      }));
+    }
+  });
+
+  ws.on('close', () => {
+    console.log('Client disconnected');
+    // Handle participant removal if needed
+  });
+});
+
+// Existing REST routes
+app.post('/api/preferences', cors(), async (req, res) => {
   console.log('Received request body:', req.body);
 
   try {
@@ -71,7 +154,6 @@ app.post('/api/preferences', async (req, res) => {
   }
 });
 
-// Get all users in a room
 app.get('/api/room/:roomCode/users', async (req, res) => {
   try {
     const { roomCode } = req.params;
@@ -83,7 +165,6 @@ app.get('/api/room/:roomCode/users', async (req, res) => {
   }
 });
 
-// Add a test route to verify database access
 app.get('/api/test', async (req, res) => {
   try {
     const users = await User.find({});
@@ -98,7 +179,16 @@ app.get('/api/test', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
+function generateSessionCode() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let code = '';
+  for (let i = 0; i < 4; i++) {
+    code += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return code;
+}
+
+const port = process.env.PORT || 5001;
+server.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

@@ -1,16 +1,37 @@
-
 // models/Session.js
 const mongoose = require('mongoose');
 
 const sessionSchema = new mongoose.Schema({
-  session_id: { type: String, unique: true },
-  session_code: String,
-  creator_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  code: { 
+    type: String, 
+    unique: true, 
+    required: true 
+  },
+  hostId: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User' 
+  },
+  participants: [{
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    name: String,
+    isHost: { type: Boolean, default: false },
+    preferences: {
+      cuisine: [String],
+      price: Number,
+      distance: Number,
+      rating: Number
+    },
+    joinedAt: { type: Date, default: Date.now }
+  }],
+  status: { 
+    type: String, 
+    enum: ['waiting', 'active', 'completed', 'canceled'],
+    default: 'waiting'
+  },
   restaurants_displayed: [String],
-  status: { type: String, enum: ['active', 'completed', 'canceled'] },
   match: String,
-  timestamp: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  lastActivity: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Session', sessionSchema);

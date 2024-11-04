@@ -9,3 +9,53 @@
   font-size: 1.5rem;
   color: #fff;
 } 
+
+.connection-status {
+  padding: 8px 16px;
+  margin: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.connection-status.connected {
+  background-color: #e6f4ea;
+  color: #1e7e34;
+}
+
+.connection-status.disconnected {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.error-message {
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.participants-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.participants-list li {
+  padding: 8px 12px;
+  margin: 4px 0;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.participants-list li.host {
+  background-color: #e3f2fd;
+  font-weight: 500;
+}
+
+.lobby-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
