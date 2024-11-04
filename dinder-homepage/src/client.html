@@ -24,6 +24,11 @@
   <h3>Participants</h3>
   <ul id="participants"></ul>
 
+  <div id="activeSessions">
+    <h3>Active Sessions</h3>
+    <ul id="sessionsList"></ul>
+  </div>
+
   <script>
     const socket = new WebSocket("ws://localhost:8080");
 
@@ -37,6 +42,7 @@
       if (message.type === 'sessionCreated') {
         document.getElementById('sessionCode').textContent = `Session Code: ${message.code}`;
         document.getElementById('sessionInfo').style.display = 'block';
+        document.getElementById('namePrompt').style.display = 'block';
 
       } else if (message.type === 'sessionFound') {
         document.getElementById('namePrompt').style.display = 'block';
@@ -45,12 +51,28 @@
         alert("Session code is invalid. Please try again.");
 
       } else if (message.type === 'participantListUpdate') {
-        const participantsList = document.getElementById('participants');
-        participantsList.innerHTML = '';
-        message.participants.forEach((name) => {
+        const currentSessionCode = document.getElementById('sessionCode').textContent.split(': ')[1];
+        if (currentSessionCode === message.sessionCode) {
+          const participantsList = document.getElementById('participants');
+          participantsList.innerHTML = '';
+          message.participants.forEach((name) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = name;
+            participantsList.appendChild(listItem);
+          });
+        }
+      } else if (message.type === 'activeSessionsUpdate') {
+        const sessionsList = document.getElementById('sessionsList');
+        sessionsList.innerHTML = '';
+        message.sessions.forEach(session => {
           const listItem = document.createElement('li');
-          listItem.textContent = name;
-          participantsList.appendChild(listItem);
+          const deactivateButton = document.createElement('button');
+          deactivateButton.textContent = 'Deactivate';
+          deactivateButton.onclick = () => deactivateSession(session.code);
+          
+          listItem.textContent = `Session: ${session.code} (${session.participantCount || 0} participants) `;
+          listItem.appendChild(deactivateButton);
+          sessionsList.appendChild(listItem);
         });
       }
     };
@@ -69,6 +91,10 @@
       const name = document.getElementById('participantNameInput').value;
       socket.send(JSON.stringify({ type: 'addParticipant', code: sessionCode, name }));
       document.getElementById('namePrompt').style.display = 'none';
+    }
+
+    function deactivateSession(code) {
+      socket.send(JSON.stringify({ type: 'deactivateSession', code: code }));
     }
   </script>
 </body>
