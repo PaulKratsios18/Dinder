@@ -24,7 +24,12 @@ app.use(cors({
 app.use(express.json());
 
 // Connect to MongoDB
-connectDB();
+connectDB().then(() => {
+  console.log('MongoDB connected successfully');
+}).catch((error) => {
+  console.error('MongoDB connection error:', error);
+  process.exit(1); // Exit the process if MongoDB connection fails
+});
 
 // WebSocket connection handling
 wss.on('connection', (ws) => {
@@ -103,7 +108,7 @@ wss.on('connection', (ws) => {
 });
 
 // Existing REST routes
-app.post('/api/preferences', cors(), async (req, res) => {
+app.post('/api/preferences', async (req, res) => {
   console.log('Received request body:', req.body);
 
   try {
@@ -143,7 +148,10 @@ app.post('/api/preferences', cors(), async (req, res) => {
       });
     } catch (saveError) {
       console.error('Error during save operation:', saveError);
-      throw saveError;
+      res.status(500).json({ 
+        error: 'Failed to save user',
+        details: saveError.message
+      });
     }
   } catch (error) {
     console.error('Error saving preferences:', error);
@@ -188,7 +196,7 @@ function generateSessionCode() {
   return code;
 }
 
-const port = process.env.PORT || 5001;
-server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+const PORT = process.env.PORT || 5001;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

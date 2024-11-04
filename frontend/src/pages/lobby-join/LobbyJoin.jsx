@@ -64,7 +64,7 @@ function LobbyJoin() {
           console.log('Attempting to reconnect...');
           // You might want to show a reconnecting message in the UI
         }
-      }, 5000);
+      }, 5001);
     };
 
     // Cleanup on component unmount
