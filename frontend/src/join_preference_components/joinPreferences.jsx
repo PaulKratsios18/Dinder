@@ -12,12 +12,14 @@ function JoinPreferences() {
   const [priceNoPreference, setPriceNoPreference] = useState(false);
   const [ratingNoPreference, setRatingNoPreference] = useState(false);
   const [distanceNoPreference, setDistanceNoPreference] = useState(false);
+  const [locationPreference, setLocationPreference] = useState('');
 
   const [cuisinePreferences, setCuisinePreferences] = useState([]);
   const [pricePreferences, setPricePreferences] = useState([]);
   const [ratingPreferences, setRatingPreferences] = useState([]);
   const [distancePreferences, setDistancePreferences] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  
 
   const validatePreferences = () => {
     const errors = [];
@@ -44,16 +46,50 @@ function JoinPreferences() {
     return errors;
   };
 
-  const handleSavePreferences = () => {
+  const handleSavePreferences = async () => {
     const errors = validatePreferences();
     if (errors.length > 0) {
       setErrorMessage(`Please fill out the following: ${errors.join(', ')}`);
       return;
     }
     
-    setErrorMessage('');
-    // Add your save logic here
-    console.log('Preferences saved!');
+    try {
+      const response = await fetch('http://localhost:5000/api/preferences', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          roomCode,
+          name,
+          preferences: {
+            cuisine: cuisineNoPreference ? [] : cuisinePreferences,
+            cuisineNoPreference,
+            price: priceNoPreference ? [] : pricePreferences,
+            priceNoPreference,
+            rating: ratingNoPreference ? [] : ratingPreferences,
+            ratingNoPreference,
+            distance: distanceNoPreference ? null : distancePreferences,
+            distanceNoPreference,
+            location: locationPreference
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save preferences');
+      }
+
+      console.log('Preferences saved!');
+      // Data saved successfully, ready for navigation
+      // TODO: Add navigation here
+      // Example with react-router:
+      // navigate('/waiting-room');
+      
+    } catch (error) {
+      console.error('Error saving preferences:', error);
+      setErrorMessage('Failed to save preferences. Please try again.');
+    }
   };
 
   const renderTabContent = () => {

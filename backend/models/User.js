@@ -1,8 +1,13 @@
-
 // models/User.js
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+  user_id: {
+    type: String,
+    required: true,
+    unique: true,
+    default: () => new mongoose.Types.ObjectId().toString()
+  },
   roomCode: {
     type: String,
     required: true,
