@@ -9,8 +9,12 @@ dotenv.config();
 const app = express();
 
 // Middleware
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
+
 app.use(express.json());
-app.use(cors());
 
 // Connect to MongoDB
 connectDB();
@@ -25,6 +29,12 @@ app.post('/api/preferences', async (req, res) => {
       name,
       preferences
     } = req.body;
+
+    if (!roomCode || !name) {
+      return res.status(400).json({ 
+        error: 'Room code and name are required'
+      });
+    }
 
     console.log('Creating user with:', { roomCode, name, preferences });
 

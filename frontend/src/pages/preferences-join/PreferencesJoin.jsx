@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './PreferencesJoin.css';
+import { useNavigate } from 'react-router-dom';
 import fullStar from '../../assets/full-star.png';
 import halfStar from '../../assets/half-star.png';
 
 function JoinPreferences() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('cuisine');
   const [roomCode, setRoomCode] = useState('');
   const [name, setName] = useState('');
@@ -75,23 +77,21 @@ function JoinPreferences() {
             distance: distanceNoPreference ? null : distancePreferences,
             distanceNoPreference,
             location: locationPreference
-          }
+          },
+          isJoinPreferences: true
         })
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save preferences');
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      console.log('Preferences saved!');
-      // Data saved successfully, ready for navigation
-      // TODO: Add navigation here
-      // Example with react-router:
-      // navigate('/waiting-room');
+      const data = await response.json();
+      navigate('/lobby-join');
       
     } catch (error) {
       console.error('Error saving preferences:', error);
-      setErrorMessage('Failed to save preferences. Please try again.');
+      setErrorMessage(error.message || 'Failed to save preferences. Please try again.');
     }
   };
 
@@ -294,7 +294,11 @@ function JoinPreferences() {
       </div>
       <div className="save-section">
         {errorMessage && <div className="error-message">{errorMessage}</div>}
-        <button className="save-button" onClick={handleSavePreferences}>
+        <button 
+          className="save-button" 
+          onClick={handleSavePreferences}
+          type="button"
+        >
           Save Preferences
         </button>
       </div>

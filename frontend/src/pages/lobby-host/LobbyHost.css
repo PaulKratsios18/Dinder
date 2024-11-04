@@ -36,50 +36,56 @@
   left: 35%;
   transform: translateX(-360px) translateY(-40px) scale(1.5);
   font-family: 'Fredoka One', cursive;
+  margin-top: 60px;
+  flex: 0 1 auto;
+  padding: 0 20px;
 }
 
 .icon {
   font-size: 1.6rem;
 }
 
-.room-code-input {
-  background-color: white;
-  padding: 10px;
-  font-size: 1.5rem;
-  border-radius: 8px;
-  margin: 0;
-  width: 300px;
-  text-align: left;
-  border: 1px solid #ccc;
-  outline: none;
-
-}
-
-.room-code-input::placeholder {
-  color: #aaa;
-  font-size: 1.2rem;
-  text-align: center;
+.room-code-display {
   font-family: 'Fredoka One', cursive;
+  font-size: 3rem;
+  color: #001f3f;
+  background-color: white;
+  padding: 8px 30px;
+  border-radius: 22px;
+  margin: 5px 0;
+  text-align: center;
+  letter-spacing: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .lobby-button {
-  width: 300px;
-  padding: 15px 30px;
-  border-radius: 8px;
-  border: 2px solid black;
-  font-size: 1.1rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   background-color: transparent;
-  color: black;
-  transition: all 0.2s;
+  border: 2px solid #000000;
+  border-radius: 22px;
+  padding: 8px 20px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.lobby-button h2 {
+  color: #000000;
+  margin: 0;
+}
+
+.lobby-button .icon {
+  color: #000000;
 }
 
 .lobby-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .members-panel {
@@ -158,3 +164,10 @@ font-weight: 200;
 color: #fff; 
 }
 
+.left-panel h2 {
+  margin: 5px 0;
+}
+
+.bottom-buttons h1 {
+  text-align: center;
+}

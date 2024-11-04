@@ -6,16 +6,20 @@ import Footer from './components/Footer';
 import About from './pages/homepage/About';
 import Contact from './pages/homepage/Contact';
 import Services from './pages/homepage/Services';
-import Starter from './pages/session-selection/SessionSelection';
-import JoinPreferences from './pages/preferences-join/PreferencesJoin'
-import GroupLobbyHost from './pages/lobby-host/LobbyHost'
+import SessionSelection from './pages/session-selection/SessionSelection';
+import JoinPreferences from './pages/preferences-join/PreferencesJoin';
+import LobbyHost from './pages/lobby-host/LobbyHost';
+import LobbyJoin from './pages/lobby-join/LobbyJoin';
+import HostPreferences from './pages/preferences-host/PreferencesHost';
 import './App.css';
 
 function AppLayout() {
   const location = useLocation();
   const isSessionSelectionPage = location.pathname === '/session-selection';
-  const isPreferencesJoinPage = location.pathname === '/preferences-join';
+  const isJoinPreferencePage = location.pathname === '/preferences-join';
   const isLobbyHostPage = location.pathname === '/lobby-host';
+  const isHostPreferencePage = location.pathname === '/preferences-host';
+  const isLobbyJoinPage = location.pathname === '/lobby-join';
 
   return (
     <div className="App">
@@ -24,11 +28,15 @@ function AppLayout() {
         
         <div className="content-wrap">
           {isSessionSelectionPage ? (
-            <Starter />
-          ) : isPreferencesJoinPage ? (
+            <SessionSelection />
+          ) : isJoinPreferencePage ? (
             <JoinPreferences />
           ) : isLobbyHostPage ? (
-            <GroupLobbyHost />
+            <LobbyHost />
+          ) : isHostPreferencePage ? (
+            <HostPreferences />
+          ) : isLobbyJoinPage ? (
+            <LobbyJoin />
           ) : (
             <>
               <MainSection />
@@ -40,7 +48,7 @@ function AppLayout() {
         </div>
 
         {/* Footer is shown only on the homepage */}
-        {!isSessionSelectionPage && !isPreferencesJoinPage && !isLobbyHostPage && <Footer />}
+        {!isSessionSelectionPage && !isJoinPreferencePage && !isLobbyHostPage && !isHostPreferencePage && !isLobbyJoinPage && <Footer />}
       </div>
     </div>
   );
@@ -54,7 +62,9 @@ function App() {
         <Route path="/" element={<AppLayout />} />
         <Route path="/session-selection" element={<AppLayout />} />
         <Route path="/preferences-join" element={<AppLayout />} />
+        <Route path="/preferences-host" element={<AppLayout />} />
         <Route path="/lobby-host" element={<AppLayout />} />
+        <Route path="/lobby-join" element={<AppLayout />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
