@@ -1,12 +1,13 @@
 import React from 'react';
 import './MainSection.css';
 import { useNavigate } from 'react-router-dom';
+import dinderLogo from '../../assets/DinderLogoV1.png';
 
 function MainSection() {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/get-started');
+    navigate('/session-selection');
   };
   
   return (
@@ -28,7 +29,7 @@ function MainSection() {
       </div>
       <div className="icon-container">
         <div className="icon">
-          <img src="/DinderLogoV1.png" alt="Swipe icon" />
+          <img src={dinderLogo} alt="Dinder Logo" />
         </div>
       </div>
     </section>

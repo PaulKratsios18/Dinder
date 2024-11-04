@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import Header from './home_components/Header';
-import MainSection from './home_components/MainSection';
-import Footer from './home_components/Footer';
-import About from './home_components/About';
-import Contact from './home_components/Contact';
-import Services from './home_components/Services';
-import Starter from './starting_menu_components/startMenu';
-import JoinPreferences from './join_preference_components/joinPreferences'
-import GroupLobbyHost from './group_lobby_host_components/groupLobbyHost'
+import Header from './components/Header';
+import MainSection from './pages/homepage/MainSection';
+import Footer from './components/Footer';
+import About from './pages/homepage/About';
+import Contact from './pages/homepage/Contact';
+import Services from './pages/homepage/Services';
+import Starter from './pages/session-selection/SessionSelection';
+import JoinPreferences from './pages/preferences-join/PreferencesJoin'
+import GroupLobbyHost from './pages/lobby-host/LobbyHost'
 import './App.css';
 
 function AppLayout() {
   const location = useLocation();
-  const isGetStartedPage = location.pathname === '/get-started';
-  const isJoinPreferencePage = location.pathname === '/join-preferences';
-  const isGroupLobbyHostPage = location.pathname === '/groupLobby-host';
+  const isSessionSelectionPage = location.pathname === '/session-selection';
+  const isPreferencesJoinPage = location.pathname === '/preferences-join';
+  const isLobbyHostPage = location.pathname === '/lobby-host';
 
   return (
     <div className="App">
@@ -23,11 +23,11 @@ function AppLayout() {
         <Header /> {/* Header is always rendered */}
         
         <div className="content-wrap">
-          {isGetStartedPage ? (
+          {isSessionSelectionPage ? (
             <Starter />
-          ) : isJoinPreferencePage ? (
+          ) : isPreferencesJoinPage ? (
             <JoinPreferences />
-          ) : isGroupLobbyHostPage ? (
+          ) : isLobbyHostPage ? (
             <GroupLobbyHost />
           ) : (
             <>
@@ -40,7 +40,7 @@ function AppLayout() {
         </div>
 
         {/* Footer is shown only on the homepage */}
-        {!isGetStartedPage && !isJoinPreferencePage && !isGroupLobbyHostPage && <Footer />}
+        {!isSessionSelectionPage && !isPreferencesJoinPage && !isLobbyHostPage && <Footer />}
       </div>
     </div>
   );
@@ -52,9 +52,9 @@ function App() {
       <Routes>
         {/* Redirect any undefined route to the homepage */}
         <Route path="/" element={<AppLayout />} />
-        <Route path="/get-started" element={<AppLayout />} />
-        <Route path="/join-preferences" element={<AppLayout />} />
-        <Route path="/groupLobby-host" element={<AppLayout />} />
+        <Route path="/session-selection" element={<AppLayout />} />
+        <Route path="/preferences-join" element={<AppLayout />} />
+        <Route path="/lobby-host" element={<AppLayout />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

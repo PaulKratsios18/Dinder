@@ -1,17 +1,17 @@
 // src/starting_menu_components/startMenu.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './startMenu.css';
+import './SessionSelection.css';
 
 const Starter = () => {
   const navigate = useNavigate();
 
   const handleJoinSessionClick = () => {
-    navigate('/join-preferences');
+    navigate('/preferences-join');
   };
 
   const handleGroupLobbyHostClick = () => {
-    navigate('/groupLobby-host');
+    navigate('/lobby-host');
   };
 
   return (

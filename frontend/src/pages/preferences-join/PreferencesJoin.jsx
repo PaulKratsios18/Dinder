@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './joinPreferences.css';
+import './PreferencesJoin.css';
+import fullStar from '../../assets/full-star.png';
+import halfStar from '../../assets/half-star.png';
 
 function JoinPreferences() {
   const [activeTab, setActiveTab] = useState('cuisine');
@@ -12,6 +14,7 @@ function JoinPreferences() {
   const [priceNoPreference, setPriceNoPreference] = useState(false);
   const [ratingNoPreference, setRatingNoPreference] = useState(false);
   const [distanceNoPreference, setDistanceNoPreference] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [locationPreference, setLocationPreference] = useState('');
 
   const [cuisinePreferences, setCuisinePreferences] = useState([]);
@@ -197,14 +200,14 @@ function JoinPreferences() {
                       {[...Array(fullStars)].map((_, index) => (
                         <img 
                           key={`full-${index}`}
-                          src="/full-star.png"
+                          src={fullStar}
                           alt="full star"
                           className="star-image"
                         />
                       ))}
                       {hasHalfStar && (
                         <img 
-                          src="/half-star.png"
+                          src={halfStar}
                           alt="half star"
                           className="star-image"
                         />

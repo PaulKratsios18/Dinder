@@ -1,5 +1,5 @@
 import React from 'react';
-import './groupLobbyHost.css';
+import './LobbyHost.css';
 
 function GroupLobbyHost() {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
+import dinderLogo from '../assets/DinderLogoV1.png';
 
 function Header() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Header() {
     <header>
       <div className="logo" id="header">
         <img
-          src="/DinderLogoV1.png"
+          src={dinderLogo}
           alt="Dinder Logo"
           className="header-icon"
           onClick={handleIconClick}
