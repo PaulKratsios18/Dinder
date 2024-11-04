@@ -1,0 +1,14 @@
+{
+  "location": "42.7284,-73.6918",
+  "distance": 25000,
+  "price": [
+    1,
+    5
+  ],
+  "rating": 3,
+  "cuisines": [
+    "Italian",
+    "Mexican",
+    "American"
+  ]
+}

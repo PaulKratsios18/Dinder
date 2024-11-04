@@ -107,7 +107,10 @@ async function main() {
   const preferences = JSON.parse(fs.readFileSync('exampleInputGoogleAPI.json', 'utf8'));
   const location = '42.7284,-73.6918';
 
-  await rankingAlgorithm(restaurants, preferences, location);
+  const rankedRestaurants = await rankingAlgorithm(restaurants, preferences, location);
+  
+  // Save the ranked results
+  fs.writeFileSync('ranked_restaurants.json', JSON.stringify(rankedRestaurants, null, 2));
 }
 
 // Run the main function

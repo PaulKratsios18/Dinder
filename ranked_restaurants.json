@@ -1,0 +1,1022 @@
+[
+  {
+    "restaurant": {
+      "Name": "De Fazio's",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMst_ezIY6wZxn4hGd6HAH_NAHqc4ANm2M8dOe9otncHxh0u7wCrUGiAMuiS7kh9fQtQ1CMVBlobGFvItafV95pi7k_e11f1ApPKe-ja47PlS7FZoXlZt4Kz_VMDAasCrFBA94JaO39ekWFRf5w8PtRbHAIpmROXL-MBCy6Pm4wOkXM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6tUoydht7eG1Z5DdbOB8ko-M14lfefHMt3wzDsDlmxmT_BTVR7meL64wa8OvFXRPLLYmh_nZLNhKk3Tu4vcI2rxDaaOmNlEAWNjb2Ofk80T-dtSRFfvrz0YBt6lkRP1ZksGqsvK4q_I4B1IxSd-65G7FeUEAS8Z5n7WEDf3Cg0HKW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO6VrJYvq96tGgtunCdCh31DvSW0xYLIS0-pQ9G675f4MLA2Muyn2Y6aeepBbOV7HWtnc_geQeVFAwos1u90zc96sedvMLBFo0iRX_Q2GyJFCUvvuy3Ow6_DQFpBFD1Yo6Ecz1YaDMPVQvubw8TlDjCrW4RVPhdAxNnFs0MtHc6S5d3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9Inm_gGx28Uz1Ed-6FwrNaYa_qIw-K6yxn1LLcHWb6H6lav_OC0YguCpo_eJ-D_RWvzJP6l-f7IqkI_pKVE8UvasZPmF1q4g6licdIy_RbvoHZUai9sNsn4RvFqrMROocmhKA3WKNMqqh08rjSUy0bKmobsuG1ZHLQ8-4kROSH4oN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMwCcBnUY4xPL-oDofhlWpBQ9j_cE68r-lQ6ZbDL27wCpiK6x2WlqUE02xloa16IUqeQEZb5z_tLRSC1v-Asyre-G9XUD2ZVjZy0qRwPE-HdSSGQvzhDm-scaaF-jf3UyqFuaYxTa2VSnCfTHXPlBsKibX8FbXYCiVWDbbKTtDn6GiM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "266 4th St, Troy, NY 12180, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 20
+  },
+  {
+    "restaurant": {
+      "Name": "Sabroso BIRRIA TACOS",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOvpWbiXW3Bsck4fIVZMQ_lhX_b68mpsWowonaKcPb8y1ejieVS3PK95wK2bvze1DURvgz57QKdT38MDzHzL_VvsTA3ALq40-p-ufw3hRqaGM1QEZte0o0cEO7hf6Atqqi_jYc47riZrqWdOcaGidvYlT9OJavEyZMc-0PZcb-YDGFa&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMPkKAjIMFrDUL-2BEi7DQoYtFSS1RvuEoEWE470jW7mWHv5C-X7t207D8QWPNPvEwYFp_DjTxfhjiUdmSdKQOHVMg-EMHm4N3XD-44AbxwGbSHzApgQI51p6aU_Pi-5WMJtJlsl4p-PNyei11KJtOe1ki4h0pY_wqJcCcM4wgz9Q-6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2uBr73CEuRJMpAbpNIj4xnGFy-eEUa-Lptftl_3lUkyI2Trp3ya1i5-M7ZaKc-HSgftQ4bl0kotySlKuuUniJGTMXOqmqQdBAe9OAXSlwlUZygnUCDhFNEE6nG-ELY0ir4f_9I-oxap1bKfa8oiamwUhCfQXPqGoWIgbekLMtS_uB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DProh5Zgq0X73miHPJ682S5TAfP6mOja-VpFWF_JV6DizU7MooSTwEh1P9Fs0qhrZdkeQNv6MAEwWFZUlEhIqjBcHYl_nNWF7SDDMt69UrZ6uTHIeVX4PPuU6eIhIxfbIAUaeuYr-WmFTqucPduotGayOvEYneKqP8YI7TxXGrqmheb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNyasWtx96wEA0BeK5eIiuSJ4L80MzykVdQhCu4JC0LeJgOvb-cRcczgpWY9YTUdEq39LMj1LHFYWnC62FEpZIRQBCyOKgFlh_Omjj8r7qW7Yw-dRP4dszCenuXBmNdMNCs7A-_EHsHA0bHu_DbQIBALfMz6mw9cknGjuvOjulZs7IH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "88 3rd St, Troy, NY 12180, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 20
+  },
+  {
+    "restaurant": {
+      "Name": "Smith's Public House",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOsikm0WWsIInCblj0LslZf1QxWzCe81-wqq6mubvMKFjGzFLmYnTKrDcFsmcXBoCDTBfssy5akN4Pn6NWWbOoQ90D_t1fwjVbmFeQtOcg77vgaMzranAcUqExXaty1jzv26IfHVaGroBHHjfDv1tQ9K3r-ExNmGdTmcOF_gHtdFyo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO-M53fRVjB1fnCDMAE2KP555iMXoL5zeu7gokh2OOI9tq8hdDgAR5iQ08_gloPd_8epes_ejRW-sJHrIHWXefmnniiZOTaLH7bSWhR0kFkPDJtt6lUDcSGTmh1UPRUPIXE5TKbI_NJ3NyZhN0LD0IeWtgECMyEsH7ELFHsdDG289zd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNu5dJxpbRPJbPkLgV6iGMUxnE9hzS5ove_tkzfSDjcBW-BdlE8qcg_YrB-EX5I-Hog_RrqxSAmRBOAqbrNTA-LytrhCunu2TgaYNj4gjTmVqp1byPIjflITv9bde2OuJbHZSX-IQs3MRaJVPvZr61MBYu62KLXbMB_zhSv5NEkFOTv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJb_wn9KVngOX93dwIv7clPqvS0hRm-DcJPbtDeHzyGZA6Ln_HWW-tjsGFXXMsq4mGkrlLpexbeXZL_xAtNUKtjKLrR5r5q_0NeaUPHg4gU_cpyzLxu6ewxp9EulyI6nCvfTRuAaYjpPgL61faI02cFmQ50G4Z-iU75wqE6xa9vGo0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOGwFijr9wYRFMqILgfRJBoYkQzk-WPR4LKpkLxwJ3o9_lL6iHSqm4eRjPRlLkOUlaLYbLrjPiIxTriFCc4gdm1cd4bNPB_NELFPqhBPy8b6nhvGuQaqx8m66saLvpd6rotyTZgD-3QmcRnYe0JWL4q4R1DOxJjy_5RFNbRYbTNNOjz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "171 Remsen St, Cohoes, NY 12047, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 20
+  },
+  {
+    "restaurant": {
+      "Name": "Ralph's Tavern",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPNGYDg3l7_eOo-bBwJDIdM5Vva4P4rMvTjViSZoQ3EGNBnj5r6S6BOFnDeUTFcHtYQlWc-klf56qBaq40MtFqIF7Uhg-J6-XuzckgInDKVhWnfmuDJNrmOq0K6v4sD3IIL8JLQ5divZwIlEBiB0SJJG7g24OQFzRYxlqprd-MB7KQ6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOUrFkXe0jr2wfYT-de024Z9jmTJzPs17zlr97EbH51taWMNsXXjeKAw7q6zRxLjNELEvCq5_-6JY6Mnxl9bR7ImHEtEJK0FstDnwcO9vJ5JZRegLd7GHpwde2ToOb6nIuxrqcxklytHEdVXX7k9AjydbF2mrCUUZ58mLQSy44Nsb1C&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMK43gu20N3NwfrpCZIlX_1WyDWTzjaLPWV58gCWKtxGnQt5t2xBfb-lesEENIfwIzyZSM0YS-PR064cO7wG0JXzCAXLZH-u5wGfhPk-eO6r3tNTDX7k4ZtK0yQqXA3-OJUjG7AGQmePrYrOCmfN0umWRlcEpaOYnWDCv_hGkaNVi-6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOB0Z8EBiaZip70UvAwBhochPY6cbJPrMidMkauF1XZokfHbzru3anGoM2wr6PMVTtQAP1Z3EBnN4JW98Ch0REFAzvAxAjtDxc7TAC6QdNlvhqbLmAwZkC_qMHwF_EUS6XKOVNBgIeEr56QftkjpvifduyXEpXkg7pap17rWYTy42mJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMbDbo32zIlCQuCoDMDFiIWBzA592LhKRj_rW4_SVhFmt4ZBl3LhBfAAIwWqfQlBlxCWJWQE4qNEdFQI_0ttLX41YHPbVmakv2MzouhrkzjmlV3wDTwE_LsZqSwze15GcVhS2S7VC70xfG74EZMY6k-9DEK6kbIcYdanswHqDv8BfcQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1328 Central Ave, Albany, NY 12205, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Lanie's Cafe",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOI3_cvEUdTMlGPPcsMrq8Ei4csAFTuETZvr4LKwPAQAQ0W5URqUifrQe7kkZm214M8MhM0xLUYVKQ3yoey3ia_T_kfWjscODPJA4y01pNpNIczdcp4Hi1R-9TC6DG_jLwPoi_dSeOC_nFH_tlN32QBesWFFaQYj_hmzw0HHDgBuII6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMgA1nWKMZonH87JXNBl2uhlwDgwmh6eQYNnXEvWlRls23rMCIaDF60yVfrcqkQJedTK07EIZc9HlC9liX6uE3FtnNK8wHVIaQelAcwOnFglE4C2DEFmjVUGfdCmcRrb0XSj-yIbu50VQUeQn9DZmBm9CzvZKkPRdUu6bTTK7rdVK-_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNEIDznxLomzZcgYvT9u6QgtO60DfcZEl59vjCS9JOTOO_vRxiirNn0VPFa1OxN3iAylrds2nnA02BBVra8OHJ9GKQeB4I9bi7LZcspxeR_mg4qGk_614zVd458d9rA9TxEBucYKY9G8lhgQ0hBYCVk50O-3XHestHwNwbtmNpDt2Rv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmI5ENQ6xLXlI7EVm-hgz7mx1-dGuD_lZUi6Gn1G3TyViKPn69eIo99fg4sXSNnlIDgMhFy3w8VpgHatDIBICJREi-hoqk6gQCg-PcHecb3KcO7zBWzbIIkFdvmNwYMQvGTKCBQa76gw_LGoDQb5R0mVGclukSUGq5_17vGuAghHsK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNrD_5GGEIrIo8glW_-y6wNwUGKxub9iyFDep9yhJ-b8SSipoOcAs5lE3l_Yha288jlSXnVz3EOHHFlkrZ7emiTJ5PT9rx8fEJkmVWaAqkvJJcBrFSzd1gzY1qsm2_zb9G2X37GLYSqgK4yp6awinGmF5MWYhplNeZp-_jKawedzsQt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "471 Albany Shaker Rd, Loudonville, NY 12211, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "meal_takeaway, bar, point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Risotto",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOjCPqEFqbqnkvBSCx_xsCJa8cwP_HYtKKUOvmaP0-jCArEMa0uZJDGl84R32v5-RjJGmheUp8yE-WHfk7kmsh51EVbHRTkoA124k8JbBmELiAgKDNnEHNivlS8hD7zy4ihme3i1F8jEzbVr76ntk6G3z5L0emxli6ivJVqxrdPx1yz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOKWRcN6Xklk6SvH5E8cAMg9fPl99NLoMulAxDbeDPB0ZEVWboPuXqq9_vHjiW4j3qDEUVQ32o2YBP3OFdsTs3PxkpMAU6q9AAZxa1t3t57Ah650Wr40ZRTO8u83kQeI8_d0h2h5K-6Gk3onBDzkbaqMGLnM9SgnM6ClVHFuLbK2rBY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP_4ninRW2D-N1_n-l_ZK06pe-_kiqRv29Nuvd_PHs2E4QZ1PRjOvC0Gtl5c3WlUm1I64lHJck0F_KK5iNcOhP2aUJS1byrclC85rOGYPxdmd7REcfUbx5ZKqvoIi13BctVBSnS_313Ci7QdFHzumRhqzqANx_nzb0ZZKJOJtHpgVrF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNKtdOo2jd_fo5nYxJiMaiuId97_L2XcwNEcWNlwiF1CnZlhfVt2WExPB_9SNZVAl28rUhfmYibtXg4RXtDsL0ycQ_5qUmazSQYSAjxZ8qpmTEGiz_f2mFUDyilXDKJ6QAmOYm3j435DpAF1F2xJZDA4SLfrvGH5KT0xvXfJjiZBFaz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYwcx_pH9kM2w0lPLleqE6GNrn-bX2m4_S4P42NMgsCm_AHvmmSkPuOnk4mrEQztLfKquSBUnxbgvkJ3OUMICplFXjp8W3aqGAjKwGCneB9rx-LSWgnZJgvOLEeoD8ew7c0sB4f1MSx-z6isYowX_0CT5EDjN8VeyS1ChfjvLC06yM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "320 Northern Blvd, Albany, NY 12204, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "IL FARO",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPVYCks6LCN9j--KBqlri2u5o5fbInwTd7KxmJIOLWKq64rLmGXMV7sRWaVgj0dr80K2ptxgv2XBWSgXxutCuIVM9m7rJ1Mrn9vItbDtq0FvcXOLIwXHEvKAbECYM9dzfToVjJL1zRl8y4plCj0qZWTpV_5uVkFxo4vTaJGItQlHXxn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMZhOipxitWNuy5VeIV_zGt3lwaroUdIyzaQIZqdbFp_Y7Ea6MzBV3eJy7lCUeNeFxKJGI7679iESEmiSQBQ85UbjCAQunjyDe9bO09ES0Pn3S_T650OY3lCGD1XjmubnwNuOXW0wVtay3Koq8Cw9K4Bo0jHUUjeemtgffZ1hREBYDY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMnz-pt43qNIyOMdGJqls3_3mCAr1JJElnoTDx_4CaMGJs17OD4sY2nlHzlHMKili2fJHtcIGzsLexrHIM8Uf91YjV99kgOhhYOoaygdOjtjaTyBGBnjoo2lNFwyhEmsY4Fe1D1S5lRyn3nKigxsF1HZKZcnj7jOLGJjBJ481CMCOEJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMZe9yNsEd-YWBOzimnZ4gBlM7-VP5EmgZIdkLkWkAIuIbxhSr0L3khh5iW7Ti3qtE3UMkVbstDlmHwNpVQvkCPuiDdbmWshGGnKqEucdsYMoWWyPzB2f8zxQAtox-wXrrw9rMw12qE8jRLOSP54MjZsCEk8xLr4Bqn7EsvQJzFZOUg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOOdgrvO6zFcQneHLWz9nbUK66X7xT6FPYjp28tW0_HnEoeFrUOT2H4YstVoKA38sKK7N0ehtfZ6WSUr_F1sRP5NO6aXA7TJN5Urhdtl3yjykk-rmoOLMpr652RoIZPZfF4WfMny9pYLhVhNDqafh2lUeeRjB9ZLXqUSdZRp848zCBv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "698 N Pearl St, Menands, NY 12204, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "bar, point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Café Capriccio",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO61bQAR-Vf-1IacZoJ-2R9JDOZWja31SqVAgL5HwJfW9ZfgCEok6yS682cYUKoW9o4MqzexiIA5vn0DWdwC3AV5YJBCCJy_-iavsekAAsZxur-NjpULRgJKfvYYJfFIHOJ8mWHpTHwSMURkeYBcqNTTT4lMvoBswOu8ZI2aHVCVkZK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNYbyD77Jij26tJO29WTZ2rZdrladiJkOh-nTqLEGut0KXda1akKXxnRh8lMFiMi3HrrnCw3a3mkkWwyuj2YZoptgT422ey4_8Wc0fgraLUUZKDc1dXhUQLnNXeF4g-WcM5sC9_OzW-zeZ9NyXUxqTo3_PSTm36mIYuhGB1dNK_OHHx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYCgZjmTBs_yrqwN5zw-3fTmw3aALEIufCKelafTMOndmVTfU5vM9tFqWx472qZVIO-jMDqefUYMRVjMebr7NR-gH3Slt4UXgDrsHE4vC1weFv3MdmdKmTrJc-LDbQO16XsxvRacdF-mgpgvlyD2NFxvm8aWwmoL1ay287W7a_VvzR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMzyKFVEAXXg-MdEMZ5OohHsSHrqfQA0batodSFfEiaRTDu8u33ArrqE_EdtRIw6J2F3d3VufPtwFwwIamYgTkuCH5GrFDwFyfhwg54KiL2NWThO7aNKv6BJc5dZIWxbbzvlWZpiB2BCnTXgzEFiZTN12cmGrrIEZao5yftPsGAdSRg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgcQHUYDUZIwQGa6bqP2qwg2Wm9QrEB2LNxPd1NWpA5mahGAIw4RgrOTSw8BQfUg3PQcD9orpZO2xuiTWsJIrXfL8WDEulUqkDQaMQj4G2L3ow7TbdPANm47OVWOcFC5HYVlMjroAXezc_Fw2VXmbYU-b6bkq3f0B9zRKL7K3S6kDx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "49 Grand St, Albany, NY 12207, USA",
+      "Rating": 4.5,
+      "Price": "$$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Milano",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMh949dmXmbbLYPhb4xDuJxDKFnlQgDphplwlYsRtBTm3hn9zQmGfywEzBMzNT4VYVWrP5UMMK4prYomvmaJYkkTHW6RH0DnkGhX4iA2QlydIod3wfIdz-QVXXgHgqziz-crLJsxKfa8Ef2CEOm-U7SroaxPhruKP6eYrAKCYEEyAj_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO6HM4Vw_moltEHSVUHFcS94E7BghJa8VtwMpAfiPXk5wC005MdEdWdjFqRSRt1ekCWKeYaX-3FzVKBWCuTjv_2JlZco_FjlRbf-5lJ1j_jpl5OkK8t7fs-OGZ-sPXxtNDVrfMjrGh3Ny7qQO3701Em7BeTemnvgSZEMsXSBsGau6fD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtaLhZ67PN2xUyivqBfHFS4ExH6SnfC6xWICHI9hMHaAqyXJNwbGaO3M3u8wa3lLmmN7yDvxPpDJgm0l2VK6lvXA5X06eoMcD2GUmnCuw0n6xH_YLFNfTiN7YUfI_3bFtXHnPA_06UPfDMbuUyRtJSa7ci6Otd5mocSdYvXisFCaQH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMeuo36nqFyOolPdTWJ6RbjUAGZWzMmmm_Xip8AlUTZZk7H3wy2nb9IMwsxPijQot22i1Z9ZMNJAyXvS0XyhrqkCCQlsZzsATQLSARefA48igNFu-9bZOIZ1QFRGFWIfkCKkYjBSxpI5lqpF4ck_zAsb7DlTaiIFumLWbR5twmFRlGU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNOrOxOPlPbHgmRt6J3U8YDV6_W8XKOKIv6Wc4C0nzrXUTEgu8bJ8to4WC5CzAZyjh1ODqKg-BXdKjAY5q-Xvuk-ZFmrYTk6EHsX1ARb5914nisl7XLnsc7OfyRfftWJC85zQ_Gb9Xtn_cKs4gPGigoimG26YhrKtWhfgnIh5vTFP54&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "594 Loudon Rd, Latham, NY 12110, USA",
+      "Rating": 4.2,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Grappa '72",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPhzM4KIvf8ki-eNRKyQE21yGfSugyRVZnwkD-G5rOYKllMN-Iyo19pJEOXxYjOof2n8teulhyWuqmla5Rit0UBmILoU2l3lErfrhYjPoXDNNiZ9LdfaOYhzawLWLUS6RSTkWOJ96GaO-IdSaUtK0h__s6aizu6-8lBP-m-kIUGeREb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9lYCwVe3wZYJk3nRWn3MODnugN3bO5kwmf9XpcySOQGYmrzC3wKkygf7PKNig1smBMgUGBh2E8s8L52e1S7iCv6t2scQrYooh98m-ntZKC6KyjvW3veIq43PehXq5xRQQf-cD5klkyM2_K8GDnatU9N2Xuu7Ru8eO7I4vhSyk0n8I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DORlLf0VqDZRjOVYAkXuxDoj8tvcezvQdypBP3YqZTH6D6_RnXBUHcHEFjYyGSgFdTSpQXt8nKKCumxoL-wzK8rt1YEFVKO0JeeJvFYGe-juP85CksQNaRR4q54mz7sg_drhNZDAnNzpDldhk4gesYikeEloz95SXt_A__w9_738rpD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNj6mbLYvpupSyOf0y-09eJX9Z7J-ML-AISHMScBYnDX1cibXfz2gtwupu1j0TZQJAHaIcfgxIhcFtAkPdHe0uPySnQHsUONvmfl7Khg1blPyeUbIHCRcErILLrj-fPNSMpGYuKXRsuZzripkPSmeLVHk3A4O-zFIQcrhlpX1w0ITvz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPex-b1F98pIzmBp7eTgAO0b3Q9nrF3BeHuq0YqG0h1PCWtPzCJnJYDncQasvnJbesrRK-KSKr1e26Yi_6vRxBnxyN6WksLxooArfluLbyW3Zrd2lhEDvHyhuRbF8gFzLEgAGr8k6GyGSXOVcL883ciw3h7T0S_ppp0dlFOcSen-Wfw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "818 Central Ave, Albany, NY 12206, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Verdile's Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPJSJKTQPXGFfvKlaQ_D1CNRN8pcgnb_CfjgRkNMwm-yMLZvudRRNbOTUx8PyCwZ1cmtW-nDdz_J_hkGkTZqx9u8shJtLm8f6OThFEtretGpJDBvP29r9l_2_k44P1yj-0qi0AG0Pik8tOmqfHFcS7Ip_EkLLNvpOG7EOBPAaXGGz4T&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOwjXGYQSmAb2-St_oEygyZkFna3IPOIfefkQgayWV5eTXYhG7zmkG2onuvURcVptaXt8nuAJ3Xn0HILVAf9QpfODP316dVw62jN5twXl76cfP1xQYTQo_lnkphF7KMgW2vLReUL1SLL88w9beCVy2mKXlHcHBw_HCT8HG92umF8SpS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_m9YfcD0nKC4pKdutb2MrycSgP3t6-rZFKCkHTpB_aDV4OKCxs4sgegcYaJrBU1Vf0bRmaTTbnXBPZ1Fm8bSowi-Wf7sFAOwMxxcN-HSj3GH7NQDBRmh3a8tdGBjOjSX9erq_Iki5TUkH8cRzGogUL91cQhv3mpd5PurJRNln61hj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOR47zOmTyfXL6_Lulqy0vao6rDnL95xmU0c7xQXBtoOwYeFflr2EO0u1GdFRNBFygrq__9ZciYSIH7VfQ0wpwZdOXk83pLYjh0MCMhsmw8XWTY8e-1nbLg1RIb8eOm3lgvaR7Nwo7EZHEPloWSvGrAp0K51a3XINGvkLeetoczjVIs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOVoptPf9Ikct467c0f9CA96xESmLNyIagmMj-Ir1EV6gDieOpDk4i03wIKtYR2ctH7hxkmJvsa1LPiJlawhrSceGzGLB0TQ_WW2xhwn2YHpy2O7L43bxUc7IvDL5Oz7xBfWSL4qmgBvh0WMgWMOSjV758JxG9I4GcpHqr91zBZgFEz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "572 2nd Ave, Troy, NY 12182, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Al Punto Picante",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOvFY3ovcEEvtkVRdUWIKH2Xnyve1l7vTOOc8sHAaposRl94zVl1rwxDA-PtuJO2ljU6LipdihchXDYB2cPW_XGy1xKDh81IvhJLo6irHRtNI8D1H5HGofwEdoqYIfA0Mk-zZKN_rYDWJQqKRn7MYJQTxmo2iDniMkN1IPJ3bEBn8_u&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNUm8nkyvYPFgHhk_rSyJ0BU8xWEX-yssjJR8hXS8DTpWwqIJJTkiImm6jlNZrcBquy4aUJ_MwugGuRzXnBSm3ZT8uoT7VJNYsv82dT3vjWY2A7vps-idn1ejcaiTYbOhYQBs3hcG_1jXaCwmZB-2OcrovFYVzDmuCNJQPQMLD9anIB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMrsVFJA0Tj-oW0KK6AdNKjqywhEx3xTDJazAYCfMR_SwjnU-6wEr-rQoPMcepu7oPkMtFZaznsOmwj0k3dyxrALqVJMVhf7Cp8ca-hQkmm_drSjic00vKyC8X6GNTYz8Lol86FQ34j7pG7RFDFF430Qe7wr2HxFhMNMibsRVe87qrE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNC8vK8VRT20zZMToHhqQ7Pvdq5f17KMvJ1rW2GqO2BGUeQb41AzVKrvBUG79fbCjGYPcCJk5WDuepeP92-xZF8mTaIT5TKX4Mrw0D5PQT0JAOV_mpoYy2c35PQ84HgJQDjZGd0MHPL0YjIV7iXmTFgfKiBq6H8tCVha5427R19uRgk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMr1IpgEh6_AqnmJUf5Tz3lWFUYBLxUdVDbscac0s0ELPkSrPwRoZ_nstrJ49seDDMAociZz_rQUy1aStddELea3U1UwcinFgZ_2zma1p80Oqb52rYxCXurI-X2uyXcWF_yqbvTZ7IZkcxPmlN2cx1s-hXh3MfbDm0LK1bFAPZIMdzz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1204 Washington Ave, Rensselaer, NY 12144, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Cielito Lindo",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNlqL4RqRONvZ08YWEbqegduBlEFtZOmAdZ3IAr8idVB5mx1niZZMlBsjk5LDmh7QdvJcAEIWQZpFK4AQpA6FinJJv6E57zzrvUWDPbD28U65SYQRK334Y67qRhIjYvBWUkCJEYal2-VKslfGD9m8LsfTwsjBIth__uwLSg0GAd0des&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNLpN2iRrU6uSLs1PWrW--m2CtRz6GK3SPkLG3a9CyxVKQLBEEMA2wM81rcxLFGEDO-blnV3tilfBsO1AfCoelWkzdTnH_n4QA3M-NRN_gjBEmieR3rc31S1Kj8KDZjYQktk0rBDUw0osrV6KgmTdG3kvmFjfjanT2xE0aEQ7bYd-ox&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMqJH2lPUtgkKzQ4sw05KLjxWIUsw1EDznmzZ2ZZw2SW9A46CtxTjNYuB6CILrv0gSQmWdw2BYxqCHx_jgD5VBij1gcGzz54Z3z9iQh0go44dRZtOyk0yIldf2g1DtVivD2YOEzLWwgoUIjHEHhuoSIK21Q65nq2K_qC9Fg3ATBkQzO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNNFaGbkfmXlyBbv6Mnc3Oz3rTLcK_VI_ilb0p1Uwb7UhMKgmujGxhZ9pxtDRCwMVaBYal1iHlZBZk04_K3pqxPTRaJrIca63VVomIiTekn85fPboRb7QGkcSCZFajwtCmNcqIT20mMkcTHAONWqG7EJ-PIG2tOhtevOkaK7ROIscY7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOUmVH21y1duJUpq2EQgTYxQ_LOEYof8LUwNjrY0b9vgCxhlecg4sJGj9mk-63GwWoBQsot5TDdCZfGBdlnjNp-w3WH1XPhNdVLbEdEJRZ8MN4T2IOKS-qhVcIDKHwhEuOmH7QKqJ5E0x01F54UWimttbh5tGguKTrdZ016bGoCm9dI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "31 Central Ave, Albany, NY 12210, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "El Rey Mexitalia",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMRxxwOTPGp67PEYtKZSSANEv7vLT7GtHzdKnJ5Tp8Yydiu_S-2peO97BZaifauEmfPpRnI-ZH_8kdtkQ1IcLLVTOVat9FAPnhWaQv998tN3OWjMY21ch1lnLECs0rxnYaPAjf7uD0qxAZMCwZtaFCYjAsVFlRhK8TZudkb34m2uuQw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMl0VU2cJpB7mYIOI87U21ZqC2YO5yXiyAQaPK_LQioSgoUbIABTY2FWX9Kn3j6JSxjMud_5bAF59-9icU9QFQ-Yw9bk7aanJp8ad_wPCoY9mr_2w4bqjtgZzbWKRUhsE-foTqTH77sLUup1AmLyUTjOY8OTcoy9XP9LKLmKViIMeeG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNXst0ujCL2a4G9gnvE34ERGsIoxWibnWem7anb4yWItZiXjQo43zlhDfkhUd-R9TZWRDggOeYQmiz_srILOndeJxh1uBmK00-TpdNsJbbYrwrpLXz9WHLNX_cv7BaF6X7Knk9t8ITmyn8qD-GLjJC0z4ANfMOw4wg9IJ0WDWMbw-VI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMT6eDeLzJmI1uE5fVzqcyjzl6hg9q3NuXF0mlgOG8ChRuV7RciqtT5L8oYQo9yd3rC459S5raO3c_4Vs9eiIF_9Sgid7B0dCIs1CSO61tEf7wM3Ik5k4eyhQ6Ksuzm0OKmTmmDOWfm1QhTIyOY0mSnzGvoUwEI3serMnPf3gcRc2S-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyfQGIdbc9Psu-gad7WifnMgRdgq8HPUXvGnaBjnoHkAwQXJhOry6OknfcIvCmBQF6XAXVCyf_cBPLmDxwdfSmGc8-ISWwzbA1-qlfAoVO4kv4ipHjpYU4KUvj3ZKAR96THzPAfmPvEfo7BFLy8nWlLfwNzTFQHkL4tke6XgfCw7TT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "215 Western Ave, Albany, NY 12203, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "meal_takeaway, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Savoy Taproom",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP9Yd_quOJP6yM5nh4bq1dOye8dHO_nLXvzqE6tsizXOS3Og0ITzvPUZfoNjDviDgvIdNagZAx8gt9xq-PmJ340Ttxd8oZ4x8YR8APhitptfasx5e5wu2X2_HAGtrbSCwKBozs32IhLMleaB7C7p1GAaXsjr8v2PFVWUn5kViimwAnq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5Lz7sUIVsuVMZj6SycIdYABRQzYIN1E_sBYW0MWksuvaXuXQAhn0vZ0-sLX2AZFIa-WViE3_hMMnFLAa8oucv7wjmzULDxjeRViOGi1EkyvKg0Rlan-p-UixTRxPCLw-7FKJW5JFu9On2PrwV45TmW4VpAADUbGracPrRry--ZoWE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMFQ_2hs8LIlOg9nj51ppvrTIEoa1h5xOve-wy6rASTrQkbmTRXq_xKcBAhwktrtF2ofkGd_Ae21i7yQDuI5JQMknKFpObP_GZ9hl_2U_kz5REnEBE7QaP88ID1wUJsay04YaEIXmqYtrXdr4asqboAdfLAPtaI9Fll_60cwSKWM9HG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMd9oEoOyTT5Gj-cLYPgr0BmsqEoHmF6u_m7OOqe1MrCI_qdvH2Ju79negO6jhJyXfUfSbcCFO6i9EhGYTfpP91r3in8c_gO5X75loMOLlg7SUpfltslVvERQ5V3qCtWSn-Cqpfivk-36z2hg0HiFs5V2W6afyLvnkIK-PMaOikenzF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPEk13BOEQAf7WPT-456jpy5dhquRditbaf3FwcOsi-dXb7Zbq8lHL3m3puFxTOnNZrzhe490FNPtWD16NFDrVTlQESmJkroB0X_xxx01BMPbSBdDYcq7ZGtk7DaKWVvLQ6vLfrE6elQpnw4iKcB-QZIrts3J2m1kqMEtBYTHaElDuY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "301 Lark St, Albany, NY 12210, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "bar, point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Smokey Bones Colonie",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMEVkzVkV7nsxbkcIOib-NuVdz9tE3MAr_VikNapuNJejggCusIstqRO5PAd-rDKF6Am9lQhlgau6qhQNPwdSejvPtBPh2YAo1oaq2x9a5Ms8xn7AAy2oGBAbwvDimYQJZQiH2TgQpPUz0N0zgKeTVLsCG90vgxvHZm_-Uz0pczv17&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOuVfMRIdwu3Lqz_WBSn_Ca3-mgYSRPTCE3im_MD7i7LK109OIkaIXjvpNOJ6n_d2JdpexJlKv_xgnic0YkFK4193zPLoS50RECVE5eSW7daQv5hrkWz_1Wp3gyPqcXW1p6QmKs7CbjJNUeun1wR20xBDpPSueSW1YjkLDfL395YSwJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOxrXb3sz5HOpz-vEX1pCPC7UphwsgiTfTKWDkyrbLWk5454aS72k6PhceF7r9kSohDbwBAKlne8BR3n34ngBfjOQ6W2nRDIz7-jd_lVwpLu_RwmWO-dTDPGygb0sbkM9OVYfnSvx6izhckzqpQp57Sie1FtwhdMFTtomLUAZBXGs8c&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO_YEV2r8KeldmAsuygJpckDAdciNKlfSvOmzUIuhEonKEb2tllmNW7aMu-s7Ct0mKrS1RwzxHB1mgNyndKj-FIMe7C0uv3J_SX63j-OaNkymZQ9wJijpYC3fzlhTPXkM81mINPNngR1dgrlqhvNq-grTtYvvwuoJj8LBuxSY1iNgmq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPVPa4UuosS2T7sLugpAHb3uiFHvU-xHicYZQ4dA0ys_H_HjDT-VjrX60Q6u615uqUuDYryTueH0S7I1sGWTqNVVczHJDVRD2Qod7KQs2g39hO_AbmIVTdcUoBsu3I_UcDKXAe57QjSyPDGSSDsR-4JyAmRLRhg_JGUhCKf2_xvYOru&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1557 Central Ave, Colonie, NY 12205, USA",
+      "Rating": 4,
+      "Price": "$$",
+      "Cuisine": "bar, point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Otis & Oliver's",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgAuhPIsKv_ix349IUn-nM4ZHYpmIkZTGiSQgw5Sr_ZacPiTxaoeAtuPszXAswTT7FEZGtJNoCwxztF67k3oI6Tlv8ER1L_hHKyttLPH7fGiWEEK-92778cpvKh2I-BtYxMhRPNg5bre5kPNyvhddkSJnNQH3uwy6fcrCq5-u_5ETL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPKm8ZMG-PDfv5YQcG72XYOeJo4Fqj9WaY0cvzW-BuJirAMkTsUsJqs9T43w8B2pj6w9XHtjfq2131kz5xDQiyw3wiGRW53QRVoGO0NpFKeb3jlebYjDTUtqBHmBr3nFh0Lo6Q75j4byNKH_dR595BfCqbt0TLD7FsnIYrDj9Cj4vqw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNZiwmrHZywPoU5O9-uF9i4ozlMedhF0QzuEzeZ2D_5mcPYTkxpI1dcLCzuE1St2jHIPC4qtOW9nExvZ0OKRJh5ftcqdIdqVGO3Mc2PL8oqC-1ImthtjIgNY7MOry_26bgInA6rJNP-7xHGsZKYRUsou6x18izeJ0oAnrRon6zsVCYc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNNgbBLp7HyC1KgYSOaK8MAC698zKVJi0TZVKOeO05IOUZbJNG9o7MJ1rxfkgcx1yKqPNZLvHJeOjzWoZM3wMwE1SEiuHizb7GNeqOLFZ_7G1XSYdW9RoWOm_X2jM0tNniUDLWK6S9bvWOKQfJfTV4u-34oz8VT6g0y9K4oiOGc2QeB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM0x3OR0b7NS0q8FcErr7L-o9uuh2GNWJRFFyq1T5q75hTmMxWoGMXmTmGvg9DWhuv2wsVHNzXjHHdzI_kPqHKyCyZzPJ0oOXoZxV6aZEdup5EfXB4cIrstsBeG9ud5KVE5oizq3pNPhpueI_1gVDF2GoXzNBDZj_JlPGoV--eo8oG8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "30 Mill Rd, Latham, NY 12110, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "dp An American Brasserie",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPaBLnlV3gY9boT0XyEmSsjeko5M_CgzZ8iKFoXJI2eI-v-bCW__aYNudV6UTRhFmm0JcOH28q4BcI81HxnJ2lJ4LSrZMZAeJpyyWAyLiAdTLqFsYXgBrWWFT5IB36WxMQTHuZYfqTgMkZbgbn4yq1gMOq-B4D3x2wqTgePmBC57utd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4LY5DdSztgXPBcCM6hjSV3nAi_7zicqM6E7F2r9qImVOPnnL9ps6jgFsHE1b4wM7uhNcyK9JwkvYVVPRuXP14xm6GclaErHlSGxYXqU8Nio0eVcdL1vWzUj1VpgtCi6JtmMiliWc1qMoaZW5RlCGEKNHixYSDaxs_OZ9krGvGkcF2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPkVaFn1qp-eO5xz1XEADxPpUMd7FZorFAJQ0CXP6_BNe5wLHpUPV4FV7GOtN_yLOI3Ig2U4kFr8jD1W8D9lNlj2WNPmLL8eD5Cz0pevg2WKjTXoRtwcvWf64yzA1-mrO8tM4uXpnsqGUFNtjGEMISJEN9LOgeMcp7G5ym0FXLT00SQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMRdl-I45PU_sc64jUv-37wKZ_BnYliJxulkyuIzH2aXtemOmMO9XdkXe1j_SBnSl3tILW38W4GmYaQdvahlUk8zP3N7MFPy-HR4MTPyuzSz8eRGra4Wgn5fy7dAK_nuJ_k4anvOvWlMiqenMixiacD_8AjqAxk5n1c6GTTvwIl7ehq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO8NxScFC7LNp_kI-o4KFvS3jwogE20W3fQc6Fg9SxVX__Ik8nLYpDGDVnh7abWVnON269hV1Ljpw53VIPUYDwYZzMu_5KipjxZT7DYw5B_EkfhMjqmNFA-HXbPT8zNskt_5r0ztBWiJ4EDUY_Pd8szskhAKFjTXV9zmp3XB2pP8op0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "25 Chapel St, Albany, NY 12210, USA",
+      "Rating": 4.4,
+      "Price": "$$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Iron Gate Cafe",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMxTllEZUWoJk0lveiYBDJLjYFzHbW4iYUMLBsYL2IOOkWbz9GWMBV-6K_LrKhqfhS4pl6H-KpF3RvxG6jDVkqh6VYpsnI9-MrVU2eWr7e7dL2Jb5n3k1W-wZAYw0UPpCqqyOMx9DZ7zHObu-88eSz0wWQekctXPy84wZTEw6XesMpI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOQNwdXS9B0bIgXHxOXfkHEJpmkpyAxHphSKMTYfC7KTLIVH1RZJ67yJmEtzisLU3DxlI7wTO-TQfrgg7EBi2mlfJG_9cDQwDUG0vu5lAsHC1R19LGa0F-gRmjDpjpIT75PLQgsq2ne5KpunL1lhRKJc5oT8fPu80paUnMl6LGtdMo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM1p8ol20KpIpozZmNGFAAojmOTmEbRMiZMo64oLlwxNNHLjAOAbSjCHPwDLC75eLWEIaBlFK8a9-fXk1LrjodjrH0mWaT7eWw9O8gwThb5DjNxgJQYL5KYoXwracbZ5kwirywc7Xfd3BILtWBcBcak3mW9zq7W0L7cNydkhylz08Qf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNH2ZpeadPh8cdvbt4rj1Sj6PnMG34eTvCPVgRNp17sOFKMCmKdKBUX-pqddl_cfzg1QvjxXSBUMTW40DeWEV3GQ_7liIpejxbA1Bt-rNEOnacygcmONdPTg9KJKmBJhCGalPrIP5rkmQ8prCxzhjdTns7ZpnO10DqpvS8FXb9jHJGW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN0HV0_ty_tdBxo4iHFHG4SsrsjdPa1id21SdsixaHwszr9K1gy9Em3tO5xuMpC58NF7_isZ7FFWTn1gwcGqd2_OzAMfhG5GH-voymRWmJwLqQQy75-O2TIojAgigwILOke7Lx1zUCEODdq4DZzHDbT2tGyLAfLBGIf2ycl6oDrBHfm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "182 Washington Ave, Albany, NY 12210, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "cafe, point_of_interest, food, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Illusive Restaurant & Bar",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPUifgEuzHTCZviaEsrixKxZjChn5Ks6HU6HYvBLmkCIm3RksQOfCu3qh4ZagLFGrNZLLGR3Y5VEu9zUvEhiMc4ThVN-1BCfk8uAEYXwIUQZQOi8853fJ6O7h4dLBfzA-LbDef2cowACaNijgX7XhjwzWSOfvVyrr6flRkin7DBHlIy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMAToEg7qvEKStwmbG9lIcpIU-Pf7-sZz_BadgnA5bqimyrTjsCv1flREvAnOxQ6j0tEfnn_AQ9miztVkeB5opBGl-haY3A1dVVOirnB_bzvlDftBztp8dOvyMDdcLnyW3jOFDxi5JOQQhyTbkt2mU8QnA8wkaaA2escbhYGXc2TkIJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM7KIr19EfK3T5AV445dzH99GbVTQG1U-R_s_avEd9Hx33qhW7U25cf-NFbMNqxq8nRnWDLJqsC4e5RKVrIwvav76Yex3rEtqNpWNoV6bNOUMkiYqtVfkQRYbenO93GYdHj4H2CZkhbXMoEJOSO7WxctLRrqp4Nl22J-E2aWzkFOIPI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONLIKGslwBZ_hJn-pTwwHB-cHIwjBO2b5EZWMOwZxq-E0rcB9GPOh2aMjAyZOjd7J_ORIvG5tsBlWHcyX2O11EIJCCJ_g_4JuZ99rxJ3hjc82cLbaC8BnDODQBUzIvV6w94HsZb-lvdE9F3wa5zWvJx_DdtWpaAI4CM_FZ6AcNA8LE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNCVO2mflWsOYF6z22MbLfvRwLFr5_eRjwKiPG_mmU7O0_Nrmq6daGkmKtbs3vOw0JHRk5rD0zSzVAwFqA0pKeD19LmUbF9FdfrnhKkPZPO8Isz1l4ZTSamAb4lkPqzOB5Lx6_Yqxtafxx3yvRY0CUbpYTqW9fhTaoPZbTDkBdfcL5f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "3 Ferry St, Rensselaer, NY 12144, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "The Hollow Bar + Kitchen",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPIKoybfZ02QoWmB6s03oI5gNDZsa2-7icF2bEKm8jbw5LyaMLcHikdQ1-WbR_ijffh5abnVQ9jwjb_nUVaC1bS4t2t4I3HnF83x3T7Ds0vYFbmMxVnVdsUW_ntt_1GkDP2f3ZSQzSOPmoGI2ltt-fxiXCj0xzx_YlcscxqqON83CZA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOuF7IWpBc_JeZyGPiiFBohJAzmuXr-jsTs9R3_QnwGZhOTOOr4H0Dd2n1QGaIMz-ALAzNIa_9wOAl0XsNpNTmUUqS79RZhhLjbztGbEmUOBhe4NZ8aXlXaXbUo0b5DU1RFhaplx4qkcgzz6w1s9I7fdYSg8Nm5O_JibwxnTFCV8LVo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONE7Hy2UwYtBFkeqVG40sM-4mfd6ZYimoVXgiNX14uvQ0SzFH_5Uk8wltQ9PCKI4ZJBen0snU14PW9w2jjjgW1JNa8lHiT2zyH9WzFVyU4Z4EhyCU-mMWVPMeCHH7gDk-Mppie0X4xKnu9Rf6oNWTSAi4AiPdKYXHdAtPrr4vtPDsE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO3flda0uvnxYcjcrkuoLrlbKQcuQMFHwQoWEvB919QI_5XB47lp8lkEmc33UKqP2v92VS_6p56nM3pyJNWO_CtxXAqxM0V-ChepSQ_P4Y1oOgt8TEGJyNlacm_j0t0-pMYQ7tVo77m6fVkKU86LnWgZIR7P356D86xycz4eBirCh20&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO8T5s8rCHlO2KGgzjd7wAyCpBbK5dpdfbdc5X0Eg3f-Mu5SvbgQe-7vu4HV8EA8t0mAQ2FVm65KwU2bhAiqfKh5mBNVsDpry-59aJMbg0uOB94DX4oRbaXMMxUiSBfah1Hqs2LsO1TidfTeHESNyVYY1VR19gI-QmTXuwtkFGWMpDU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "79 N Pearl St, Albany, NY 12207, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Scarboroughs Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObA2t8kDQTxxagagl7gK37kyWUn4wTiXvL5F9WPptWVFWECNKHyodcRufhhSq4DL98d4BF_oLuogg7Dlm9XtvpuwwUiiN_vtPVMc8VSKI19XZ2JV7W-HdaGhdxWABbUd_oJaZ85VwU90SrOQuNNrVOOPUp-ePbzBrv7IQhY22EICMo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP37KODBm7070OjdZndj12as7dfKPxfGJsE4HgOFHgLQ-5J13NO4A9kuyfR4r_0ZK3Hynq4ul8nT8FcBIyXNWn_b67CL0ZnNIDNH85TK81yHY1IXkTN-_Ig8k8YPFlmkZcACtFFE0RfTFBFag-IZEU6MX6Hfm7ay3ewVRw7eDrrODU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPt_MO0dBBfTP8dGT1tt2VwptgA9EK4hQDxTpZCqfPLH3_Ea3ifUm2P7Uc61Jb7i6wYEHDfSaOvk1SvSsu2230yE-9UQzCLNIH673Ix1Mk0Uf-DrcMU18-G6dNRZn1liCvQBnoyDJv36W1Yxam5cD057q62hfGirnoDpFM_XZktPCgc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPqlDqZeuseLUsfzQepElVeI79J_Y01KyMuP1mrxO3Jzy-GCUDJam5HxycoIOO1n4YOfAlwwAE1ujFwwdPu4RA0NMmjFbRsEXdz9TS48uubmU_au6U3Qr6M3-xZNIKLUE5PFNOjx7wtYXSxJXJaEjfFcKC2G8WvjDnCI-tYoNZfJUyC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOugl1-Tsl99z4FeDc4fduNNH_SNF9RliMSQ4e6JqxBAlhh1kS7hA3r3wuv9J4-5A53oG7RNNCPo1APJyZOl_CO3he1thay9JeA6udwvq_9KHASUEzK9Yo5alBkcGVoMJeyQDE-HeRZcbqkJPIGDihdDnrivn751jg2cmwFFjNOdSFl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "497 Old Niskayuna Rd, Latham, NY 12110, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "110 Grill",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM2uPxRR_z5-Z2zFoKlA-DdHdZbYEqRyPCTEzHpNk9MG7E0MNa_yDi2HzFgcJu7UMHRIjxJ1G-zz8Tq9CqbzzV7jgKp6vm2_Fm53eeLeNtQvzzbecTg5KVOAejHa4sammnvcCkL9Fmnkr1FljrHJhA3D9MKaNLwkIvmaYMaTTXeUomO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMSOsJmB8cPyNW76RmZrj7fA5sLupQ54gpPqtWyhartjHrzcQjYUheidkAWI9l2AlnBBlSJ1vkQPlnjQBgWu8dfIFBjH1Pl4F83uutgPPA4Xk6Pr_EefkJpOsmt9-Jegj_hq-1mU9wRNaIbnSthq0f-l-iOeg2UhtUu4tsqhJVgGxG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNGdEFZZlPXG_piVGXOeskViCgy-ubPyh0xM5O6Is6F0UABjkqYhvtvWUz-AtUFt3l43fpPssdZw3_tNHLN6MU9jr_tVNZIuvZ14H5MbEmYqS6VYENJSc1aKpgqSVdGKWpE1LXpiKcfDntI5q9zFNRUpt2EwNTlzFaQQl1UsvmUNJZF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOO2S6VTuEPl6azeWiTVmoQnM_qd4paF__1BGjIQOzvarVA1FKj3FNEMR6Bfm29wN533xWlK3ozU6NdJztDKxSn18qW8TcS7CYhmEiaCZ3REKOAJHdAumnUFnCyTeOoI6XQFkKAez2YnlPIwJxZYBqlCp74k_46PsADnKaJrq2dHKzl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPd2QcI_osvkhFjTO6npKuR9Oiuz-fxhhCRYM827txgtomh_5vLJlK4FclcSFqfAVFR4emPnS_QAP2AJ3Jt8CiSFlXYKBQfWWML01cvoGUOmAuAZx7tovJi60xdwKKa4g8OksVacW92wV1AeycLf2IgZXZ8SgQgO6WV06mgP-Bva7Qj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "664 Loudon Rd, Latham, NY 12110, USA",
+      "Rating": 4.2,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 17
+  },
+  {
+    "restaurant": {
+      "Name": "Amante Pizza",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNGgAJ8OGCMByd9wdV8dWBQLyzcl9UsYXyt2-vEMW5o6JoiXGj57yXcVqoMtoABzya_Irkk9-TtFEIKhZZ9TmutJiGwVvPco8j_Jhr--w5byQSqhdJyQQpcmUleF0XsbTelbsTqR2r_UnXeL6IsMQpmECyjD74hvqO7zFuwTepRya4A&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMTkGJPsD--nGnsdUatgpmioZuaCHE0GZq44yfnqku0WInckxJJT4R3dpf1tO-sMtoAf9jcEMWAGwMKDLVlkoJjU5EXUyt0BLTBVVP7d5nHKcqfriaZJh70ZE6NZpKCxPSFQJgZ3yc51xB-2_ev5jicxI6UDbvy3yBv3zT6c_iLGoqL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOi7auVG5-Q-G4EW2ugk83Jy6cbKs63jGhffLR32yQ2RNHCCjSiiwoPhw8thyUTHFU6OUcTudJjhPjtIHbfZ0w5-r50_wkooLbtuXlXlryy_IOYKIqLbUlaL0KxWxPEY_xe9d-YRZotpIwchyMslxSjE98qAlnnCZ281nhBPrt74NPZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOqbIQi7R3-KUYAv21UTm-hXL-lHrtHZKSimSfxx9O1Pu1ZW48hm78YCbizvR6983U2vRGf4Aij3tiL9Z1GdRby7CdSQ3SbP31w5OMTarANTjf42MnKZ7Xv37imKnMpGnFhZe4dEaxlRCov0LqnHzJ9KtTZn3jr05hHkkvQ-t49C_fp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4p6xTrE7thWb3s_u0m1DZGAaWLyIVK-er6E787M-ENtrLbEAM0DyfmSDLZXOrdx8F23VZFb2wYIX8fJhM9lyKf52VMR5TB9CwQp07WI6eqSuGmPd-SpCBff5tYMKhhu9vZth9T8HUMoP0BJjjuJ2F8_0mxc-xqWtPn6BghgySmH7E&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "2304 15th St, Troy, NY 12180, USA",
+      "Rating": 4.2,
+      "Price": "$",
+      "Cuisine": "meal_delivery, point_of_interest, food, establishment"
+    },
+    "totalScore": 16
+  },
+  {
+    "restaurant": {
+      "Name": "RESTAURANTE LA COCO",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO_TMO-tA5iDgQNkGED0sZZZKgM5CzeCv0L5ExbBgx2bAJz5xXEok01LkAYthgy5CnoUaDjBLUuW6XHyWnxrd8WRIcHRMQqUVnGMf3Qb3-vPtR-HSYO50wfjmHUGLh9Z5H_4IDqxsH8FaSHvKMiIKqX-K3y9y5Fi0NRVM4NmXltaQnB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPHB4AhK-DQ9kYS1KYYe5yYm2ZGvDTIPi-g1yay6tUPRDcZ20HC2RKz_cRpr4reWxr4MZ_HTP10aHRJiccjm-me8DmsWIpOKSQcEwNbkqOoJpUjM2JihRikptyBITvoWkSZUJmhlQGMjnc8u50FyCD-6EUncSBTl1EHVE-7znJps0Jz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPrEDcM4hUXeMMpRpgCXnjyQaQOEJAhLUka1vI1VTwKf9TviKa725cYASKaymQhCM2RU0Nxog3pr1asMiSB173aWDBagqbe6kbU0rXIuQuhtZjLhSutMngrSVvZx_c8bqR2Ji3IaFOkysTDhfzH5kD001z05lXWPtZshTK-OP1JZrFg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPc4BswR-i3kc6wkRk_QKyeoiV7x9q361Y4fDde0KyTb4X_Mx6XQmSrgc-6XQ2YIkb26zDm1J3ctXZllH_CVDKKd5_wRkDXX59AY9RcE5DyrkMm-nJMEakIXnfgDUelQQC65sXrW4WAbOmFPAoT1_-4-7fUcWBPG5ypeV0zUa8oUJdA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOLIu0B8Tne5pGnIl9RL47q5CAsR6dlXcv2vwZBgGOLqPxbUDDMby1WAB9iKa-nJPBJ96Eidi-JpeonrXk7GDI47L9mQ3AiXP4Yfcw8gdEfN1HryarteNzsSdAMZQ-l--07QfuctrNr1MAkRfqGKY1CByCn2JxUKwdhZveZe93bzE2V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "3301 6th Ave, Troy, NY 12180, USA",
+      "Rating": 5,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 16
+  },
+  {
+    "restaurant": {
+      "Name": "Mex Cocina / La Catrina",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPT8fzd42DckiW0M6TIJ2Rj7Ey0b0UHr54dSUnTewmSB294bBnXqDPCCXVi_29XRo5m7-axbllJgV11uKrOeSwO8wrHLgSPVLfS2eOBFvUFyBReFkwaCB95uJYegvu5e9VJdDCZBv-2aHWvMQxRfRNTwwqN-c6dfHgSqT0v6GvR04s7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN7Uolv7lfhD65WRQiQ-Z7rRKmJ9t17jPJn7_Bc_C19jdOmsxqy_shbnI_9ge1NtMUCfaV4wG07-EEykangZeqPacbKPhjtuSyCSauS1k5SxE_sDsbvvNj5I1y907DNGAnM05-UU4aLaCAjE0pKVZdKLJ6kHumaiUwhK1LZ8-q9arNj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNsTgPJsbvoMc5FE3TSCECVLuB_cF3vJUCqY5uN8mp7yra4vbCrcT75wKwi75cSzW2iYwKYNR2yOjl1NJlWOcNUQakuvXIhcEVOWKAWG3p14g5oeNbkHfIm1Gn3sFNkHNL0PXOdGIdZeVZAgZD7xpwFYfP8QhjJvOT7VdkPYOa6x_QO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNm13Ob3Jx-N8g9aAAMBz2RIYGoXuGZqeqn2XBAHjtF1sH51iXNX252nHrX4maMhsQn5na9v_VhZMGobfY3BHkP_LkLIzRPPFsYHvQoHtffWU0ULIIymoYrsnVH2vcG42bCRK0mKGyuAgFAtZC-etIgfCWu3TURpczZl77bRWFCKXV8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNYeSdhIVqx1X9teRGhLrvyJjL29xxcGXey8l9fmOnK5DFr3eQ1TN-Cdggq9P5XWeeHqcfsJ-KDukgFq1Qyq1gslGzEweqUkzfmXNUKEvPvypojllCiRta_TUFwDgL_p1ELJAJWFpoGaBCScMTiY1bcfZFmnNz7d2efFXUkkWIPBy0n&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "7 Broadway, Troy, NY 12180, USA",
+      "Rating": 4.5,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 16
+  },
+  {
+    "restaurant": {
+      "Name": "Bob's Diner",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhXcBX_Nh1VCUUG276rNshiNKPqgwDDn06gICjFPaGfy-HY5BLIKyxYfoU394jmZsTNqwmbsl5PQUGwW5DkGb0-zq6lmrwJL6RwSPsGSqKP5t2KJH2aCYcTDX5qD2t1P175m0BwJikn6G5g40q6lSfcrwa-u4gAibLPxX9kgYSGPRs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMKkESDU5VVeN_9OMb5xMpypzWxnv2iTuf7eDXd-vW2bneHitrLmnWCkULdNEIkyLBSCg5tewn-vJcexee2h0v4YWQbilLg92TKttGol1hReyEUjDMhgoNsybUDiQ8oRKk9chAHFbUJzujq8u8U7jt-XsA-KfMMBXvR355qj4siVC5I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOXvSf2HvoyyFsPjZ7oih64nX1liuS062P6rhVQuP1oiVyEZ9G-h3EOn3J4_y6A0WTcgjCg7KVvvwcNcpgxmO6SdmTLnyIxqoSq_oH8p0ymGkFPbdWXHK3hhjND_tqA7VNqMCBq16op3kemTChnYivKnrpXnmJM7q53mCmob3GcbHL2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNh1QcYrpHB1PfMbpCPpZKmK8U904N7zsZrEw_RFu2fgNAhQKNmDjM75GANUUn1CBsdESFgEQJ08QOq7KQpMcsCKNqKNQOGUcqC8zWGl59j67gOkvl3ghAr9oqQFtl90zhvzepdKp43D5hhg9F_0d3Pu5Steiz0A1lgs0lnZBIxRbZT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPekeiuuzJSDxZxwQnmmcwa4tA40eLvjLEGGjGjXipSbQkuX8JK809M7uCuc3D1Qh07PNqnAL5ljU-U4CQy2xkdS52IAwfVFynjLFICR3GfIwEA89njsWcAkR1VTiMWMEfkfyjPPjgSwrSnlY6daNM-zCWTFdnub_bWjWWpg-KKPirz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "929 19th St, Watervliet, NY 12189, USA",
+      "Rating": 4.2,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 16
+  },
+  {
+    "restaurant": {
+      "Name": "Cafe Calabria II",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMIE2ykzYTBHb_jqinUR-DlsU7wKU13Ffz7Mux_6ki2TWtWR1UwpyHxhkvcxAWPm4YxzGUdoNeYcqPpOf9e5COsYkiXMWrGj4FSIj9LvYOw0w5w4sYo71s_rZRmZgbE1paLlRz5YIBuye6xNv0FoCHKNzqe3MCRtfpItppI7AJNod7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM1yHdYSMd3zESEPr_qhLk1vuWilKejAHP2FNThU2QqLM-cgXdeLk1NkzFJFKTWmub_wY9ZmHfqIMe7AGbMLDBsIJQSsk05NBLbnldG43UVlFSDufd782Qf7r6Dgw3FHozbhyvQqkYpKPN1RHCTEJPSqHwr8of_hUOwimN_KaPfYUKI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkr8sbT565BJTtwA9Sdq_F_TNtbz9Wt4buIpJWrZKOVha99DB-mMGmYghd2DO_KZOo6XcZUJJZkaKP6rFuaqhjA9POXykl1HEqLbybiZsMIrVF8ea-KOrE9F5COis3z4c-YT5SU6DvvSnknebJinLfKZYWprLJe44wkQwGDcA84G63&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO4UFYdd7KInWCcxIqPV3GhXps-HBZwUejx6pGcpTfySGyBSGCEQdFeCpYS9YmnQbJoDfY5Q-HE-UYMjwiLgAEOxhqJeauFI1tZVkNIrSiMCCmYvpdSAp6TrOtpikYFPqeuPZeesSPhq9dJ55cSEpVVSoKY6OemLKEoQoS34YYPAmd_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMyTgN93VizVEq86LQ6x6YWUPfbRjC7wG0stdq7DdhJwvYbQ5c4V9OtiqHn17yPoFhmT6YDdKPCZQDfRJznYBRQ9eQx_cIhemzjFYMn06PLz4h_MhVdxHtaY_21VjMcdlTCHYrzbin0_aefIWnjoKD851UF0BcojTzBm6FuepZ8E4d6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1736 Western Ave, Albany, NY 12203, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Armondo's Villa Tuscan Grill",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNaLzCAz32Uow3XHswpPm0zlutdyPdQcoocewlVvouv5iYJC2OKFRQFWUay-NPkwgvDKAt-m_OsfkRqwr773V_HyX7qhlOON4axNELsHWcDRcP7gFk8qwQKdepgNXCUJDddKM5HoEuynSwq_VEOh3DHQ3bsTrLPGUUkRl-xDuUoIOlp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP3SDJsm6FRwfbntqMOUPEPrjVBb0evaEnG8OFVx28rQAtdl03pAde9t7DY1RLk3qgZP1__i6oydaglCGyL_Am_ihQiulFLMELEqraeXzbKoKLpO_ednNjKWupgK2KpKaY4ZFl5M9qMvtPQw3nyhJ01titEGc88bpyNZWdVOdp4efr2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNV1BJjGyvf6j7vkGfMjHXtUkpjGgXp1zZOmZhhErd90ThbQB-3ZCObjayqRHOjTZREJM2BF2n3Jnpzska3Zwfz7ujYjIIAutUo6jVUEcrkAhXArq7j1enQzX6X2IG63DvTYN1K43zEKoRA3yoEmgLqytahYX5DBrQUStx0Y0Fhg1gh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOxJQ2jOxK-44yIwWeVkFek5z-XvCOJs6bf3nPqHKWvZvwQwN8GU9Bf5tGCH2k9vjhfx1QdYDg_1qzOWLD_pXTa-1ABJnTogzxVQ4NSBdLH6-TjC0jUVBLN2ShQRmbiM5-I5FtocmxfF37Bb4xrdu1uG2vB8pfaEyDZNlAfLjK-lq1c&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMBHkPto-RI4u3zAui7_Um4FneTJZvinIMdiQYpajo6KI5wVYRKUctC1HWdfpvOkNZblbDF7XUzRrRH0d56oC-YyRc-fikcnPi9itwRliyBsb48OtYI6awWsyLZWP6Ltcbna88QscJ2EnYPIkrGp6tAPgrmpbQimmkeR8ScZ-m9CLUe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "273 Duanesburg Rd, Schenectady, NY 12306, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Marino's Pizza & Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-YabQZGp4TxXH9PqW_Ju88H7_8wz02lv5qcgswGjPCX6R-StJ78TaSTLazRvXqENTnMzBwuejpIPRNLx-iKN0uNmXZoS7-ettiuqok43MnaTbuavtPf9RCAea9VlMViAn49o6nHGBfIfOBz2ni5fM7-9XjzsIl6nSuUbIvWoPlc98&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPwMN26Tz2TzoONgof7qkSZNzyAeWNq66MLHV3-S_Tt7nm6S0VHUYLJQ1pyKg-GVY0pUk1dECTlIdP-iRxfft-QCp7UUf7ACVqEMeA12ZnmgAx2kQM4ylkEb83eWINwED4INQ8vfxa0w-dXKRuhJPvT6FdDtjL3V3sOu95IZFf1uCLr&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNjqAjamP3LfK91UrbWYhQez53lK6N_UpyQbdcdp1iggeelLa_ckVc0YMa8fqHwgfTphk6o43a61-Xcp4SOWdWlgN_QWL8bhb1fg--tgreLucDgz2XaMFmFlmnrgQuwimwRZhSvMKfe9Fb-y8kHHDhB5kNLzSH-iq6YcNRhf51MIXKS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMa-gX07AJc3GPtNe9SPxhtIiyy-SAhU_9RFQRFyeIQ2q3wV4sRKFXDNKV9HyJqhKUn8qLuQ7YQsrXO9_NHBELT7ayZPDEFGrVAJQH6fHh0wrI4-WcpB-tH22zHo8HDK_vVUocRh55UlrNEkFzMSBtJZhJR_ZDpbU1P4S0Ki9ablYPx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN3ueWDL82TTrxPmLb2l1UiaN106TKXVDhwB9nI8lBy9t_DGzT8TCnT0SW-2v68vWmUpLMkC4Bf8DpYCWmVqCIpQaCA3asHIZJ0-jkeAOgCJ38jkWnOHwObk5y-gtZztwlEJ9McLw6QEmiaGL-mcqn1AjyrL3614gzBlv-03DBu5xil&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1301 State St, Schenectady, NY 12304, USA",
+      "Rating": 4.7,
+      "Price": "$$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Emma Jayne’s Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMdF6YpieMLI2ljNCQRDv0QkV8xZXCQealwrhAruguxaE5JAILKzYCeS6v0qsCQycKsWJvtcngr93DB2i53INdLe91NHZp2A2cClQw5L4nhub_HbIuT__Rqb41XUAyM1c6oKeToW4t0pTk3TeWW282iY-qMS9bXj6wIo4j-66LHTSB_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPrZHLp5L1TpJXLo-otFOHh3tZjYu_BAACWUwYX6Inrb2r5t9CW_xOKtu71YppoZLGo066B4upPeMkrU47hWneQj8aovsB3ud2kywBKZK5Sxy69l7fNMWTsQpObHL9KQBbMGbhC3Zk72Is7bTHrwz5mniaBrmzLCxL8ZJRKbCTd0EWh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPtGxE4s4WtTTVI_xFCj9-YHI1f3AGt-vPoHc52tNoK-jhQEDchA3HDcKRpioPqppyJM-X2V6AbcGxghqebP6isyf4VWBUsyqXMvTtMnmqZJzciE8hjS0V-dgyepqZcQ26Zz4cbllhSXnVmQ-y4kompf2pOS_wUdc6F8qG87MN0SUNy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOrfvYeurNDrZV_CLLfMhOKdtllhV5_KGzs9pO9IzBwZZVpR71wPBsI4Uvjaw2VweEze8tKKhPFBS75bwwiarHez0keXeAe6ZhsV2YO6FuwhDKfsB0IhYFGNWgUKDVUS7IEYS5MEKY0J-eYJTv7R-EvNWrgSWCzfadDfDZulynHreUc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP9v9fK30bOkUTljjgf70qojwHoS95X3rZjKV3MhWFgkMAzolQ_VR0uXzs7expMSo__61qMpsXRjbBSgpcEPy99n9Y07JHmvKMARDxKAGTMLCSmxO5NCuwlBqUuREUNt8GKE8qKw95KeAXPq7bMewweXeEnDArKC_IAvbnYz4DHmZPk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1475 US-9, Clifton Park, NY 12065, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Caffe Italia Ristorante",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP-nnwHOfZRXOaPlYAbT7N0Q7CRuQezMQpV_EYA-p4agk4YU4OMZ0RLxmOlUrEMPKReHGQFREYesoZ6-K7S3eSxuh0P_FTy0GwqtHHIBC_Uye-gB61hOw8LIv3quUwaDL3sRKJL3Tjw5tzf4lpKR0irarCmtrFNZxEyddaKQyIJNn74&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMrL9LQHp5kFSSWU_7GaL2w1aSokgBcHn1ndO-XYYFcHRa7POpwg1739K4k9bGGpZQ3-j3fMa_idFXvIX6XuXV-rPl4D871d7wTn58JhBH2cle_jVK-sJxa92KjrMRleH6XA85kH8b8K2PuzZUuK9n1Jo0BK4iBV4FlHJEb34lLvqkC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOReCpaKPdYKdUzremHuS3Ry5ybRKYiyLURPQqIGHUX-U_X1PsHQLMQbN_xLHxJkaTVgOI8wMzow3OQpOegIAKlsrhLO8JVc7X27PjMqJJRBxswLR9iFXeb9ixNCwd5oTmGIsfFxOK6mLfH0WWzkR-ceWHRPii3AQ47ZMpIn18kFezN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNqQk5wr-qoFvf2d7qFSJJAuPKaaHSYGki3hOSPPiAquWUkvCLVK68WbeSMP8vIt2PRAHsiry8IXBDeLsTy2K4C3Fg5oTjn6jcUbxMA0sgph8WZfiRpm8Hm-JZYWvNDobhvKpw8BSu7KeYDa80KQqLA29wlg51OIb9mzBEkYsZOGK7C&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMrTBiP4T5211RgncNLYiNDdIQ54wV0Lu_tqKm8en03xSZ7nViGa7SSfqqw0V80dZvAtHI04apEwPMt_Piu9nEjquJ4RHnFsvGxwtQNNYyHnaxgZhqezndxKQMijTEw6keUiz8Lderv07DpMgUAeO0tGzkPhrYxYRdT6kLxo0u6-ZIs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "2080 Western Ave, Guilderland, NY 12084, USA",
+      "Rating": 4.7,
+      "Price": "$$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Stella Pasta Bar & Bistro | Seven Points Brewery",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOJYsQ4IFt2hhMoWLEDuVBpAp_Mb2W78mfGMvGGxflZoh6R02XoxaEC1VW-sud65_wiWONl_GCvUHiVuAr54NrCOcMZhaDqPqOkrZl6Ipfl88EU4dM633O0ePxt8boIJeoR_Vxy0g4mJmV_VbeqiBoGRNZP_ObEg3rf11eRMJQjZD3S&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNxJM1DXB_CkWW-2WgWwa6-VHpE6TW7mCgPMPMzSyzKwlQFiM6zQgO3eo-lSkTHe_uqzgsv5fBfnYXBQoY5vsk5H3RdGc1tin3BSZxLyF7tsiFmy83zuuhtrg-bWWYxxC92_V_HGXm1Ojlqdmp9cmWgNcJyZkHkkD8In8TzVPhcdfxK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPC2GZLaUeV6SqJ5O9J5p7OshMtKaOPu_NfxNao1L5V3DqtpjwBpkqWUC-Pl7GmTjxhu85sdCsQc59svvxBrbwPMAoGuia7q5yWOV7hXX9YLiEGPGioGUiAF9sRKfpSCd_bCZBQi3C8vdnZEKimppsdBS3G5xQ7Mu9u6opCUVP4UTAE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMmy_qfDCM93smib4JAjUWhvARi8B4VgUCPvXyxN4dMS41yxq0KrXR4fROJaOe-uRMo-HuSebSmCqB21SK57tAKlkoQKfB66LjO4ayi-TuDzjGz2r8xgqTwUFc_i_OOmablKnPduMvpxucnvUwX8edB71nic9pZj1j28c9TdDPqdoLE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkop8qUhTRLeGml1VFYeJrStVgEgkI1Tzb9txS35PuF8LiUosBhLzjBSRhNbTaOGETRvddwxAlZOWZy2KhuJMSC1sMNqil-oyxa0x8PbMjp3HlTDfTfFfwkstCDMIP503IF2YG_JRagoW_BoxT9uJe2xifqb8xiPw29v9KkIsKiTPO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "237 Union St, Schenectady, NY 12305, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Upper Crust",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPLMN6wdQGuBbYGUTuNlwyv5wf30Xtu6BWCyzURqsW8-TvQZc929sdtGS-vulJnZzMj2R-QlOXxOl0dKn3uB8pP53twNiBxJ5Qknehuhp_5saTFsruynXnIcEgW-vLuzL8hV6bnuIphEMr-w4IgYVfUVDUdRnbK_TSeNOfO4B9iQsqD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPpgBnodYc1tTHuwiaASkOkvpMj_vJF05VJ5PgXKQkyCdyKdafcx7iMNu_k6Tq2giZXgcRodanHkjscM9OqrbWORZZblWQuqtGPQ0R1Xz0n-pe4LhKXwXsTG4wbl2ulBuRg7TeKDfXemMSgVddrEyOPNYqKUqsd3gEjCA3uAf7-vccH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOGdbRsIeqb1YBKkmBhFL2vNKxwm5Q_2oyTnsnNxTJhlPGUxx2MDKZr4U9MCGPp0EoFq9pcbE2NtGJ07scayz9rhPZItC3nxy8AfMx1vH0RLHErpPZkXI6Q9loWrTZM0tI6Md3D-I4NiG5yzyAM2ZLbAXjIx0wtw4QaxmrkEEEyGhAr&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP8w-1j3efOQmqm0p8bj9PSwJ7V00VHr4tLU1_YGk2hlGioM6HO7kr7dm-xLN073M3GMQljNcfWi4W5ZiPyDVPzF0N0dfX1CDc8euuQJ_zie_m5v17F96T3Ggua5id-KuxsnoT0NEeABoBk6rJOT8ccapqOhG1VGVIsCvN3pMhtq5gf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOZQsi0mE9H1XYzGm_TNCtsjucnJ-nrZ0YRM3xcJAaEIf2GV6fdsdn2M6KMrjON0hPTbe_FFtUPUuMCPx3wj4HuPxSVynoChncMi-SyIfseLsJgQh1wy3kp_gF3jznVFVStpB-6IauJDt-DCRjz7lZK3WX4grOaWEbiFZRoZIlz_bSy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "641 Grooms Rd, Clifton Park, NY 12065, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "meal_delivery, food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Las Margaritas Mexican Cantina",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPqJYElC9kgDAgfDC_zOJHYFS2oNQNgIyYbObDRu6VqETAiUJvwUMH2LztEoBBtC7g_lUyl7kEQO3AJafo94-njGrLB8K_ZnBS3aROytT8PiwjgTCRBI4gSpUDasA0xnBtAHgCizww7SXMw8cMpdTvTxP2vWSFhFL2UMzD-rO7XnB8H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNNXNl4Giw0NjvATWdEWAo3jPQOOWB5u1chQeraEXXjTEF5fr9VvS37VwzdNnIQWT_vCkqGOOYHIbTlbluE-I0BlCz4_Lm50Q2VNZcBjAf_cSSNgQd516i6UYpuMJPLjapdfvtjWwH9N-FDrk29wOBGzMa-ImLpfFGnv-wOWK2eRjgh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNMMvGdkJTpK5yK2i1H_OWWs_1v_h2hcweEAFNPsZC1EEyiRJJeStr_cp-VmTjq8miENzZszqE-P_0blAuGn4o1EmeWxRhb_9QMqO2-yV4p5vroZpdim_jFzHXDtypZtUASG1TOhmYzkojN1nJDHT6lyDTh_IJ9Jd9tCbPJEpGA99C0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP0oNJIPphYINThpcPdWWBYKQdTlGgdQ5lskk0P4Siwxii2MV_a1mLohwGnLbQs8PNgLGB5T37y1WfgvDvnyILgisaDjrp892txSwlp1i_NPVbZITRVcyV4HOGkSySHpVNlvCwviekAbPNge0_V1VB5_0Ew6y_FfI1aiLJZ_VQ5dBWd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNOtoMXbZcUCHhdI34jGfOzqeJjpY-U0AU2sz9sdigRttJPgUXLMwvEiHI3cQ03F2wtgpYH2Yv7CqMcrrUf4olI7hrzWeHdVlinroP4gi6n-TPngxnaGeZuE8wJnzkCH5t4rFaKchL9HE1fd4L1-d1UqzXPeMwOn-usNf4juLs-3v4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1365 New Scotland Rd Unit 6, Slingerlands, NY 12159, USA",
+      "Rating": 4.9,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Tequilas Mexican Bar & Grill",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPaANbqMOZpy1s7NTdTkA_1dh-1Q1zrKSCNDozeg4evVSVYA9JUAUO0d8qXIouhEJ6OKaSmlU1FAMjs-6Fz9CSTvKuggIkw-3TY75ic5pCdP8SSmVFYt8ZaV3TCidFsmi5VduPptxuw8gXZinMUMmA2fbOUYFz1Vvq2ZvFEYoFxkARV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5JTfv0Wm_m-U_zP3fG6EgRFrnPD8QWMs-fHliuWHKGeaHDPjDXy_CLKN6RMXhVXTzFse8T4f15i8psHJpI_Uyy5nRkTULb5WdWF7g_FK2ZnuzHcy_613I4BTYHCjQG-VYdTYMQXv40wJizjZ-KO5A0F9K_qDKOXIp027qy_SgY_h5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPhMWqWc-qh3CbzFYIcsyGt0lT1UwgR_DaQry-tsX29AhN4RYKfbB-d67knXi71ghajgwPJ_Zn4OZrKU0Z3IvQgk_JmdZDc2FIMj3vi924T_NvI0tJyRlAmonV6Xyg4H8xM3jPQ2K_-GLwq3Ct9IUFdB8vZkAiToEvGkXSqVyYMSSzf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO09L12iQ1cPQVjN4EyFyE3HbUhHTt0iWI4f1QmZ_QtNIupjsFcFL1Y3UFFLOugwT8eOxbiT7oQc4ZuQ-0YzUVou5WwkJIYNqBZ7ZH3HM8rjAwaCSWpQj7ZfHRIW7b8v4DI8IQoUnjaSaX7_7w4gkH_5TgPBUOv3ERYLSATrN3hinZK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP2W4PYpa2Usu3hiyo5BE_7j9OLqBUJPQHAJk6s_BFP2jESEbXSR2B1bFA7N6IrXsBmJlf1De8Q-oMiuFSmYY97UQJ0N1w16iAsPlk0OiXhmzG5yLo5e0DnyNZymvcCtfp9OVfesTqR5ZlX_xBhVQoaVU1ifOj0bHt4gVoFyrMMI3uS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "2305 Nott St E, Niskayuna, NY 12309, USA",
+      "Rating": 4.1,
+      "Price": "$$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Los Panchos",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGWTZ73fWB-o7Nix-bqndzuOoc86ZdLp-ZHypYCrne9gsD-SMKp-ASov0_F3pPLoxMd84i9padIe7smg9yXJ3NW-dVvRfXZokoabC4dWdS-ERui8dxSVPOQ4QKWOA32BzIVPfCjbnUXpNu3JG1JL6plxSzgjhnyDjL8KszmFdPdsqO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMRgRcEviEK7_zrstsoJj2SeLFXMsbzKFR8Ji-bGz1VMGhUwDlsk-fIvQ2AptltB7DCQCRKqnN0lnDIyBoHobHgAL0KixdtS1bKabOIooMWzpMpMo8O_wzb6wKSSnypjBqE_rDnC_2Uwc35OZgoLyzgDrssKfkJo4emFXll5qcjnvvE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP17dyGiwIn4VpKRto9NaAJvBeBij0lzlfTKB0Mk6mQ4_PE8dSBD5v9hGXSX-p9VvLLGKWa5dmsG8T1cyLJrnZhCswvjVBs8es60iQ7GeyrWxYAgPMLRkQUP3jW4msJf-TAXHSvnu73rYwOtMoHnNciXn-25Fm1EpXFHnyY2wyT9txR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTyW5PVU7yt8aSgW-wb4rlWrbhyhCfi0FjLGOyYH_cGiIjY0GJfVbCbLmBbiAgZ_-8q0jQoa3O7lLSLybogLmwTX0XqKip6jx75VBBk9FFATAPYcpus4ZpaTHiYm5smYPHx59NWBmrjbGVxKylU9hkL7NSWt6TSI9TTvZS1Xn5euzh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObMSK_DS9ntmkivhA9QxRx-nsTsFBz6YXoLMd2Vqmqlqm_Fje_-2kablsHwARDWDgBSsMXiMCu3NGxekL0DtwJTXtbMGxu8lrC3jz58kIKUMcZZIGWSAJF5RpeoPbyFbz1StdIw1iRBFPlAUi5bZSIXJ4QrujMYi7fX7TGt4tenQY-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "180 Delaware Ave, Delmar, NY 12054, USA",
+      "Rating": 4.4,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Tops American Grill, Bakery & Bar",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOxCtLhXM2yqu2nMoqv9TLcYPNZyuxqmhh5IPf7kQjd0ee3n4a3pBqN6C-9RGkvCIuOQHCcOqTMg3ZKNpe14rjJ368ccmbWy1joD7MbyTxAlOtywDOwpYxNgvcSNfRNN9qYUj408PNwwsmrVEAWFVKo2jXaww2_r6v-dQRnxtz3vZLn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPiCQv7R2ofIwf3LfhWaYp1Yg0MdtyX-_Xb2pmCwHvzE1dgw8yKZc1IOSu6gt73e9Ea9OEJJ9C6dSzmcyLQsMAhkEtWY77HHWv_4OTmcTHmMjE200iaj438nDn1JuPlOi8x6yQpm9LRZag8abUgfd-FSVczFQtN1IZxh_wPm4hbaSjR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPrOg9q5DHbByiyc_4k_U51yrVYCoWOYRkzyL5GtSZo6EpFNmjV1PzDM0Pe6UzWnmk8-7U8OcdAGI4c80hWGb3s6kdnjNFJRapumgI0up68RDhZ7ivsC8xr4LyBj2T94kAF3NASfLG4V6dUliP3eOGY2_F3sR9oz40eFOFZs-OkJueN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNKDbAAZUk5b3-SqXuigyJjFppBNbqkDP1Zp-q4tE8Z1bL_DMptVXLqbApZ74l7JEAHpy_I2lXsglO3BICWGtAk43Jzc-JGfOdP8CIIng67mp_Xlg3cRJeLX0Wtp1RhHVUqIr5Xrnnr__5PBl5ZtUurZAhhrToB3OnWeGzfxFvHl8HB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM4WATg0yaeQMV3MDvRljp_jUggssozY8X_Nlm0xOZTtzZhXl9GXpzgESVbzsAqObJOwqYPR9UBibOWhRUHcAn-dD2sirJP0zD9-3HuHjBBb36j31VTu4ZY-J9jAjeEedd0PleeyCfCa6AfR9rDM3bleJVi_RvWQZBypirLR-m1vUDY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "351 Duanesburg Rd, Schenectady, NY 12306, USA",
+      "Rating": 4.3,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "The Standard Restaurant and Lounge",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOfJuB10JxvICI4LgNrxHkozSGd9OiTDU9rYQZUnvj4z1DwKKDtVBrbUBKDerHJyTeCn2930hUfQw8HXkDVbUlJhOavl-UeTF7eSAexMNmNLO6ROb-EJt25gp7Hul6nB8oP_Zgwfdxon5c-XxjOTZc8UVGBaW_4xrAWBBsvthQy_JLS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOeSj_TiHlBBeYm26wmAb8IBvXDOlHbyKjhvKT3VfePJKpkW57_TJvEMuccNcVNy-lEECYOQ0f4Zz-T0KhalaVPiEials8uJ6RkVMDGNe9HCPnTJKBQVTpRmOtd8ZZ7l7hKVPqSg9cnvg66Sn-KucYwt_016LxY5hKrSQBiu2IAsrWz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPoKfSn7FJFNl_AHVHj2maAtu3IDFaJKlNMKEybyBeDALO2sSYIYG3Rmy7Mprvi6ni2dIIHP1whJkOjkt43GuN4o183GcKTaLjnzB_kljhaaMOn4X00brdZMdXCMA8bU9ucbRWKxchY2s3ScK23u844IZbbF-GzbVZeLTG650Goz1uV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DME3FW6BE5EtLgcstbbWJThjxorO9Sn8MSy67dUS2McMDygjVtRk07sMScySUkxnSUsP-ZfkSveEdtUpGrVxh8Yi690LwXuxLO6YGeFppRlvpTydhS-HVoBIi7X25aRrq8NHKEzCdPbOB4eRIgICsmHQouAfIU6mfioARlML6RqXq9V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPKOJGN5dJs58c5YBlYsE7Brm8oxeJ5gs_tBGRKOPozm6G9Xm3VLINdUmjg4WOX183Z49l8miFhBGSTnlmUi1Fx-Y47sfcj52EEGXVovZrhezRmXyRRY1Y-Q6OHNrvbuILcR8kJNuxmGcYgaR5DoSIs0nfgkIAEQvQ61JtTuIwIzucs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1 Crossgates Mall Rd, Albany, NY 12203, USA",
+      "Rating": 4.1,
+      "Price": "$$",
+      "Cuisine": "night_club, bar, point_of_interest, food, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "The Flats Restaurant & Tavern",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPoy7GpdS9eVY9xxSqmv-XmIRqAJnScCnuRpGuWvffXpOJay21GTdU4FvYhsRcwc92A19rmzZZH2MEcNnlPsfmIpp1EYM3YyMuhIxXJbPTqIQGa7Sy-WcA6S2eFuUg93kztlWPzRogcRcySE2kbRyTJVijztCFsQcegDQCQbRpEJCTG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP30uakDoYXSfLLQGMoSQ5NfDYlgjd6RUvTVSGd0HVu1oxIhaoE2MrClTL5JkbdB7vAvKjPS8kCh8ldKEwyKCDdPVYEEZAnrMFDnHdRZ1sNQ-Kp66qTL4iZnFndir9gyL8_UEZQ6U1TiNKzPEMJYTTLxgnsh0mBSh9zqRXvmIZ1Gm8a&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMC4U_b21639o1M_Fd14ESn5_HzyMn9llzjRJ2CFEHVDmkYzZrv6Rtg-dOaGdOp4fXogOhmDbbxzpvmgd459IxEl5Ghh3iaxfcr7FERrREXh4m5iIuQEZvXDM2lc084EoJU_01Y1L7wnzVRMbkPJyzekEEnFi1qbHAvoWqNtyJ9YtKt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMf-_XPkvrpeixZ8bucU-CoHFRrGcJeqBkKi2tgrUikHjp7DY2uRUngDCpWPSwZ1uCXx488MPBz4mpTrnbXD4fRDV2P0J_Yc7fxxYaIrbVxw5bp9lN-tQqb-2QMXC631V2eWkznhvgzrqn8KLS7oX5UZvrmgtjTkaEq1z8HZFnjdGQ4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPBg4vUeLjEm5MA9uLpAc-Oz5zaADfSbgfNjVlvWqR-HLEeNIsLBwYlheIr9sLMmosECmbLOblHQsUMBwnmVN5IVIyji6u4f-eibBX_CROCtw9lggK-dqd4VNecFvjCuEHikm8eV2w2xZKoGRSgNdhYAo8xNNQFv2tjf8hVpN2KH5XN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "675 Grooms Rd Suite 101, Clifton Park, NY 12065, USA",
+      "Rating": 4.3,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 14
+  },
+  {
+    "restaurant": {
+      "Name": "Sovrana Grocery Bakery & Deli",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNaka0FHD5PsZqtigGZfMu3bJ3XzGNlCKoLv5U10mBRQHzsHmYLDLEtgbS1AtzhA5Ho0S4wLItzn-EPduE4MgVrig1nMJsmQYzg5BnPVOy7royup2DH4L0JB0mPxG4aP9EnKungnrn-AEGTUel-bLCwXv_2cG3h4274joUW4-q8gcz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5GEkk30Ra4qZUyAxE6WH63ZTbtGIzeBoIDzcTSQh3HL5LHIUKjSb0Iu3CkW5SD4U7EQvYiMUe_VYZyUG1_fB20GrSw96LeT3tEFx_sKa12WqOSRPM1pLPmZAwEzkMVHDSiigtMhP3EKiwmc5waBzYekeL-j4_J1WcG2u5uq4Z83Qw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPh-sTjkqO5E1eHqLpKXP1OZWjaUUyPTBFkjNgEAKFCVJBTrFQPLbeSDm6XntUZlBIMnkWftORf3Faxke3yS5ZxJch19RYyN474FYKIlF_gCzGttGh9uqjOAmNns8fTYWGJ3_kM_FHfM_qXDxuPkOaJFpqQEdXkv7SXLYwDdUT4zPRi&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO3gjskZh4dd_fukGOKCzi964JDKWOkQ0cwe7APK1JiQ-ie264HPaeB5oFz47h-VJBnJZHOJs2OI7HB7CesG4m9AKSURYLA2a7U2fII0ikIi9Sj5L8XcJIUr9xm2pcGQBmGnf2fM2pJgTnhLOCMMmBshiGMycTKwK2Li_Wx75_NLjc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5JECQK3Cxrc_jn48OEpagXkHdQBlWv9L6WBrUUk9FHQbORpd4ywyTb6Et-9eg5uRIAq6R6jCfSXWeRY1h1nA2GJx9m9lHEbSnZNHCXiRotAQnA1L9326SWHw66-qHjh-TmXGRyop37dnBJ_kMDYtms2OmsSsrwOqup8aYFcstrCZw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "63 N Lake Ave, Albany, NY 12206, USA",
+      "Rating": 4.7,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "Taki Taki Halal Mexican Grill in Albany",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOweRa7onFlEcKx7qTA8tXI3r_Xg6VUlbB7Ujo6RC2FrNuAm9qVyQZNJkkYhrKG2gwZf1FtnSX-Om4vjHbt_j2tFCKV03z2c5fIvksfrzgLRHr5NNvxT2245iDJ-aVjCM-tjuAbaPEvofPeWYsxU_3ecCJRpSeAXEJr39N7JEX4WwWo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNlnBRgMGkis6c6v-8en3hDhDc8rJGkZV6X6edGKobWAlvPV8d9dr-2bD-F2G2l5L48o7PS_krfmCoDBIhfQZOrd-tYxZ_xdAcWZwqdyT7IqwoWk5kdthb1gkDXkpbPOZFBJvzMJn5KA9jEOzxm9N8Cg1EfAYUqnMac7leZW0k4N9bL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO90OfbwTNq-vUg_U2TObRrzXpFis9f3IoOu4KnJ8PcmfQzt1q-8UiCciWvsgoea-AlzCraqtkpRrhOwLV93NxfZM4o_uSJC6H_QXq7XL_v5qReshgWwVYoMt6UwUy2q6-bhrmD8n9WBvI0hxIEBK1x2_XFVqVd9sR7BT1JzYEXCFj-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMiaJpHiGr2xlEzjI78MKBVoo1Bkxskwx6B0wrhCDBUdsMycAh8nQ96JiSB6swNqPBUVYrfoYww68vRjrismdUC_jmw3_qz3hEAQssnORxiKyDPFjQGEXDOiwDGexLhwSYQV2GLgAoWaRYVETxoxka4BYTBI4c1-6T5cm7uOGpI2Utf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOIwM2t10KIhhzb1jhXc7pxpLkKGV2t6T92TmGUL5l2uiPPrU2Moq2L_qkqA_EkfFD774736ZQkkRVbqUy_EO8ar5rCTp0JCf_HzMJo_psHhnO5UgdCeZyoMFgEQVvdTSxv6anG4XRgU3RhVWpR16zNBe6-A_w8vzNtfTZdJMehqcLd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "324 Central Ave, Albany, NY 12206, USA",
+      "Rating": 4.9,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "I Love Rosa",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMs77r5uJkEquMzqWaYFNUdEm0XpVgHOoo_KUuhTinHn0h31Umf919_UafDfW57zEc-6s0wyUjEgbe0pCOeAroMiYnxo1wTXNheJS_Aatsnq5R9ESZcLB-2wdmDcBNwZkoBW79yy_MsQ6mjUb-_UlhN4haw4U_iMe3tUuTp5JfHAy7Y&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPOGgYUgg7Xalaf17X0pBryOEtOmSqpnJbgPuHOHJn6k0uX_nksOEg-v4MUcnmpBHVV6KXw0EkTJZq0dV8VBb5WUHbwOCCxzBXP2AOe4u-GzjN20GLwzCe0w-sCpCSTn50gs4Y1RvRB_0HLPCypR_-JrWdwBN1n6UHp3qR2uctZjDin&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOo7ZPLxcQ6vS4onoE26DxmyMeUBh6pTjT8qZid7QKQ09kzUw8EJwfuUy-GsrrDt43F2Ye773aB2du5e9MTZhPLFuVvGG0LnTz_vz4IinQ7eBSbniYKixqsNJ500M6lNig16jCVv884ZAaj9nThLv1uKc4YBf5WmrU6-Y7QbRLGcmy7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTeOqAV7eR670ZDrAkXtzXaxcQTeUe_FIvK4eHQPUL_9U5zek0niq-dy4lauCMWdoOk33O3qvu0tPm8VZMqjRC4DenrTG20_2CorU-tfEagtoJ5pIMuVg9NSHLynIrea1b6OXfPgnUeQsRFKmIOz7xkf6leioy6ocBVnL2ssw67s-L&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPLAJsvqQPJLHN63bAHHfXIP7CoGIvjLsesJwBMgfKQlT0qVXst3_ZkIFNB-4_isme8gKnoZ8dhQsrF4xIU4jv2unEFVIqtSLux-wbFHnav2NhZDXn9rN6LUKEFYIzaebY0sLsqC9a2Jns_FwgULsx12-H34Gld-STRtWbw8lKvopQZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "90 Broad St, Waterford, NY 12188, USA",
+      "Rating": 4.8,
+      "Price": "$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "Salsa Latina",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOyPILGRherlBIIVScJy0okqyJcOMF_he-5jptbFCMh0FtjrbKy-QLpbfJ_UrgaZj6lxgYoLLmCsbf4QUJJf58BWPLTSAGyobHX0rFsKf72aiJndJMBODM6DIjFjjJZygRZ3sr8AVVnrMcJOdLUCSaTDLhe145AdnpQAPTmvTb180ig&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNGtyEHeYtNEudnFglkLSE5AwegfqwGuWa23aE7nsMxYI8ddCdNnUxzqcFQcXFVSHQyYTQVHsbA-1BzSPGEQl-HBXI4ktNXzVdgjQvFcToLM3sGaohn39f-29USh-SuosWiBZTabUyozIzHF20i6uGhw0YMDgm6VjNosvLswFKWI0C&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMXbFt-VumcgxCRvrtTVJk7gKJSqhf0PADlbhmPDD7inYCx-qyumMHInk6i8Pk5MZKHjwjssbfG8rHwTDKdRbQUbIvtPFUPsJNFDmVpET0Y57EuIR-TcM6MR38B5bdLeDTgdxFAE6LlrI_-dDDazre0DK2OcJd_OOAPjm-a6Ozd0L5z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMJg_wrZY2S0xgh1-U28NR5gzG1BYrnxlLJg5g6Dad72lN1OyjaVTp0SBzgqplzfhhiT79OiBEZwkJSGR5udaSS4KpbpfdOh5iNIoqwxbR9KGqO377-fn0Km7hX7vIS_uVU6DmDAC1cc7lxH_GzZFlKRBoOef9d_bvHAEsDbgiYUCQt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMlG4KeDog9xu_tankdThZa2WiEEaDiPYA2o3BvmWiaG48zcZsnTmz44RJq8m-cRAvAmtFePKe_9w9G-T18XXpLLMVkyFUZWmUUFEDFYPvilVjrwEX1kdZSbBY5SRnBtpG0k_HMnOsHQScctHefnDser1zNmtwdBAbijUgXRR0Vbo_U&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "315 Central Ave, Albany, NY 12206, USA",
+      "Rating": 4.4,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "Dan's Place Two",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMiXDrVcHPAHY0Nwxoz95fjpe8RQW9uCwn84uSnWb-rH2BB1scITvWLSsXC7TDegrS7z3eSz6o7Z2b2j7-sW7ri_GlVtWU3ePnpzVYtk3AxFtIs6uT17stp5kcFNoX8iogjBUUQ9IZV0AOmPUWqa9FRzN5JhEQK3LF4g3WGgC18aDXf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPckdP5qEAZiaW7tRppfn45cMZ5fd7O6fOGXTIumBKnxC24vUOMRxgedhLTNkL8od77bRN5t23LQwYI6Z89AywAezRsfB1Xnnq6DQtHRuBMF2sSLHBlvFpwbqIFtTA5XWkhkgxoynLLXDs_h7psa7T41BdNUPYifnwIuD8VaYbyH7W_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPA-wOCerwg2J2s8q-PCwy_SajiD3aIUIjksUmmly_c-W7fbRyyhRuAugi7v8VGPx-hs87WxbaDEZ_ULQpYTp8U8oecubqcJYv5n7fBbaftT_U7pC0YObxXdq8t7aG2_u5HkQq2r8vzbnxI61r12Wghn_DHHS980eVSwXRu-JEFHMyu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNVtqYKfnF5LfpYa10iLUiSeAUlRMqr2imV7aAuLI-8IzB-fgia6UeIZ70DHfT4n_wpWlkfQZ5z_HJL_416hKKpCSymkJhcDFkWxMe-OKRgPQ3rvuMQpnhR0knRcOy0m97Koh26SOkgO5x89DjYnYs_jqJiRd6TvZ71P9_xYC8o_ea3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPwGvWENBU7SQY06_ov1KhkRbHTIXEmP668Cr5JYhGcp4LmmHUmgpEf7wIjmqfMgudt00j-EWgWl74Ie_ubxtMuFUuBFWsrZL7two50kSToVoePHO-vcZru4ZvJlDYGNKvokm1xWCVdrH64kcIai8LNGoyczhBVuxxDcbWsm9Iufdv7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "494 Washington Ave #1230, Albany, NY 12203, USA",
+      "Rating": 4.7,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "Country View Diner",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO4X8bzv4xBjo4bAXDlbU48HNPon_WR10Gawot-gnp7zEDgFDnOIdZootMIMbMlRRc9LFnvcgufUGEKjkL0XJxDVPZKHPmU7DLqX5gs6Be4fCLvN96J_g5T39cW0PM4easedqnckfbMBIExPYzOdQV_mjtjUHkGglnZekOeMLkKcdHL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNTD803q_b4XlruseoYEWP0W_WoMRd1J-rLEfizdZhq9kJBASH4A0uR0p0kKPHCwpIzhNE-3lh4p_pLsYDIhzI2tJ2cTY6TZiWZEkNbtcZQ8zJobW0L8C1jwH9ko1u44oe5Uzu7ykyvj9gtrrdU5QcbwXHTvVCseAzcHa8Jv2GOl9l&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPC-g2xgnNBbAz77jqt3h5kCvKNZlAyK_OHxfAqPV0IEMvIvo2lH_GAIlHKvvwt6qJ7--hDsXGuL-DI_sDITzNevKIR72yNEzk899-fV6Mjl2syWqFYcxCvNWJa-heLZFYqZV4ejlwxJ9muuCqI0Q5x1V26iPUIot9fVKMNpY7K5f0j&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOCRXHiCmh3-OYrfvNErprQcrkgUKUn5w1lxZL_ZxHUTd1UMO2ozdCmLnAT3rKthOT4fN7bpj6q8emVOZBLT73gvIGF48kSNT2R99Wx-1wVbRqwH0A_bM3wMv7_j3Lo3H3Rx-Z90ASS3kiaOcIoXvT5PLK7ABeoAg651zjZw7BlMffv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPJTdn01qe8PcF9KzIMdWshPm41_Mk2KKPhZx0uWOdMMOp2pk4dQ0aDwse1mO_SN34Tu9amagIqKPWO1MNyqSOcqjM8uq7tQu-Cg2rc_IG0HZFk2DVSreH1ycm2f6Z8JAflJ9gO8hrliFwohGpiDbIaEZ_8lJvZ-ocdaau2JGr12ubG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "855 Hoosick Rd, Troy, NY 12180, USA",
+      "Rating": 4,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 13
+  },
+  {
+    "restaurant": {
+      "Name": "Canali's Italian & American Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPGJ1auAvSGO_Ryg6C88CUSw0oQCy4Dztzn1R3AIM6x0Jpk03pGh-aqj9Uae170SQwjLIu5uyzFMKoKiStbL_OFbtkwCtT6VCDWIqbeUg-C0jl2N0mEQ-n8AzLhs7zLCDiFpRTImj6-8qWKSMRgM9ZUeSHTzPwZKjqEtpcEOSwl-BoL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO2korS93DgNMBoki-ZhFGgXqs_iHHiwrC-wwxsmXZEsBAVpVjFPeX28wBoWtHvcH0tjoRh4Y0rwNKGXZdqKNdUjBEOGXBD0pMUNP3q7uzfvCaz6WIH4Q2gJbgOyAGJYvpdT77wagdINaxgRAeFldukZ477L4tBE9P-pLTNoevNSAqh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN3J2woSpBPr_qJYVmXVNhOdic0pfWVlMTtQZjAzMcrO9mQHKrpGKoXEQfRNbGw0NJ9jA0OsuuvhZKHxT7JL9buTIk0-FNswJ6QOgTILuubvMjl3keBQ7JDD0hpoKCnjJIsH7a-9DiAPdE-MYdRM8dfyF6OnGMDLZpcPNEISczqiFiV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOexHXnkSYRng_7n3YQFJagHtOgUUsrn5L0H6hRMJ4lmD6uhfK8vzpiyAHAq7N6mH-LGC4jIIIvf09Y-Ab20QjN2Z-uEYcVLW3gbb9n8bDmDNCe3TUgsviCEGWXZpy0P82WhFTFpWV_n7YmFOP_ew0QkXJjDywHIcgxTL-4VZ3Y_WZZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM2DZgSODIOrdaXXfojWYPzpzhSj1ht_TKZcwMCwAOQCXiCFxX3vdjoMjkOFbl0RjTh75bXQ3u2uUN-P7A1-jU2NM74yzBDwfPoDPeUHkZraygLV4jlAiI-fjMqDSoZ5HSDbO8l4-8drW-Q6u_nn9X9-cZN5klfW61kisGGwY6G_fOF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "126 Mariaville Rd, Schenectady, NY 12306, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 11
+  },
+  {
+    "restaurant": {
+      "Name": "The Taco Shop",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPco6qrlKLW_sg4ce-TOZEe_LPCQnXQ-3oNudIW71s1a87MzKnlnhp50lLwreivOP5Ulgt0Jth8dnrSDYyE3iFg6OIybO6XZ3v5RtX67jsMoL_ncjoi8V0ubsc1CvFTdLN49tg0fUdRaEY04oSQujii_Wxd9JRP61ndoOeEhTew6lo0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMdAGPluUbQ1C2-M1BwfqF_p2as8-v9_2b9smnFDadFzYrna-8H6EtXIMFVSProhk7n5h8t_XzE9dvXl_8LOCXJmNPRIm6DjEbW-DjhlLpt_U59zKJcysIZAvUh5IzxMnFO0LFICc-8MJVS04OTWpDcndhp6-T4hQSQNooRHenXb_o-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNviK46yuQNwQFEplExfIB94yq1BzypcjXY4bfJywvrTbLQqZZ3CLh91sPdN9f3Rv7EOgLsTJY9vJkLS3l_foq9efAe9Epk41TFWUEjKA1Y1zgx5NksZfA48hOMfZ9v9DOwj-Hs-6dSu_V2E5a5-1nG_R2F7X0QKpjMu9IEaqPj7WBc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOk0gn-J8AKJtqUqcta_LpP83PrCgHJuhIE599Fzhpa-D2rlDqULM6LtG4rbYejVxDcy-hzixDEXghTo2RpPnl3k6_iLEcFsEWXrIVXTZaHuOuWLCGJr2tVSEVjjlLlRs6J-98vqcCMPgkBLNjZwPScpBUjWHgZ5Rm7mZLnD1aHZ5i1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPnCKVdOvwuXkLH9YNJXfH6MA946W9nhaQYr27rImhVvHUKTEwYkWg2lWAXEFXoQiFK2qPiP6GrjNajv6OJb7tLw1xwItXNTh3gTiRV4-vxSHTtaUquBU5UX_yTuSnPDwxlZhKTWosXMmYv5bRFMTSKJaqdAJi6yWmB-JzdqmB4YLaD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "710 Saratoga Rd, Burnt Hills, NY 12027, USA",
+      "Rating": 4.5,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 11
+  },
+  {
+    "restaurant": {
+      "Name": "Tequila Jalisco Mexican Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPeVEc6R0PMgx2qVgSe9-SDtlzuW1P-68CSnePE_bq4k-Zs7dif_TjYDJTRusQmCtg6I8Af6dw80lIDVAwgSqDPgKQ_3RZfu9ik0M4A8DoBtDvnFVaMLz_4R6QO_5jRVK5XJbDuSi9aqU755btiDOLhemcZQWESAaFLEkJU96GnpDxN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOr3ok3WVLM63rnHf5Q1dYrFXY6jmjxgkXKaJ_8av3pAfA-am0ytGsjTHvl5jNhsRyYzD-kehMnPy0b4LZHxy2AMPXw99TKiIrRYbsJ4n3Qcww6RCX9APdcG8hQqm1Nq1v_JumhC3AMMvZFnkEN8pu92K1ipfW_i4eqhYbNmTN-LZO1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOz-bH8MlnMZl4boY8cNaKvrtF9PTB_BzL3J1Psu1ZcPZC54e1sNieBVYfNu8VJ-10Q-0S51rLVu1W9PSnVBkyr6Oo_k6r92uT9mHw5lQ4p0iyNW9eKotLCOB4zP4pB9YLH6J90eRZLSWgWA29Sp6URvGZ6JTYaUVN53nArzc6lrKub&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP0_8V3ndI3O59fzXIg7A4V190z6TwAkWk_oMA2IVuB1XoWtQn8HKS0hvao821L8rbg7--_6tUoo8Fw0uLDIW_DlDhFKVSeJYcUnLCQBZ5Z8Q4l9jCVvVm4ZVwVF10Pg9Jw337YgSIAYHt6IklvFYcZKd1ncAj43nnUK6qfDuNAKe_e&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNVhAXSPK_KkpxSU8nnB6iQkBKDT9E8-Rbs0JJBn1f8s_nLa4BusIdj-afqLR8HtsJQTLhcDfSExmqWYf56JnUCLXafKl3PDWpFvXuo_cd4pGiZhqLwjl-w9XjJyP-wjN3BIC_wSrE4TaQlzYazc4gHEiSi5sKZNoVYxVekgpklMBZM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "262 Saratoga Rd, Schenectady, NY 12302, USA",
+      "Rating": 4.2,
+      "Price": "$$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 11
+  },
+  {
+    "restaurant": {
+      "Name": "Maxon's American Grill",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNjGWWAOEY5c5xtKMb2d4yDO5qr4CfxUlXCMtxqNZY3oAujTmqJt449iiYtWydxzgdIAApGOPaTZeqiTzLhv5VKABJ0KBUaezw03aqPGGrUKm93loxGpFCwyM_VK6BLfTMIUanXC1R3zzzFDTXao8ma8DwsOrbpShfEumb8y3KR0Thb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOjq1zah_HRAF3ti-eSFWtf5vgOOELWbwCkyxs2HXPM3MjrprJdcPiCg7fVMgaW_tp5dzWWcdExR4bNiLwr3o6eaTwTyIJsKHQ95e90Wt07CNCT61VEUd_KDNKYYMFccCbfUMGtuIBsNQW_VP7U8tdA3sWSaMaqteKP6hSYxvo_VZOK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN92NAFTWh-21mKQy_ewwpoULoBihpP9-grPBKZga7vOR7DXOgYamuOXlB9F_kIKGI3Bvw1Q8rlOb_CVdZa-_4GCip9mTDMonMqd3pX8UXqsKFKZH1SPH6YOxDj7awsyqOsV4go_fARCMCQr-DJArVk_xDgOjUmmpBrrR6TjXYNy-oz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPJovHFwXryfKEcL9Sg9nz7vUs4zVXwJglHlFgNdL9Xn-qgrbLDg4FvCArdFUGv728NUKsvJ5euxeV6eiD5RvaAuy2V7Ta7vVtmkkY9z30sXRfAFqgOum8LoupTwv6bz-7CImuSCdC7YteS0RsYQNIJQp5kaBWGNZV06ej-pyDD35T4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPHSWGd7GiVNEbndQ5E8Z6TkxHjQdXVPqUmqJttXlcSOpmgdrC1N_Ta6bLs-CF2HGtLk-EUpYSnOuKQC3SjKW_wHJruSEtbM5BiU5Sf-blM7DvAAvecXzbkb_ahvAq-QZvotAvk4sA0JBHaC7D8ktql9irwlqZQ0Ui6ylzgPRt00jjb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "507 Saratoga Rd, Schenectady, NY 12302, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 11
+  },
+  {
+    "restaurant": {
+      "Name": "Charlton Tavern",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObiwDpala_q_Nzmtv0YG_FEK5Hj9EoI9uDLxJ2NbjzyxiLMzSTZqJ7hwWK7CZOIQbLrXxku-VVbaO_2-4_NR9v-SieqpunLyN6mxjP8S5zsl5_AwnAVkM4ed0JaojHV42I-28O_6gMlvFZ1a2k2oNEC-37JXDvf0hUTi8Nqjyhbbso&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN0DgKsIhmY1In65_X_GMIZTabHr8ZrQ7UK3qeKh6B0OuvAHFsGlEhk69n4X-YlDxeLSX4MKGnShg_j10XydsCFDPED5pAc4ToDNMA_2O5lfMTNiqh32j9ZiK2ZYbK_bEltBXef6jBxnSF0KKsiZCaR9grF0OCxPguyqCVPEpW9NZl5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOZSbOCFz6zq1UEms5Kpooblc0IfndmEJFlrlbQQ1BGHef0g7GKSfRcx8gARpwTBpN0DNbB7erbff09LYSzxqpfcob0KWOJfOoIw4GERvvJZBC3nq16pFfZoqA0ZOad7XlyD5ieCmaqlDriBMh2_hN0AkhpS_PfMkZHIVModIrHZpvH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMk1X_ZGF0_AxfxvpqCkUjtiesqlu2KRQ076EFsMS0_MxH6FMuS0KVBaeMy9iCTw8a8Bb7diLgg9_rR0sapKZfJ5OV5eYEpxrwiV1fArzMtdctyqP80vMpRTzCg_1Uo5v9bdfkLveMnXKmKcuqHiVHEM4CONUeniyO9P4B5Y6a0NMlU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMypsLTX945-WthBbYuJOJEF0eAtcaOL9yelr3vRPsNBU2oQW2sOgBegWkM6GGiZ8Utx7SCfnpLl0X2XE429nnnkFcJMpIp6tOC9Co7z6meR37x4fFu9Gw6pMM2AXVsproDvlZ_GdefERYTkKil-a0evHZw0mvyalBNpK6FOYyCicJj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "745 Charlton Rd, Ballston Lake, NY 12019, USA",
+      "Rating": 4.6,
+      "Price": "$$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 11
+  },
+  {
+    "restaurant": {
+      "Name": "Venezia Pizza & Pasta",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOUG2K1TsxaNTbuGHCRb0S_kE3dzjfFX5LtiQqN9n5NsLd3RIJi472bIBNBlWTWTbj-j-L6kn3P2Fg-oPFy8_P6zsRuF2M61yijZg79G-lOIZvgtH19ZP3fYt2s6jwrE49ERNysvhl7-fzrTqnbqlbIDCboiECwlX37W_wx1nhCFnUE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPFwVRpw4c7wuEr3YGVF2qtHXUxLRIi6zcA_qOr1UVBKdysyh61508weKtcC0QDEvQQAlcr1qWaVZZjQ8s-89QWI6QigGvWSj190h1unMQzwPf23tgDpmkPjQmSyYXvXD7M4uANWMtCvsGYrkI0mQnK_94yYTzoHcTDEp1NUVBL8JVp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPvjc4tWd4hp28ZfTq_OXxFgcLb8t_EcRsLd6SYClm9HNeQdXqF1JS6zlIpJRDUIP5FxcSc84gaxChG2wH3uSqBhQRQr-i3HAU9QkLJT2rI4PnhePfP186y7axljpbFri8EwtpNccGKLvezBVwPyrDbuiPy1x1CfH0BDbN8mE7qU08X&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOPFaGrgiRH72T_b49p5yc_jkH1nm4vejFX_ujjxyNyATenit_nTyjznBPeFxppciYLHs00pB8f9IyQskEusck4wam376kIhYdspDKvJumsQsmSf-IXwOgm1DQPjaVZAVIQeT1XmFbbqaM7o4q9d-0_L4UUwPomHvJrTBhJzwbMH6xn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMAcACca900V5bVkvenhBtb4VQrRHxJ0nHEbqkJxlq19mvuhmZ1V3eexqDeGilupw5YSvIOtHy_FFzHLp6FSfMx_T5BmGZcbsWUqqMPdKKG1o1h4D9sCQ9vtEL9GF6rKjqTK4S_C7Zw68TR2DDIGJ6I0fbd0eDX2qKCZuHe0U6VOBEz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "629 Plank Rd, Clifton Park, NY 12065, USA",
+      "Rating": 4.4,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "East Greenbush Salsa Latina",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOPkrdmkPYlXrl6BVtWVXPv5x_7VlD2eWt2npZ3BuHHsG9N_Qk-aGwdtL0PAHlwSZDnucmkeL95KmMAF7y8vmNnieK9Jng1mTjwa8AiEX2vAgcYqVHy8FZsIARVeXhtCJVFQ2bweCtP5Fg4IRhobLlcQKOGLP_Id3NoYSbPZyRNROzu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4ptAYCyDFg349bL_2eOq4c7ddn9zp3wdUZ3vIrUl3aAuxuJMpvdkHJUoAwtmxYvW5mIVObqmJdCTo8muSOvcFQPu-5Ekg11XfSkJsSjPRVIrYrc1wkUwCNFcFy3aurWQ4zIzJSWtfJy75H8ic3rA6bzcp5vGgC-rI93G_qdkU6pk7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPRQleQsV-lQvihto6gane2P5O3oiwgHNLm2IHIY7xLwaHKZQ-pS44IBslR0JQ63b5C4yVxEfpkXKRIZIGc5VP4wYUmQZOEzHgyU3MpFVsGavqFqCJR8ai3l1Vtt2XWdbL77mhhwNoPpCb13CBJPVTHvBBt_PFAmKuRI-3k5eol1LKw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM9IkRy_2f5TJJSKDvy4Z8ZHMWVrdQDK_G5qM_wUo4FH5ULnddsXtlgbTqZRuRkMN8U297sNER686YdX9l3UwObVWLer-gHoAW6BQ8wg19F4dmkHG8Dy-3li8QtAfpv-n0g8AA0PN6KmmoOo-s-X5UTCihHqIdNz22g9p2h5gsJx8me&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4PRRpOcG7-BZmGvZMwFxlZPVqD4Yy_ZQ65fS5HliLdWh0mlGmAg_5qPq39cFFOBJGYXcpEflRbXy7xwcPBitgRTdlF4bdbjg4J7t7mFdocqxbYvBLJCntbmMtS-wDmSdTtjFxRsp3GcYQIebxAc7XVu7RZWwkfZmt1w3CIy1UOjle&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "10 Troy Rd, East Greenbush, NY 12061, USA",
+      "Rating": 4.4,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "Mi Mexico Lindo Tienda y Taqueria",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPpHeo8yONWWaYoe3QadbdKiQ4K9gwruK5ty7kOfG7OQKJ3nYyr0v2nvx6x_YIkyFIy3gcc8EsJFGBLekrjr58MVuKp7u3xikK-9E00_Ifi258O1FGna4O63KdHG1jPmUabtdyZt5hinZm8DhdtE5rrRmyZsOfGHKj8i_t5G0Ml3m-C&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgz0UgXbHGko0ilSLQXfitXEC7jAkOdqLGkJ6qVfm0okMFjDUDVH_L-TEnKENJYB-jlVVBAAg0rh6mS6HZZxSR9qa9zCrMuw7yoAHhoZYCVX5Xx-poETDY_RBjvydN51RJ7fyfGKfjIHFaVUSeXcGnBcDQ3ghALX9TKvadEgCXSVz7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOw3FsE9VsEAOvTrmvNJ2ESdyoCd2tKfVETTHoNADxPiRCbgbYrNklEY33zufcqcKGNrZGtlOo5Uu0EBVe-vtc4gbSH9mniWA767kgy2rC1XAWZMaMOvH8gHOBOntdAtuyiU4y6DqhOwQFz2qAOoQ8aaaQWwhZP3-q_7-yizbqBd8Nt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOwZ4U-aiilizPceuq1NOG3iLvzw9H8gVpNDDiAituDrgdDux6N12oOeFgMwVdgyXqdtq8CrzzeYKJcwm1SX6k8Km9vkKhdSa2bLc-yJB-Stk-pB5iP8lCKZKz0tBRnX2Uult1dQ7HscPf_el8WGta2XdOebiJW6soVmKOQO_7crO3S&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPFrCRTRRgTDIsmOIj1ia2TgaI6g4X92uRGs19dqQNdLCXcYWV7LYikfiaC-Aj73uZRLuMRhSbfAs2P8OK-1JyPOoJQvULOnAE_4duRjNC64hlmsm3Svd0U7dyxrGy5yu8SiUS1t5aub8d2HMLyrNDjlAHcL4t_Cu0Dky0YDTGyO1IN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1505 US-9 suite 107, Clifton Park, NY 12065, USA",
+      "Rating": 4.7,
+      "Price": "$",
+      "Cuisine": "meal_takeaway, grocery_or_supermarket, point_of_interest, store, food, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "Tacos Diablo (Nassau)",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoohNz8ox04dUwp6P0e7swuAD5Ax5oPl3a6KorKy7p66JIWYuUoJN_J-toao3Q2UpvrB0SJLqpbbpTzP0YrB_MPLk1Mngq8Xz156J_loGwIjn2TGIhlVEyuGYu5QdxFLopKLwYzOiRwn232zc4hJPaODMbYdXadRvIUUVxvFFk-MGj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPs9okpPjrKpeKLmf8xRhQK9NeRtZ8jVDon_OnupujiuLGpeCJ0636gbZ9dm5zq0weOC2YJp7vdbjM0ATUtoeT93kTeJzy4gTPBvXUJ7OghL_xLLBzP_YbcVwLiHk31I1oGha-vWTgg_4hNADOlc6i75e2WLQdwhsAT3IXLECVjh9WO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNPhkn1gfOOlrmnomMpa3w_lLa8_25NgufM2n0JUB9lAnbI9Ql-oiRcNAX237M6VmIIYt7C-HVhIQUkcK5TmFjRn4n9MLyRcsaLYCMb1EzEtAVxhsfyjLIcL8Wv0zYVB8SiVeP4mb_CMnfjHHEBNv2UvJ_Y_IdT6s2iOUln8UwJRvj-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPeOS3XM3QrrKbKSW5xG2Rj1VaXO1VSjodlsx4EbJ10fgH8oV8ek1GUQwclD6KRJWC3--snpOxdNkJRCOrpUmkzv8VVMBj8ta3xXZQKKzPX3pYZJGsTRSx4tzU-g__dRocKaxXfH4p8E0NKFyk9xHi14EOlZ4RwlRPmjHTv9rv80AYZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMXaeOo8mgB8YabF8n1W2MB-wVgLby1EJaBJ0eN4bD6EB37F_vITRHe3G_7_ahEBcvBvNVNv8YyszWSH8xhBQIJnxSC1v_QG9auKiudhKJptkz6MXgS6Whxu4mGQUSB5Td40lfuRaOirt5_RTWwZN8Uhr0NzWHTE0hrD2BPHZaQONdN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "20 Albany Ave, Nassau, NY 12123, USA",
+      "Rating": 4.7,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "Dos amigos Mexican Restaurant",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMuHxADf85Z0rZ6GPE4nNiGk-RluicKmvOUjw07hUL9kRO1N_OkvAue6RH_n6Xj8S9XS9Raz9CyyR3vUEYmJWVVg21xinpk0wjPL3TQ7GHLkBpieItTPwiTu-VoPE9pRqfKEHp0hAFiLbPjGim9r6H6udr8wzPqse0cr16gdtitMb9t&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPIR2GDYnYwPeqqDSzYNIFMY7qix0gdrmzEwLa1QArEX6ZXST6cTYwbM4Z43Ah-5_zPUwFlK_PuWHPmTRxjv181ANL6fcryWVoCXPZqpviddWxujKZ59wx-IQnUic6OAf-xUHQ50zEieQ__pS_PDisFDc04IgLRa4BZGoBzc4dxAl4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOv7WJVlhtd9XU2UzAolyKFZ_kndcg5Jrglwu52Cc8hFRCbFyu8FYqc2ZgXrKgFMnyud4kHBFWzOfIinyGDcB2p6ll8pT26QLuMwKWd5EAVmhaLakDy2o2fX_hwCPkLFGBAIakgOhx7ZD6MY5iSOHE_ubaDYObN_bR9Fj0ebpLTzB0N&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMxYbq30T3hbtFyqEf60wrkoTe2rQJvEHuGRKFG0yS8mZi-hhWfdjTOxYSaWkd2h817ARSJQGE-SmpNQ9TdRFGWKmByLqlTNG9evZZWXYrfQC8RVnYNTZYDqik1KLCW1sMNaNRfCm-1e0EX58-LxQ27f9Dd4oOkJCjBimn2HxMd8NGE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOcXPNKCjIkE8BGCN8JIAsKSRCWsJwpwKzGo8KsQFIOrqILKibbLAwhaisUt4cdcJsuMTxkLy5y-FY9JB5sZGLtQekTJ30lT77OCu02VjVhPje3_tJv0eZywaokYPR8puDakZo83N1sbADLgcahZXB1L90SnLThtc_wqwGpzikwAieP&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1 Crossgates Mall Rd E110, Albany, NY 12203, USA",
+      "Rating": 4.3,
+      "Price": "$",
+      "Cuisine": "point_of_interest, food, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "La Fiesta",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMJzQTgZ-8JcPzYBgQ_U9z3glUGjbLSzNuev9o3bQLNVCj8sQba19mrVoYBLgF3oj62nIvR63xOHBsUih38mkdjqBHeilTPRz9vmpeN5wvw9fi2lH_SLkVh89Yt-Ow3NcdJMhD76abluFMxCezGRagB09szYHv36KHmkWYSz31vzVkk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMn6p2WZ7O2KyIV6IczNkx6GsRM3Q6JQlBu2N2jg8YhZmPaMkOIdYTVu07wXKHkFruwQ9NPYLtMwbWqiQYx2MP58ZK5xE5y7IQ7JOiqGU8ONqXepygWUdD2dk2QIi2inU86q5VVRAY1yXUUFfLVQN9j3YT-JoZptcBkRLwFlfxRJPHo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMd2zVXQYxqxoKnlx9GIjs-abCYvTBQRd7OxH4LEq9E3tz9_kOYzqHgPMRjhzWexXKwSUDE8t8quq4VcFgeBxeNBZA-KUMINg8IzZhQQBIVmbbYNL1AJMJp78bOmV6SPtb2RoLRElMmHAs9SpIAfLMGDvlhc2ZEI55hrpam4tkN_G2r&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOoyr-8qPVnrhgqTsNdbeFVZxOkeZOvwGj01hI8uLa-rCgkWIf5LymSKSmMAGbkcoHrKiW0bXxlgin6g5dlddeGZ7CEnKcf5uLfPv4vMkMWnK9EkJsWpkDZiMFcdY9i4DZzbDlSTjzTLz_Xd_zSKiZk5P1f51ADPtWKSAmGkhhiSQ4s&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM3zjGVfJOY6KY8LIIzo7T0Wwut4JRZ_Zo_aPhGqdUEMG0vLfggOVkLqN3_McF354Afo40NYbDr1HqFq_vnjaTr4q1o3byRQrw9_-FVy8vwHk7SFGvyRoCsE2a6U0b8XtVwZJh2V5NXUmzy0pnAilzU-P04wsPnHTYtGETqPCyysQhR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1610 Central Ave, Albany, NY 12205, USA",
+      "Rating": 4.4,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "Broadway Lunch",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0jjwrsjZZY5f9ONdJrPVlKas5nu2ptuCAgTIAaOx89NbPUNsKB7TFZaiMmAaUS0OxlEELKxuHYTwrVWCbzR9-XIDczAMHqNjJddSUcbyvbzc53nNPI8q2G0ult3ROeC2Jju8xU51-K5bI3BbA5DEZAcN8frcXJ4byG4gJutyHyNsC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNUNZbqWEBFmDxJydVBnK1GVqYn5N9xAa-7NeAwNo5LwgKn-0wV2puQQUp10L8JxUesqk4Ns0OnH_n2R79bQn2CsISMviEenwnfW-YZXSfcX9sHmnAludMtIloeB7Os4FpO9j3SYSm4B7JsEWC9E9dG-rY3qOjlNgCt9OHFtAXtXpiC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5VO8qROSILU0aORQfGO2_AssB8tAhnv-RX5Eno2ON9vNdcdgte4DdbWtLdmfyFlAE9r99wycYrofbwM3xx8UQV5e7CeZn2tBMOVtAApMCwB1Ng1KLi2CFDCoIyEqk90_xphr23poaCZ6xqbcPJj-UNHtX5UWq4tjR3je64ehlvk_R&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNiuoCug3i3WEeAhmwz4GHz5lt4qFWvLAQH5g4wr2aORBXOOzMN6CPRxC9V-_K1-FWBf5QqXkmn4bfwpU9Q9agftoNFvuGh0WUq4oHTP93vrh6Mn1_sKSwruZdA7tuDDaq2R_c6UT8-sdPCdvkDvdNWKooUBEB3tAY-gLsZSVNksjhr&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPLphpwwHrDYtNI-znEReaqkkteHwqfpgUPlfNqhhqlrhs-8XglRn5k-BK09IJRGTDnBDtzYPunTEhFAhOyiQlWgsmjqazvyWcupcI4KVGw_h3l6_HJesqEI-60cE5eTXKyJwHOmrli8cz2ajYGo0w6cRyA-iz8vGiTpju4TSMCcO8A&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "2101 Broadway, Schenectady, NY 12306, USA",
+      "Rating": 4.6,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "My Place & Co., Schodack",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM298YNOjBde3-wp5DZSpYULdtTS4Ny9YnjPRMNNlxpyu21aN2vzvrwTdeFaJkqju2jC5Ler-ZT76gu3QBN4PAx_xcK9YjETGZ0KVbzq8Q71v1uRqGAdYAL8R4VtlcZnM0P_B5g7-TzMMXFMXd--5xGVyiQbIgZoOHb7KKjeafE1FX8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DORKQZ3nqICdm4heCzNYzYPg-5eW2kMVlp_8n6hnzEthbA7FvOv91fN60ugrP_BuvD6eH7owZYLDG4W89i8ZskoNKS9uS8jjBF74Jbyw__tLqkHRW95-0Y4h6EYs8ujDMy_4nqvCoXCBnfxXKxz_RAEpuJUfuCsCSmjUialCWL_XXrx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMtZx6F9FBZubs7zUIzHP_2vez89O-v1shJRZZmHUQqUPFBMA7S5hWifxnliNITU5h9STaRDRs8tO1BNSLDjk-i6FbIByuOJ9tfl4mCMobi_6T0G6j0cnG5RaNYLCRulCg_UhF62ecXqfc18SUg-HnPkJe9wpMMxocSSJWyxGiF-zki&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP5qTTia1kryE1s1klLvXceHCTaY2Bwk8JxtEHxRV5Vx3NXws8gcMGtjYgnN5YvMDJ9e44zRZnC8xMAaLiJs7vMyfRcjtB4NnNZT5ypOApIC5FP2vb2SM7pfcy93Vw6RctA6IjoK_LyVxVJ18h_uMQQNhlLVYfkdUTDar4Rc81XELAm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMtdbtIIvp_8LpP_9POCp2kD58KBKiLCEVEYzsuVsdFBNB8NhXB_dNBERqXu130z4_0ntUpur2gTuekM6X6B88G9vGwzUDboCY91jW3j-aQI_rmgVTYU2qJIJosJXsgx0EsL9mLnxS_F7nscAqXe9lgzUbNpW5X0FWoSlfa_0WNG0xw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "1640 Columbia Turnpike, Castleton-On-Hudson, NY 12033, USA",
+      "Rating": 4.3,
+      "Price": "$",
+      "Cuisine": "bar, food, point_of_interest, establishment"
+    },
+    "totalScore": 10
+  },
+  {
+    "restaurant": {
+      "Name": "Super Taco",
+      "Photos": [
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN8QHPTHwnu1LVyURdYY4_c2ZYafwRJb4cZsNtF0YV9qVV7IyqTTAlmwdwu8zCT5-SFqRo84wYzHL0pyahiCIrm9DfS2CxyDB5yazN2wA2CprI_JqT7ZWfSmx03Mfea6De10orEFICOqqYChhPSsFI0FMortiyd6aCecPobwshvYuzU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOT_6af27hNoaGwofo_iAso1oazteCOa0qyAYCMFFEVEumyXFwBSAIx614IpcedxD8YBm9Znzhy4nD_Ihw2H16Pv8iDSr8p6LYX2cs88J8ohvT-CYmR_fUmdEbKdqFHicigvof9sMuz_xWTQyx8XFADo3n7aFJFX_VhaH0W8BlKcvhm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMTXTLiRj4iqHIl-Mubws7rPpLq_B7VfeoSsyBVUmaLk2yHdenSTEpJcnjd1sNGit-QH8WO2-6TJgB5VoPXTLziEqBfG6YyoW-iBjQF6svRsIAJRxy8QRVCn06DOWKCSRuuxyIKsARuyMMmZpePT4iwnfyWi2zM6IHNyWQRWOAbO70m&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNdrxbAfPzTIDcdgRfg1-llu58OV8g5Jmi3Y7NuNPjPZx2mKfy81ZihDkGs9PnekflRrZeKfA0QifojJONxiFDbqCrHL15NL_-laYyQr-053AbUF8KVTg6s7mpJzE5ExHY0Zc97pl65kAS54H9a5ZkbWHytFst87_F8C68vAAtbi7xA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNilfMTggydf040b_LNVw-KjQBMSUjBFTIlvzOWVpQXTVa_2lANXEV0xgCcyLDYXOuk2Mn0EaP0wNVVbGeRWNW_laeUKphqjFgqQEfcevS8h74nLQpB3vPpPoVPxj7Pq_YSeLdyQmHZ2vHiIfx-FyLvZ1B2wO8MCga6lhjjHQSyQt6Y&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      ],
+      "Address": "93 W Campbell Rd, Schenectady, NY 12306, USA",
+      "Rating": 4.8,
+      "Price": "$",
+      "Cuisine": "food, point_of_interest, establishment"
+    },
+    "totalScore": 7
+  }
+]
