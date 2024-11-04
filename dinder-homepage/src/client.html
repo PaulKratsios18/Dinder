@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinder Session</title>
+</head>
+<body>
+  <h1>Dinder</h1>
+
+  <button onclick="createSession()">Create Session</button>
+  <input type="text" id="sessionCodeInput" placeholder="Enter session code">
+  <button onclick="joinSession()">Join Session</button>
+
+  <div id="sessionInfo">
+    <p id="sessionCode"></p>
+  </div>
+
+  <div id="namePrompt" style="display:none;">
+    <input type="text" id="participantNameInput" placeholder="Enter your name">
+    <button onclick="submitName()">Join</button>
+  </div>
+
+  <h3>Participants</h3>
+  <ul id="participants"></ul>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = () => {
+      console.log("Connected to WebSocket server");
+    };
+
+    socket.onmessage = function (event) {
+      const message = JSON.parse(event.data);
+
+      if (message.type === 'sessionCreated') {
+        document.getElementById('sessionCode').textContent = `Session Code: ${message.code}`;
+        document.getElementById('sessionInfo').style.display = 'block';
+
+      } else if (message.type === 'sessionFound') {
+        document.getElementById('namePrompt').style.display = 'block';
+
+      } else if (message.type === 'sessionNotFound') {
+        alert("Session code is invalid. Please try again.");
+
+      } else if (message.type === 'participantListUpdate') {
+        const participantsList = document.getElementById('participants');
+        participantsList.innerHTML = '';
+        message.participants.forEach((name) => {
+          const listItem = document.createElement('li');
+          listItem.textContent = name;
+          participantsList.appendChild(listItem);
+        });
+      }
+    };
+
+    function createSession() {
+      socket.send(JSON.stringify({ type: 'createSession' }));
+    }
+
+    function joinSession() {
+      const sessionCode = document.getElementById('sessionCodeInput').value;
+      socket.send(JSON.stringify({ type: 'joinSession', code: sessionCode }));
+    }
+
+    function submitName() {
+      const sessionCode = document.getElementById('sessionCodeInput').value;
+      const name = document.getElementById('participantNameInput').value;
+      socket.send(JSON.stringify({ type: 'addParticipant', code: sessionCode, name }));
+      document.getElementById('namePrompt').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
