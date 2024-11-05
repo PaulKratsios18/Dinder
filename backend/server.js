@@ -8,13 +8,19 @@ const User = require('./models/User');
 const Session = require('./models/Session');
 const connectDB = require('./config/db');
 const preferencesRouter = require('./routes/preferences');
+const { Server } = require('socket.io');
 
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
-// WebSocket Server
-const wss = new WebSocket.Server({ server });
+// Create Socket.IO server with CORS configuration
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3001",
+    methods: ["GET", "POST"]
+  }
+});
 
 // Middleware
 app.use(cors({
@@ -27,41 +33,44 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
-// WebSocket connection handling
-wss.on('connection', async (ws) => {
-  console.log('New client connected');
+// Socket.IO connection handling
+io.on('connection', (socket) => {
+  console.log('A user connected');
 
-  ws.on('message', async (message) => {
+  socket.on('joinSession', async ({ roomCode, userName, isHost }) => {
     try {
-      const data = JSON.parse(message);
+      console.log(`User ${userName} joining room ${roomCode}`);
+      socket.join(roomCode);
       
-      if (data.type === 'CREATE_SESSION') {
-        const session = new Session({
-          host_id: data.host_id,
-          participants: [{
-            user_id: data.host_id,
-            name: data.host_name
-          }]
-        });
-        
-        const savedSession = await session.save();
-        ws.send(JSON.stringify({
-          type: 'SESSION_CREATED',
-          session: savedSession
+      // Update session in database
+      const session = await Session.findOne({ session_id: roomCode });
+      if (session) {
+        // Add participant if not already present
+        const existingParticipant = session.participants.find(p => p.name === userName);
+        if (!existingParticipant) {
+          session.participants.push({ name: userName, isHost });
+          await session.save();
+        }
+
+        // Emit updated participants list to all clients in the room
+        const participants = session.participants.map(p => ({
+          name: p.name,
+          isHost: p.isHost || false
         }));
+        
+        io.to(roomCode).emit('participantsUpdate', participants);
       }
-      
     } catch (error) {
-      console.error('WebSocket error:', error);
-      ws.send(JSON.stringify({
-        type: 'ERROR',
-        message: error.message
-      }));
+      console.error('Error in joinSession:', error);
     }
   });
 
-  ws.on('close', () => {
-    console.log('Client disconnected');
+  socket.on('leaveSession', ({ roomCode }) => {
+    socket.leave(roomCode);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
   });
 });
 

@@ -1,85 +1,37 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import io from 'socket.io-client';
 import './LobbyJoin.css';
 
 function LobbyJoin() {
-  const navigate = useNavigate();
   const location = useLocation();
-  const [roomCode, setRoomCode] = useState(() => {
-    if (location.state?.roomCode) {
-      return location.state.roomCode;
-    }
-    const params = new URLSearchParams(window.location.search);
-    return params.get('code') || '';
-  });
   const [participants, setParticipants] = useState([]);
-  const [error, setError] = useState('');
-  const [userName] = useState('');
-  const wsRef = useRef(null);
-  const [isConnected, setIsConnected] = useState(false);
+  const roomCode = location.state?.roomCode;
+  const userName = location.state?.userName;
 
   useEffect(() => {
-    // Initialize WebSocket connection
-    wsRef.current = new WebSocket(process.env.REACT_APP_WS_URL || 'ws://localhost:5000');
+    // Connect to WebSocket
+    const socket = io('http://localhost:5000');
 
-    wsRef.current.onopen = () => {
-      console.log('WebSocket Connected');
-      setIsConnected(true);
-      
-      // Join the session once connection is established
-      if (roomCode && userName) {
-        wsRef.current.send(JSON.stringify({
-          type: 'joinSession',
-          code: roomCode,
-          name: userName
-        }));
-      }
-    };
+    // Join session room
+    socket.emit('joinSession', { 
+      roomCode, 
+      userName,
+      isHost: false 
+    });
 
-    wsRef.current.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      
-      switch (message.type) {
-        case 'participantJoined':
-          setParticipants(message.participants);
-          break;
-        case 'sessionStarted':
-          // Navigate to preferences page when host starts the session
-          navigate('/preferences-join', { 
-            state: { 
-              roomCode,
-              userName 
-            }
-          });
-          break;
-        case 'error':
-          setError(message.message);
-          // You might want to show this error in the UI
-          break;
-        default:
-          console.log('Unhandled message type:', message.type);
-      }
-    };
+    // Listen for participants updates
+    socket.on('participantsUpdate', (updatedParticipants) => {
+      console.log('Received participants update:', updatedParticipants);
+      setParticipants(updatedParticipants);
+    });
 
-    wsRef.current.onclose = () => {
-      console.log('WebSocket Disconnected');
-      setIsConnected(false);
-      // Implement reconnection logic
-      setTimeout(() => {
-        if (wsRef.current.readyState === WebSocket.CLOSED) {
-          console.log('Attempting to reconnect...');
-          // You might want to show a reconnecting message in the UI
-        }
-      }, 5000);
-    };
-
-    // Cleanup on component unmount
+    // Cleanup on unmount
     return () => {
-      if (wsRef.current) {
-        wsRef.current.close();
-      }
+      socket.emit('leaveSession', { roomCode });
+      socket.close();
     };
-  }, [roomCode, userName, navigate]);
+  }, [roomCode, userName]);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
@@ -90,28 +42,11 @@ function LobbyJoin() {
     navigator.clipboard.writeText(roomCode);
   };
 
-  // Handle connection status display
-  // const connectionStatus = isConnected ? (
-  //   <div className="connection-status connected">Connected to session</div>
-  // ) : (
-  //   <div className="connection-status disconnected">
-  //     Connecting to session...
-  //   </div>
-  // );
-
   return (
     <section className="lobby-section">
       <div className="join-instructions">
         <h1>Tell your friends to go to <span className="highlight">dindersdd.cs.rpi.edu/join</span></h1>
       </div>
-
-      {error && (
-        <div className="error-message">
-          {error}
-        </div>
-      )}
-
-      {/* {connectionStatus} */}
 
       <div className="lobby-content">
         <div className="left-panel">
@@ -123,7 +58,6 @@ function LobbyJoin() {
           <button 
             className="lobby-button" 
             onClick={copyInviteLink}
-            disabled={!isConnected}
           >
             <span className="icon">📋</span>
             <h2>Invite link</h2>
@@ -131,7 +65,6 @@ function LobbyJoin() {
           <button 
             className="lobby-button" 
             onClick={copyGroupCode}
-            disabled={!isConnected}
           >
             <span className="icon">📋</span>
             <h2>Copy group code</h2>
@@ -141,11 +74,15 @@ function LobbyJoin() {
         <div className="members-panel">
           <h4>Members:</h4>
           <div className="participants-list">
-            {participants.map((participant, index) => (
-              <div key={index} className="participant-item">
-                {participant.name} {participant.isHost && '(Host)'}
-              </div>
-            ))}
+            {participants && participants.length > 0 ? (
+              participants.map((participant, index) => (
+                <div key={index} className="participant-item">
+                  {participant.name} {participant.isHost ? '(Host)' : ''}
+                </div>
+              ))
+            ) : (
+              <div className="participant-item">Waiting for participants...</div>
+            )}
           </div>
         </div>
       </div>

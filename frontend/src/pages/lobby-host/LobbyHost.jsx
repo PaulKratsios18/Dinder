@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './LobbyHost.css';
 import { useNavigate, useLocation } from 'react-router-dom';
+import io from 'socket.io-client';
 
 function LobbyHost() {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ function LobbyHost() {
   const [participants, setParticipants] = useState([]);
   const [hostName] = useState('');
   const [hostId] = useState(() => `host_${Math.random().toString(36).substr(2, 9)}`);
+  const [socket, setSocket] = useState(null);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
@@ -57,6 +59,31 @@ function LobbyHost() {
     }
   }, [roomCode, hostName, hostId]);
 
+  useEffect(() => {
+    // Connect to WebSocket
+    const newSocket = io('http://localhost:5000');
+    setSocket(newSocket);
+
+    // Join session room
+    newSocket.emit('joinSession', { 
+      roomCode, 
+      userName: 'Host',
+      isHost: true 
+    });
+
+    // Listen for participants updates
+    newSocket.on('participantsUpdate', (updatedParticipants) => {
+      console.log('Received participants update:', updatedParticipants);
+      setParticipants(updatedParticipants);
+    });
+
+    // Cleanup on unmount
+    return () => {
+      newSocket.emit('leaveSession', { roomCode });
+      newSocket.close();
+    };
+  }, [roomCode]);
+
   const handleSelectPreferences = () => {
     navigate('/preferences-host', { 
       state: { roomCode, hostId }
@@ -88,11 +115,15 @@ function LobbyHost() {
         <div className="members-panel">
           <h4>Members:</h4>
           <div className="participants-list">
-            {participants.map((participant, index) => (
-              <div key={index} className="participant-item">
-                {participant.name}
-              </div>
-            ))}
+            {participants && participants.length > 0 ? (
+              participants.map((participant, index) => (
+                <div key={index} className="participant-item">
+                  {participant.name} {participant.isHost ? '(Host)' : ''}
+                </div>
+              ))
+            ) : (
+              <div className="participant-item">Waiting for participants...</div>
+            )}
           </div>
         </div>
       </div>
