@@ -1,4 +1,3 @@
-
 // models/Restaurant.js
 const mongoose = require('mongoose');
 

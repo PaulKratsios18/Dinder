@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables from .env file
 
+// Connect to MongoDB using credentials from .env file
 const connectDB = async () => {
   try {
     const uri = process.env.MONGODB_URI.replace(

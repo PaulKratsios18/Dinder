@@ -15,12 +15,12 @@ function LobbyHost() {
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
-    alert('Invite link copied to clipboard!');
+    // alert('Invite link copied to clipboard!');
   };
 
   const copyGroupCode = () => {
     navigator.clipboard.writeText(roomCode);
-    alert('Group code copied to clipboard!');
+    // alert('Group code copied to clipboard!');
   };
 
   useEffect(() => {
