@@ -25,7 +25,12 @@ const sessionSchema = new mongoose.Schema({
     user_id: String,
     name: String,
     preferences: Object
-  }]
+  }],
+  code: {
+    type: String,
+    required: true,
+    unique: true
+  }
 });
 
 module.exports = mongoose.model('Session', sessionSchema);

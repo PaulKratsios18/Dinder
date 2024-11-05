@@ -150,7 +150,9 @@ app.post('/api/sessions/create', async (req, res) => {
       session_id: roomCode,
       host_id: host_id,
       status: 'waiting',
-      participants: []
+      participants: [],
+      code: generateUniqueCode(),
+      created_at: new Date()
     });
 
     const savedSession = await session.save();
@@ -169,10 +171,10 @@ app.post('/api/sessions/create', async (req, res) => {
   }
 });
 
-function generateSessionCode() {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function generateUniqueCode(length = 4) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let code = '';
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < length; i++) {
     code += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return code;
