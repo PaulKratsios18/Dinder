@@ -63,6 +63,7 @@ function JoinPreferences() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           roomCode,
@@ -82,17 +83,33 @@ function JoinPreferences() {
         })
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // Handle specific error cases
+        if (data.error === 'Session not found') {
+          setErrorMessage('Invalid room code. Please check and try again.');
+          return;
+        }
+        throw new Error(data.error || `HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log('Response data:', data);
-      navigate('/lobby-join');
+      console.log('Success:', data);
+      
+      navigate('/lobby-join', { 
+        state: { 
+          roomCode: roomCode,
+          userName: name 
+        } 
+      });
       
     } catch (error) {
-      console.error('Error saving preferences:', error);
-      setErrorMessage(error.message || 'Failed to save preferences. Please try again.');
+      console.error('Error details:', error);
+      if (error.message === 'Session not found') {
+        setErrorMessage('Invalid room code. Please check and try again.');
+      } else {
+        setErrorMessage('Failed to save preferences. Please try again.');
+      }
     }
   };
 

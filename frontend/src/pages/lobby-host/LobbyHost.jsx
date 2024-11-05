@@ -74,20 +74,19 @@ function LobbyHost() {
           <h2>ROOM CODE</h2>
           <div className="room-code-display">
             {roomCode}
-            <button onClick={copyGroupCode} className="copy-button">
-              Copy Code
-            </button>
           </div>
-          <button onClick={copyInviteLink} className="share-link-button">
-            Share Invite Link
+          <button onClick={copyInviteLink} className="lobby-button">
+            <span className="icon">📋</span>
+            <h2>Invite link</h2>
           </button>
-          <button onClick={handleSelectPreferences} className="preferences-button">
-            Select Preferences
+          <button onClick={copyGroupCode} className="lobby-button">
+            <span className="icon">📋</span>
+            <h2>Copy group code</h2>
           </button>
         </div>
 
-        <div className="right-panel">
-          <h2>Participants</h2>
+        <div className="members-panel">
+          <h4>Members:</h4>
           <div className="participants-list">
             {participants.map((participant, index) => (
               <div key={index} className="participant-item">
@@ -96,6 +95,15 @@ function LobbyHost() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="bottom-buttons">
+        <button className="preferences-button" onClick={handleSelectPreferences}>
+          Select Preferences
+        </button>
+        <button className="start-button">
+          Start Session
+        </button>
       </div>
     </section>
   );

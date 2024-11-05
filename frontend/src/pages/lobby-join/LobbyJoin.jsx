@@ -5,7 +5,13 @@ import './LobbyJoin.css';
 function LobbyJoin() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [roomCode] = useState('');
+  const [roomCode, setRoomCode] = useState(() => {
+    if (location.state?.roomCode) {
+      return location.state.roomCode;
+    }
+    const params = new URLSearchParams(window.location.search);
+    return params.get('code') || '';
+  });
   const [participants, setParticipants] = useState([]);
   const [error, setError] = useState('');
   const [userName] = useState('');
@@ -85,18 +91,18 @@ function LobbyJoin() {
   };
 
   // Handle connection status display
-  const connectionStatus = isConnected ? (
-    <div className="connection-status connected">Connected to session</div>
-  ) : (
-    <div className="connection-status disconnected">
-      Connecting to session...
-    </div>
-  );
+  // const connectionStatus = isConnected ? (
+  //   <div className="connection-status connected">Connected to session</div>
+  // ) : (
+  //   <div className="connection-status disconnected">
+  //     Connecting to session...
+  //   </div>
+  // );
 
   return (
     <section className="lobby-section">
       <div className="join-instructions">
-        <h1>Tell your friends to go to <span className="highlight">dindersdd.cs.rpi.edu/join</span> on their phone, tablet, or computer to join.</h1>
+        <h1>Tell your friends to go to <span className="highlight">dindersdd.cs.rpi.edu/join</span></h1>
       </div>
 
       {error && (
@@ -105,7 +111,7 @@ function LobbyJoin() {
         </div>
       )}
 
-      {connectionStatus}
+      {/* {connectionStatus} */}
 
       <div className="lobby-content">
         <div className="left-panel">
@@ -134,18 +140,18 @@ function LobbyJoin() {
 
         <div className="members-panel">
           <h4>Members:</h4>
-          <ul className="participants-list">
+          <div className="participants-list">
             {participants.map((participant, index) => (
-              <li key={index} className={participant.isHost ? 'host' : ''}>
+              <div key={index} className="participant-item">
                 {participant.name} {participant.isHost && '(Host)'}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
 
-      <div className="bottom-buttons" style={{ textAlign: 'right' }}>
-        <h1>Waiting for host to start the session...</h1>
+      <div className="waiting-message">
+        Waiting for host to start the session...
       </div>
     </section>
   );
