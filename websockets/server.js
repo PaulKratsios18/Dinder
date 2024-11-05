@@ -3,8 +3,13 @@ const http = require('http');
 const path = require('path');
 const app = express();
 
-// Serve static files from the public directory (client.html should be in this directory)
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the build directory (React app)
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Handle all GET requests by returning the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const server = http.createServer(app);
 

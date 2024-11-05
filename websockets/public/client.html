@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dinder</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        #namePrompt {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dinder</h1>
+
+    <div id="initialControls">
+        <button onclick="createSession()">Create Session</button>
+        <div>
+            <input type="text" id="sessionCodeInput" placeholder="Enter session code">
+            <button onclick="joinSession()">Join Session</button>
+        </div>
+    </div>
+
+    <div id="namePrompt" style="display:none;">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="submitName()">Join</button>
+    </div>
+
+    <div id="sessionInfo"></div>
+
+    <div>
+        <h3>Participants</h3>
+        <div id="participantsList"></div>
+    </div>
+
+    <div id="activeSessions">
+        <h3>Active Sessions</h3>
+        <div id="activeSessionsList"></div>
+    </div>
+
+    <script>
+        let ws;
+        let currentSessionCode = null;
+
+        // Connect to WebSocket server when page loads
+        function connectWebSocket() {
+            ws = new WebSocket('ws://localhost:8080');
+            
+            ws.onopen = () => {
+                console.log('Connected to WebSocket server');
+            };
+
+            ws.onmessage = (event) => {
+                console.log('Message received:', event.data);
+                const message = JSON.parse(event.data);
+                handleServerMessage(message);
+            };
+
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+
+            ws.onclose = () => {
+                console.log('Disconnected from WebSocket server');
+                // Attempt to reconnect after a delay
+                setTimeout(connectWebSocket, 3000);
+            };
+        }
+
+        function handleServerMessage(message) {
+            console.log('Handling message:', message);
+            
+            switch (message.type) {
+                case 'sessionCreated':
+                    currentSessionCode = message.code;
+                    document.getElementById('sessionInfo').textContent = `Session Code: ${message.code}`;
+                    showNamePrompt();
+                    break;
+                
+                case 'sessionFound':
+                    showNamePrompt();
+                    break;
+                
+                case 'sessionNotFound':
+                    alert('Session not found');
+                    break;
+                
+                case 'participantListUpdate':
+                    if (message.sessionCode === currentSessionCode) {
+                        updateParticipantsList(message.participants);
+                    }
+                    break;
+                
+                case 'activeSessionsUpdate':
+                    updateActiveSessionsList(message.sessions);
+                    break;
+            }
+        }
+
+        function createSession() {
+            ws.send(JSON.stringify({
+                type: 'createSession'
+            }));
+        }
+
+        function joinSession() {
+            const code = document.getElementById('sessionCodeInput').value.trim();
+            if (!code) {
+                alert('Please enter a session code');
+                return;
+            }
+            currentSessionCode = code;
+            ws.send(JSON.stringify({
+                type: 'joinSession',
+                code: code
+            }));
+        }
+
+        function submitName() {
+            const name = document.getElementById('nameInput').value.trim();
+            if (!name) {
+                alert('Please enter your name');
+                return;
+            }
+            
+            ws.send(JSON.stringify({
+                type: 'addParticipant',
+                code: currentSessionCode,
+                name: name
+            }));
+            
+            hideNamePrompt();
+        }
+
+        function showNamePrompt() {
+            document.getElementById('namePrompt').style.display = 'block';
+        }
+
+        function hideNamePrompt() {
+            document.getElementById('namePrompt').style.display = 'none';
+        }
+
+        function updateParticipantsList(participants) {
+            const list = document.getElementById('participantsList');
+            list.innerHTML = participants.map(name => 
+                `<div>${name}</div>`
+            ).join('');
+        }
+
+        function updateActiveSessionsList(sessions) {
+            const list = document.getElementById('activeSessionsList');
+            list.innerHTML = sessions.map(session => 
+                `<div>Session ${session.code} (${session.participantCount} participants)</div>`
+            ).join('');
+        }
+
+        // Connect when the page loads
+        connectWebSocket();
+    </script>
+</body>
+</html>

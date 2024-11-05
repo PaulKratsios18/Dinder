@@ -1,143 +1,147 @@
-require('dotenv').config();
+'use strict';
+
 const WebSocket = require('ws');
-const { MongoClient } = require('mongodb');
+const http = require('http');
+const server = http.createServer();
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8524;
 
-const port = process.env.WS_PORT || 8080;
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/dinder';
-let db;
-let connectedClients = 0;
+// Maps to store rooms and room clients
+const rooms = new Map();  // room code -> players array
+const roomClients = new Map();  // room code -> WebSocket object
 
-// Initialize MongoDB connection with error handling
-async function startServer() {
-  try {
-    const client = new MongoClient(mongoUri);
-    await client.connect();
-    console.log("Connected to MongoDB");
-    db = client.db("dinder");
+// WebSocket Server setup
+const wss = new WebSocket.Server({ server });
+server.on('request', app);  // Attach express app if needed
 
-    // Only start WebSocket server after MongoDB connection is established
-    const server = new WebSocket.Server({ port });
-    console.log(`WebSocket server is running on ws://localhost:${port}`);
-
-    server.on('connection', (ws) => {
-      connectedClients++;
-      console.log('New client connected');
-
-      // Keep track of the session and participants for this connection
-      let currentSessionCode = null;
-
-      ws.on('message', async (data) => {
-        const message = JSON.parse(data);
-
-        if (message.type === 'createSession') {
-          const sessionCode = generateSessionCode();
-          const session = { 
-            session_id: generateSessionCode(),
-            code: sessionCode,
-            participantCount: 0,
-            createdAt: new Date(),
-            active: true
-          };
-          try {
-            await db.collection("sessions").insertOne(session);
-            console.log("Session created in MongoDB:", session);
-          } catch (error) {
-            console.error("Error creating session:", error);
-          }
-          currentSessionCode = sessionCode;
-          ws.send(JSON.stringify({ type: 'sessionCreated', code: sessionCode }));
-          
-          // Broadcast updated sessions list to all clients
-          await broadcastActiveSessions(server);
-        } else if (message.type === 'joinSession') {
-          const session = await db.collection("sessions").findOne({ 
-            code: message.code,
-            active: true 
-          });
-          if (session) {
-            currentSessionCode = message.code;
-            ws.send(JSON.stringify({ type: 'sessionFound' }));
-          } else {
-            ws.send(JSON.stringify({ type: 'sessionNotFound' }));
-          }
-        } else if (message.type === 'addParticipant') {
-          await db.collection("participants").insertOne({
-            name: message.name,
-            sessionCode: message.code || currentSessionCode
-          });
-
-          // Update participant count in session
-          await db.collection("sessions").updateOne(
-            { code: message.code || currentSessionCode },
-            { $inc: { participantCount: 1 } }
-          );
-
-          // Get participants only for this session
-          const participants = await db.collection("participants")
-            .find({ sessionCode: message.code || currentSessionCode })
-            .toArray();
-          const participantNames = participants.map(p => p.name);
-
-          // Broadcast updated sessions list to all clients
-          await broadcastActiveSessions(server);
-
-          // Send participant list only to clients in this session
-          server.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN) {
-              client.send(JSON.stringify({
-                type: 'participantListUpdate',
-                sessionCode: message.code || currentSessionCode,
-                participants: participantNames
-              }));
-            }
-          });
-        } else if (message.type === 'deactivateSession') {
-          await db.collection("sessions").updateOne(
-            { code: message.code },
-            { $set: { active: false } }
-          );
-          await broadcastActiveSessions(server);
-        }
-      });
-
-      ws.on('close', async () => {
-        connectedClients--;
-        console.log('Client disconnected');
-        
-        if (currentSessionCode) {
-            // Update participant count when client disconnects
-            await db.collection("sessions").updateOne(
-                { code: currentSessionCode },
-                { $inc: { participantCount: -1 } }
-            );
-            await broadcastActiveSessions(server);
-        }
-      });
-    });
-  } catch (error) {
-    console.error("Failed to start server:", error);
-    process.exit(1);
-  }
+// Helper function to generate a 4-letter unique room code
+function generateRoomCode() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let code;
+  do {
+    code = Array(4).fill('').map(() => chars.charAt(Math.floor(Math.random() * chars.length))).join('');
+  } while (rooms.has(code));
+  return code;
 }
 
-function generateSessionCode() {
-  return Math.floor(1000 + Math.random() * 9000).toString();
-}
-
-async function broadcastActiveSessions(server) {
-  const sessions = await db.collection("sessions")
-    .find({ active: true })
-    .project({ code: 1, participantCount: 1, _id: 0 })
-    .toArray();
-
-  server.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify({
-        type: 'activeSessionsUpdate',
-        sessions: sessions
-      }));
+// Helper function to broadcast messages to a room
+function broadcastToRoom(roomCode, message) {
+  const players = rooms.get(roomCode) || [];
+  players.forEach(player => {
+    if (player.client.readyState === WebSocket.OPEN) {
+      player.client.send(message);
     }
   });
 }
 
-startServer();
+// Handle new WebSocket connections
+wss.on('connection', (ws) => {
+  ws.isAlive = true;
+  ws.on('pong', () => (ws.isAlive = true));
+
+  ws.on('message', (data) => {
+    const message = JSON.parse(data);
+    let roomCode = message.roomCode ? message.roomCode.toUpperCase() : null;
+    let nickname = message.nickname ? message.nickname.toLowerCase() : null;
+
+    switch (message.messageType) {
+      case 'CREATE_ROOM_REQUEST':
+        roomCode = generateRoomCode();
+        rooms.set(roomCode, []);
+        roomClients.set(roomCode, ws);
+        
+        ws.room = roomCode;
+        ws.nickname = nickname;
+        ws.inGame = true;
+
+        ws.send(JSON.stringify({ messageType: 'ROOM_CREATED_SUCCESS', roomCode }));
+        break;
+
+      case 'ROOM_JOIN_REQUEST':
+        if (!rooms.has(roomCode)) {
+          ws.send(JSON.stringify({ messageType: 'ERROR_INVALID_ROOM', roomCode }));
+        } else if (rooms.get(roomCode).some(player => player.nickname === nickname)) {
+          ws.send(JSON.stringify({ messageType: 'ERROR_NAME_TAKEN', roomCode, nickname }));
+        } else {
+          ws.room = roomCode;
+          ws.nickname = nickname;
+          ws.inGame = true;
+
+          const players = rooms.get(roomCode);
+          players.push({ nickname, client: ws });
+          rooms.set(roomCode, players);
+
+          const response = {
+            messageType: 'PLAYER_JOINED',
+            roomCode,
+            nickname,
+            players: players.map(p => ({ nickname: p.nickname })),
+            vip: players.length === 1
+          };
+          broadcastToRoom(roomCode, JSON.stringify(response));
+        }
+        break;
+
+      case 'SEND_BROADCAST':
+        if (ws.room) {
+          broadcastToRoom(ws.room, data);
+        }
+        break;
+
+      case 'DISCONNECTED':
+        if (ws.room) {
+          const players = rooms.get(ws.room) || [];
+          const index = players.findIndex(player => player.nickname === ws.nickname);
+          if (index !== -1) {
+            players.splice(index, 1);
+            rooms.set(ws.room, players);
+
+            const response = {
+              messageType: 'PLAYER_LEFT',
+              roomCode: ws.room,
+              nickname: ws.nickname
+            };
+            broadcastToRoom(ws.room, JSON.stringify(response));
+          }
+        }
+        break;
+
+      default:
+        console.log(`Unhandled message type: ${message.messageType}`);
+    }
+  });
+
+  // On client disconnect
+  ws.on('close', () => {
+    if (ws.room) {
+      const players = rooms.get(ws.room) || [];
+      const index = players.findIndex(player => player.nickname === ws.nickname);
+      if (index !== -1) {
+        players.splice(index, 1);
+        rooms.set(ws.room, players);
+
+        const response = {
+          messageType: 'PLAYER_LEFT',
+          roomCode: ws.room,
+          nickname: ws.nickname
+        };
+        broadcastToRoom(ws.room, JSON.stringify(response));
+      }
+    }
+  });
+});
+
+// Heartbeat interval to detect dead connections
+const interval = setInterval(() => {
+  wss.clients.forEach((ws) => {
+    if (ws.isAlive === false) return ws.terminate();
+    ws.isAlive = false;
+    ws.ping();
+  });
+}, 10000);
+
+// Start the server
+server.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
