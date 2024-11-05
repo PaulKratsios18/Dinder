@@ -1,0 +1,310 @@
+[
+  {
+    "Name": "Bob's Diner",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNpYQ1BB2uB62brjUOjhIfgO4u6svxhYSSyK7A-61U0Cvg2C00S1XpTqceBx_oDgd7X7w3W3bk3PqLMTEKmSMuHQ9731laFSkC81Z3Q87Lk8yi7o2paIFccjxqK5tLCd-EoNRa13a7dJ_a1iqgYLuTBFlIrJjAyupz5ZWc8AV9qYBl1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhX1gdPgULT1-2LsQm5NzHI2V5BSnWk2YN0mL-tyL8jEbltgD2PPqi0o47S5LQljDY-FWuVUR2zuNwx9eIR3WpklX1UHaD1UsXxq2bCslXA4MYyuaezyWQxlIqOodh5H9eORlWAOErCJ3gVV8f1Az7kv-vx73maML4m_C5jXndNTjn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMUVQ3k-tSHCPl0QP0D0tiTgCzAS8Zh6kEEz7sBN6czTjIZVwV2VN1cmDDc9YNSkXXighhD90fKYhwmv4tQXjGuD6jroOcFAqIlsHS8QVM5Zb4T4obpHROSYO8kuA1O_COnFJdUhPOoAgo4pILCSzPpUIpX-GwdJCxJf1GgIztnfT-Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTB_Oa5nIKuCC9dIn3mVa0YpRGktYtTZxI2k10ACsaIAQjU7Z4_U-Y4Tbi2Hei5JF38CYLUmZIRMkmy_s_HdlQkOP3TBP6qj4w3cpYiADgdZnJK-JS4O7z-wH0zKnsjGKLydFugbWQzh6TIatObBOnJ7VsQAhUq3cXtw_Uan_hubZs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhHgdGlD_Rzq2V2ZI-ychY_TtJlb93J2aTiPPViG5D-8DUB_-pwb6ZgJTWMA5RyFHzvBwn3Oli0Y6PiEAGM651hG2Ve0FqHahrF0fELKqOdpV85S8hyWaMa4z3SVbZqoLE8hfQvqyPc5tU7oQzQFxAxNhhOgQGL24cLO1clnUoeL5J&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.2 (1650 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "929 19th St, Watervliet, NY 12189, USA",
+    "OpenStatus": "✅ Open (Closes today at 11:59 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Friendly's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO4sC8RvmsDqrpUECLVN8Pvym7JtQ18UT7sFcfXtGKmnKBCQt98geKpMnd9SGbX95SMcYo0LXCE3kIMfM-8jMgtrQTFmFVv56oinZrsLb7XpnlOtccc2PEh6OIkVkQziE-fM4Ls8GMm2-P1odZoClBcvZ07Rby2AY1t1PzTTZXkm4zd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP8cKj98N_RgVDRqHZOy38M2vY7ef7K83fbjqEGlhwFMruoPQP-30fyZU5gQidJWN6xd1iwh-2ZBj_Y9SJTrQP6qKahD5D-_DHbstgm7GDft62wxFhA8qkEXnLxjEF0AiV6gMY5vspxLyVZgejU5uNrjb-stz10_CWbP3R2sQK7kIK9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtpez4Irkrvk3xzEyVH2qZVsItZd9YuyBFiMcO9euuWS09OFh9VxUVWSkfZBKuKjXmS14L20tG-xK0mxxdy_GpmiwzUWE-9i5wZwca7IDviwZV_tpd-X4JlAYTgee1ijNRFCNmAI9eM9Co6Bpm1mc0AAm1-mvjp6Wn9jYQUzMsNYZ3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTVAeA9WWe2wZpT6u8EdY-3KrocZK9GEHRVWqUi6sprZFEIV_gxxr8ysAX_gTxNa_bol2llO0QbzxFnHEE34ONro7jRbEzYMogFDZs37b6kDpP8A_LM0kqX-o7eCgZYKkHETRN6zACMOd_RoiPuXyMycRC4ipVwQQFcfSUzeygaaAv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOnlPJv6-crvx82c7EeVddFDH557miRyIIw65KJ9RBg9nR_ZiY3PjPttFAe3unrFWAhWc7tzq0EQbNxSjOfr6bS_c7PpuJr8rrBQRvspYlf3IEkL5X-LLTmr6RfKsfKYdDsR5jIfXLh-0ZCxj4RYTJOKXIG2QXrOr1F74c8MJ1rM-o2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "3.9 (949 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "120 Hoosick St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Halal Shack",
+    "Photos": [],
+    "Rating": "N/A (0 reviews)",
+    "Price": "N/A",
+    "Cuisine": "Restaurant, American",
+    "Address": "1761 15th St, Troy, NY 12180, USA",
+    "OpenStatus": "N/A",
+    "WheelchairAccessible": "♿ No"
+  },
+  {
+    "Name": "The Restaurant At The Pointe",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMUgst06-z82yyBF8pJxx5pAx7EgVGLGkyDa2YMv7vJioUcb2RF33lo2b5bGx75VKgPJW8hNND4Aldpew2ObGhzhFHZD-ckHTL7Kdcs92aS9Ctwnk_UIOTzIloXF9rXl2jUoah0fxYeHm8Yf4Q3KWMBsH-1kPsdQK7EJkWraXJlOIwJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM7Mo_5Idw5yagZwXu21Tv0AqIaUJ2db6VSyjWlYxQP2YSZlU3TIdw8jXVNYlGg-n7Epor2UNYWOpH8fIXTk772NQme2HtqFw1IldYbU560FWbzRci8ExL2rNjax3PsAuEExwNGxlHxFO5DuEFxRBocU9A4xgBCFg8yDWXbj_o75Unu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNPHVwhAbMOz54MkUJmfWsVIUsjPLoBJTstV46oM8uKZ-aps2_qZui5ZFWeo3aanTr53FYRjdwW_p-pyCGRfOnyCYVvnMAdO1aOAMj8Y1mNEoYqz4172bVAggN9uBbk1qPqC0MiUBNCYJ8lCAKJMQOwyrm8ilc-p6tMKF_EAP1iG2M3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOEKm6sZgaJzXg6Q6FSM7-DboYUmgtIh856q24zsDNqkWHkx-B-nF8xzIlSHCAoUmyZSw2MOoEIbcTAo-AU4QB_YLmsHn8QqndF99QUBqquBgJxWTg0qVpW9_26j-kLHDpy7cwd8O0KbLQcrRGRjUp8ryjp0_Ohp0Eh5geaSkB2Leb9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOZe7wwleVL-8ZoGIUGRbkglmFcs7-fsYG0pYv9sdWOCaqw4eRvDwSb_twxYhSPr2gmirWCmfhV6BQev-yXNBwzDPFcclO_NP2UyfI1eR7vM5trm_rDJAtwyDmqPCn1u7c_EVbWrZ1IzBIZ8wVLJ3Wt93fhANLfoDPPCB-7YnYcHT_Y&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.3 (58 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "1 Bell Tower Dr, Watervliet, NY 12189, USA",
+    "OpenStatus": "❌ Closed (Opens today at 9:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Babes Cafe And Catering",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO5LS3BWCplDzonZW5zTXMqHJF25bJtQyB24taAddlDnGDH3tYNj5gtm7C2eMbaE5TQ7swFwVdXoJd1NYyGHRMj2JKdpyTGev51EUNIG5G1gN9Mc2Jcp4Xfr_S-m4XsCiH5QnrzCc-BfafZa4yJ2OqpS_UMZYHFEhb_P97OtRnbt5mS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMlhtMigzyZD9Q23BnbGnOT2Gm7eFiFP-riwPDpb3F7DNendcssy7vL2l3a_Q_oTOx1LBlXWJuTZGLjcWVUUXOR-IP4CFyqSGocqUEcbD6pO2_FKYr_Wm9ne4uSeJFCNmcguULvjGOhEWTM_2RU6jmj34dgx4ILZgfzUkVX0xVl-UmP&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9mRiam776ixrwDICauDmDyewl8-ztwe8QSap3qS42iL8m_zvhPOn-BpMMKB04B0P5zoKI5m1SXTNN-V7h2xNTpox1Oin_wAq5gNvQnKK8-8DsFqI_BsaQB6Zu3oG8lyFh1lRRZcaAoj7NFFvv1DXUZ_g_NOWZSpiIfw3x04c6qtEH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPx05hoqv-xVURkDl7X8xEblIqhb5xMKz89WfQS8L3AMMHkVH48OLw3P41HnAnNvVDf_lq7U439HA_PcQ-Z5w8Ii0g6DDkKKVahgOuuP9OHPKevW__05UgK57SZMRp1OYPmrp41P935EJMSWaS4nOE6yFgLFIPwiCIv1FY_mJOIdnUS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-UxdszxnM2AchCRkB7Iirym63V4XtDvYcL3qMrmkW3mzWE4ZPfIn42Yo_C_nhDs9ehEDZnhGVwhgNdxBEdq940KaSfqhq2YAStxgOpeE7XcsQPy86EGk4pOm4InhgPGKn3GZdwz8wjBqWc3h_OuWCfUBxi_qrzdZDUU8_8T5J_fA0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.7 (430 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "38 1/2 Bedford St, Cohoes, NY 12047, USA",
+    "OpenStatus": "❌ Closed (Opens tomorrow at 7:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Manory's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNahXb901xKv1UYiEzYMjUKp6CiuWqyhl-HrXamEu3wEb7vucY6I2ybPQGbLd43zpaBoQevdnz3fmUKWS-hwLHeEBNxq_JC175egCoSwrf-kaWSnGapf2LYRJ2hxT3f2Hu7rEwZAP0cgAt5VFJvddmiFdd2ypQjdhN35P4nNoa-qU2Q&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM_aAeFt-wmPu2OAFJpPEnwZV4Pxrxx8uvBbhoPiBk9dK_SbsZfDa4pj3Z_LIP-OSaT9R2lxjUEYWP0Kjf8pDygGkJvLhLFm848kIjWYpSrwZxqtxLKdpYC6ARRYPVF1RniahnchKqhwkzY4AgqXHOliCMMlV6MHJYSbAZ04kvdQm4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP2BAkJ1LKnv5fcCQ4IDAVEe0Qv8zkScDF5Hj7wKv00wS3JztNfh_G70-hu_JmA1gPhAhiDW7ZEniiPqv8NTnrRdUfMcZq-E0gAuMVGQgNy722RDfMwCDCFTZcY2y4JGZH79BPzoq8G-Lq9L6VzVEgSfYNsWTJB4-kEclfkxni8buBZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOTXJz36bLwhUCytSAz18rw0cK2KSbJSeK_eSmAuP8LxgOMCg7R9R68H-D3juXWEMD_cI6zZnYWsDoBxukM-6Ef6EriNH2WL80zNlQXIfAidz6oFIhzRuvhJQpa8gzuTJsJhnFDa4C4i7f77bPnbeSumrJXthAN1F0Dnpa70lBS9byu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPnP8CtqxFYfp0CmLPXMPIdZlIG_r9z-K0jTTi6Zse3AygUiQPvk_Q2ffRes4Rcg52b23mWd1-Y5pdpvSGB5K83z2doGIvYIK98eRkmp7tTd3zCShI8-TRy42QIF5hzdD1wzWlod1KyWTlFW4_rJG9fgb-NNkTNYk88k9R5LbggemHM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.5 (1115 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Cafe, Restaurant, American",
+    "Address": "99 Congress St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Naughter's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOrDOR2vcahQZX4k8d_h0nNLlP1SZDDZuS5QHO3H2Ou927tz-V9cwygXuZWJ6Ig4wusHraxmN5MqUW838vnrPkx-7qJJORfaWVq9Fm3Ki7Ee0j-iYARwSSamoIlVcl9G7n7qlxdJZXyDpq29zWXZ2wuvGIoQEpCLYmfoeMUHRcF-BQO&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM0PXG9jMFsQLVEtcYf8NK8Wdm6ij1-qXh8FDBYTOJZqFW5gKKyOtO8ur5EH5zyuL0zQ-mDPa29wsf7nGFAa1k_YpeBNwZ3CXGjzPOiERkjAKqbXEbI071_Z0UXGXJFblkK9OZYzTsKTLTf-dzL989PjWDiykygtiPBfr5eiJX_k76I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYOyKpjPQoJS2GnpBSVXuyXgHjNI1WR2eRS8TSbuerUH6fJ1qsxWFKdJe96qfIDOVM1brWdN-06_iNKvunlrlA0wuiI0i9ov9sl42sHJFup6FJ1W31KUbAq1vf5qDzq90hkA0StP72n-p_CpWT_2vzK4OJla0VbhgT6D5xCJGwJ9Ir&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO08vhdbDaX-aq5_TmMZD5wKg7_YJbdY876rT_RppOSnqoV8bWWQWb4glUaOlGAwqJt_tcrEvWxdkE25Uv6I0Lz5L_mu8czGSW7If0jWQH3J4tBJRCtWlZP6_eXXvpS3KxCasirUUsrrA-Mu8WI99J70auQyGU_P3RhWWG0flZehTbx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP3bfqstgoBr9qguHTkwlfgc0slXqtoJsML3_96zdwMmiJHBVHXilU_WVLsQAIJRwsQLzFAgHzyeEMVnyyaiTF6_P2bDyaPhQbY6d5iaJz_uowDOs5YUMG2nEzHNJkz6n9zP6ittVd1yyFIAnF9YS1lURDU_6DYyO3OdaHAlJI1Dhxs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.9 (297 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "1809 5th Ave, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens tomorrow at 8:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Smith's Public House",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOt2EHq_ySAfisRX36eCqfi1pbubpxy8E6S6z5-qJUu80Mit50W6JPnvBQ1XCUlXqOF7hp4NA2ei_dEwSrx8tAZDk4l_qWT0F82gj31n2TDMrLH612ZjxV9oGqV44Wf7kKYaQdkztYeT_g1KTCUh_4aavzAsEXGmRvG1dNujq2turk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMSFow_VyrTMOMWNrhNfJwXxpyMYfJd2XoFDrg9l3W0TXJ8u7ugIOvUK189482KATsygKTWJNucvUrDU7v72j4c6fdnSHEVPWYf0LNxSGVGCqvoVrsnl-ThtDRgBOWoNoCgJ7f0u9XUF2_nu29I45hmn0vBOCrLNWbNnoBFM_rhJvhI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPi-iD313A665ChuWIapCtysfUGk46SvkyXrEUnYsEjlU4oKEcBfiwK6SJNB-drPG2AvMHJhB9b3GtDOlWUFjP2yI1BOFPzRpTtrs9MB6NKTqCa0rKngAuvbO9-uVPCiAIfV7NOv_jki-ZJh9tuxgysmgqyvDNrl3Ju5vN4zq5SGi3R&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyt04wtCqb-QZQu0OeL_-WHId9cc3-OKI1rIjESsOJ7gSbV7UXItNZpBUM_ttHdVquKfHbqP52z_LI0Utc3qBWZpho6V_slNbqr39lxoS5oCJ_-dbcdToTUX57y7eQy6NimwpDLbLhO-fQLILrC47-yYwVFGGi089eECMa-E5RwCgC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPWEufdYJu7Vr2tEEWzNYzeiuSkbRhPIQC1zfwmYBRve8nut9fmlIX0-Jx_JXFi8Y4dZXebkZcBjW9j9U69QpypbvoZno6shvI9T7H08-ySX3IeNjUpFw5Zzbr9CLN64XWGdBqTyquMwvng2yzxLCWbQ6whgdZVl51gehXtPK_hav04&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.4 (533 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "171 Remsen St, Cohoes, NY 12047, USA",
+    "OpenStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "KC's Pub and Grill",
+    "Photos": [],
+    "Rating": "4.7 (7 reviews)",
+    "Price": "N/A",
+    "Cuisine": "Restaurant, American",
+    "Address": "201 Continental Ave, Cohoes, NY 12047, USA",
+    "OpenStatus": "❌ Closed (Opens today at 12:00 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Famous Lunch",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO70B2IQ6FfLCe_7L29aG-9PpU9ZYIX8pczA2Ql69tLyW5kkdSLrdSOkjelbP7xFqiVeLQRmQtCtoSr39VWgO7sOrL8fbN0rIOMupkdch5VrxaXFOI3T5_B7HBsYF5Zuc5ZaIwbofbOhhEtyItUmgmNblUrEd52im0vQN61_YLOZQPU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPMGE5LyJ4rdqMs-kZTkOggbkEhBJxkJXkNVso6eIdEBtou5SvQUe2EZQdFC3BNNUtH-MlJXaTvxA2hn1VoYtSFGjIcI2eoVribVdVhpdYMMcRahtGVLQ-IFAlUM7ptWBjBScs3LWAmX_S3jnV8r_HklsNY1lo7YSPSPGVPfqIMYR0X&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNI4BMYOvie3z2jOsHvPpbY7n4coM2V7rNW327m0MRMAR7u1SJxUkYzG04TD6hzcIuB0CLypHVRU488aTeUkV62mPOSzCgH-8B1Siepsny5D_XQsGRAw5Y_f8Ctdf4rp6RGGxS4oCTsTj0VKzK_vQhE-Q_YzaJKTk3MH_tCZ7ZWh1qM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNRwlrSnPam22yWs1RsbsTPgn18kOkvitbAlo0HeLqWA8Xlz-GUrhQrvv2V7Cl5LynTcLoBCm-a0ZBD2eGo0tN8axVApJH7Sm4ti0OP1bqvzMOD0RgvAnME6GzqaCe6Zbh33e5KE6FhL448VaEb2pPigVhbXSikcmJLLxpQVjFgFzsS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6seRKY7iNpOvFEp5ksal40g9ncsmDuYJDSWJKTxzV1XZ6crskE4gFeed5aysDXj2IzmpAHoET-zOQ1qBgX5jtIeaLp8KhP4x6CMk-oM79Kn8fi_FgV4_9GD0SNSwc4jt87cLL8fGCB9yGczwdaYbIC2RC4q9TMHPBk4aWF2X0e2l4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.7 (1047 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "111 Congress St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "WheelchairAccessible": "♿ No"
+  },
+  {
+    "Name": "Oh Corn! Arepas",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMSNj0K9wQZn0VQe0mSF3B9VPtc0sGd4E5oO0gcnOKDjgUhg1Pg6M2Pa5JJVAvySQognG3F1ETLdW1SypVG5u3nwJtCFLGvK8bSut6nOKfswgKGLfT8sx6a2x034PQuqt7Upqk_Ul8J0mAZkNpNkX0A_FQN4z1-CQzXOb6Sj5SmkL_g&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5b3ul_qjOxFNbeFRe4Tdjm_rHU9w73Zw2yOLFW-PMWdfRXcTZVzZRxnWa07D_cCxuZeWsYltbTiU9T8omf47r6Bz-K16t4ob58P00dJlaLupba-RHtcippjQUAtT9OWDBEnug5w1C_e3ohTSA7KM4WlraLH-op11EYx8YzAbMGUBu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMoonu5-JXzGqdj_6zFpoYEcTHUxpSwHzc_UBBOa2B9yD5P70urQ-anZ6jLFQxs6c_YjAkDLBCeWZ1Qc82ae4i6cdvTYqfvkIZPvkXZDnHnNSHks5TDcsABPa1V-JoBGtGeiLL9K4Wr16hF4yWWindL6GdlIU5tJVF4Qw-zh7hw_u6c&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP1clijQ4U3Aody-0SZQzEzaNXtGoDKcEUMpL6get2E1lM3vKWxDS36hCIHPNKhg0QFANCpDnQNUJAXBVcEL44GY8s6k9QAG2VBU_2BL7YTj1JZJVjsBhUM7tKoPzuG-6VUp-nJytuvoYLgQ5M-BAp6pUWB44-tYUQ7sZ7wrV7s5Svb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNlTOcl6rY3vcbDwMkB9pcUeoq8aMTbZpYimJfalwZbzNSoKia3wehoqGwzdHnxJUl-WKtHwfSZVoz-H8IU-CGRvPp7eCTbF1gdI_2imUaaKGV8e7UBTzGbvXzxOEQYoPticlJO-TP9YPDhKwSCaWkEeuViQrqFVFKLn_Y5hxlaanUZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.7 (400 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "429 River St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 9:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Mi Casa",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP-usqDv2_P-CsZsUBaSMlTESGnlyDKY-lchNoovrNu3mY1fYMW4o7_vbsxQ2fviH8kR6gM9NxN7kUN7P9UXZfhTHJnDT1P0Jj8gEqng0RrGaarie3kql9IXhfHZgsatthxQWpZ5ovhHXpir3iAmsy96DN44S8vxJ5p8KVgptxTiexw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOFsynj-eg5nyqhDikDAYFgyE-lRaGBROQxrGz_Hy8_b5iz7BSXPr__o45Xq3Oq7HgJBSAELBfQGluOKWDBdd8itDx5740Ed1U-ETCQz8V-MXwXXcY39wuZFmdiHBMMduORsCSG2-LxmTqBAy4T3iolFrBsxQ-4BheyvWZEtSwp6P6M&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPikL331LDDXuYI_05KlWl6dCFIefSZDeHP4y855e21ted6vpFSKMR4Hg5iODBexr3u0f5PBCIIfVLfvCfb7gfG1CE3YmbyF8DoBf5y8_L1s0uIugRwn35GajZjaZkyWgIONAn4TKETAGBQqAzCQOGgMkPs_BLRRZnsX98EoamC6Rd9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPkBHnkBl9RYPd3_cKvZ30kNfdlPrmTX68PxGTXBqCZzL3HKKf2GFKIu4YotNVvUCwUCmLKQSm8yAPtVrpssdpz6ahQB5sdXh-Pjc3BR1rh5gnT6c9GIRydhfIntKIXMQpg2_19-cCrsJe5JvgkKSoDYUeKH277RCOxE2vqpmmpDGO4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOwMGEdcarXHBMLJzM_ZsFUhrniTBaq0OKL9Q2CIcLSeoCHZA-oq8gFdTqRCY5zouP8h_S1SqUFffvwNIXVH0DIKl4C8SnO8gg7vxgoQVPzTCWLMrpOjBRIQUW67gxWq9vjnEJnpnpiVwNT7Ssr_qVT9JQCi96zy76cVF5cKKbALCwG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.4 (175 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "72 Congress St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "WheelchairAccessible": "♿ No"
+  },
+  {
+    "Name": "McDonald's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyj_poYYZuQmfZGclnp8y5uusJmRMsJPZPVGT0qyP6QsQwrT85BayY8Fz0Z7bWSI2VsOd8-xjKkjWajaX67EclctTM7kBuY8ZxD0Era7peAIBszceJyKuhYTvzoijZryUfnVz94H5FGw0Xyhs_I3cw4AfdPFnfhUl0UI1hpZYnLoBk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNMG31jH2Hwnkaoho7pL3Md0Isa04q6G1i_vEIGHx1aIWbcLtLD0M4OJQumBcUDea2MrXMEKA-I5Ch1LLnDUaKTuDh8b5KVjkUp9V2H-eC3wVXqQRgqXSMDpzreWXEIaKhlxl9uil0ki57OCIcC2WXULpFtmQZOBWQX0fCg_E9dQ9fx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtKTCWx8p_EDWDTEZ_6A39B7bDU4g1LiSunYDalf9mMSNRZ1VAQ7TpeFf4fQlGTtIBuhVATn6vYXtUSiDLL4xc-35J43vs4ElP6Z4twinrfLSsyJowiwgH3oNc4AosdbaRNIvUNjVYuBRycFTOe0KXMmdEyT_nHf3SMzeJF9d3NgEx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DODMBzZqwvBqCx3RxPoBZvECJ_62yUBpQ0iRcZPmCF92mk4xCP_cybv5AB6qiI3dx8FI1Wtm8PI41UMnkyOqwc3tanWxCM_8h35635qiFu8upnOMIx240OYs_bLnTa61AA7q6lhk58-TL8fDmJIuobUbJJqAMrB_S-Vh-GYpuj2COec&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFt6wZ624_q4NuPbM2SnP2WchXxnwgPPlKXYa9N9-7s40FGSaFj8Z4QZihU5FeUfV6FU404KKYrwaEs0jQpFkeu1gvIjIkDUU-JVic7N4keWFV7eXulUMVvTGu6hmaoMOnihR4y5NdLulzBt1fJokiiHh332EOKuWzTEuWnAdsRLLo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "3.2 (1844 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Cafe, Restaurant, American",
+    "Address": "170 Hoosick St, Troy, NY 12180, USA",
+    "OpenStatus": "✅ Open (Closes today at 11:59 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Park Pub Restaurant & Catering",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpawVbWaR3DxNY1lyzjaumNc7jWYERcp_K2Z-xJFUpmUiWHMVBqvjgjYcstBMMr7cZlUP72QW99CU0Slw-3bTglV-o190wMwDtVVtv2R7z5xduhW8yf2-E7qQgNH7tqG0YbzBf61vYkNM5Lp-FQxZIG1a_RVYyR-fxI4nYuVHac6Hq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO68EBTDxtJqTdY9r22CJoccFThJaXDDvEPxN1yN5emSF9XzOE3cN5GYzlLQ3wDpY36A92aF4HRr013fVU0N6--cNme6TFNzvfl2MBMK431xQK88YMNAviRF6nor7l9IrbBqmA36tyTIxO0ow_mpjod35rG2kE-EaIoRMYShx8KXlcq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP0raBhqLWB8jA25SjDtwggXnJYau3PduP5xaT_WRZlD7s9gioEYxMPs01p9C9zbKEKhcUtXmWqIqMOYHxrVW8owazR8SVWadabX3mttR7cqW5zIWad8lrO2zxoQqMbHwQAu1pgXKVDnXZw41y-4GY_Ch8bRcq1J5OSxy4zHnfIt_xy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPNnu72sl1l-fXFNfCSWZI7o8rdSOAriVGwD72O_wnpQUlWvPJV9nc_KeMHK1ii_-M9eURnLwiwrWFXFaCqLSJ_TYSAl4ALlAmzQO8UCF2L9T37R3QxlXaN-4hS-AHbUNBKTIEY6J7Nzxh3_m4yoTa9Gdz_85HJacdt62MSU-QWE3dt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMJk8f0Mj37bQLvhuUApW3uKOwMDQGkpe8M3bOYycFlfIvfuks50ACfBIRKhv1NF6_qU1VcaAhWy_P4UkbDS6bcm7HGdQ7r48HNE-XG3HrSXDJTI01DRNhOPy01cDWTMe3Bk8Q_nyp4j-13ViqmrB-7YwvBvI3XYLdKItO77DaHSQMV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.5 (316 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "2701 Lavin Ct Suite 1, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 10:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Nighthawks",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP7rHY1vCiZNKSJ2eBSbI1VZTw8UsFeOJo-6VSP68nxNB7FFT1YtSWy8F4qog32c24yyPXBguHE2CsfMRjUvRAS8lwUkxJyab79-Bj1XbqyZRnIben8lXVLR0UfdqZ14bfISXvlsPq9NI_znxEgq-AZJeE8FN4ohAAoo51AJcEaAOG-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP3c3PEwahwjabwlLr_7zBHXc2DvzxeNSlC9_WNOlFxaGfW6WjvfdKPvCW_o6bFpPSkkEj8eWKk-tcFHSMtIW65avP-iqd6zlRlR2Al2xAokHRyX7O3ESDFFicd02YFwLvnysaq9cbKuuo3zOlelpVp7ZyYPbdelHpP8wgxZjgFooa5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPkfTGFLueEyy66sMSFcMS-a_K-8hClwLpBEJ5nK3xH1JX5Rkx_MwuPE8FH60vEmFli0FBJuHhb8vXMnAteghHlEKeEjq_b4_TvbTM88BtgT7p7J_rnRNDZtwmFnwfeIaMqzaAM3uQeIzOSI_xNhzpm1pcU6zifVvOyADz1LA5m3utc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNzQHZh8O5Hy2XlwXAIBOvDreGg6402Qc538pmavkoYKZ-QGEhn00_m7bsppg6pYDRr7zIOMvDfeNqkVFs_o_tAzFYt4t1wtePnczIN7dRjnWKPPYkSij9mqniI-OBhnhypHLDPz7EOgwRhx_0fTSOXDNSYMqJzhEWplwqKDoO2BBmn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP25-U7SwDgJb9fNyV0XfTpxKzBh4yFqgEis4jRPiR47QNsKOet-ZCa20amW9tcDv9DGd1_14h49Ob2cXElJH57lhfCnA1WpY1CCgljfjn_43X-jZMlPZs7vL8bWtWkktbHSK_tdVqbWllkPOdyRqesd7L98Rzoij93W1OSYmKDMFTb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.6 (547 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "461 Broadway, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 12:00 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "South Troy Diner",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO6JsKKnhl09-ipf7_4NV2Chr8rmmpIm9MeQNr3LetZyzE27ZyAnSw1n6StKl8BaPgmOCyBC8Cj5E5m_phke-HJbJwHfp8g_l47Y1F-PtixvTXyACrZwL37RKO61scvu3R3zEKg0dStmNh23l-fT8FwJ_mZJjQgsV-CS6Dm-3cL_is1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP1ethMmJtlaCYyCBU3b9A6W8rkNc05XsiWDsqh6RnibKsj6RCKhPlX02eDlkP5Wr8BHkgtX90WTiOt9_E00Bpn_cpejUyGNHkDTdRLljsRP94GcWAnmtF6_c8MRPMBV2u82ymNV4ZyATYRQ6vdqrrWBusYWzvq4DOxK2uKeOYDNz22&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPaHVYurMg15kACVaSxlJdccFM0WTaoPmmZ_pCJGbfKBcKBa4RzqwXeAjX890kj9CtMqgN-KJ7Q215YSrENvaKzxKPOlWNgMtjhDRaIanI7ss5ofQGLdd-sGoy-03HzI9ri2I6k3pmv58u3MQJqAHtixAQOzb48i51pzkQ57bexbWY7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOnP42FGg6MZI3nsckBRdYTGVAKz12TPkLv-zUyW871wi2MCrjNpcazVFMNOx5u0jDx-BqzZcGlfLthCswsjYdCWeo1C37hc7s4FRmk5l18Tl1e7tIaAmLCI3QUjuOwOJnaB9iSZP3351T35V3g1Z2WCxgXDD8OhrCSoed54h4bIg7F&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMpldiG9W9Z4-hcOezbzACA_OBhIxg2ERq5e9hQjMHNHza-OgLhKb5Bo5XtwcClhZs75XnmXMmCf8KCzPrqwYwo2CKMV8u9e-lARy27TXkV5cHHK1LiIXqJXIGn_h7XCYabq2NnUL0PzeQ559QZSgFmKsQ0SgDLyv0_UbZHDtJ9Gpxp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.4 (328 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "579 1st St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Herbie's Burgers (Troy)",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNtrASHyJFsQH8GugCItPNMoLewuJllN5gP4v1awIJIL1gAfK4PT_EqyK8A08fDZ8Msuze02KX1IYewIz7c4n4SOsRsok-C0ES-r-bxpeJxIv32VcCQY-UFEn8LXLYZepYAdiYKF9kfHWyZYgaKvp6YyUWE7NKuLLin0Vk0pCDGeib&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMy5nVqrl4aYXJHRxHtyXBRzta18tm2-5LDHmejOAiiezznq1EP0E_njtcE9TdAa4bxmiLA7e-EBe8Kiihq-VbdQSqnQcgG2_MkAGYmQCsoyLR2f3du70jzRmBYsdVDF6shnR8N9IjRRuhVwJb8h_suoSDsm_9rv5wR8vRKLIuTNTx1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNMc-lO3V2EvpUvkbQfd5qOVLV6gP3z3uj_AwNYQQmcDGRJD3pD3qWhB0pyMCupfTiOWW7KwwVMvs_W_wbS7xYf5qgDrq3xvKvgO3uoTLGaV5Ei6ha5FTLvKoODDJGpDCQ_8FHuBI-YadCoSCEh1dojOokGUdvhYQPxlxf38xtcpDck&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPbjNtj4xXj7VUkFdwKAo2tHhDkPE8fmCKF2xyY7P68gDg5hYVdLESwHp5it6cTKp8QVqiBqwgatuJ6KhvEMXWvbZx_L8OGGZ1iqxv-iAAj8PhZoNIBqhzjIVFmki5JA56VINioAwNp2Ds5qYhkm0KoqGOw1FMsKg-KWfLnuksrbbj_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNCVS43FY4o3bTTigKOldntHdoQf6GNpfjp5Ij4EWzFNOmfeMx6cxfgOVSGHUD2FoyD74lOnRJaisuS3vRSjvGqAKmodZTRb4M7GD6oCFj4eHPBwIqve1u5gaAb_eW8WbnZNpglbqAniTKvjWmmsCNNkyvx972sFqyK398_E-ng7f8T&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.2 (163 reviews)",
+    "Price": "N/A",
+    "Cuisine": "Restaurant, American",
+    "Address": "415 Fulton St, Albany, NY 12208, USA",
+    "OpenStatus": "❌ Closed (Opens today at 12:00 AM)",
+    "WheelchairAccessible": "♿ No"
+  },
+  {
+    "Name": "Jack's Drive-In",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNiOMo26TYrhg_B8o9rx3F-_HeJQy-m0lty5-QgPMM5UYM-8MdLnVCx5-MO-j8f8362OR_kdWLIiJDqC3d6lTonzdbtGPT6qAY4KHw9GEf1TC2JhP5HuhCN67BUF6mzgMQQNjsAp4EGE1yP-zJ2aOJyYH4RJySmiuf7on0upoVchATN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMfy-ZeHu1gNDG_u4wT8dIOG04rN0TCRr3ZRlokx34o3oS_h1pKHGv8-BuYkhvC_S9wn6-Q9SmkJa8g9BHKURuB4e1qM2bMygVcB_O0N3x7MQOont9gZzO_U0rPdPSi5qB2Rj6E6Slx0VRQm1Niu5mOS_0hU60hDD-ySRPyP_l7mNh6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMnljshlqKJ-iea7AYSUHwp3bqrCkNXzkOupM4OLMXkHQg__FaH1y72d_eKHPC7BosfMKqYccAxPbwO6zzq4NGyDPcr-L3nO5ZzJxTtU3OzUd1jImScTvG8GkwgKtUi5AdVvd0arWbazUddl303cgC1CsbAo3ExEgvoT9ppg2wLwumk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFd8mND_jOfbq0yMaH8f_UKuuawp0A1rx7ZjVDmU8vuyR-wPkOGNXge_qMra7SW7OezxJtYhvbd-M7s4T0hdTAX6-ydTRFjEgH5m4xlbiJfIJsEstzUdvghaOS-4BUbU7UfVyGQ195ND_qeeLR30NojWkB01CJj8O2Gb-jJY0SoYJf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOz55AvQpRiZpKpAgHKkuUlAZc-x1j-M0O0Ei_amYAgJ1edvrkKpAFCkn4koHM1QvknNBVcyb8vYq61lHfyNn2j1Di1KedwhLQMUHavn4RWWjaX6TaTyAD6UfnYlHA3M6CkhmwfZLjkB0oot_SLsDNgvlNaQIwjrDi-GDpbEAT-meRc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.4 (882 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "24 Main Ave, Wynantskill, NY 12198, USA",
+    "OpenStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Dinosaur Bar-B-Que",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPZyNVK5sS-EB6h3WxZaj_azrimQHdNorZA0UxTXa42tX9199o-3FNNY3WiNQO7qmpOrUmRIabkcFJ58GZRFkGv9ynTz7qXdqf1r9rmOcuC32exFgNVjz9RazXOD48MyZXYmtq_UiD0e0ENmABenIw3mTPB9GBf8MrWs9WwlRcoR90W&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJ5sWI63HJz_SXxqIiOx3eU0G5NV-drrYDDNJnYYSN8Z1BYobkVtjmboasVns61VT-ZEcm58_rRymFHLDwpiqErsPzBZcbzdKNfIbUADolNP2bzjF06oQ1QpJ5HbxI9bpA_vG6_lMhHe6mFQd3bgfKHRwHanL0lPTOVzGmk8XCSKd3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOdo53oMjNyv5W_Mk3e5EVNwRBOFJ5FzzlyWtbOe-AK4ggdtBMGZrC3hHHDFQGmJ5MU_5L1Z2haZaH_RGGKtjMzVa3VvyaOlimSMk5gxYOxNp5vCqaKkP3yLtISDCgXsk5-RFNzvamsGlygszddKYwugW67EjKRVPg7fvBetRxJPr8x&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPeRVKwzAqCU4bLWPuw3TjQM7tDsw4q-cHQbA42AXDK6rtbOEtwvWIb01Yh3zMqBzg_Tj8-19yrKIzzTLLd70YwdiFhj0ppJvaU4dOQoIt09ETExR_ogmSjpLRi_bdongJEzYFQUMEPGXvI-efqry_nbj6pwaNLHtiNzJaVBHnRrTa-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPOr0_OCoicOHZjg6gV0JTS_OpJQyMVZtPPuWmdnAj9yjSHw38PmKPwaGC_ZcFHx4ZosjgYKlvYBoiOfEN8I6wN6AoCQnKvmUbcdzvZdHSH7KS4a-1qq1ktCsto_66__aFciF9kZybwMNWLxTV9kl2XqVzag2nkVFeK9PVUr935lty0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.5 (4730 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "377 River St, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Bootlegger's on Broadway",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPb_yDjx8_UfUxJb9DGpVd0bN-aQbLFI4_1DhJL2kHsziWi-ILbnQfDrqi6xvbgM2Xc3cNx1J8yn3Jtm2gs1VTVWNq0xoQpOUdNhJ4RWFJRhwAcvvLzhrmlrz4RKwmDhFICKNfJkcteFGJIFyGpg7zzUgQTaAcmdN3Y8XeR4zSP9tDm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMT3dJUJWBpbXuPjeDYEfNnxBuqEAfKZs6rGg-uothI_pbjncVDtRtc6N-qDaTHeiZ_icwqFGmulmXbLYEEs4Dm-aHU40vF3O8wpQpFHCpgNE3yocL0gfDJHjOX9mpa3n6CXjshyVaumfWZBxzQEaVfFBi4eRefKQl0ZYjdzkpWIVdN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6pPm22GdXKBW70SgnmeZ_3A0Zw32hws8-J8CYXrxmNCx7IfKRfzYrM65b4WQPbnCbrLICub0ZXtS81UfuCYA2UvbxVPX1YiJ48p3P6_HGy0VfRBzamFJSgJqHdeyhP6R1ZZMvqSsAAJQtWiTM7ySEiKdqW7cr6l-IRJcOqviLuh2s&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNBbTwXQfAbNFJUkO_zKTdz5C1gOs--jOykNqtdOWOPlHef3K_xOoKTaIXgFO56UdeplV82FHK3swdrkg1rh3m_srLcQdmSBNv8_XrrsrhzowxJVyK-yHB70uvdPmI1MWlL_w-lIScDSRvqyKeNPdfGcta-kiZN_jQGReB1ZtG5DBHt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO7u1wyh6RijPo9tyrX1JSAtH_Lzg-kYES7_rs-1QwvujxbgM9T6X5-3gyn7k2fHoZ_RGpwCGFfcwEVQhsNWKJJlxzaBQqyOZfpB5zXMZ2SIWvKk8Jgk-rmKT3uD1YUqgL5yyOATYeA6McwGNqhAkmBvV-QaO22eyNxzT9bQ-dJKiY3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+    ],
+    "Rating": "4.2 (680 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "200 Broadway, Troy, NY 12180, USA",
+    "OpenStatus": "❌ Closed (Opens today at 3:00 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  }
+]

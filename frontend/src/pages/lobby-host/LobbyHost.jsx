@@ -91,6 +91,34 @@ function LobbyHost() {
     });
   };
 
+  const handleStartSession = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/sessions/start', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          roomCode
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to start session');
+      }
+
+      const data = await response.json();
+      console.log('Session started:', data);
+      
+      // Wait a moment for the results to generate
+      setTimeout(() => {
+        window.location.href = `http://localhost:5000/results/${roomCode}`;
+      }, 2000);
+    } catch (error) {
+      console.error('Error starting session:', error);
+    }
+  };
+
   return (
     <section className="lobby-section">
       <div className="join-instructions">
@@ -133,7 +161,7 @@ function LobbyHost() {
         <button className="preferences-button" onClick={handleSelectPreferences}>
           Select Preferences
         </button>
-        <button className="start-button">
+        <button className="start-button" onClick={handleStartSession}>
           Start Session
         </button>
       </div>

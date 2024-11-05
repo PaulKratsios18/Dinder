@@ -4,32 +4,45 @@ const { connectToDatabase } = require('./utils/mongodb');
 const { aggregatePreferences } = require('./preference_aggregator');
 
 async function getSessionPreferences(sessionCode) {
-    const db = await connectToDatabase();
+    console.log('MongoDB URI:', process.env.MONGODB_URI);
+    console.log('DB Name:', process.env.DB_NAME);
     
-    // Find session by code
-    const session = await db.collection('sessions').findOne({ code: sessionCode });
+    const db = await connectToDatabase();
+    const collections = await db.listCollections().toArray();
+    console.log('Available collections:', collections.map(c => c.name));
+    
+    console.log('Searching for session with ID:', sessionCode);
+    const session = await db.collection('sessions').findOne({ session_id: sessionCode });
+    console.log('Found session:', session);
     
     if (!session || !session.participants || session.participants.length === 0) {
         throw new Error('Session not found or has no participants');
     }
 
-    // Get host (first participant)
-    const host = session.participants[0];
-    if (!host) {
-        throw new Error('Host not found');
+    // Filter participants with valid preferences
+    const participantsWithPreferences = session.participants.filter(p => 
+        p.preferences && 
+        p.preferences.price && 
+        p.preferences.cuisine && 
+        p.preferences.rating && 
+        p.preferences.distance
+    );
+
+    if (participantsWithPreferences.length === 0) {
+        throw new Error('No participants have set their preferences yet');
     }
 
-    // Get location from host's preferences
+    // Get location from first participant with preferences
+    const firstParticipant = participantsWithPreferences[0];
     let location;
-    if (host.preferences.location && typeof host.preferences.location === 'object') {
-        location = `${host.preferences.location.lat},${host.preferences.location.lng}`;
+    if (firstParticipant.preferences.location && typeof firstParticipant.preferences.location === 'object') {
+        location = `${firstParticipant.preferences.location.lat},${firstParticipant.preferences.location.lng}`;
     } else {
-        // If no location is set, use a default location (Troy, NY)
-        location = '42.7284,-73.6918';
+        location = '42.7284,-73.6918'; // Default to Troy, NY
     }
 
-    // Transform participants' preferences
-    const preferences = session.participants.flatMap(participant => {
+    // Transform only participants with valid preferences
+    const preferences = participantsWithPreferences.flatMap(participant => {
         const prefs = participant.preferences;
         
         // Convert price levels to numbers

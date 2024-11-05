@@ -1,12 +1,15 @@
+require('dotenv').config({ path: '../../backend/.env' });
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
-const client = new MongoClient(uri);
-
 async function connectToDatabase() {
+    const uri = process.env.MONGODB_URI;
+    const client = new MongoClient(uri);
+    
     try {
         await client.connect();
-        return client.db('test');
+        console.log('Connected to MongoDB in get_restaurants');
+        const dbName = process.env.DB_NAME || 'dinder';
+        return client.db(dbName);
     } catch (error) {
         console.error('MongoDB connection error:', error);
         throw error;

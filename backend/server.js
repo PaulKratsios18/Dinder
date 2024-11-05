@@ -9,6 +9,9 @@ const Session = require('./models/Session');
 const connectDB = require('./config/db');
 const preferencesRouter = require('./routes/preferences');
 const { Server } = require('socket.io');
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 
 dotenv.config();
 const app = express();
@@ -216,5 +219,85 @@ const startServer = async () => {
 };
 
 app.use('/', preferencesRouter);
+
+app.post('/api/sessions/start', async (req, res) => {
+    try {
+        const { roomCode } = req.body;
+        console.log('Starting session for room:', roomCode);
+        
+        const outputPath = path.join(__dirname, `../get_restaurants/output/results_${roomCode}.html`);
+        console.log('Expected output path:', outputPath);
+
+        const mainProcess = spawn('node', [
+            path.join(__dirname, '../get_restaurants/src/main.js'),
+            roomCode
+        ], {
+            env: {
+                ...process.env,
+                MONGODB_URI: process.env.MONGODB_URI,
+                DB_NAME: 'dinder',
+                PATH: process.env.PATH
+            },
+            cwd: path.join(__dirname, '../get_restaurants')
+        });
+
+        let stdoutData = '';
+        let stderrData = '';
+
+        mainProcess.stdout.on('data', (data) => {
+            stdoutData += data;
+            console.log(`Main.js output: ${data}`);
+        });
+
+        mainProcess.stderr.on('data', (data) => {
+            stderrData += data;
+            console.error(`Main.js error: ${data}`);
+        });
+
+        await new Promise((resolve, reject) => {
+            mainProcess.on('close', (code) => {
+                console.log('Process exited with code:', code);
+                console.log('stdout:', stdoutData);
+                console.log('stderr:', stderrData);
+                
+                if (code !== 0) {
+                    reject(new Error(`Process failed with code ${code}: ${stderrData}`));
+                    return;
+                }
+                resolve();
+            });
+        });
+
+        if (!fs.existsSync(outputPath)) {
+            throw new Error(`Output file was not created at: ${outputPath}`);
+        }
+
+        res.status(200).json({ message: 'Session started successfully' });
+    } catch (error) {
+        console.error('Error starting session:', error);
+        res.status(500).json({ 
+            error: 'Failed to start session',
+            details: error.message 
+        });
+    }
+});
+
+// Serve the results page
+app.get('/results/:roomCode', async (req, res) => {
+  try {
+    const roomCode = req.params.roomCode;
+    const filePath = path.join(__dirname, `../get_restaurants/output/results_${roomCode}.html`);
+    
+    if (!fs.existsSync(filePath)) {
+      console.error(`Results file not found: ${filePath}`);
+      return res.status(404).json({ error: 'Results file not found. Please try again.' });
+    }
+    
+    res.sendFile(filePath);
+  } catch (error) {
+    console.error('Error serving results:', error);
+    res.status(500).json({ error: 'Failed to serve results' });
+  }
+});
 
 startServer();

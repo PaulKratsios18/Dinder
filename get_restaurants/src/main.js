@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const fsPromises = require('fs').promises;
 const { exec } = require('child_process');
+const { connectToDatabase } = require('./utils/mongodb');
 
 async function openBrowser(url) {
     const command = process.platform === 'win32' ? 'start' :
@@ -67,6 +68,10 @@ function consolidatePreferences(preferencesArray) {
 
 async function generateHTML(restaurants, sessionCode) {
     try {
+        const outputDir = path.join(__dirname, '..', 'output');
+        // Create output directory if it doesn't exist
+        await fsPromises.mkdir(outputDir, { recursive: true });
+        
         // Read the template file
         const templatePath = path.join(__dirname, '..', 'templates', 'results_template.html');
         let template = await fsPromises.readFile(templatePath, 'utf8');
@@ -79,10 +84,6 @@ async function generateHTML(restaurants, sessionCode) {
         
         // Then replace the restaurants data
         template = template.replace('{{restaurantsData}}', jsData);
-
-        // Create output directory if it doesn't exist
-        const outputDir = path.join(__dirname, '..', 'output');
-        await fsPromises.mkdir(outputDir, { recursive: true });
 
         // Write the file
         const outputPath = path.join(outputDir, `results_${sessionCode}.html`);
@@ -97,6 +98,45 @@ async function generateHTML(restaurants, sessionCode) {
         console.error('Error generating HTML:', error);
         throw error;
     }
+}
+
+async function getUserPreferencesFromDB(sessionCode) {
+    const db = await connectToDatabase();
+    const session = await db.collection('sessions').findOne({ session_id: sessionCode });
+    
+    if (!session || !session.participants || session.participants.length < 2) {
+        throw new Error('Session not found or insufficient participants');
+    }
+
+    // Skip the first participant and only process those with preferences
+    const participantsWithPreferences = session.participants
+        .slice(1)  // Skip first participant
+        .filter(p => p.preferences)
+        .flatMap(participant => {
+            const prefs = participant.preferences;
+            
+            // Convert price levels to numbers
+            const priceMap = { '$': 1, '$$': 2, '$$$': 3, '$$$$': 4 };
+            const priceRange = [
+                Math.min(...prefs.price.map(p => priceMap[p] || 1)),
+                Math.max(...prefs.price.map(p => priceMap[p] || 4))
+            ];
+
+            return prefs.cuisine.map(cuisine => ({
+                Name: participant.name,
+                Cuisine: cuisine,
+                Price: priceRange,
+                Rating: Math.min(...prefs.rating.map(r => 
+                    typeof r === 'object' ? r.$numberInt || r.$numberDouble : r
+                )),
+                Distance: prefs.distance && typeof prefs.distance === 'object' 
+                    ? (prefs.distance.$numberInt || prefs.distance.$numberDouble) * 1609.34
+                    : prefs.distance * 1609.34,
+                Location: prefs.location
+            }));
+        });
+
+    return participantsWithPreferences;
 }
 
 async function main(sessionCode) {
@@ -137,9 +177,8 @@ async function main(sessionCode) {
         console.log('\n3. Ranking restaurants...');
         console.log(`Found ${uniqueRestaurants.length} restaurants to rank`);
         
-        // Get user preferences from file
-        const userPreferences = JSON.parse(fs.readFileSync('exampleInputGoogleAPI.json', 'utf8'));
-        
+        // Get user preferences from MongoDB
+        const userPreferences = await getUserPreferencesFromDB(sessionCode);
         const consolidatedPreferences = consolidatePreferences(userPreferences);
         const rankedRestaurants = await rankingAlgorithm(uniqueRestaurants, consolidatedPreferences, aggregatedPreferences.location);
         console.log('✓ Successfully ranked restaurants');
@@ -168,4 +207,22 @@ async function main(sessionCode) {
     }
 }
 
-module.exports = { main }; 
+module.exports = { main };
+
+if (require.main === module) {
+    const sessionCode = process.argv[2];
+    if (!sessionCode) {
+        console.error('Session code is required as command line argument');
+        process.exit(1);
+    }
+
+    main(sessionCode)
+        .then(() => {
+            console.log('Process completed successfully');
+            process.exit(0);
+        })
+        .catch(error => {
+            console.error('Process failed:', error);
+            process.exit(1);
+        });
+} 

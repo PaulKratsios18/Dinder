@@ -141,7 +141,7 @@ class WebSocketServer {
         try {
             await Session.updateOne(
                 { 
-                    code: sessionCode,
+                    session_id: sessionCode,
                     'participants.userId': userId 
                 },
                 { 
@@ -151,7 +151,7 @@ class WebSocketServer {
                 }
             );
 
-            const session = await Session.findOne({ code: sessionCode });
+            const session = await Session.findOne({ session_id: sessionCode });
             this.broadcastToSession(sessionCode, {
                 type: 'preferencesUpdated',
                 session: session.toObject()

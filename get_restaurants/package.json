@@ -1,0 +1,19 @@
+{
+  "name": "get_restaurants",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.8.0",
+    "haversine": "^1.1.1",
+    "axios": "^1.6.7"
+  }
+}
