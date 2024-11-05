@@ -74,7 +74,8 @@ function LobbyHost() {
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
       console.log('Received participants update:', updatedParticipants);
-      setParticipants(updatedParticipants);
+      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
+      setParticipants(filteredParticipants);
     });
 
     // Cleanup on unmount
