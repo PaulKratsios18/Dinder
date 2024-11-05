@@ -126,7 +126,7 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
 function HostPreferences() {
   const navigate = useNavigate();
   const location = useLocation();
-  const roomCode = location.state?.roomCode;
+  const { roomCode, hostId } = location.state || {};
   const [activeTab, setActiveTab] = useState('cuisine');
   const [name, setName] = useState('');
 
@@ -187,6 +187,7 @@ function HostPreferences() {
         body: JSON.stringify({
           roomCode,
           name,
+          host_id: hostId,
           preferences: {
             cuisine: cuisineNoPreference ? [] : cuisinePreferences,
             cuisineNoPreference,
@@ -211,7 +212,7 @@ function HostPreferences() {
       console.log('Success:', data);
       
       console.log('About to navigate to group lobby host');
-      navigate('/lobby-host', { state: { roomCode } });
+      navigate('/lobby-host', { state: { roomCode, hostId } });
       console.log('Navigation completed');
       
     } catch (error) {

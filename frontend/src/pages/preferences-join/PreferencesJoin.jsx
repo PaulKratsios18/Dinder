@@ -87,6 +87,7 @@ function JoinPreferences() {
       }
 
       const data = await response.json();
+      console.log('Response data:', data);
       navigate('/lobby-join');
       
     } catch (error) {

@@ -5,10 +5,10 @@ import './LobbyJoin.css';
 function LobbyJoin() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [roomCode, setRoomCode] = useState(location.state?.roomCode || '');
+  const [roomCode] = useState('');
   const [participants, setParticipants] = useState([]);
   const [error, setError] = useState('');
-  const [userName, setUserName] = useState(location.state?.userName || '');
+  const [userName] = useState('');
   const wsRef = useRef(null);
   const [isConnected, setIsConnected] = useState(false);
 

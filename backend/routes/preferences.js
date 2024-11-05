@@ -1,7 +1,7 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-app.post('/api/preferences', async (req, res) => {
+router.post('/api/preferences', async (req, res) => {
   console.log('Received request:', req.body);
   try {
     // Your logic here
@@ -12,7 +12,7 @@ app.post('/api/preferences', async (req, res) => {
   }
 });
 
-app.post('/api/join-preferences', async (req, res) => {
+router.post('/api/join-preferences', async (req, res) => {
   console.log('Received request:', req.body);
   try {
     // Your logic here
@@ -23,6 +23,4 @@ app.post('/api/join-preferences', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Server is running on port 5000');
-}); 
+module.exports = router; 

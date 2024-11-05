@@ -2,36 +2,30 @@
 const mongoose = require('mongoose');
 
 const sessionSchema = new mongoose.Schema({
-  code: { 
-    type: String, 
-    unique: true, 
-    required: true 
+  session_id: {
+    type: String,
+    required: true,
+    unique: true,
+    default: () => Math.random().toString(36).substr(2, 9) // Generate random ID if none provided
   },
-  hostId: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User' 
+  host_id: {
+    type: String,
+    required: true
   },
-  participants: [{
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    name: String,
-    isHost: { type: Boolean, default: false },
-    preferences: {
-      cuisine: [String],
-      price: Number,
-      distance: Number,
-      rating: Number
-    },
-    joinedAt: { type: Date, default: Date.now }
-  }],
-  status: { 
-    type: String, 
-    enum: ['waiting', 'active', 'completed', 'canceled'],
+  created_at: {
+    type: Date,
+    default: Date.now
+  },
+  status: {
+    type: String,
+    enum: ['waiting', 'active', 'completed'],
     default: 'waiting'
   },
-  restaurants_displayed: [String],
-  match: String,
-  createdAt: { type: Date, default: Date.now },
-  lastActivity: { type: Date, default: Date.now }
+  participants: [{
+    user_id: String,
+    name: String,
+    preferences: Object
+  }]
 });
 
 module.exports = mongoose.model('Session', sessionSchema);

@@ -7,6 +7,7 @@ const WebSocket = require('ws');
 const User = require('./models/User');
 const Session = require('./models/Session');
 const connectDB = require('./config/db');
+const preferencesRouter = require('./routes/preferences');
 
 dotenv.config();
 const app = express();
@@ -17,7 +18,7 @@ const wss = new WebSocket.Server({ server });
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true
 }));
 
@@ -27,127 +28,88 @@ app.use(express.json());
 connectDB();
 
 // WebSocket connection handling
-wss.on('connection', (ws) => {
+wss.on('connection', async (ws) => {
   console.log('New client connected');
-  
-  ws.on('message', async (data) => {
+
+  ws.on('message', async (message) => {
     try {
-      const message = JSON.parse(data);
+      const data = JSON.parse(message);
       
-      switch (message.type) {
-        case 'createSession':
-          const sessionCode = generateSessionCode();
-          const session = new Session({
-            code: sessionCode,
-            participants: [{
-              name: message.hostName,
-              isHost: true
-            }],
-            status: 'waiting'
-          });
-          
-          await session.save();
-          ws.sessionCode = sessionCode;
-          
-          ws.send(JSON.stringify({
-            type: 'sessionCreated',
-            code: sessionCode
-          }));
-          break;
-          
-        case 'joinSession':
-          const existingSession = await Session.findOne({ 
-            code: message.code,
-            status: 'waiting'
-          });
-          
-          if (existingSession) {
-            existingSession.participants.push({
-              name: message.name,
-              isHost: false
-            });
-            await existingSession.save();
-            
-            ws.sessionCode = message.code;
-            
-            // Broadcast to all clients in this session
-            wss.clients.forEach((client) => {
-              if (client.sessionCode === message.code) {
-                client.send(JSON.stringify({
-                  type: 'participantJoined',
-                  participants: existingSession.participants
-                }));
-              }
-            });
-          } else {
-            ws.send(JSON.stringify({
-              type: 'error',
-              message: 'Session not found'
-            }));
-          }
-          break;
+      if (data.type === 'CREATE_SESSION') {
+        const session = new Session({
+          host_id: data.host_id,
+          participants: [{
+            user_id: data.host_id,
+            name: data.host_name
+          }]
+        });
+        
+        const savedSession = await session.save();
+        ws.send(JSON.stringify({
+          type: 'SESSION_CREATED',
+          session: savedSession
+        }));
       }
+      
     } catch (error) {
       console.error('WebSocket error:', error);
       ws.send(JSON.stringify({
-        type: 'error',
-        message: 'Internal server error'
+        type: 'ERROR',
+        message: error.message
       }));
     }
   });
 
   ws.on('close', () => {
     console.log('Client disconnected');
-    // Handle participant removal if needed
   });
 });
 
 // Existing REST routes
-app.post('/api/preferences', cors(), async (req, res) => {
-  console.log('Received request body:', req.body);
-
+app.post('/api/preferences', async (req, res) => {
   try {
-    const {
-      roomCode,
-      name,
-      preferences
-    } = req.body;
+    const { roomCode, name, preferences } = req.body;
 
-    if (!roomCode || !name) {
-      return res.status(400).json({ 
-        error: 'Room code and name are required'
-      });
-    }
-
-    console.log('Creating user with:', { roomCode, name, preferences });
-
+    // Create/update user
     const user = new User({
       roomCode,
       name,
       preferences
     });
+    const savedUser = await user.save();
 
-    console.log('User model created:', user);
-
-    try {
-      const savedUser = await user.save();
-      console.log('User saved successfully:', savedUser);
-      
-      // Verify the save by fetching it back
-      const verifiedUser = await User.findById(savedUser._id);
-      console.log('Verified user exists:', verifiedUser);
-
-      res.status(201).json({ 
-        message: 'Preferences saved successfully',
-        user: savedUser
-      });
-    } catch (saveError) {
-      console.error('Error during save operation:', saveError);
-      throw saveError;
+    // Add user to existing session
+    const session = await Session.findOne({ session_id: roomCode });
+    if (!session) {
+      throw new Error('Session not found');
     }
+
+    // Update or add participant
+    const participantIndex = session.participants.findIndex(p => p.name === name);
+    if (participantIndex >= 0) {
+      session.participants[participantIndex] = {
+        user_id: savedUser.user_id,
+        name: savedUser.name,
+        preferences: savedUser.preferences
+      };
+    } else {
+      session.participants.push({
+        user_id: savedUser.user_id,
+        name: savedUser.name,
+        preferences: savedUser.preferences
+      });
+    }
+
+    await session.save();
+
+    res.status(200).json({
+      message: 'Preferences saved successfully',
+      user: savedUser,
+      session: session
+    });
   } catch (error) {
     console.error('Error saving preferences:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to save preferences',
       details: error.message
     });
@@ -179,6 +141,34 @@ app.get('/api/test', async (req, res) => {
   }
 });
 
+// New endpoint to create session
+app.post('/api/sessions/create', async (req, res) => {
+  try {
+    const { roomCode, hostName, host_id } = req.body;
+    
+    const session = new Session({
+      session_id: roomCode,
+      host_id: host_id,
+      status: 'waiting',
+      participants: []
+    });
+
+    const savedSession = await session.save();
+    console.log('Session created:', savedSession);
+
+    res.status(201).json({
+      message: 'Session created successfully',
+      session: savedSession
+    });
+  } catch (error) {
+    console.error('Error creating session:', error);
+    res.status(500).json({
+      error: 'Failed to create session',
+      details: error.message
+    });
+  }
+});
+
 function generateSessionCode() {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let code = '';
@@ -188,7 +178,32 @@ function generateSessionCode() {
   return code;
 }
 
-const port = process.env.PORT || 5001;
-server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+const PORT = process.env.PORT || 5000;
+let currentPort = PORT;
+
+const startServer = async () => {
+  try {
+    await new Promise((resolve, reject) => {
+      server.listen(currentPort)
+        .once('listening', resolve)
+        .once('error', (err) => {
+          if (err.code === 'EADDRINUSE') {
+            console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
+            currentPort++;
+            server.listen(currentPort);
+          } else {
+            reject(err);
+          }
+        });
+    });
+    
+    console.log(`Server running on http://localhost:${currentPort}`);
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+app.use('/', preferencesRouter);
+
+startServer();
