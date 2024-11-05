@@ -1,23 +1,68 @@
 [
-    {
-        "Name": "Paul",
-        "Price": [4, 5],
-        "Distance":  11500,
-        "Cuisine": "Italian",
-        "Rating": 4
-    },
-    {
-        "Name": "Brendan",
-        "Price": [1, 5],
-        "Distance":  5000,
-        "Cuisine": "Mexican",
-        "Rating": 3
-    },
-    {
-        "Name": "Ryan",
-        "Price": [2, 3],
-        "Distance":  25000,
-        "Cuisine": "American",
-        "Rating": 4
-    }
+  {
+    "Name": "BC",
+    "Cuisine": "American",
+    "Price": [
+      3,
+      3
+    ],
+    "Rating": 3.5,
+    "Distance": 8046.7,
+    "Location": "42.6920233,-73.72456389999999"
+  },
+  {
+    "Name": "BC",
+    "Cuisine": "Steak",
+    "Price": [
+      3,
+      3
+    ],
+    "Rating": 3.5,
+    "Distance": 8046.7,
+    "Location": "42.6920233,-73.72456389999999"
+  },
+  {
+    "Name": "BC",
+    "Cuisine": "Pizza",
+    "Price": [
+      3,
+      3
+    ],
+    "Rating": 3.5,
+    "Distance": 8046.7,
+    "Location": "42.6920233,-73.72456389999999"
+  },
+  {
+    "Name": "PK",
+    "Cuisine": "Japanese",
+    "Price": [
+      1,
+      2
+    ],
+    "Rating": 2,
+    "Distance": 3218.68,
+    "Location": "42.6920233,-73.72456389999999"
+  },
+  {
+    "Name": "PK",
+    "Cuisine": "French",
+    "Price": [
+      1,
+      2
+    ],
+    "Rating": 2,
+    "Distance": 3218.68,
+    "Location": "42.6920233,-73.72456389999999"
+  },
+  {
+    "Name": "PK",
+    "Cuisine": "American",
+    "Price": [
+      1,
+      2
+    ],
+    "Rating": 2,
+    "Distance": 3218.68,
+    "Location": "42.6920233,-73.72456389999999"
+  }
 ]

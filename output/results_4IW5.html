@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinder Results - 4IW5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .restaurant-card {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .restaurant-photos {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .restaurant-photo {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .score {
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dinder Results (Session: 4IW5)</h1>
+    <div id="restaurants-container">Loading restaurants...</div>
+
+    <script>
+        const rankedRestaurants = [
+  {
+    "name": "Cafe Madison",
+    "rating": "4.4 (711 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "1.7 miles",
+    "cuisine": "Restaurant, French",
+    "address": "359 Northern Blvd, Albany, NY 12204, USA",
+    "score": 14,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOAj1Ok0BP0k6rId5ysYM5MpVO-xewcKu0D2mt4Phx5D9rU33QN7tog-_LqWfzoBBJznXxE7ILl4Uwj16Um85TMzMGg2L6wXTWt5mKWw-P3LnutdiLiE2EJjqN7qkmbJkt2x019KVqON8iYkWi9NTEFPNZYq_x13evZK3xnEgLnURFx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Risotto",
+    "rating": "4.4 (361 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "1.7 miles",
+    "cuisine": "Restaurant, French",
+    "address": "320 Northern Blvd, Albany, NY 12204, USA",
+    "score": 14,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-UTvl5GLgqIZANKtVpu0CWvKgoB5ppEBMvSJb5fHPHcN7JVbvx2ZTTsLJsrDylrW_6U-QfhGCkTAJ__m4S7YS0mijVJVy_0oeaLYTU_NLvJYZEONn61dV4cQ_9Axs_3bCIGy3xYELM6YtLR9MIT4PV6eY8h3vg3g56Sx_R9G-xFs6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Herbie's Burgers",
+    "rating": "4.1 (526 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.2 miles",
+    "cuisine": "Restaurant, American",
+    "address": "196 Lark St, Albany, NY 12210, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMRwhr1EvQTlQEgGoGIaFc5FXaAJh85ItAsGRdHNQb6A1fyA3nt9nUCNarRggxaCUivVsJXS9frnPMx4WttIIrfXyrDhQZv4Hh4KpDF9pxWKc7hgr-3JjHQWpXXQ_CBxPO5TcvL0EEQ_-A4lHnaEGpM_fSoE2RKtTkxgtwDB7tosm9e&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Dan's Place Two",
+    "rating": "4.7 (391 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.2 miles",
+    "cuisine": "Restaurant, American",
+    "address": "494 Washington Ave #1230, Albany, NY 12203, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOPuE5WtmSbwuMTX5Vz_PJp3SAnO6B9lsikPi79rZbjIFl215dxWTdxRSs6i_iaksk7-PsZnNmod6n-0Mfs5NhG2VmRO_yJt9v87OvP4MBbn_daFxrX2VZzrSKVhiR_Ajk0ydkuXP4JuwLU5iDbN85xdUjHgmpuNc6cPC-1xvjhV70G&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:30 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Iron Gate Cafe",
+    "rating": "4.7 (1996 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.1 miles",
+    "cuisine": "Cafe, Restaurant, American",
+    "address": "182 Washington Ave, Albany, NY 12210, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNeomILPI5O7VoFyss-nvt08LkCLNWfpJC_PpuT-E5IPnZxSq3FoCLgkmXVugY9Q0To_lLGN-snFr2qK29PgUsl3kW2GIeOtqyP43zZIyL5lW5TAV0wKGKqDU9nyRdFI_o63UGSmxqoeBvH4ZFDwVaHZd4k3qpNl6k21JH8W45YcJk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 8:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Illusive Restaurant & Bar",
+    "rating": "4.7 (943 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.8 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "3 Ferry St, Rensselaer, NY 12144, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNE_p1tvdW897cdXePbbzmbm5vCnBtR_JujhwYBRwKFquc3SsOadYA4WUl2WJz1Bvz-endpHBw6Fntc8KP75lHNBp2SStQXvmS2tHRDTQ9lRnzVPTs-Zpq3SwoIkEJ_sb3EBn_lBPX7JU3_2pohy3X7IrvA3aE41n5zaM0Xrs0ecBxS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "The Olde English Pub and Pantry",
+    "rating": "4.4 (1244 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.9 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "683 Broadway, Albany, NY 12207, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNjYwCHipEdQTRiX9WI_W5fKuInDWdIYUhRnYKxLFKgXRPBcO-EN1_McF8KaPAZeGN4nKGyf36HxBSOdvp_p91hQ-Li9ajSzDhZ_nQyx9ZIXKMIgPBSMCjhV8SZdDuXyENWDQhlM93PKOEoXHRxzy47Mb22tfAWQkumh8W3ruueN3T9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "The Hollow Bar + Kitchen",
+    "rating": "4.4 (1341 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.0 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "79 N Pearl St, Albany, NY 12207, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO1l9zxVF8t9FI9hRWi8XMZp5gX2_jFat-0Qf7uruDuTI2HLfE3Y29x2fu5zUfz4XBht2F6fdIjfEdeAidBiD4n-9rgWBG30cxpMdFGx1Om84ZjJCCoEQAJSXhfV3qwovA9R9mR8-mtLYxwSNmzfeMc_iyxKJCx6bjBPVJRg1qufNcW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Manory's",
+    "rating": "4.5 (1115 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.1 miles",
+    "cuisine": "Cafe, Restaurant, American",
+    "address": "99 Congress St, Troy, NY 12180, USA",
+    "score": 13,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOO1W5rcug6voFkPv1WmV9M7cJ42efHyTdN5bEchYr_sydqKu83MRfYfGPf4jPKlIgnR5NbCXDvK45yAeDz7uMbXMQ9KfIkQgqy_ASswBgEm5T4-hk-1RP4J2raz0f3y-0k_NwaTuTUouF5ThBZ67Z8xG7G_UAmezpFUnuANOoo_crs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Savoy Taproom",
+    "rating": "4.5 (781 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "301 Lark St, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMZiqGDGkFoQQr6wlyQvwTdS0gGZUmjF5-v5_Z7JTqVjWzmJ0vW9Nrr4BnhmRPvKFIwPWh3F1KRPhexJYrM5UsYUVSsvNmkksi1fQ5TsRk3X9IUyENgAx9p4azrw9nY6TIEXzNyC0FqRpvTJ7fUTOTp6aNSxRCb5MH7_qWb8j7xzxgh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "dp An American Brasserie",
+    "rating": "4.4 (230 reviews)",
+    "price": "💰💰💰 ($61-100)",
+    "distance": "3.0 miles",
+    "cuisine": "Bar, Restaurant, French",
+    "address": "25 Chapel St, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNZJ_n20lvzt7IKzbc-dj9Bzpu8-nPUvx4W5iTjdj764l1NKMV4tFCGSN3cNjxq7d3oDGXUCbVu9F2kzOtLa-ol4iGmgNBHjBlCeVRbFKsNyK_t4uI3pExVI9_KdD3P2Qbux7E8a534S7A2lgnc8AZHTfnLMeNRKuMI6UsGDFWRkLkj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Naughter's",
+    "rating": "4.9 (297 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, French",
+    "address": "1809 5th Ave, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNCPceejR3X1WCK4PvB0GuETXiUA-q137rd6NOGu11wtmntqE3iGGqD535qCFQCbdiY_UnzkUAFSAX6BBqqiVrLUREXco8CQwDzbFJsQbhmPdrUo5mNo50y7R3Up_h4AWjqOMOls7xF-uAZPUodFKCioiVEVjB06BKDZhYpnr8RFnum&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 8:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "McGeary's",
+    "rating": "4.5 (1294 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.9 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "4 Clinton Square, Albany, NY 12207, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMWpp9ejXR09hIOp3FrxpBR5goybe7-IPsnHsBb-T3bAITKmoggqdb3W9Fo5TJSVhKYyhBYz8l3uZN4vBYmyTj7KGCEXAyKJnR2CpCbBG-Z8Xr3JRKTwoK6wsTebwF6FuCW7w_BisfP9VOP4ZhR-y-o61oTodEO_h6nZovjzmr7Qk8y&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "110 Grill",
+    "rating": "4.2 (678 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.6 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "664 Loudon Rd, Latham, NY 12110, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyAw9zgLSoxFxyv0htKXQKEHuZivlVG0GJx_buAVQe8hhQ47tDpkTnqCGpMH9GJ2oj1ujq04m26hSFqfqepsV_bbWBLp3-vjmuUqnm9aRUgIOmGdZWAvFly7DJEcw5L9Ry6OvAMedSyvoJz4Zovo3hlJBlE41eGoIAtGdAeDWfkzAp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Lanie's Cafe",
+    "rating": "4.5 (1839 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.9 miles",
+    "cuisine": "Bar, Restaurant, French",
+    "address": "471 Albany Shaker Rd, Loudonville, NY 12211, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNNzXWjI8ISj37qdbRf8qOnTXDCjGV5XmzkKMLTH6MBhWqSnIq-ZFiWII8KP43JeaWgdmhfOdIOXDU4nOiDXTOqEqioASyzwhGG9xamiASAY-FBmuoJXCBLQAJso1i43IopIrxsBKKdC7EMxD2yfJmCTp7u6GR3MI4_ozvw0IZyG6A4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Barnsider",
+    "rating": "4.3 (1663 reviews)",
+    "price": "💰💰💰 ($61-100)",
+    "distance": "4.8 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "480 Sand Creek Rd, Colonie, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMVjoxpUv2KpCiBVAqEWa_VODR9By5wPKfPsOzXrKoVJw349k2UCzQwd3D6BRiwSlwcL_XKp0fsJlr6YBrj269tdS2Up3IMfC9kLqb-qKEVBciYCyfAfAoyMD2xRMhT65QfnzWDE73T_9fJILJI7ADLOShwysShHdFmYcPkgfpscCCY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Nelsons Steak Out",
+    "rating": "4.4 (84 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.4 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "1750 4th St, Rensselaer, NY 12144, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPesLnvNqtYtWMA5CDOF8ZH1o6VipQec9q7FIpScp35WQy-kkLe0r5rpSsmtovdcHrVLTwg9h6T3xmbjvLusk39dn325XUPYZSjBekqt-YFyWBFx1FFK8ZcBIpa6H5_Y4KJ4CeSOsiy16Lrn7ERpsd5QfmHdZCJcftqp_SfbzO2H2r_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Texas Roadhouse",
+    "rating": "4.4 (4844 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.6 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "105 Wolf Rd Suite B, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPtGXSzGgCyC3CU_a5DgPFk-qpnuueG1cBNbxPhbuz3bE2aIrLBs0rGI883tlVFk2ewpYdJFNHGkGM6PH2KqxClph8ecfoiSppwskgjJBoiTOeQ_a7JgKbnelRiif4TspD8U4xD8IIFelQTb4I0Pi3L4JKayUPhs4aUeJ1HcErPmMFu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 3:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "LongHorn Steakhouse",
+    "rating": "4.3 (2144 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.6 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "144 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOIcF-fn_iul58ekLcxcmHs39L0pUtsMscplQHss4EPz7VDu2gPxD44M2t-scqZaOaGBsMTRhwF2k2PzClTLZ9zUdFcsIFTdhHwu3Jof0zZOW1K6_CdsizA3Z-clbR29S7ygdkQistLHcXSV3wLRmJWll_Umigf1lc96hmcMSwV6lbK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Hanzo Japanese Steakhouse",
+    "rating": "4.4 (748 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Bar, Japanese",
+    "address": "102 Van Rensselaer Square, Rensselaer, NY 12144, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNX3H1VuaOOZ8IonQ4JHCzFYB-w0jmzoxv-18R2g2AnFKR_iZ69xJ7UxCIkixVNy7W8wdMzYcuAoqDbw8A_ffemS_HLqwuD1x5EaN_8vsxWHNdWsA9wt10eLggimZp5WxIDpOdSyBjl8QTBoOYOw7uHhmWSk_LOdgcWMSqUVOhue4ir&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Sake Japanese Steakhouse",
+    "rating": "4.5 (1353 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.9 miles",
+    "cuisine": "Bar, Restaurant, Japanese",
+    "address": "611-B Troy-Schenectady Rd, Latham, NY 12110, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMCpOKqsqdLL6rVAv8VHcqs7O8N2m1qwXgDzHGuJmyBnIC3qwtBYuAy7jHwQ2hHnJoFW1n8l4HyTuMgM04auHfW-QQpCWJwDr_D90Wp5uKcY728yk_2syJN50mlQLRSLKXDwjtUx_9YQcDcgsjf3gqFp_S8MxxDDqNbgsBsC8CEieBd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Outback Steakhouse",
+    "rating": "4.2 (1846 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.4 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "145 Wolf Rd, Colonie, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPB39QSmUVFey3V1uXX7SwdlzA_fbRw5mHgH_K6yE2gS9YLMaxJ3Gkd_73IryThaH9WR2IPwR-XnQf-TcY28f36GW8SLXIS0KQ3lnod13GIJHTCpxqnyYxMX6kOQ1aqlJi8I_lr15hkn8CrChZdxzJfvSxEno-s-DMePaU_4y3Y9b_L&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Samurai Japanese Restaurant",
+    "rating": "4.4 (1070 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.5 miles",
+    "cuisine": "Bar, Restaurant, Japanese",
+    "address": "158 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOh6v240Yy2pGmqJ5TQCT-ks6feu0hP5UDAQctYM2WGACbllxkfFEmbqH2JehGI3pFDYObug23_yrgj6X8v5jtkBJNC6o2T7Sg6YpOXa3WLZQGyMEEpAlRwVqEH7aO9pTti2sMcUrJcPgy6rwT9crN5ybYAB0ZlLF6IWPEq8Z-JlcjL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Koto",
+    "rating": "4.3 (1257 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.4 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "260 Wolf Rd, Latham, NY 12110, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMa2sEQoOdVwvCe69rePAif0LQXUuRCG5r_7E2_q7vutZtdg6QDkwDatWoGykS87KrVnYdOO1HGwvAd2kZmAd52vo-c1rWHL6uyjqfjrTK-G71x7zPs6RihTzN9K8GQDfO4XrKbyeUry5SoNLRTjrHRJEWJrPDF5V1V8RhIQNCN_hyq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Big Apple Pizzeria",
+    "rating": "4.4 (1033 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "108 14th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPL0Z6RFNGfrgS6vI4aQNHH5Haql1IvxqPop5g4S_u7NlJC88jkg_rmqINV2yqPoT79ScPs12DEsMN3v1W1J5trQ3JiCpW_KpJuVJvBm7icIe5mUr6UGKyu1xAmJcx2fmU5Wm2ShiwOnn73c4aryPC0s9akiY4bdHWyOO5uZaUfm088&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Pine Hills Pizza",
+    "rating": "4.6 (163 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.8 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "329 Ontario St, Albany, NY 12208, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO22wnZFadk4KbGAJeXp2uTqvbvi3kQNr00vH1l2hyHYIbC1XiT7Tl67jHwkAhvEfI5b457i1cGP4nCAq6hrB0_edxwA54MQTWqOJM-CqqaEFGzOYPuDlv2C6cm_iI5q-Z4Ow4qgOK3Nc6Ziema_t8CpdNDR3o05mdXX-VG7F2iSYGH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Soho Pizza",
+    "rating": "4.3 (730 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.4 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "269 Lark St, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOh5aZayOA5Yd8wJc614-Huw4xem7PkMGfeEatLFjsfJGT2Ub7kweV-RllM4uLyGwu4m0m_QefXTlpzeN7sOZZOh-b7Q1vhS39V_XaetpD9-fjxV33lXtdhmrCMKEaUMlvHEP-SPp4zOupFTPNBPCdid00txmVmOHu2eUsTaQ4vO9Nw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Amante Pizza",
+    "rating": "4.2 (683 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "4.0 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "2304 15th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP1dT4KUAvazugb3en2TqYNSUA1wn5FuWjAs2eN-D_OWjkLaQGhgH7B4Oj_Syr9z-NNAre0kcUzYCbsBMvDVFJTSPqFnIg_wqMYdRAoDHbsnMkk19o4YPtmg49iXtW-_1sVeKBGUl_mn7OliGEDIlwJdiYqStfRbpSwt668lpx3BvbA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Gino's Pizzeria & Fried Chicken",
+    "rating": "4.2 (456 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "123 4th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPfrCB6ZIRK_C0pMjKgyo5kEf5HDUK7LoBFhySxMJJPkvMeN0OoyNmj7bXhkInnB1LDRMyDU9gyU21g7eNK_t1qq7qU3UQZe6uQkqbjP-RAiBkX_ml4hYAb0Awcnkp56qz-soMgaRF_OI37biwbMe50fbwpOpY7iKnQnvjYzwUSOGWy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "PizzaRoni",
+    "rating": "3.8 (433 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "420 Madison Ave, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM-gGwkYsDTLlj1YWQYrsiIuO5Nt0y7k22UzFAIDzHzfmJVOXtBkat-NJo59EjTGJp2Bjjb2MQLjms6Ne6ZqBoXDjqTYFPnPb8vRFief6JMT-6NEJ9T0GteEGh7w5fOnsA4Zh9nH3aGD4Fo6RO3c39FG5JxeAQSSEFbkQkro06RP5hV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Westgate Pizza Bella",
+    "rating": "4.3 (1454 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.4 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "911 Central Ave, Albany, NY 12206, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPtFvNMxHNClRLxRSwSzjWrwVn5wDMBq8iTeJQF7Ky0zCoUKXEVJiqYhW0EIMkzKv6_1mWneGpa9ppV9CDHCOLJh1tq6tcQ27DbhPv1SgxZ4uDnrTqmiyaiwD_g-8bVEsIbmH-XHZp8hWrQ-Q7qxOSQ7Lw1X10adbycfk2YIgn6k7A&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "I Love Pizza of Troy",
+    "rating": "4.5 (1234 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "125 4th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNUeZ-VuaBeca72m0k4OguaVW6cQtT8Yi2Ax2Huf45YaM7CsyrQDfWNZbJFEphxMsZIFpJMvOBobhW2AZc5vLQA32T8Bx7g1e5_sXW065WzLkIxmUGFsqxPHQsut15q3hucae7JDPte-9v-slpQibryRW7nw3XIWuPDICn8-YZ-VQlF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Golden Grain Pizza Colonie",
+    "rating": "4.4 (909 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "4.4 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "217 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP908XXep-yK_T738tmhh2dmT_r6u8eDYRo29PhzAKmjhuCbWZonbO7XsbG9R-WROVUdCS_R6E9lMh-4LAVfzR0tmFM7t4wSYmj8K0ycVYMQZEgHXoYSCoZp2rB9r-8hBH6SGiOxRtYO1e-9MU0F9q_h7ddHyc_vn2Cl66S33P8eX5p&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "La Casa De Pizzeria",
+    "rating": "3.7 (208 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "98 3rd St #4037, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNiX9nqGkmB8illhDHjmL0907GIbgIXSUxtyc159moCwOI_xhE4EPsWZ8XrJTBnA20b6nPjpwkKaD39WHfqdeFIELcJozR6xGRDcJ0ZHaANJgalBgZ3LqeNy2jN8MQnZ62yrWPgF_KyUZIlNjZAV7S6T5fGnPvz4lbFN6S7Ic_5urVz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Papa Johns Pizza",
+    "rating": "3.6 (428 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "4.6 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "571 New Scotland Ave, Albany, NY 12208, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYzglCAO133YHIzSuc_2KqVUmkVyyiqgQetV9rv2FvCak5vfLNUIhfaqpm9rPk84BrQJFLfM-hOz4AR1z4-3OalC47hi9ThZaNu9lF6_OVOw_mGWVKbZ_igb7nRWocnOFQiSEBdH6jFJKW9fjDOK2jdUMg9xH6SFkybDLaQi0EhQ5D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Halal Golden Chicken & Pizza",
+    "rating": "3.8 (61 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.0 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "20 N Manning Blvd, Albany, NY 12206, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPsYZgFOdDGR8wMWLWh387wAN5SZZjMgpfhgPdOgqIiYmm-tIBRba2M37gU0ZWmwPLvDJcbOnZlquF2mibUcFkEbzXqod5pASDzJd0BsWgiK5gXzA0GSEyDeIIbR1xzx-eU5vP8JYGTa6yVbxwrZaDaQYusivYTPaZTK_fQyHTKAfD7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "N/A",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Dino's",
+    "rating": "3.6 (19 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "420 Madison Ave, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOYv-GiBt5pNmhznHh44I9fsG4YpzLuMpsU6beC5fT4_Zi6Esa61WsHCR6AEhc9DtIlCI8xusAh9WzLlEUYyFQ-ZXkauADWUvuUm93tsk6jklI9aWUKgC4b-PhD5UdQapRi9lTbgR-rVEvU9X-ErARebWTu3I79MW8NIMWf0F84IIGA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "All star pizza and deli",
+    "rating": "3.9 (28 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "224 Quail St, Albany, NY 12203, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNak-6wJHx6gSB5jec8cZKsaHv2slssC8bK2DEa-bjEVF3u2BBbkdV8PrWNLHwqOpQQT8iVwHwJT6AxpEKci6brqR-te_MI-JneJxPEvmBQ6IvfHXtPjTYPfodvRlEy-o_Tj_-Bq59vdxB2CqohTKUvNHyTkJ6iLITSdwt_QDS8X_WK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Chris' Pizzeria",
+    "rating": "4.4 (69 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.7 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "786 Pawling Ave, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPd2etfFiANoQCnmv3dCCyOu37M7i3gwLLLz_iPli-IBqPe777346o2RuJ0t8Z5O90eQTteM-FDK6r7whrz85qWBJi8pSQKMxVPkWKNj5R46Cc0j86o3INN_Tt6eT_TV66wO1Z2qmHR_Drm_RbaS-YQMGwoE9rL7_X-k9_j-w5GT7p7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Hibachi Station",
+    "rating": "4.8 (44 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "501 Broadway, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNl1wFw9Mo6jlaisD7iMiedGvCwVhiBobWPhi9urBJoxE3n0G2c_Oms36T2XAu__tOEKgKaBUE-1N3FgQ2i2tGmNt7sqzp7uuI0K6MWj0CvNwicllQW4oNQqzCDXq7p4CCzmwVNCPk9NoZOR3wzYJsDmhK50MEOWS7BpBFbqdyBWI_z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Yoshi Sushi",
+    "rating": "4.6 (267 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "640 Loudon Rd # 5, Latham, NY 12110, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPXMaV_XLcxhoOrMfeeVhtyzLUHiotsGkF3NRsSor5aIx_0qUuj4wRvT_DzFLQQ-VxKfZasg9MJGDcbPFVsHIZ9l8QAGZzUanE8ND6_rVzWqRmgz5-cXQlBrrNVp67FOlo1Q8ZcFxm30iImT7XAJgUYe45wUGGFhr_uOPSXuO12FjNt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 3:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Kuma Ani",
+    "rating": "4.6 (122 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "1521 6th Ave, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNl-AnNwKcHuwD_oej5pd0lrbit3YbNbFeIM4Z4QkRkXQifICC4gLyhMee7zIrpi55bqyZAWmVf0a_1v23wmjszvfGhxugRfeJe6uXpqRjAmLIjGXmFvUYTIFp0mdLJrrfD0x4PlgrW_t0PtnPgbxEovrD3vXzoXAC01rAOq28kpqgc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Sushi Tokyo Asian Fusion",
+    "rating": "4.5 (34 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.8 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "265 Osborne Rd Unit 1, Albany, NY 12211, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPmLULG9KSbWT2RHaWJASx5Dq901PsXibbK9kbX0PnreZUNIO315B46DxNhGyTPvZSe6nY0kb8ruyTonQHvwZrQoFsg1noOun3tDPJneHTls8tyLEKhuVCD4Zynn42s-rg7Rbbm2lbyEQzel3Z7LtCJMEGVkdr9hd5iHxnvLGsa34KI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Sake Cafe",
+    "rating": "4.5 (365 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.2 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "273 New Scotland Ave, Albany, NY 12208, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-mqCqJVF7XxjLCQKL9od6xvy-nx4ilYlpZqFUVErGXBjv8CafgPzcueDJOzLXCf80LCj7TXUwBm2uT-FyAIQ06_5TGsOjQ2tjhGe0KyaEPtzzd0QEMMZCY7MEpYyg6VYhFxTQhcisUJ0zi8XAm2uRlI09cmRMOBd0IpNHiDTO8enZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Tanpopo Ramen and Sake Bar",
+    "rating": "4.6 (1382 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.4 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "893 Broadway, Albany, NY 12207, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN4tEY1wzB-IXQtBKwBHEp4FsCdFu1m8EM_usF29SHhVh_pPeKdMqAlubPDDAChslZsd7w49DjdmWlZxT0ieKZoCc7VWrRmRPcRCFRPbmos31Z3ihwJOEM6lh1oaTy0me1Hmu-1r5lcjSEz2Y99NKQ8WysCc-BNGsHST9N1ZwW0U1xq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Shogun",
+    "rating": "4.4 (602 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.5 miles",
+    "cuisine": "Bar, Restaurant, Japanese",
+    "address": "457 Madison Ave, Albany, NY 12210, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5whr1pOcaaHqx7-TwfLWhaLWgvztW2wiw7x9tUqKsRlFVMLvDU8at8E45dlTC06RzTBPkqTHYu2c9xU3WLO9DBtMi7P1ketGTFoIc3I6n7X2vdu7s3PtUcLfA14jG7Ca4aZxawxUWAIUmqRgW2-a8z9PIWkkrSiUI0ArzK1SVRLvt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Sushi King",
+    "rating": "4.1 (219 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.2 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "200 Broadway #101, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMorIuwFhq45q0S3gEbqnEe7ThPyS9wPCDo_LFP0BST5vZTeFNIz8zcA3x-eOtL6vg7N31q5-ETFRnrzTamuKmm2mJWsDaJkfRjePrA7dU7O4scp1BHLNpl1QADgCZMbWoOwqnYmkRRj0m7sm2sZ2-J-SSWvjiZ8a_UWPnRLKTM2hm5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Unagi Sushi",
+    "rating": "4.4 (314 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.1 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "118 4th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNQDx1vSITqy9kv9B__lb3W4PN6v_Fwp604jsYGypJBxMh7xhqEhnlfiqR0yRCqqY77meiRYRQoKhUvKPtcWBLtwHthqztJrwpCas7kqzfm-pnKeeH4iXE_EaHtly3vhgFh0al9u5VelblP9ASuJ1M_fg1H-uLhrwIZLQ6Lz8BrvO9q&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Albany Wasabi",
+    "rating": "4.5 (964 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.4 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "195 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN0Azb3N5XQSIubjpTUV6oCsjqMcFt5Wx34zuoStkbBTFkHA_lkxd-4fCTzTX1MtSxJaZhrktR8U8HJnFOLhQnpwOEn1g8Qm0xkWOeEbRx5qbTSOZrY8mZ-3GyO1gscAYN7T6frhpWAdRHLjhvaoxUvIz11-Oetocd7611s5S2fwSn1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Kuma Ani (Wolf Road, Colonie NY)",
+    "rating": "4.6 (613 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.6 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "109 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOPqlXxGdWXDcWlCgyS-KeiNQw8994SFkMv1lKH9JXhTkynQraKxYGyCVj3AIWkHziMrSgtE8VsB2sulAG-ReaNJjKlR7X99r3KJ4Nt0K5RP8G5OWZNRJ4DOKigFzMBSLGFHxFdgGJoDUfbS4x0rjXIJT4hfgcLiLFCTcRo0OityqXG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Ruby City",
+    "rating": "4.4 (237 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.6 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "875 Madison Ave, Albany, NY 12208, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOUEDGlyWzOvY7Q3mBdQ5Qg0-XFURvfh5YB59ZAQN7_DDjMBRo9DihQQOOcZlbOT60_Pyz6JNMweAtbE4XKlF2qDsFccPYGiciRWAPU3_FlWLeNlBmY_RCPPWcfhtOoGSL8XRzvZ5ZGRD0q2jRTMxSIKIxwF_OBbhQ2dmedAJCBMPDt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 3:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "U2 JAPAN RENSSELAER",
+    "rating": "4.5 (115 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "600 N Greenbush Rd, Rensselaer, NY 12144, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOz62QNmNcHtgd86t9MTIESpkBZdCuJe424QT9dVF8UCVYOAhSZWWlOgSKaCVNal_MYXM4OJJ4bFH44wdDGBwk7pAtiA9ktCwnTXcwzsCvTRdRkzampEWf5kW0qlC9cQ4RH7m_jquZVhzG1KBJOb4RgDO3C1o3slaXM3neaiLIlX6Xz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Bon Appetit Cafe",
+    "rating": "4.9 (146 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "4.7 miles",
+    "cuisine": "Restaurant, French",
+    "address": "80 Wolf Rd, Albany, NY 12205, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMFiUAXTidLfB_ts8AqR3u-WSjzipQ9CnkbAGUtY9FvmeJ_aocP42i6TKdsPEe-OUAKqlyU2zpOKzlAdOzstsqmpVButnIR0m-VwFp5KRo4wm63YErtNDX_ItcL9H5_FiVCLsCaVdxo9VzT80T8teADxo-Jf_5uxJR4TQRPHUzq3xX1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Wellington's",
+    "rating": "4.2 (402 reviews)",
+    "price": "💰💰💰 ($61-100)",
+    "distance": "3.3 miles",
+    "cuisine": "Bar, Restaurant, French",
+    "address": "144 State St, Albany, NY 12207, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMITny5DkiXp5kgx5i51HOdHKaEdRr8JaqGCUdMch054krzlYO9II8m5SCpOs91QlJTNSaNGwVcd3w1fN0hMOl44VIa_cGupXkqLToTAK6u9GM6CXZluYtz9c0AQwMOlluzmUneRk30YzBYRg_9hKSRaxrfDE87uEWauZmHznpM7Hkv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Allie B's Cozy Kitchen",
+    "rating": "4.3 (389 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "2.8 miles",
+    "cuisine": "Restaurant, French",
+    "address": "353 Clinton Ave #3102, Albany, NY 12206, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO-r3FJ5tNGYduQ4VjnF0OX4ZDDc79JKN0zwQ9IGXNubrqzu1rgmjyhQRPWkpS6DQN94kpcWyOH3LRo0RBxBzl2qA28H-DpbV8e-H9IgnLDW1yA9trvideOWDF2ykq-2v1LEJNZHC3Uwj_qO671cSPX_wxCYoMi-CpqrKBbADJJBxkw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 1:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Café Capriccio",
+    "rating": "4.5 (723 reviews)",
+    "price": "💰💰💰 ($61-100)",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, French",
+    "address": "49 Grand St, Albany, NY 12207, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOwRsT50To2nAkSwV-jB0pNn76VGUGQihJlsCot-uIdF9C3hB8SRVFpHasXxFJMhtrtLBIqVclKmzKbTEVVgbpg89FJGiPPqkm8sA5ys1HL2WskFGZG6AT_iCe_AmUDotVHv_yRzjdZ-_frFKeWXqwhQu-wOtTAIICIyf6XcJBJYLBk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Latham '76 Diner",
+    "rating": "4.3 (3126 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.9 miles",
+    "cuisine": "Cafe, Restaurant, French",
+    "address": "722 Loudon Rd, Latham, NY 12110, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMlL3mba38i6JdzNOJMCg3wzj5UVYbSnLw640qXl22tw5RrfxwZK-QYP2-cWI_8YvWgr54MIbuRYhsRtx7_QZ9XG11gMWKcVN1PIguKLY0mSh-Q7wHcZRsaBmhxo2Ozuxuo_k_o71xob6sJIWgFKCUyBRNeyDePCrni_zIOAlJ2B2Au&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 6:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Nicole's Restaurant",
+    "rating": "4.6 (434 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "5.0 miles",
+    "cuisine": "Restaurant, French",
+    "address": "556 Delaware Ave, Albany, NY 12209, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2QHN1yj_biEiMmd0j0kxzaAhex2KfF3YogoxgM4Tf3g3s0gFGCqUumsJXSmlVJEkgsux2i8QIELqRFYtE82u1l_U_hbc_66tv5wvpV1ftsUFWAQbkIh-5SCr3kWZLz_H3aArfHfQHFGH2MuPL2hIdCtaesnV2g67FdCs8q-6rTNcG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 5:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "D'Raymonds",
+    "rating": "4.5 (1090 reviews)",
+    "price": "💰💰💰 ($61-100)",
+    "distance": "2.8 miles",
+    "cuisine": "Restaurant, French",
+    "address": "269 Osborne Rd, Loudonville, NY 12211, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DObcorc0NMS-2MsdSddBKEfERFzaGAYpoQz3F5wZh2koUOejWuQ2RqpMNKUJyQZBHnufKPiYnil50pBxrIvy0mr9MwZfHLGOVz7JRcjiecieChTJSFgekKapJ_N-THNoGoMsnroy-23aIjpEvVUtQGySKSlHCCrN5r0o6oTORY-K6uB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Mumu's Cafe",
+    "rating": "4.7 (121 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.8 miles",
+    "cuisine": "Cafe, Restaurant, French",
+    "address": "2207 15th St, Troy, NY 12180, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNIadfl3HGsEHsOsst-OmTiUzU7jkJyxwrjQwKdwx3-ZfG1sze-7SqG2Q3BcGEIGesuQU_WBZub3J5q21oWRwZY-ybZZMCMg3xsO8yAFmrRVcXlUzxJNhPH0X1J5x6Wuvi0AIGqqlHNvjmZQwzpo2VLEG0MZXf--4kLRE9HiesGw2eM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "The Fountain Restaurant",
+    "rating": "4.2 (671 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.2 miles",
+    "cuisine": "Bar, Restaurant, French",
+    "address": "283 New Scotland Ave, Albany, NY 12208, USA",
+    "score": 11,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMp9XHusRWDfY0EdjMFB_jcArpwRXzjdNFL-9oG3ChFj8aEqrPlSX_sHTbTb6wmrkeiPf4MtyF6XkFSseT2c-QsnDfqzL3j80awr5Le0qwyq5zlTrGmgwp2mVzgRkFuZOj1jwb3ThsgX9LU-hfG811mH8QAoGJGf39tziWEyWrTR-aH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Country View Diner",
+    "rating": "4 (1282 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "6.4 miles",
+    "cuisine": "Restaurant, American",
+    "address": "855 Hoosick Rd, Troy, NY 12180, USA",
+    "score": 10,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOHUtnJ8cSDcyLzQ7DKTsYv20vgl4PwGBzsL_mY92tI1Crt5T-RpiuX_MkSUF6bl2yd2Jw-KQDyUfssYyAu4Wne5dqMbgVcyrwCTfURwq6rT-iGeABseY3WgxfdxiigHo9-QwfeJEo6B8r0ew0ND6v9K7VvewLsDszd4vA5sgLu5naI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Scarboroughs Restaurant",
+    "rating": "4.4 (813 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "6.1 miles",
+    "cuisine": "Restaurant, American",
+    "address": "497 Old Niskayuna Rd, Latham, NY 12110, USA",
+    "score": 10,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNEVUTiHJLRC-TfhN2HMrUBPin-ZhBrM0SjICmCEzV96aJaHg9qLM0AFTTMZ7Xpif2OkNRa5gVm9-2wj9brwvPuR3_rU8xKTV0v0_-HKd5yKSotYfs_Y3hBh7D0EfwB_4u4SaJaJkG-wcYdAvPAT5RYYYsuLUCLN79KskKk7NnrC9tR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "The Roosevelt Room",
+    "rating": "4.8 (104 reviews)",
+    "price": "N/A",
+    "distance": "1.9 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "112 N Greenbush Rd Suite F, Troy, NY 12180, USA",
+    "score": 10,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPzhviMnbd1tTe3FzDpi6OX65GcwbHAWvSvlfbLfy89GbxcM5Ifki2rNtaIDbmu89m7sJ3pC6Y5xrvbYk7Si3M5kiCDrQE2zEyB5Qw4YbrgLSSSBwi2mIpEpyqvtBa-jn98wy7RNsD4BlGg_K7u0EK3wvXnea0CIhnfHVZrxFLv_ZDu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Domino's Pizza",
+    "rating": "3.3 (403 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "4.2 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "267 New Scotland Ave, Albany, NY 12208, USA",
+    "score": 10,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOFGmx23g0No2AR-nmiN5ksvbtijfKqRsf4oJxY6zr9NJapRiwOFlw9JPBnNQm4JS1MNHW9bv3B0tELg8o3qctNQEmHRMNWB6a7QgzEaPdKlgUu1jrLlwkVXKKiJkh-oithSoWEh3iFUq32O34Uq7-pOYaeaC4o6n_LYYlZTqH3R2wA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Ichiban Chinese & Japanese Restaurant",
+    "rating": "3.3 (240 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.4 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "215 Western Ave, Albany, NY 12203, USA",
+    "score": 10,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMAAXjVYNp8EYb5yK4kMbfqixq1H5cFpIvZmGwyMMaJ71sKDydQJgOA7n66ynqtXWDFxvzdMODhtwt-O5AvVVT1ouItl6mkhy0FxDXyT3lmeyHvfuBXEqQIFwVqDJxFdsnohwwz5HcyqiJK0dwpu45yZWuZmnCVnT4Ty9HE1GPvncMk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Albany Stadium Restaurant & Bar",
+    "rating": "4 (110 reviews)",
+    "price": "N/A",
+    "distance": "3.4 miles",
+    "cuisine": "Restaurant, American",
+    "address": "51 S Pearl St, Albany, NY 12207, USA",
+    "score": 9,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP3rZ4cXv1AJ5BcM-e6XEJibVfStCs4U46wkZWSQFSSToWct9CY7G6XF5FQEsLBTze8YhkdhgtdiumjbBR3W6lbGmFSCFTAccr-j4sbuTFC_ThenvdAqcaFhFue_wXruYOnDVQgrxE1xif8sXWtGmZH4565vvUzrDCeTkzPTe5NBGh8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "N/A",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "DOG E style",
+    "rating": "5 (3 reviews)",
+    "price": "N/A",
+    "distance": "2.5 miles",
+    "cuisine": "Restaurant, American",
+    "address": "Riverfront, Rensselaer, NY 12144, USA",
+    "score": 9,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DODJ1BnSR9DPux5rx-U_RE-EithHlKddjWgL0BtE1cN8OIiO8oPh2JY2wZ71sNSlNqWXj6zxSP28WgaXVdy4epyspFLRMJ9_wVnJCRX_MzjKp3ETUqYx8bt6opmFBTa6eo5uEesoXJkzBFiP14CmksKNFNk1iDqhbV9suP7PbX9A2Uk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "N/A",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Herbie's Burgers (Troy)",
+    "rating": "4.2 (163 reviews)",
+    "price": "N/A",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, American",
+    "address": "415 Fulton St, Albany, NY 12208, USA",
+    "score": 9,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOZWbQBLxaccMoNj3TDAe04sqtFJLZnRwzBQv1cUepzF0wAsNMOEGC5hYHbGo3zQ9qFQGLg1SESql7vU0i8Ws8bDQrDyryHVq3mcQmztIW7-A1-IxyfwVDgMT9fSqzLMCOFgqg_ZEnCnyV3WdXz7ksmL68RvRm8LFvSIUmMnBLgoDHQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Otis & Oliver's",
+    "rating": "4.6 (781 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "6.3 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "30 Mill Rd, Latham, NY 12110, USA",
+    "score": 8,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJi_KJGNBfqpxNLIGy3jcBh0xpXs3oiUVV6HvxCcOP-WbuR5IjjpS5pbbZ09doRaXMfdmRks1Zwco3dzj-PDVLvfBMk8Absd_ORvXFj-guaidWe7TIGeTul2ReJgBLQKT8riuzozQX3edy30-ukUL0HdXlOwWn5jzPdkAMROLPzfMl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Martel's Restaurant at Capital Hills",
+    "rating": "4.3 (241 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "5.8 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "65 O'Neil Rd, Albany, NY 12208, USA",
+    "score": 8,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPldF446piTMll-rpkvKnnULpszZT_97ptwPQjgxhURty3JtHBue9ZvGwW-zEPHbOZ5J2cVeU2fKisLKvqFCI1cVsjujrtN0wLpLB5PPWRqNkgiwLq5D6OO-qCnBRcuJE4iCCE5pXOZsldw2Z6PPvsOdsDBxPQ7a4FlCYM8fF1qPTwV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Pizza Express",
+    "rating": "4.1 (427 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "5.2 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "1178 Western Ave #3315, Albany, NY 12203, USA",
+    "score": 8,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM2WBM7eRYzftlL45aDUyHKVQcoqFy5fmDKcgKdzKCOtRkEjRZoGxyy0KDxpkZVSECRF_viJlXf0OvjT5HdZPk2BxdCKoNseW0aTj__WH_oNSSY3JKitTJvn924vKsKnBfJ7X-QamR_QQjgTy0Fafaen0mTJx0TfzkCF0TMU3wCd7Zz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "677 Prime",
+    "rating": "4.6 (1023 reviews)",
+    "price": "💰💰💰💰 ($100+)",
+    "distance": "2.9 miles",
+    "cuisine": "Restaurant, French",
+    "address": "677 Broadway, Albany, NY 12207, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN-3t1y9XazVPZeXKFiepa1Dz1hcd3iK48LcoMrn3FMD20DTmHPqHZwPfweZY10MWXifg_t9ivGNtNxBy7_r6lDATkotFRQPXiJlMrGblVSYziLA2OjrW4Lykf6AOCZSNCb9MWQPJZeh0jlFBMqZXtRr710e4OALVpaxUBnnStyH1Pe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:30 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Ruth's Chris Steak House",
+    "rating": "4.5 (437 reviews)",
+    "price": "💰💰💰💰 ($100+)",
+    "distance": "4.4 miles",
+    "cuisine": "Bar, Restaurant, Steak",
+    "address": "1 Metro Park Rd, Albany, NY 12205, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMsxTpxMW683wM23jJZSVTbWz8yFJgUgPAmrT1GkW0HOwo5OKsK-jTVa4jt-fnrGV0UIbjQaB2awnMDAgoyvXcmwejmRRb9tMPRRKAEMv_mpdMGOLw4FIgGQ9bGxaXxX6n4oHTZmDZH9Vs1D5pAEBQDqtjp2pXzRV7mFyAXizg_1PNT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Scarlet Knife",
+    "rating": "4.4 (202 reviews)",
+    "price": "N/A",
+    "distance": "3.4 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "195 Troy-Schenectady Rd, Latham, NY 12110, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMRlqaK8sy1LCVPdBab-M01yoX0vyS81WYt8m37Wiw-HLLCj3uQVvRixsUga0h28wditYC49bsfrhj4VhC9CQZx_pIh6ecSt58reIC_IQIyc3vXYWi8k2dCeKK3jn9Nmz4vxBcDy-gHxHjI2AduwehSZDF4uhZ_lYYr9zz41peHz4z9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 4:30 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Rosanna's",
+    "rating": "4.6 (210 reviews)",
+    "price": "N/A",
+    "distance": "3.2 miles",
+    "cuisine": "Restaurant, Steak",
+    "address": "23 Dove St, Albany, NY 12210, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMnMVcn_j7N2hz-yUBfHjLkWdShW7qfj_mycU5ijXUvcro0gHLigVAC6j4Foh-r55Gp-IIW4_bUzHJmKHAd71oUruLK_xhwfG7VwhszpmiKSsKojkna8-W38RJAHbLgNUYQr_q1D_z88pFZ71ix-zi2fdPFzxThxoCpaUWyUucvI2Xy&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 12:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Golden Fried Chicken & Pizza",
+    "rating": "4.1 (38 reviews)",
+    "price": "N/A",
+    "distance": "2.8 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "139 Henry Johnson Blvd # A, Albany, NY 12210, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOB5JxrHjtocyAK8dUvI_M_tyR-ypv42mpvKxNLUDdFY7_AhoBBncHGLDZD0ok9QIeZCNr1h3RAoqeO7RQu2oieJVv5D-Xpx1dlq44mZPgMKhcYhvENcoX0fvv6IgAZfv1BY3qZYQcGZi-nJRGh9x3HD1KGVh5EFQ2lKfdR_twURIA1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "New Yorker Pizza",
+    "rating": "4.8 (4 reviews)",
+    "price": "N/A",
+    "distance": "4.4 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "217 Wolf Rd, Albany, NY 12205, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "default-restaurant-image.jpg",
+    "openStatus": "✅ Open (Closes today at 1:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "LoLo’s Pizza",
+    "rating": "5 (6 reviews)",
+    "price": "N/A",
+    "distance": "3.5 miles",
+    "cuisine": "Restaurant, Pizza",
+    "address": "422 Madison Ave, Albany, NY 12210, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNi8drK_JEnnN1UDIinHejy98rWwSH4l6H34DamQsmPcc2lOl_OxjRLk9wuvs55zGAoQLuJs7_QtSKK5_J1FGoKjdaHYWDTJ0nOCY6ymZZEEL5l0s8Ib7HcPqLUjRydH00RUY9eAHfTFPKt3NGcDK-1PrPoNPUmHYew_-n2cBQRFUrW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "✅ Open (Closes today at 3:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Sushi by Bou - Albany NY @ City Beer Hall",
+    "rating": "4.9 (65 reviews)",
+    "price": "N/A",
+    "distance": "3.3 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "42 Howard St, Albany, NY 12207, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMMiGhEoa0R2UwDWhZMDn7JiVIFXpiJJfCWzf3RT6w8E3kDKQA1YJe8nI0-h7KA_ERod2584c-BvtZfa2OCPChfDJ-iakr1Qgb_wcMZOMR8vfDIfroTPJKJP9Gh0HXaKc0k0PU5wg-X37nFzGv7lYzWz9DQm8ACqh9EPZxX0ilw3Wd3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 5:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "The Bistro - Eat. Drink. Connect.",
+    "rating": "3.6 (9 reviews)",
+    "price": "N/A",
+    "distance": "4.9 miles",
+    "cuisine": "Restaurant, French",
+    "address": "1455 Washington Ave, Albany, NY 12206, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM9cw4k5lgnWgHUvDQ3fpNkYpnrUOQcVk0XEjPyhgzNREcYd9hSlckQob8b28WpmaGKTQ1xJMjYyo6pg5itgRyK6Hu937aU2h6sx3HiqRuDGqHpyuqtKZeGlV8CgvLuHr6aOwePFDbCpgsJSeJDqM8eAwsmfBjIyBUkEaoKlmjPgzxu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 6:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Restaurant 605",
+    "rating": "4.6 (187 reviews)",
+    "price": "N/A",
+    "distance": "4.7 miles",
+    "cuisine": "Restaurant, French",
+    "address": "605 New Scotland Ave, Albany, NY 12208, USA",
+    "score": 7,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNm-m0MRAmyL2EJuJ6a_fIyGIjmdSc53sd-rbZjDeyc4AjvFMJfLWLC7snhl-1fz29uyrwEVreqPEXuXg7pzAl-Dp6sIU0CFQBIYa4UseCoBpDWBYQNqAZae8mKGN2wc0eS8aRFdedFtRy-xNGOuGW7pbrQan-UEC2u7yqDzDBkFQI-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens tomorrow at 4:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Nori Japan",
+    "rating": "3.4 (40 reviews)",
+    "price": "N/A",
+    "distance": "4.8 miles",
+    "cuisine": "Restaurant, Japanese",
+    "address": "131 Central Ave, Albany, NY 12205, USA",
+    "score": 6,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPHS-sZQ-mt981MIaMuAULDkpuv_KD3j_aCE0HyhkHXlDJG59yqm8c3HGa_74W8NS7l9wQDXlttAFOYcWEoFIFZcXxRkssVdfVV2mqBiyfh6LOrPbRRgTnAAG7KKRYOwhTlAXLfkTe2bQy5VtHFaSPDmUBdyQCuLC1yxV4u1ANdIsBV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 11:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Chanterelle's Kitchen",
+    "rating": "5 (1 reviews)",
+    "price": "N/A",
+    "distance": "5.5 miles",
+    "cuisine": "Restaurant, French",
+    "address": "333 2nd Ave, Troy, NY 12182, USA",
+    "score": 4,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOstBVYQQBACofOA_PiXasdc7teHfQQYfNZ_8uJpMmObR6D_qgdQh0RDIufvlcgLB52BRpMWHvHFZoHhiRidfcnHUGDGaZSmklAyp85RqnMf4IvW0szXgBATTAeQeN_K-9LLWMNlP_oI9I5EYVQ966rJbhqfrX43SJkiTzpxaI5ZQ06&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "N/A",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Mancuso's Luncheonette",
+    "rating": "4.8 (92 reviews)",
+    "price": "N/A",
+    "distance": "6.2 miles",
+    "cuisine": "Restaurant, French",
+    "address": "160 Delaware Ave #7, Delmar, NY 12054, USA",
+    "score": 4,
+    "maxScore": 20,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOn-hohQKTXQqx6eeTpV-DVpoSyRV7XDkEN7WIDEEpPzTT1uRFswSFhe0DwFaojANpGIgVup-9gq44uWqTHPdFXowshja6zPFGyx1GLnb_IEEBCbbEbxWJgRMKhxqByY6CwBZsjphKNWeZiZGOOHNUsQcMSE37GeU0bTA7jspJJGTIV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  }
+];
+        
+        function displayRankedRestaurants() {
+            const container = document.getElementById('restaurants-container');
+            try {
+                container.innerHTML = rankedRestaurants
+                    .map(restaurant => `
+                        <div class="restaurant-card">
+                            <h2>${restaurant.name} <span class="score">(Score: ${restaurant.score}/${restaurant.maxScore})</span></h2>
+                            <div class="restaurant-photos">
+                                <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name}" onerror="this.style.display='none'">
+                            </div>
+                            <div class="restaurant-info">
+                                <p><strong>Rating:</strong> ${restaurant.rating}</p>
+                                <p><strong>Price Range:</strong> ${restaurant.price}</p>
+                                <p><strong>Distance:</strong> ${restaurant.distance}</p>
+                                <p><strong>Cuisine:</strong> ${restaurant.cuisine}</p>
+                                <p><strong>Address:</strong> ${restaurant.address}</p>
+                                <p><strong>Status:</strong> ${restaurant.openStatus}</p>
+                                <p><strong>Accessibility:</strong> ${restaurant.wheelchairAccessible}</p>
+                            </div>
+                        </div>
+                    `)
+                    .join('');
+            } catch (error) {
+                container.innerHTML = 'Error loading restaurants. Please try again later.';
+                console.error('Error loading ranked restaurants:', error);
+            }
+        }
+
+        // Display restaurants when page loads
+        displayRankedRestaurants();
+    </script>
+</body>
+</html> 

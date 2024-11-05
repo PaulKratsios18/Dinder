@@ -1,14 +1,16 @@
 {
-  "location": "42.7284,-73.6918",
-  "distance": 25000,
+  "location": "42.6920233,-73.72456389999999",
+  "distance": 8046.7,
   "price": [
     1,
-    5
+    3
   ],
-  "rating": 3,
+  "rating": 2,
   "cuisines": [
-    "Italian",
-    "Mexican",
-    "American"
+    "American",
+    "Steak",
+    "Pizza",
+    "Japanese",
+    "French"
   ]
 }
