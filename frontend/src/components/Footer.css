@@ -7,7 +7,7 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; /* Distribute space between text and buttons */
+  justify-content: center;
   height: 40px;
   z-index: 1000;
 }
@@ -22,7 +22,7 @@ footer {
 .footer__container {
   margin-right: 200px;
   display: flex;
-  gap: 100px; /* Space between buttons */
+  gap: 100px;
 }
 
 .homepage-button,

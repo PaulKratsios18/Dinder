@@ -1,12 +1,12 @@
 .contact {
     min-height: 100vh;
     background-color: #ed7874;
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
-    position: relative; /* Ensure positioning */
-    left: 50%; /* Center the section */
-    right: 50%; /* Center the section */
-    transform: translateX(-50%); /* Adjust for centering */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%; 
+    right: 50%;
+    transform: translateX(-50%);
     align-items: flex-start;
     max-width: 100vw;
 }
@@ -26,12 +26,12 @@
 
 .contact__section {
     display: flex;
-    justify-content: space-between; /* Align items horizontally */
-    align-items: flex-start; /* Align content to the top */
-    height: 670px; /* Fixed height */
-    padding-left: 50px; /* Left padding */
-    padding-right: 50px; /* Add right padding for consistency */
-    box-sizing: border-box; /* Include padding in width calculation */
+    justify-content: space-between; 
+    align-items: flex-start;
+    height: 670px;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
 }
 
 .contact__container {
@@ -53,17 +53,17 @@
 
 .contact__form {
     width: 1200px;
-    margin: 0 auto; /* Center the form */
+    margin: 0 auto;
     width: 100vh;
 }
 
 .contact__form-div {
-    width: 100%; /* Let input boxes fill the form width */
-    margin-bottom: 1rem; /* Space between input boxes */
+    width: 100%; 
+    margin-bottom: 1rem;
 }
 
 .contact__form-input {
-    width: 100%; /* Makes input box fill the width of its container */
+    width: 100%;
     height: 2.5rem;
     box-shadow: var(--shadow);
     background-color: white;

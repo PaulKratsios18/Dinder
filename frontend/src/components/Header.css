@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  padding: 10px 20px; /* Reduced padding to make the header bar narrower */
+  padding: 10px 20px;
   background-color: #023047;
   color: #ed7874;
   height: 70px;
@@ -13,12 +13,12 @@ header .logo {
 }
 
 header img {
-  height: 50px; /* You can also slightly reduce the logo size if needed */
+  height: 50px;
   margin-right: 10px;
   margin-left: 20px;
 }
 
 header h1 {
-  font-size: 2.7rem; /* Reduced font size to fit a narrower header */
+  font-size: 2.7rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

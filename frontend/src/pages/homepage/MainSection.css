@@ -2,17 +2,17 @@
 
 .main-section {
   display: flex;
-  justify-content: space-between; /* Align items horizontally */
-  align-items: flex-start; /* Align content to the top */
-  height: 80vh; /* Ensure the section takes the full height of the viewport */
-  padding-left: 50px; /* Add some left padding for spacing */
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80vh; 
+  padding-left: 50px; 
   background-color: #ed7874;
   height: 670px;
 }
 
 .text-content {
   display: flex;
-  flex-direction: column; /* Keep text and button in a column */
+  flex-direction: column; 
 }
 
 
@@ -41,7 +41,7 @@
 }
 
 .eat-text {
-    color: #001f3f; /* Dark blue color for "EAT." */
+    color: #001f3f; 
 }
 
 .text-content {
@@ -54,9 +54,9 @@
 
 .button-container {
   display: flex;
-  gap: 20px; /* Space between buttons */
+  gap: 20px;
   margin-top: 20px;
-  justify-content: center; /* Center the buttons */
+  justify-content: center;
   transform: translateX(10px) translateY(-90px);
 }
 
@@ -97,6 +97,6 @@
 }
 
 .icon-container {
-  display: flex; /* Align items in this container horizontally */
-  align-items: flex-start; /* Align the icon to the top */
+  display: flex;
+  align-items: flex-start; 
 }

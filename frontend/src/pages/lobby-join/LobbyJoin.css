@@ -1,31 +1,16 @@
 /* Import all styles from host component */
 @import '../lobby-host/LobbyHost.css';
 
-/* Add specific styles for the waiting message */
+
 .waiting-message {
   text-align: center;
   padding: 20px;
-  /* background-color: #FAF1E5; */
   border-radius: 12px;
   margin-top: 20px;
   font-family: 'Fredoka One', cursive;
   font-size: 1.5rem;
   color: #001f3f;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* .connection-status {
-  padding: 8px 16px;
-  margin: 10px 0;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: 500;
-  font-family: 'Fredoka One', cursive;
-}
-
-.connection-status.connected {
-  background-color: #e6f4ea;
-  color: #1e7e34;
 }
 
 .connection-status.disconnected {

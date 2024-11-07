@@ -1,0 +1,98 @@
+@startuml start_group_session
+
+!theme plain
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+skinparam NoteBackgroundColor #FEFECE
+skinparam NoteBorderColor #A80036
+
+actor "Host User" as User
+
+box \nFrontend (React JS/CSS) #LightBlue
+participant "Homepage\n(MainSection)" as Home
+participant "SessionSelection" as Select
+participant "LobbyHost" as Lobby
+participant "HostPreferences" as Prefs
+end box
+
+box \nBackend (JS) #LightGreen
+participant "WebSocketServer" as WSS
+participant "Server" as Server
+participant "Session\nModel" as Model
+end box
+
+box \nDatabase\n #LightYellow
+database "MongoDB" as DB
+end box
+
+
+== Session Initialization ==
+User -> Home: Clicks "Get Started"
+activate Home
+Home -> Select: handleGetStarted()\nnavigate('/session-selection')
+deactivate Home
+
+activate Select
+User -> Select: Clicks "Start a group session"
+Select -> Lobby: handleGroupLobbyHostClick()\nnavigate('/lobby-host')
+deactivate Select
+
+== Session Creation ==
+activate Lobby
+Lobby -> WSS: WebSocket.send({\n  type: 'createSession',\n  userId,\n  userName\n})
+activate WSS
+
+WSS -> WSS: handleCreateSession(\nws, message)
+note right: Generates session code\nCreates new Session
+
+WSS -> Model: new Session({\n  code: sessionCode,\n  hostId: message.userId,\n  participants: [...],\n  status: 'waiting'\n})
+activate Model
+
+Model -> DB: session.save()
+activate DB
+DB --> Model: saved session
+deactivate DB
+
+Model --> WSS: session object
+deactivate Model
+
+WSS -> WSS: sessions.set(sessionCode, {\n  session,\n  connections: new Set([ws])\n})
+
+WSS --> Lobby: ws.send({\n  type: 'sessionCreated',\n  sessionCode,\n  session\n})
+deactivate WSS
+
+Lobby --> User: Display room code & member list
+
+== Preference Selection ==
+User -> Lobby: Clicks "Select Preferences"
+Lobby -> Prefs: handleSelectPreferences()\nnavigate('/preferences-host')
+deactivate Lobby
+
+activate Prefs
+User -> Prefs: Enters name and preferences\n(cuisine, price, rating, distance, location)
+User -> Prefs: Clicks "Save Preferences"
+Prefs -> Prefs: validatePreferences()
+
+Prefs -> Server: POST /api/preferences\n{\n  roomCode,\n  name,\n  host_id,\n  preferences: {...}\n}
+activate Server
+
+Server -> DB: Update session preferences
+activate DB
+DB --> Server: Updated session
+deactivate DB
+
+Server --> Prefs: Success response
+deactivate Server
+
+Prefs -> Lobby: navigate('/lobby-host')
+deactivate Prefs
+
+activate Lobby
+Lobby --> User: Show updated members in lobby
+
+== Session Start ==
+User -> Lobby: Clicks "Start Session"
+Lobby -> Server: handleStartSession()\nPOST /api/sessions/start
+activate Server
+
+Server -> Server: Handle session \npreference \naggregation, API \ncalls, restaurant \n ranking/display
