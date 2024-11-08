@@ -1,0 +1,102 @@
+@startuml Frontend_Components
+
+!theme plain
+skinparam ClassAttributeIconSize 0
+skinparam ClassBackgroundColor #LightBlue
+skinparam ClassBorderColor #000000
+skinparam PackageStyle rectangle
+
+package "Core" {
+    class Header {
+        + handleNavigation(): void
+    }
+
+    class Footer
+}
+
+package "Homepage" {
+    class MainSection {
+        + handleGetStarted(): void
+    }
+    class About
+    class Services
+    class Contact
+}
+
+package "Session" {
+    class SessionSelection {
+        - navigate: NavigateFunction
+        + handleJoinSessionClick(): void
+        + handleGroupLobbyHostClick(): void
+    }
+
+    class LobbyHost {
+        - roomCode: string
+        - participants: Participant[]
+        - socket: WebSocket
+        + copyInviteLink(): void
+        + copyGroupCode(): void
+        + handleSelectPreferences(): void
+        + handleStartSession(): void
+    }
+
+    class LobbyJoin {
+        - roomCode: string
+        - participants: Participant[]
+        - socket: WebSocket
+        + copyInviteLink(): void
+        + copyGroupCode(): void
+    }
+}
+
+package "Preferences" {
+    class PreferencesHost {
+        - roomCode: string
+        - hostId: string
+        - preferences: Preferences
+        + handlePreferenceSubmit(): void
+        + validatePreferences(): boolean
+    }
+
+    class PreferencesJoin {
+        - roomCode: string
+        - preferences: Preferences
+        + handlePreferenceSubmit(): void
+        + validatePreferences(): boolean
+    }
+}
+
+package "Types" {
+    class Participant {
+        + name: string
+        + isHost: boolean
+        + preferences?: Preferences
+    }
+
+    class Preferences {
+        + cuisine: string[]
+        + price: string[]
+        + rating: number[]
+        + distance: number
+        + location: Location
+    }
+
+    class Location {
+        + lat: number
+        + lng: number
+        + toString(): string
+    }
+}
+
+' Associations
+LobbyHost --> "*" Participant
+LobbyJoin --> "*" Participant
+PreferencesHost --> "1" Preferences
+PreferencesJoin --> "1" Preferences
+Preferences --> "1" Location
+MainSection --> SessionSelection: navigates to
+SessionSelection --> LobbyHost: navigates to
+SessionSelection --> PreferencesJoin: navigates to
+LobbyHost --> PreferencesHost: navigates to
+
+@enduml 

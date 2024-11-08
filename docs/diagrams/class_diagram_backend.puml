@@ -1,0 +1,97 @@
+@startuml Backend_Components
+
+!theme plain
+skinparam ClassAttributeIconSize 0
+skinparam ClassBackgroundColor #LightGreen
+skinparam ClassBorderColor #000000
+skinparam DatabaseBackgroundColor #LightYellow
+
+package "WebSocket & Server" {
+    class WebSocketServer {
+        - sessions: Map<string, Session>
+        + handleConnection(socket: WebSocket): void
+        + handleCreateSession(ws: WebSocket, message: any): void
+        + handleJoinSession(ws: WebSocket, message: any): void
+        + broadcastToSession(sessionCode: string, data: any): void
+    }
+
+    class Server {
+        + handleCreateSession(req: Request, res: Response): void
+        + handleJoinSession(req: Request, res: Response): void
+        + handleStartSession(req: Request, res: Response): void
+        + handleGetUsers(req: Request, res: Response): void
+        - spawnRestaurantProcessor(roomCode: string): void
+    }
+}
+
+package "Restaurant Processing" {
+    class RestaurantProcessor {
+        + processSessionPreferences(sessionCode: string): void
+        - getUserPreferencesFromDB(sessionCode: string): Preference[]
+        - aggregatePreferences(preferences: Preference[]): AggregatedPrefs
+        - generateResults(aggregatedPrefs: AggregatedPrefs): string
+        - generateResultsHTML(results: any): void
+    }
+
+    class PreferenceAggregator {
+        - priceMap: Map<string, number>
+        + flattenPreferences(participants: Participant[]): Preference[]
+        + calculatePriceRange(prefs: string[]): number[]
+        + normalizeRatings(ratings: number[]): number
+        + convertDistance(distance: any): number
+    }
+}
+
+package "Data Models" {
+    class Session {
+        + session_id: string
+        + host_id: string
+        + created_at: Date
+        + status: string
+        + participants: Participant[]
+        + code: string
+        + save(): Promise<Session>
+    }
+
+    class Participant {
+        + user_id: string
+        + name: string
+        + preferences: Preferences
+        + isHost: boolean
+    }
+
+    class Preferences {
+        + cuisine: string[]
+        + price: string[]
+        + rating: number[]
+        + distance: number
+        + location: Location
+    }
+
+    class Location {
+        + lat: number
+        + lng: number
+        + toString(): string
+    }
+}
+
+database "MongoDB" {
+    class SessionModel {
+        + findOne(query: object): Promise<Session>
+        + save(): Promise<Session>
+        + findOneAndUpdate(query: object, update: object): Promise<Session>
+    }
+}
+
+' Relationships
+WebSocketServer --> "*" Session : manages
+Server --> SessionModel : uses
+Server --> RestaurantProcessor : spawns
+RestaurantProcessor --> PreferenceAggregator : uses
+RestaurantProcessor --> SessionModel : reads
+Session --> "*" Participant : contains
+Participant --> "1" Preferences : has
+Preferences --> "1" Location : has
+Session --> SessionModel : persists
+
+@enduml
