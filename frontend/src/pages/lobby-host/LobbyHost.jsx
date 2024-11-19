@@ -110,10 +110,16 @@ function LobbyHost() {
       const data = await response.json();
       console.log('Session started:', data);
       
-      // Wait a moment for the results to generate
-      setTimeout(() => {
-        window.location.href = `http://localhost:5000/results/${roomCode}`;
-      }, 2000);
+      // Wait for results to generate
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Emit startVoting event to trigger restaurant distribution
+      socket.emit('startVoting', { roomCode });
+      
+      // Navigate to the restaurant swiper
+      navigate('/restaurant-swiper', { 
+        state: { roomCode, userName: 'Host' }
+      });
     } catch (error) {
       console.error('Error starting session:', error);
     }

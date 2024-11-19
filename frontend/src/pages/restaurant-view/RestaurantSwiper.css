@@ -1,0 +1,90 @@
+.swiper-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.restaurant-card {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: grab;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.restaurant-info {
+  padding: 20px;
+}
+
+.swipe-buttons {
+  position: fixed;
+  bottom: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.swipe-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.swipe-button:hover {
+  transform: scale(1.1);
+}
+
+.swipe-button.left {
+  background: #ff4b4b;
+  color: white;
+}
+
+.swipe-button.right {
+  background: #4bdb72;
+  color: white;
+}
+
+.swiper-complete {
+  text-align: center;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.votes-display {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.swiper-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #666;
+}
