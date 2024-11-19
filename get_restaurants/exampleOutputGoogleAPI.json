@@ -1,956 +1,396 @@
 [
   {
-    "Name": "bb.q Chicken Clifton Park",
+    "Name": "Smith's Public House",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOvNqCVnXJLuTYJ_WCZNkkuuXR50bhcctm7agFemYGNdzHZJSm4B9w1LHVpWOuv3NxwkvoE4nWH86-cOpE7mSYkQuJH_aov92D_o0rDLRCUdDY3Pnr5V7mydoFwEvpr9ejLK1QBrjKCfg4PRYnBC0UQ_yMiI8UdzaakyXfVjfFPbfa8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMAABWGYtNs_Ow9QAjuj_UlzKWqHulcggqtExr3vLWM-ewNC_CS7buqk0M2HExPrvD_HidCotJ7tn72klGrHg21BE5cEF_tOJfvhAwx6X10UB2tqNj55zuykPbZPasAGpuhqh7OfaBbw8Wge57I3iqtFMQWdjWBVZveM2J3BU3i80eE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN_rRclfG9J6DUFM1dasmfoCJ5zXCrN_rVJc1AFciIpv13AFYUYYxCKhDGJe-yuTxJG5IcZfnEfJ-G5NiwhdYSXAtCP6ztygtbazNbpbsT8NCzQYqcvUSIslf8pwPpgOxAAM2ZHxf7Fn95I-BB-oyCUOf4-UptjZcyVBHlqEpZOnikd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMTce6UoT2xYkkd7L7GIMuIyxx6goISegPelyg-jwIaiC1lde9aMnp7r77h81-cMqnKI0s5yr3ZXp8afPeZhJDhysBe17l557_rGqb9POOWjxIiT7gluNqWGVAALVrGuyRXMK_FnlX9xp5NxTQ_o7kAfEXjd1TykfRqI8V9DohTNnTd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOlSr2g89rwPouNBlYx7lMBuprTkDoi9Kh-R7qUshXID0rhOrvSYSw4IG4e0oZDMhJ6T7EM3aNxi36o59a-a_33xaP3FTAv7uDH3eTIQ8X0zPwjfXZM_hez_9Rg_DqW9ynXG0C7xjQuU8RLqT8j_Z1hylM8tx3biMDaeYfQxopHydA1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrbPbH30Cp7jYoO2We2pCpwBGLCmRnxF2vsCPGNJ_GBHgvmfBjk4q6inL44RZxYOugvm2bJymXhHoZswVoKpYb3fnY1h__dVmsaPofMAve7IrKCAcuSbVJCq63wCSJZHEDEC-z1QHbqmQipcYQVelySCU-xsOwRNVQ5GdfTAuiWWyBF&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpjp67czuYa3xxWDp39i3XlwCnbnIqLWxLzoUL50Wlp4-dUMHRQ0ze-xgRNiDHWyn0KxJRfhBzM2XcvYQYe4D4yFX_D7IXycAfHflzar-5aN66evKGpz_DDEKRiT6daFf9WdgqQ6n312O8tw5JGeXDfA28ETXDVQk466eBWbRkRXx_Q&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWq9OAqwcI12vM8o8YIx7xIuPL3KDHzNUG8g-Ipswbc_2pjVWv6I7ne7cccO_BrSjx582afQzhmnR76nPxzwtdfiKnoFNfTTPT1PSrpyDYKYrnfXQo-cCRmfKeTdiA6AlOsTNxBsYkeZVRjv4OeT08R8SxdlKNNJKWzZKCJd-A0H1po&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrAQdQ9ppWmmsANKPL7DBTtiUVQUZ9werYdFurbURjSUX3Xx2KN-U5GHsssu9nyHRZLZe31XAe-OIWpveeym-q0lhweMrgRklG-rRLAODxE80nb_de0isyZX4NCkdJvrnDEkIL5ApLanNtOg6f0vFMFGNiYgcl0MENXnzFVkjAUmZ5z&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrBV_zc_zGOkoXdR6l-RoQavWfeMdrUCdcv4IqESLqD3-ssAo16DvHpprKGtHu5FxYNaplCewwmYe1kXXbDxn9svwqb8D2RjpBj9MBedzK6npP04-ts0uFsLPEX7Yi8u46cq1eybFBaIpDN6w-PMW6TB4yuXxeKigKPCK3KboM-tqfs&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.5 (107 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "1536 Crescent Rd, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:30 PM)",
+    "Rating": "4.4 (535 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "171 Remsen St, Cohoes, NY 12047, USA",
+    "Location": {
+      "lat": 42.7720543,
+      "lng": -73.7006233
+    },
+    "OpenStatus": "✅ Open (Closes today at 12:00 AM)",
     "WheelchairAccessible": "♿ Yes"
   },
   {
-    "Name": "Miller's Backyard BBQ llc",
+    "Name": "Herbie's Burgers (Troy)",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO78nM5Qr6AVsDMSrbLF3u_aBKZentbFdkUVqq0WGrimQ6nQiNiCFK79EHtcUtg__00Thk8fh4Nmdse1yVGUmmnNA_LctyDOZKLuYYC5CYPVv50tRZf1UAfQ0geD2lEszyMH2lhpLXPXpJ0KroCzGbZhfRGpJ_U9O2EsNf4OMRidd8D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP8ZB2gJyYY4KTG9pqiMPpKGUsh1tqjmVi_0uaKrUk6xfy6bFWlKR8xIJyVjPhGLIPQpO6lfoe0KTHTXjASt-65jFRVho8nePQ87wV_mD2rQxRbU53ljA0LG6va1Qu_mqosw4pGY8CdjuuSytpEQDVSK0e-g4G8LE2XDLs1PW2xIc-u&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNOeByq84JuFEbxpW58eKkOIqrbpN59-cp8OeGMn12a32jlN6uVjfIGfs3wDcmgbs5QfPiDtot71vWkZBoRsBZcs5mA-6vOuy3kWEZSWPJedNyDCYbpDoAI_uHTozD98uTeLPUgDeA2Ktf7P8thSZsFZvVWZFHJIHf5NlOo4MAg4rhY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP_rgHxKaxBfcIHaOjoLzwku_MRk3bilFwquNL4I7eFcPyemSthiKpzTOQWUWQ5pzlw9AW03FVawYTUZjUcVx-VrdOAIgSCQvmALVmgAGeWgJo-Qy0ekoDkLl0j3NSZ6wPBXIO93gSQFEKs_RSbi1jh8-VzLynKIpj4adP4HWV1-Gn_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNa5zzV1gljtUqSJgd8iielH-APJJ7m4CH17OOuGCshhkaWhju5yngFZm8O1WOshaOimigzaX1NMJFHi3jIk6BHT_YFC2JUrsyqd8xXaMr6cp-yQ79Z2z-VzFhpgCm0yeYA66SMkNpExl69aj7bkUanItW4ci76IMYd1A92tR8IRKuP&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpLIWcMED_WAm_5nnfOkq0tiak60UssEh2SKjbTMc7jucuDMuVZL2YETptgte4mLxQXnl8n1Hmx0XrxPUCBNO-TWPIuWRJ5YqfK6SUL-BWSR6NTJaBxYsQhgL5M9qZBFX0WYpgDQROucKxXBZmJlkcjYnJ4f4KwKhhV9ESRnW4GB3gB&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWol9iSqKMumbHoj8AXlfWUahWW1Mx48eNgc6VucpFpHQq0dcmPTmA7T5r1Z29zrQph1NaF2dcr3Mx_HiwRbPBis1dcJRwTgECT16Euhz9QcywOTB-9oBsF1dVAbSL5pFTFD8_SGnRYBAm_Mn9MPgdYwsnieT-YZU4vF6orEtzODCiqW&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrmiI3xvxAf7FhR9vTo82COHaLbuFHpEXHFwovoDzG4ckUsQCdMpN9Q15qMvplqArLgndxXdyHbaGmTrc8qJ6JDOvtJNviANN4eH70Kc13n_4I_7Hiqoyrx8dD3dg2qpfrNRpciULmZM5Cob1a9CPm61c39NcoJm_BL_j907ZVMX0u-&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpi01wsxJz0ommpG8j-pFlbmjExgmuZf1Mu3BdVkqzoeArT1haAI7ixJrTOW0s1ckKm0Dj1q43vyM70C778hbStyrHpNGmo_Y9W4Wd53j-76pTQWL9n0XxvkZ4cE7mmTPNyjXQRWXY21O3XMa8jIJVJUqsECNavfTyRkBsBrNndRyXH&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrj5_hzGZEXOZTez3wPdI9sJykmolIrTnBJ_n05gkviUTU1oENY3YNIbLxfzSpKAwwKvcBMUQ64f9EnyhtCV0Tk2kLSu-OQFdyb20jeaXPB1xLfofAO5ky44NK7oYT-79mxwnuFTj1vTdhYUjz84yYJXanmtrKZvUyfYg1cQBfUs0om&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.5 (232 reviews)",
+    "Rating": "4.2 (164 reviews)",
     "Price": "N/A",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "1 Niver St, Cohoes, NY 12047, USA",
-    "OpenStatus": "✅ Open (Closes today at 7:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
+    "Cuisine": "Restaurant, American",
+    "Address": "415 Fulton St, Albany, NY 12208, USA",
+    "Location": {
+      "lat": 42.7322156,
+      "lng": -73.6882424
+    },
+    "OpenStatus": "✅ Open (Closes today at 2:00 AM)",
+    "WheelchairAccessible": "♿ No"
   },
   {
-    "Name": "bb.q Chicken Albany",
+    "Name": "Dan's Place Two",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNjHNI_4tL5MY9BD6W4Rpl7OPGsJdP6H5ToScNd1DRWuekyjioN1PpVi7Itrps-bHIUxhdSB-AFBFco5eBq0N0trT9fiUhOWiPAXgAKBLppE-opsNytcG15FuQY_jU4edvCxq-s21-ntTjwe2psQ2HGqALYCwkiZRnYU134fBM9Bw2Q&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMef5s7UwOhrsWqmEHpHrFnuTfXVSmUY15vqH4P3wM8NReMGvNTJ9H409-t6Hd8KBUraVck3bipaj8FqvAzrmD89O0-qIpbFVQ-cI7m7LlNCg1-rD_2Kd_iIwpM-QZnhmLuIbw3st3a8QgS979yqm2YtEHUWMX18LBZZknw8r8axB6O&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOzrAGO6vRJlFpSUrOgreUJit8yMJCevM-K7icBSB_KqrBYeRs35u9kCFvxePNCltLJKjdjY6D49LIuXnXlmUXEkv0WPKyoaI_u1g4XHh1WjtqKaykCNMe6IyHaxp4mwgItrYRoBz9tN2gPrmYzvw9agOEws7soi4Fw2rgLUkFEDsrE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNiA802RXUQvDXu86-YmZM3-UKZ2tjI5sySNjN4IYCr9XQHBjWjXvMgbRIjPvYDGk5W0N4gRvFWtEbSSlhM3dSdof23xebJSw5nGKoGba1RGQYPYGsxiK5E78XeezPOWK8nnwK3YtHxmWMVxcDrP-ZU1AwoRMRhSa5aIUmYnacSmblz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtszK5eoVV8AuFVv7Ltabk7ZNmdPDtZnJ-pRNtWoM6drWEsjjVgx1cXKq3kQYb4EOvym0VlRwPNXviHD2pCX9Jlsh7fnX66LD-5IZNEikaW9f4QV8O5OuZHjdFUNkFki0mcAN0ALGxAJ9wgrMbqJjw6GnCjdAuthKxfWO2ZtJaoE5V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpSnWiZnMG2GIU5Xjute-fTL-FFcnyvtp04-AOZNwKVVZvkEBa1hBazn7UjTc8ASZPR7weYnxtJpHS_hvSt3HKDMvrvEdpsEgtAnhK2qQX_GAOwyphFZpdr8RcH77WVNNrjfSFr1Lf5vuRqK___W-wO3ek_d6bZ2IXJOme-uyCoim9R&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpA1kbCTykx_FGKtRL2RFsP8qnfCBTg0SuD7J7cRybwSzaXIaQGNF53xiKO8hqqz1LkvKxumlFPhK9nn37X6gVh8HObHmdMNeMFKuBdhm-QsQLPXzoiZQG1Tka84Wbn_VA1vpToiBUzkFyt1d7XT0wJ12wHoQSDptTJgsolZ-3jlUtK&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpoqIEKl_1aX4_BUCEGeb4_ukCTwceRxlxAIZDl_Hjo-1ZORnvs9kszPegE985_lzDPg9NUfKMq4JFAc2AxOiFN5qhkNOfVf5NqWDTvg19i92Zx-3U8eMJRS181xf6rs_UUycxyjFpbYEhgyqkgB3LPKKlSeAj_9ulrwPuv9SuwebtY&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrD4cqUOL-iCOgPXUshN6l0EMoOrQbkqf9V3T-DgQpC1KZbzfkalaDJRzsrTlU12Dlp1mQQaceT8R2FnuRyprq6XdhHsrsTEmPkpCpt5DEcDoG38u2GorVaRiXV68dLQkjXSt1_jx9ZgN-w65T-96JwyfkohIwADbVifeJEn32h43Lk&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrqJeBHTqKmmGgRZAWg2b5iZ1iF8wSnhKlQKlNvWgJ9z_bmkS2vA-WeJyfWT2r_FI2x4JueXfpu1_0r_gbqllhlLtlSk9dgzcrb__i7mWHcMI0cFNo4D_Lxf7tauvM6BU-mTUiUOasgcx0NBNbIN-Mq1KNuqd0rg1jo_cl2mN_Iwc3N&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.4 (169 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "301 Central Ave, Albany, NY 12206, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "MISSION BBQ",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOtbzCO7IAS6FHIPrADx8--Tze9igNMZQh5eus3hzdrS2R4FizNWFPAo2wX7vDJVjDwG320QN_-CsFpQkksj1u6u-nHZyN2BHVI8dqr92JlLOeWPXE9Rl77BTdReoHyGlNSbrOgwgzlbb5bfyYyb2R3Hz9g714NdKBk31DPsk_y8uMn&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNVklWJLBYzZ_JLhPBLT86pFjfuHUi0wJHEyC35c6OTDcEtUTduGTdKaMpSoGPqnAJeEg24-jSJI4uzcVLGUfZIqBty6y_9xzkQd2oKQobFBSKTxsgwb-hT22Jq7UdRB1eO8Y7LlbDoV4N2wd_pVbnNwUWuIrAicQ4O-Do0ApMej1tf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMF4Jk4wBHBbmLBFvvAcvOV6HjtC48QNg20-cMexfN3X4jQb3dDFHQUSuO-OALVGvxNvxduv3XpKO7Kbz2ow_yu9-lXW6WAO18SIt5k889v41_psOLQDqTJSJ9fXRokdGPJ6gvDyTJsxkIIdLWTbjKXXUTFkG7mGMSBMksa5aLb0Y1O&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMX-xX-Yijii-B9wZrqeySjApPJdrIJfnyf4YlGwLjh3fsgk1iEBYmkljvxxo_V-SBZ4w-XH0ibJCrtMqmC-aZIg-IvZ7Kw7m3zhElQGJrq2bsxsmSQFD4XqKWG-Rrb-8Ra0Y8B5aNH5IPZQ2iA8WB7UePJ1TPkcHxyOzbWJ44bmNmo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP4DPKE7JocvjtmZHT7XoD3pXA1RXwqYwaiTw1SoOTweGSktcQhNH1dyz_n3R7mjPjl3VestnQtrSDYac4tTn9SPG8yV14Mykb6UblyWw-9M0U4EbWMlKGo09lxm9icnPbH_iOqqMli79UwTR9XkkLlCUmfFdS89wml7ylBjPDI9J5O&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (170 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "1440 Central Ave, Albany, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Rollin' Smoke Handcrafted BBQ & Saloon",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPA0brHJ_3JmtCXrQjKp3yBfA83uU2BbjnOnoORzyRKwV8Fsxe3ZmqEDd-nfAW_9R411wbrCUgT8UDZOvXHsrbC4dr1mrcLStazqzBkFUz0_afBgYEfatE21Y02YoaCH2sTNA5wizvJOKkdn4Om5sDDa_Uk_CkEPSX55IAnmcUc1Q3R&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMCFVandb05dIN8caaWFVIvccxVMHzIFlBLXii8WK7OoY-Y3vSxOUROuxw0C7c-YtAQqhcU2ReRzyXSelNwHZ0w9uudjdusMhcCLWIQUr4flnBDx5QSJ9PpteAk904Go4Nn5HiHyAVHZnF539hEtMt2djDMorPZTi00sBceAbgvh8vi&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMI2sSUyY6__ZlTKuG38HFbndz3I3IJhU7F_UWuaMxac3Cc9xU2AgIJghIJ9pnb1icjz0qr_9j0iiM7Eu16smdQ3vl6S_kZnohKEeoEVYEJlTKvTdVtejPGZzryMMlVKwTZ2RaZcYFRLJD0eIyHHEqdZJxWRafbKyarRECf3WQEvLyM&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOwJIy_sIuuM8RtMEwFoD7zD9T9XCiMYMcHDY2HNfYWJgIu5F_ihwvWr_LHOqNHnhxV7gehob0HQ1fv7J3ZYlML6mEvKzz4pTSHKD4hirhOjyi2HdZhbdwHjWgxh7E_5hVe5ZcSfBVeCzSbiHWMX-qmls7A-s0seguhrqIdsAIJkNvF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOEd-7RimcgUmsv8jEr0pvPdFI04jz7CFeF9QyIFbT1o989GLqXoDYRnHVwpLfVf_oA0qm3C_cbwEzFPXMJssXhNrrklSGiBLy2_30P8572IT36LYHZ9lbx9DcUor6SNfB8ALt0QFhp1YYY3jswF3USch9gUPAj5BBnI6IibpoLuiT6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (380 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "1613 US-9, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 6:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Dinosaur Bar-B-Que",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNKhS2L_4soJD9V6FeJawSbI6JLHWFakc8vkJuwnxmc7VX8IT8Xb_K20FekOmQllCIyevXjFdeIlYznyqTZ_vDsPGhnCmiczX-XhiQx2__w4VFCXPgVxDVTTuAA5dLG_yGRT7Qct3d1NlooJ2Nq9E7AzWqMHekxYZ5-G8avnfGN5ZCl&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOb_gjM8xFXoYmfpScp-dyc74SaMrFVCCz7LIuU48gWR6RmALr3uaczfTSXPjbkxqdrfzRMlk-bfx4p9tYPRT_PJrh7gXsxCXlp3T9Hz2itW8ssj6plSJJPmdoUf-jjX48n3Kscn0JGrkrtAdnk9BUyWMBH5S3kHiSRVxigP7mS8sGr&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNr7uizuFXrNGrMqvX_3lqRHVa_cgBoCARJl2zGTTSl-4YvZy-jhM8OySR-wCoT65MWUGZUJ0nIZyPYI5gEMqN2PMbSTAIA5no8U3hb8JCBF1evgVASJ6mJGcRgbSjD9KawHz9QI-wWPzkUGhFISR5y-QvglDpJ0KUTRvR1x9mSh0Sx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNQpEcjCXnXIw7O1_Pd5T0sJ84fAMlMtq1fVAlwVRmISKOw5DT1BbH3ZUCT4TH-Cvv_SNij4R6tYN1OonxvM9ec1PNZpitThulV8PImmDShnQYFYPj9Qy_rlOSpXGYcoH_fJfhmzd2GmtO0YMAGjeSch8a6BhPflSvljL3H4n3ePhXE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPzBzyM5A7paLVuVxcCy5OeCKiSk2doFiNeFRNQ5zcEaNc9KvBO05IpdBGXTBCnOEDLk30OTE0nEPoT34RaPN6WpahpRCVOdQ-gleu_K38qvLolJtcd9XHm1-lRhZAThJkX1oLp6hF-wa984uu6s2yabWewktvylQMWgwcRo9UfERML&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (4731 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "377 River St, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Smokey Bones Colonie",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNt-L42EjVsIKatfyBlMuMfLzlaOXPicYmr14J7C2chPBL6ItwKWJ5WD9QxLmDAYJYVB1yb1AQ3KUTfzbgDPrsTGl-egxxnjbW8j4DkGAthNYvFinlUhSfUA3uTZapbXP1CiTSBEGa6dlkICGXRfjrSHxl6WDkmnDrB2Xl8vMUY_PPA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGPTT3QwPvYegOo9ZhHGQg7RIC44BNHWqhXPskkAfyMHGI-48GkrFfUCuRLQx5kVT5i40A_oXJyYEHnT5isuJVkB6VfphJUEqG54th_ezgl59D3D_swsBN4npX9lfTad7X6kHeXIk4YVu5OBJRu-T3K4WyZUYJj-LchUDMHLc5grFf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOXbt2z8MI12sg4UkM8Ty5rLe8F_9yYR_pNs-35pUnFHfpZMYKXaGWpjAjcEqhZqCMMvPRE7TLIR4CHU8cBkYQHcj7lMoDD_RTl6Uj9S5pYXJVlQMk4mA1_aQz59vKFRlT9YXF03UXoy-IQv8ip55camjeuGuzvEyFIzn5gd47IkE4-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMW-d5q8arzNf87ju2JvXLvoouU7eI_N28zj4TQCGgvkGp2PaKb3TkbC3wMZjAKtprpqCV5mcAkt9GbQGhfsjw1QOCcJnj8supReXtI4A0wT3l1gmOChC89L_f_VUx6g0iRteKAI_9P6Z_CRfhOBE3LwpAtc3kqZMoRG44IfKZJqI2Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOyiN1FyFpbd9o31PD7rA76OpZFfrIydqIy_FShK0W53zCvfrQ0EuqCi6KpXyeqJoM4PZHrWIRaTvDjJdNuqCHtDMXE9aLBrOgh0NCWlXviLeObG8XFx4avpDwMnlfvUkiio51AhPCH7Aium-t2CHCLzGBFz-1xBKh1wvQ9yPUMV0x9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4 (2371 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Barbecue",
-    "Address": "1557 Central Ave, Colonie, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 1:00 AM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "K-Plate: Korean Street Food (Troy)",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOuVaFBobOWu1O-N-vlJwfx6mWVD97W-jJJ0eTta93T-DC8uNf1AsqCi2NlzX70t2jF_oqHUMcIn2yoeG1Lu3XUo0J7GY8wSQWntlTISBDnC9_w7fOFc4xelYD4ElNDVDT5bEICIqOosJuZxt4FAOB2ECRAsKjfJxbmd06H8suptQfj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMP-dH6oCK0EVV8U8NENwxPEIq4Vz4If3llM2hQSx-P5hNiYdMq8ESvwF3g2Lgw-2VhQR8qSpQlG2U1FGuoHHxz3nBG977D9IZa93qZ-PskefPVICrzy-irlG4i9JEKrmEtkXoCkQMfLtgf42aiyYY883saocATLNtIVR-uecEKDMYc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPmG7yk9FtwPCPeAtz5peilz_HFFbTW2YKCho-butlIQ7jzQed8lOCQLYFd3zGDbeojiGWX4FqM2J6x2ss-iGBBi96Ugujk1xL976qucCY-DqX6wdG4a02V776DW-Edp3CI9LHpIFxrutSqZr4-1_zF1uOO3zQSef68HNIDIwrPI8tF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN9KOWdfa-Rs7hf-ALVR2mIYJ1KHQKhviWvGD8sBrxaS7ULmHHD_10t6w9ZVOPgg5R62ZKAPOHUXQpCTj_G_uvIGnaRPIuaoYf6qZae-uwaJa-_xVzJi3_gBMdjOHXtGeiAZRn1l0IyYJg3EJ4wVGHqyy6LOCqDz10uVWgwX36HMa6P&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM7Lts4RNrhheBtXqrFtHserkRH870uPSx0Zs5uyorxcrNsQ-JAh0sr-CXB-kbIpKSiZ8fTRy3h_a1wiB7qkQsDQXGGFIQYHG_iO3Y3LSdD51O09WKN9KhUJZ4kc3z9qxd47cSOvR8drEh9NwFFknH223lC_fJnGJMuniGZtBWyKeYu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (379 reviews)",
+    "Rating": "4.7 (394 reviews)",
     "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "78 4th St, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
+    "Cuisine": "Restaurant, American",
+    "Address": "494 Washington Ave #1230, Albany, NY 12203, USA",
+    "Location": {
+      "lat": 42.6629766,
+      "lng": -73.77438029999999
+    },
+    "OpenStatus": "❌ Closed (Opens tomorrow at 5:30 AM)",
+    "WheelchairAccessible": "♿ No"
+  },
+  {
+    "Name": "Iron Gate Cafe",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqd3D0X0VO-iMoQeUDkTubq9UxImGHvKEz4q8AQouoUmllLg22msU6noxetlxzJQXYSvkOUren4QIsDZ3v6C2rPNPbr6WSi0ZkASeYviJzOVcA2picdQuTrHK3v1kfIN6r-GAEwc2pRkXAawTYLo9aGC-CJZ3XjU74ywgJ2eu76Bsob&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrtW8Mrv810pSpdgk0JAaj4IRTk1Dps3gmyxKYN6QqJwne90ywWscz7p7fjKsTTRNJ05XHcugpL8bds8AmivbrsQjx9iaLKFyXdXPxGJg5uChz32ImZ1ElNGbjGTOFS1rZnhOG1MzcLhubZ4wYA7yeMc-1wN4LqfG5AKdWq9ngsFDxN&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWroI4yuYlzc1srP_gnpEzu-hWprRKqgGPHvsgYLqoEFn3xVQYRkjjb4dmoyK9r_lLMzgQn1RyPUt0IEVOwSmbA_tRnvzPxQwj9X3ks76wcMnTop2IYSuULylAJaTQip1zArX0DFtCKLbBSNNfo9y8lFM7f2VuN4C4ULrINS7BS-jivs&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWr8D7qjL7Kcyix8JjLx0se-589naC-gC--_Y0E5045yfmzHmtu31VXFI0j5bEQEkKY2ZBFQpQWoS5io_RDN8AAXG2fDNt2-TwrS1WIxDuSNxItWAVnbKcRw_-dcErJuaRb2Z2DdDjLCHQui4YX1aIFjiR7njrcEgn3jyEVN2RKIHAw3&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpwleTLuYY_Ptv40s9lcVe7qIVZd8PydV7DGrDXqU3iffhdVO7_ZS6K7hFYPp7D4kE-NrsCmXBk4q3l3KGyKfddb4H6yyUlqwLrhz3jz5ZuV7Ow11z-k_f-I9Cu4kacxJ-tuT9CfCNyv5qo87IIj4jrHR758CyjzERAFku_FvHKlJ4u&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.7 (2004 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Cafe, Restaurant, American",
+    "Address": "182 Washington Ave, Albany, NY 12210, USA",
+    "Location": {
+      "lat": 42.6560789,
+      "lng": -73.7624927
+    },
+    "OpenStatus": "❌ Closed (Opens today at 8:30 AM)",
     "WheelchairAccessible": "♿ Yes"
   },
   {
-    "Name": "Signal 30",
+    "Name": "Nighthawks",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGYxJ0bQhb6-_4MRpJI4lJn3iIVLiM0lyqtdqU-4tPnDwX0WwO5tnBUQJPk_82rUPl4OSTq1N1zWJFx6kRUT3OZ5Xs5iEruJ86iexEXxVbtiMt5MjrOePyGvYbb83tOZ4IgZHCPOTmBmKMnFH-ip2XgLfYOsdEJY5XLm5jf2ml37Mx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOv7N5U2Ye8ZurMa3a1z4RxILcmw8FR2fMcOKd5DclF1uI5Hv8Xc1tCGzq4p3tRmN1mYpKuYGTNz1bEZLeD_q9pPAs6BWdM-c5ZkD_BdW4EM4CAKoKeNvUpSHQF7W3QzLi-KvLw0TZL4eD6yOoPcQPlo5PbdLzR5JbEdcq_RkMzGJWc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYglxiz3A8Cvpe3WaD4-CRSn4bvRf032VRkmCdjKjX5zf1VBlwcZViINrTR0vB69U23VaTsm9DAJbnpvuHnGuW_A6ct3MC7DTj9LDkNiEYh0NzcXgfVXK1QcH59MnocjcN793H_szk7s3shSlyLM_a81VJWINrq41bYQlIIPCKKrdx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOmIa_S8inNC5v-uRLq_zLKBqTO-kl7vE6euCm1u_vEYuDuRiQNniqbqNQx6nZ7C77uRhckRCtYyUw_IyGFgA4e9t1xI1zxx-OmNIA3AFXVpFjKFMURmcshSdsuHN2lG7l51DZAjJTHWqhC_NyDY1lAO86y9fBejQjERSePujY--019&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPc1kH-LAQASAgJPZiAn-XVlz442kEs_40qUCyv0wOqyBM1lJG8CxzoKwVtS1gZzHwBCiBEhsjwcn55H_m9si015Um9gnpdJ8H4e8tpdo-egbzoTuv2AQPKiHKRe8yZoV8hNhmY1Qji8fP7NgT5eE1YHvSfgCdygJ0rMR8UrcY5hPey&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWo-vWClrq78-jTAOVBM3GqtxqTPtQioV6RBOdVdbtRVQCuzaABb5Oe9oZozeYhhZIUerO2G72SBeqahakzMALVb6zNVe6g58D9RGWfpB6o6AE7J2VHbd3rtyeegjFLGpIWPpX3sskwyBtQQ0DYMrtl1-z_4Gcjgvm9yFktETT_Npx2w&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp8vMsaRHIggj7hugeLANt-2NqbIeV6HHZYBIcG3QIQFir5pdtKi6R6dPF0AJp5Ti0eahZ7A2eikrp_o5VtC-EI9OFOHwLBH2spiHEvmNgMuF7qrTYtHgdMgjPPsO79v72WZUdm0Tm0uJjLZJKAPl5x3CNQzQAB4Kh2-XhOQMn51GtG&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpTHa77b6t95vYZqL-MUHUf6drExRXm7DP24NuoA-40s4sQAy1kaxnmBZjVyUy4wmZaJiH3pfNdYl3RDuAus5jCRE2qFmOF_6TFQnwpxu4IoA73B804anIuiCFh0ztODapQ0oSsIpD3POwZbP-Ksd8cldAoDCy7wy_m4MGd49kQLvvR&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqtvQX40aZMoy-5sHSb6aguByOgjylTcaYwo-n7BjHRDp5RhplCykJ6k57KY39S288dhLELEUuhvilMz614jMl9NZqVT9V7vAWCcMvKteg8CA5uSNb5P9gbI3QhdvBvsiwkqRC9bG-jq1xscI27r0Cv6R_gRHF3aLiidHeXuxHW915l&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrE5HVeyU5ZdbMLEyyjJg4h-Lua6TfDjMpNYBGEtnjDI-t_4XSRpO1PAcMfoE1fBvgBj5dGgkNcexDXZRoI3Z6s__vXu4D_5H1Uq-7x5fbXAMjaO7_tiZn_ndLNOo72L5ZaKI5gjmwjMSWNtTK5cXVrFJnNqmgJXMPYHB09IvFf0ljc&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.6 (253 reviews)",
+    "Rating": "4.6 (549 reviews)",
     "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "201 Columbia St, Cohoes, NY 12047, USA",
-    "OpenStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Taj Mahal Resturant",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPTXbke3RslAo3QYfnze8C1yoMSVaqnAcGCVoIW-eSMH9C-LD2ABUAL0rw7B9vlzptn8hG1gdI9J2rb5cwzYxfUpEEttseTCuZ2-ktzp7_dUYdM91J2eYhb50NPfW9I45CMjQdQyUAsyRfahHgGi81m2Am3RIaGoSYOsPVGjAplhvng&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPIUu0Vzy7F0LxrM8rgWkd-YHql18ng_IW27NFszDLq3_GMk_E3QVXZ9KdtL_hQiXyOf9VVdB72rvydDFZp_Xay3-ZDBkNTtp9iQT9gKTM3WBZ8_MS1dhksa7T3kftrbQ7C3z1fXdAPMXOVYTNksGMoeWeW9PkJLHKzqO_63dML_H5p&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPw9CIitLJrLK2Hc8cHU9mYEegQKTqeYZWmBf5U6sGhTXVdjPFSoBjsyMyuyY8ksByKol680kLqjbSzdwa4B_trNuuyjkPju_hOC_U_5kGaBGZ8QpCmOW5Q2lYdCq4dUrARbqo_OQGF-ztxCF8MLb-30V8vSoDAn84SsRV_smHx9t9h&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOC6bz2Zvwt0cuVGqYl38czm7IEEkR9TI2sKOSbfnbPFn7lOm9AO1f-1NKIgRBe31sxNR5o9jIAeGlktzqmdDxey0XZZkkgPeaIjNNTpMWd3unvdNGs7l2bZU59Vm8fM3W127KmFROESt_7vcoPTX8_0wgS7Sy_FKf9JZvkd0jrUMK5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPKxqd6EblMUrRj5knXF0PWyKsM2Gfex3VhXw9iiXT-HkXrFwJ-rVMGvGcxqs1HPB0IooGpDyjnrM_ARBTGbMMC86WWk0cxYk0UKWPV8J9idWXys_xlY9YF2zJWD6954JOlkrbYgcA_sjm-jS78OEEA5aLrGKO_3Lsof4afjiuS5yzI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.1 (207 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "295 Central Ave, Albany, NY 12206, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "VOLCANO Asian BBQ and Hot Pot",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP_3AYdwjPl8_ko2O-_Gzm8rwS8M0qoEakF5Axtf6U3ErhhJsbcAOimOo_fUrT5BGGJE5g47dpf8KMnUiMPzb2gpHAiQ5GQ78gNPjIrnFSnLre3QHlSwDb71mVE7sRjb1knZ-8AVYHixZpXmDBKWLv3ZVkOS0y0KnR51bGZucl3yzZ1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOOc5PX2kSXYYvnuDJVwlKCVuum5fPCgsOO87n-v-4ZS5soz3n7QBveMqKw70SWicGsNryW9AgcPiDO7kEjHIuEIsTfy198E4EwUGlRheaE_PbYzpfxLcWeC8QE5wyQwQEEqeYqKjE9dP1DJ6SV1WDR46Ege_aDZrk-MUTHLt5cnwpK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPykMLWGqixcDX40U_Pb4ZS0Vl3j3LNs9CZoDw2lOeol8qDdK4hAcdUkQKVTjsTxs5JFSn1rMRYM6nqgP-rs0M6uLB8Ketely_4OphJ5tKwrtBjYCrwLOq8BYO6gjOa15nFziHtLAjlw7WCwoXALUc6SCbtikexHpJgn1mLnF3yweOZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMJucUVZvcs8wK2jkFc99AsTJrdBhX0fOzbEqXHzloXj7AggFx29np_goL-Q9Ml-s0xitwRSze8OvGGaigg0-rFUhyp1tKWw1Wvo5mB2KkN_v6ZTJMCs7l6ORodYm5Ya-LgFmVvmfC-fZF4ckuIbu0QGey6Gax486B8z9oU6Hkyq6b6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPv6YpPVV6JFJPg252lr1ft0bAnoegdJ2p_hfSpyK6s36AETLpUH0OdmPZGwDYnt96PPSdaAqwBRahzJlbjmMzPmhZ2zxPmVOkbedz9-pNFjLwtKnpZTZVVM7ksROiONkNyFm4XMjjVgKN5MToR2gxDFRfefVmgQ3S8MnW8PlxsoOtr&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (222 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "2309 Nott St E, Niskayuna, NY 12309, USA",
-    "OpenStatus": "❌ Closed (Opens today at 2:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "First Choice Caribbean",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmxPKG-k8F49YUtTyvOLD7-Uq3AqvuI0nOa_l3oSiZ7MVfjo348qr7SsJBOa23vFbRmQqJ3AnlzhB5g4dWI7zw6Slk_Cj1A9_YXVZxLjMyP4CVFyGX5Yxm35fCC9a8xnN2aJMZaix-3llbTsgXOcuhLgiN8vPiAhDarNjbL4UF7K2d&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOJOxQOgalZWpY1eTHDU9fCM5ByQAu73o4JvFNfO4nkFXSl0ksbyYgUfmfx2nY-qbHsMbNvLOyyvQj6F6nDBjF8wZpQUV7kcyYMJE9n7J6o5IB-Y0Tt2FW2odH-IccgI4j1sI6NrGs6lYziqQby1lrD7vtmEOKCrsuyONOuP2YmbZo_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDiBalyG11Cqhmo_hmG-LXqyYzKWXCAtLC2bpkIdlhGE-Q-PhriWrGC2vOqGRicseWYRVwB430O-QgBHQec0S3iejTevZ-ARWBSyXhs7o2E0KsTiW6IM0HEQwlilapNsLY7hd8JyK4RosAmSOss4tsAbT7sBheS5x4fD5Czp6xQwH_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNCEOQtAcKzBzM0FcRtKA8WtawjAEQiQKjMPZ79urHHFJ5ZhqDvfir9k3jNAZiNZOYtAeqeJqkbimAocyKUkQWJNOq_HYUcQSutZDjvDG0jjz48q_XHLstYeKt5ccPfI0r9StPyAmcjksHMQGCb5U2gnyhFWiXn0c_uzSQJoSB6ioEj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNuHklD_u9NGkls0bzmymKYQBcfgH17jr9mHN4uqpXmUo5hZdc7peP8vrRD1b7JplQxGL9T3naue5UPDqAylv8O97-gmpmuOzOKrONQAsGLko-KR54wvOHKXxzf9A88B51La3JF5jXXA-lqyAFnpv0sjv9qj_3MSmplC753_2JYLF5z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "3.9 (228 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "451 Fulton St, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "KPOT Korean BBQ & Hot Pot",
-    "Photos": [],
-    "Rating": "4 (1 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "131 Colonie Center, Colonie, NY 12205, USA",
-    "OpenStatus": "N/A",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Michele's Charcoal Pit Food Truck",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMHrzQLhPcUawjN46Dir9U3QwHb7c6bwJmzc3vEK8ACPkkxmFmVtCHGViggOF9JgyW6OOcEVO_v4g7HgLOJPs3t-k5KkVmgzgPdQwZ3bPKqPOKAZ0iAOZmMnaJ9kaiD30NjAL9SCYyhSQ_XH3C--9CMdCo7N0MVQHNciq5OyJclTFy3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOsUmBEXgEt6aZlHItYh4-M3XquBaNQlBij2s_9SbqSvaUnW6vTHs4NWZxJjpvMZUEO4loPkBhXvts3-aqiZmlB5h1CJV6s5v1WRk6zfrRaBwVo18Ba8rbHtJjwcuWfOe4QHbyE0UpDNfN81lXTvv8pYA1yXn8xWKbsBmCxjoig2CwX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMBRfRqHtQk3ilKputhybE3dDgDSfb_ybwnxD1czH541NoadLjf3KWEnd_ZSThfXw6ffZSLHWKooPuj2ml79tYd02FxMP3heY7qy_CaoOU9pdR6dMjE4w_5N735JL1mDz1quD1Wa6ha9av_cvJPVGyvr2BUruw4i4iyXV4E91igHX5a&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM3AyBlS0Ythvwx45xFm8jAsygjL-QAwjuSXvZ0tiYDIR3_d_vqnEJyQssv0wWN3AtkJ2ap8zk41SL3DuB60KFCSD368Z7IsQFqpzxPXD--GjGfQmopzjD7wBxTnKBDNaLlAHx5L8r2eAbVJ3k_Yd5kFEMEiWmG76mVCqSRku9P8PRu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNSR_LJ5KyjTeabY060BGIpW3XUQ3HPZcmfhOzKK9TVbaWS79e7Ri813MJtafhSAJNOk3A-Bl7DK39QXEKgCVf1sykPx06eK2VDY0gT_F64ziDXfv2nwwIXhvZGma9T7TyxzFYT9UqVZRnkemu0SS_9Bo0YEBPeTrz2PFFNQpjSfYqY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (15 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "Washington Ave, Albany, NY 12210, USA",
-    "OpenStatus": "✅ Open (Closes today at 2:30 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Otis & Oliver's",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMXc8BdCTshvBmv8P3PjAcqL86GkmOe8gYbjCWGhTIeyJsjRmxS4FRuvTTBUtjAPk9EUrl-woQf4EfooMEQAhnyDS-vdrJXqQrzZzx1pV2FJUXzrxrHcm0u3T5cpMaUZL6eK7QySsJ0ytiSy-FD5oXTGqyYBIfD1oP9RwpEjsLkf38r&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgG_3g14XwIqWve5GZub8fhamDLXyv_j0UAOhDDsH7OhH6fWpAP-Pl0uRTLgfE5tf0vUvdmCKExJ4GGASv27IU3ZDTjeLNF32N9_grkiV4czvOjT0G2EvbbZJ_diQGRdxMPj7IMLPwbgDLdnGLBcZhwosW1SqWdY98Y-LIPqt5BOC4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPH2JhxaUJFr7SREAc-vldyNXOlovlR70_xkNYNXk0lu8xXaAP-AnuamwvhJkD55uD14uuf7g7cDJLjL8Rj2nnU-EzAGb-01AWlC2TKuncMWhggddyKimAYrTPH-gpWpVnyGAoZdcmCvvFBdEVO6T5dqg4HGBTWhONjR13QpjTmdaGE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOeX1yvI-gfD0ng6-nJsQYowng8580tsETjazHRjmDEN5MVB5PnpHjvN-HHVGlRdNT05ib4mlvtzVL4aH2nEMkShI0hUqNGruFx14vFawdBjrny_-Kz67r5o_qrVpGb4-fU1TC-A-8JegME_Y_x199MKBbuycBFF5IJMOeXMC1RzjiU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP_VRPWE6PK-LTwBzgY7QZH3MDz3boxjSe1cGcyjI0flA2a2xB5WeSDObYJ-tMEHo1krX4Y_9z7EIN-OEtBiagJOROQW8fMG3qaW92zpfNvasWgYe6zMSBvQoRI_xZoFu633H1bkunKVTiGfZcjN7X49fDpmFBhWbC1u-NRk2YY6mru&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (781 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Barbecue",
-    "Address": "30 Mill Rd, Latham, NY 12110, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "PizzaRoni",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNfsPux1GMOlf7xZkqAWvaNM_Nt6Iomq3g2zTWVH8wlSLOz6GSmb3LV1eHqglMbjEh5BXqV3ukbi0I-YMMl0GgTABHttJ980aFzhLz5p_KgaT1AVcAHbhERnKReAy8Cc3_o4RoTHVDjSbwBk_UdXZbGATa5-yG0cc1x2lf5SNLUQobH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOuWhntCrNZE6972XN2YZefhFcbS7uuSumPNQVKlIbHqnO2rKEJM6XRzWsRj2FDCtJpb2424Qx10VjRyXgKTR5uBKPn8I-hpwrYxZbybwZgulS1lWRM-4h4DDqdbU87jzQkpAXbgdHKfBqVnD3t_DJuelesMLWz6SilOHDWFnN4JnV5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN8BlHf8FypCheMb6DyNS9Tli5jd0Kw0YVVNRXww7LrjDf-CSB1AZ5w8mt18in0F-KXWxWdBHrc2bSzEufB4UxxueSBtXAzBanvPs79O7y5QCVHK6Gb8HqajIBtiwqDrAa62WM-EuHZACypEoi6DcveF4uAOa8a8bJ69GMlq-cbMAfz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOEVv4KoaUQQd5usuwON-h-7xkUolT5r2lHJ-EXvlIOya97Ivnh3d4RkPWpyNrLstNR1WRofNu30eUBaEuAEQvIi4KsL42gqiZGLVgzDPLkTysgcs-iAjtHPEJCZNNqmz_MoLfiYSP-1L2s6XHiD209zcyiL2PZhTpWUSa-KyYskCag&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN91kU-L8hDQiCjK_PqkKHEdu5WFaCAv5_NJG63f4fJjuFWjVpHaPSaLJRYDkvi3xPGT7V2Rmols2epStq0tX_s2DikueYPPxtW2BMzb5S6SQ7CjNVH7j8MfMFrcf4s1hmVpYWXn4f-7YrwwYkq0VzsyXtBtIoDJxGfavnv5A0c0aAc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "3.8 (433 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "420 Madison Ave, Albany, NY 12210, USA",
-    "OpenStatus": "✅ Open (Closes today at 3:00 AM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Juniors Bar and Grill",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN8jWTFoNiCtXKjscbecUP0A-25_L0Y3d_mdV-04VrBljCG59hDxA1lY5VyquQtta2JOa4BwYTwkMiRWR78wUN66f4UESGA2flfj8ltjgMjoINMvMnP1Wfl7nHKXRQsxbzkxzB4ycOCE8B-rCDBP1AwjnnfwzOmgIftqGpRjVgbUynH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPv-rmrH6JLJvUb4Dzk4IB4JJMgKRXmb1rEeORRiLcjZ6ob7FB0GcA9w5sAVd9IMF0OZ8YHAX1KIB8du0IUx4a464ZS2OY_4K2uYqy4pA4GCPxm0uOESAhDelGW9KVX3JHfT1f8U9c_SPlkJAO0JjuhAksec7XX0C3nCQtRowUeBGcJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNTNscU1V0wyGEUii6GV7V0z6mk354tKeMLmvKaawdOoMche8-rMTStxuc7Q5xBSyyge9JYmlc7exSISIaSSukLspRg4FKCeGV_7hGgnsytLIl5IjRn1sIZbggpC4OxZozYwNMUsf0yXlTYwm84nXunTu4a8KUcjUOBdN2puYBr_TjJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOPHu9wPWih5GseQDcIlJ17CApZgCA-GcnhzH9DzztssVo8YB15MOT3fgIjxlBQ9zCKXtHbusHtAscVrUNso2b6k6D-eSn5nmJzLajhZyxL67ZW5DgQGTqRUUbVRR57oTMMNILqoc-eSf9VO849GznTBI5Vx6RgCb6BOM1LPCbWBMzU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPgG_3OxcMJekYvobarTmqlXVWGM-F5Drac9bwn92D0sCm1RECxgwJqCzNyd3fgJbUKqaqpB9ZsSFVC_cSyR0FhVMWEyc7n47VlJS-Ufq-obMxOW8tT9HJ6eKc6fXTSTy25cr7eKpgB_jIzMs8F02nh8iYRY4L0OXiDBJL2zvRGxpqX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.2 (1329 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Barbecue",
-    "Address": "1094 Madison Ave, Albany, NY 12208, USA",
+    "Cuisine": "Restaurant, American",
+    "Address": "461 Broadway, Troy, NY 12180, USA",
+    "Location": {
+      "lat": 42.7308889,
+      "lng": -73.68794129999999
+    },
     "OpenStatus": "✅ Open (Closes today at 11:00 PM)",
     "WheelchairAccessible": "♿ Yes"
   },
   {
-    "Name": "The Towne Tavern, Averill Park, NY",
+    "Name": "Bob's Diner",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOacGQgrA3e4KblPOLcPaGUtfqfs2uYp08NVNS9IZIU8AT0eaGNSyR7LvUaMmI9dvHy2IzKkI0LX-b2qF6oG6D1vcR1n6RyqkahtW2Cu0TZDeBNpQXySelmh3oNTk7R27jNpzgK1LTHOiPPmIwdregP6UIB81DNUzKvE-GUI5XDTTdt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMmQuu7J3CIHRv0pQnwZneZzBT0AhG1NDsjQZ7kevXeRmuo1bWpLqbO2KZby5nomxG5ofuyZYasOzNCBad7pksRM_6cpLvBUCYBwqwzBdIB-Ii7w1TIG5C_rRLdvGvzmC1QoiaCHCtoIhiI5DRvO70lqvuV-XWMfOHoxKLkLtL90SHx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMvtAh-cys9td0vCB_W73d_J_RvS35QRSjCGY7AwbYYYpr7MCWreOhwBBC5jkikmIYWATPwH-oX23wQ1xoMeY47aS-sPdjUzsygv0FjZsBHBtVvsU0_oP-qn2NYPqjA38QilbdoKWgciKISheWpQoG-R9QZk6mRqsmR7dBOtrrk9LQZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNns_VLw9nF1T6GmN5J2tTZd2qHBuZWgpHwm45DUCO2FgKtbZbLa_MlL0foOn6vbjUnWv9bE5ssQPDfjOuezcpZnehcoiIztzE-I9MomcnQaLnDGr04S914fROd0G3PTuefgHzmvo3kImV1KAldehxc3ZVL9f5jvPrbkzetdSvqkKRt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM09vNx_Wgfh6CVe0Z5zT2oznj8uR0dF7eWgl_pWnnOzyAkXmbU4FaowKkN0n2ZHYEMMKrj6CCmzX6eLq40vK0JqLualxBb2KRctGKx4ihj-gpGtaHt_v-ban8CPcUsvtbEzpySOrFzFj4plCRar7NN1PbWtLJEx865VDdBQibNBo8H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrUU9bGH3KkEeclgH24zGQGkUrL8-Z1xfNF61nDVxvd5JmX6RMREd3ptyeU9ypZ_u2tMZQTjTq6ZJqz8ZbtH7ZPcFGIDQbN-rZzBJzRFqRXO4jJEd1Db2xAZ19HsYYvO59NfP6UDqL6qm6kOenMIVtU3NrlwnQCXlYWv1pywFCVxbFs&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWq8X72P55-XrrCikzj15DpBE-PoYEvY3TnXUbu0zrXOtkPa6pX80IrNNXTPyNTfybNhyO-5k9M_oBPd9GwsnwvBVxaFuSYuLMbdh3iSRpltLxrbKBcoAlFi6FCAuzevMqWV_oZSRoQ5v-lTnDRP4vkbYPOj71eEIDUo-QSLHbppy4UF&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoyUPD8VaT1eXftptdwZtD1cADjC9lRMQZeOFpkxOEDCOe_zxvw6OJDsXhJH_0VOpuCKO4RjtWcgtb6aW-l4P6-n8l8um2wC6NTr_7jVDhYGSMMiAwLqqOKg2GjzcR_8nIcIOFddyBPsWhaqjGohXlghVK2azmj7FFIpawMOb_BqqCT&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp3otLhQEB4NMtIZVlKeoJPUCUvDJ37VfwzwAFlD0k1N9XT4JP4L09OXTDwZu0q7pAjIM2dXSwcrYzHJWOcYAFl_v-9fFd7vxPp4bgq0V6mhX5GcqZ_SmuhS1gBqw9UVP-ODSX47VgXhk5WnpXoPJ3hcMXabNEwCz3RBQQcbL9lLg5A&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpZPG7ez8JpsbPGS3SYHrOAD1KDWEAlEvZov4XxT2Pr2fWmYEt347F0xa0yrzEJxvymMTR3pvFr9hadQkxUuP2393c-ah1bUSi3d8bAi4IY8GbwjC0J7j-HRc1d_BgKXwLN0xXW3n2HgYLjKG_fQXBttPRR_hV78cy7FsBYgcNW_vDu&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.4 (1069 reviews)",
+    "Rating": "4.2 (1653 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "929 19th St, Watervliet, NY 12189, USA",
+    "Location": {
+      "lat": 42.7326909,
+      "lng": -73.7099365
+    },
+    "OpenStatus": "✅ Open (Closes today at 11:59 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Naughter's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrHS9bUTSE2Kkm16psmGDy-KlHn53EnVWPKRlj30a30tppCNkh55uvA4wGERJVtNVVAr9FkPi5bLr4VR578EoGbs4cEiGBxwseunys0_6PR1hQILQwXZa-JAll0U3a1930gMXZYVi2pB0Yy3by_hwKiX6iUEwt8DqmRTWZPz51hxKWG&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrWrVZVd3WbvXAylZDewMDO2Nxz73oG3u2H7z9gcDxIsco-Pwr4fMHekGWjyfjyL_xIfmWwQ5QMDdS-HZGe9Z5rLrrxDsw1aJdoA1bkplzDJ6d02e4sRvPgue-SGQWj1HlhBjh7rP50bFxsptgDmsZGtyyoVYzXdtFblCOLBYMKv_Cy&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrh0s9Kirr7Z1T7n2MTf1pjFONy7hvK1fJLomLSGLTuLWu6E_ULGc6MoC5dia4JqDk1wJnBEwVuGlH9b8p-fwmOgl44CtP76YZNqiT2-3MrUv7GTqFMtMzi9MkrJ7OHfJ3S8mDTFL2rdJlCAVLeqCiFjPtJElPSXhKGgZq9OhmMhjzG&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrLcjzf_wgYnzw3Qac7Ao59of5D2Fjbu46EdOvzcBID4WyqRLVXqKt7ldEnAT9JgXI8ZqAeAg_vZtf-IU5KF3Vlr0sWzOYe8iXv2rIF-0JX6B_1nL1tAU3ik0C_FPXLdgpYbh2KhZceVCBRoGOxkNwPrmmNJdnpyTxWX7M6rgrj1MNu&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWq8bfEJEW4biDmSUddWNIExW1rG43PuFse9XPAxhHnpDsyH1MczoZrpgHhiTcxAYW5acMreuLy4fs9gqvzJDmpE7ZNpVnRIlO1NqPMg0N54fPgoFm062eRwaP_cPxxn3Uy43yH2iDxHgpgp87tXZaVMG1i9vbV_4DftGo4ADQ7xCOSp&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.9 (300 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "1809 5th Ave, Troy, NY 12180, USA",
+    "Location": {
+      "lat": 42.7312362,
+      "lng": -73.6879173
+    },
+    "OpenStatus": "❌ Closed (Opens Wednesday at 8:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Country View Diner",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpEN_RMM0tKEpgFWt-i-NIDiMlpLAbs8tDWT4mDgCXLoRkJsKLZHHow0EUnXZPCIjfAytRGdHB4BUvIc3I0tTKYrh3GN-F4_u9HMUQgXpezy7tz5_0-po7-3FH0kySH1SchCRKrVxqxdIycK5o-s3X6U1FXZNDEInjjjKMmbLaDmKoM&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWouB4z_gIvTGiL-EGDFYK5MO2iQqJ47nH2ezBXt_fqZ9M1xwb5DINXfWkkT9xodbmr9tmNNz5ONN7y3tjGZFmDls3ZHJshHvHl8t2sP6pQ5Nw0IFOPr16jF6D8ENgLRjA8AwiZ0qmZsfE6gjMtYENhegCBh2O2e7lUOQoIYkb4Xn6y1&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWr7txU8nT9fow2-60yLjPLia5hAX1r_uI4OrHBnkECrZmVch4B4y1eUDdkFexde1O14D7gvo4_IeLU9nsk4RL_Xq_h2fnl9twfGDA_OLmN4GiZhfVHgc1GDoeyD9dB3tXZ_55InYfUmLGHWkuwZgDiHFokUaaREurTq02jHMw6wEk25&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrklfsEOt021YM9acqiTiGyFxM2U_9TpgQDE1MsvdSvj7OC-XTCfza8Ieqbk12WsyOtACsuNPVQ1jHf2mvawpBT_e2nXQOxbPo4g6gd9g8np-HpuTZMAoUg-5q_q9-oEiXxpLywfmxJOz016Wj0B5VETCNX8L0QkEdjgMUojL-9V-Hx&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpuYeVsC_MKwhZuojDnkb3BufgK41JEnD0sH1QlQu9LDkc2JoUUXEXx59V2unNJfyKPuz1k01c7gsZerjAbpDdUvFN8s4Ht2kYBVATqWt5oC-cexdd3hs00UXk5w4jRfMoYKNAz3F7o-p4u-TY9ykjKNfK0hPXao97kojdwT8sxK8s-&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4 (1284 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "855 Hoosick Rd, Troy, NY 12180, USA",
+    "Location": {
+      "lat": 42.7518637,
+      "lng": -73.6291907
+    },
+    "OpenStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Herbie's Burgers",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWr2hxnyOW_2xD77M21bvyrj-ko_-WX4tewa7w-1L0sUGedIfkv59iBPrbvJu3WLoXnsbB0XFherlUarl9qvDVYCxpB35YpsKyfL5fIoVDXZabp81chy_Sl1t_EcrrECssie1LWmJdSRpq7a3Ygp7oxZDoMBjD892siuDevVvNn1U2Rp&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpK-lXNh_Q_v8DtCgBSfXNQuKH6Lfaeeu7hPYf8aicKFMA0iajC9DPU8_wSNAoM6glEZmtlWlliOSILZRQOZ2TeTbUyXILQChUWxgDQZyP1qwxXK4cIU_cCSiDRUPS9YfcWnRaIutJv9HoZIM5ctMIFT612_zV3TcOfANDV3eqAlp80&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWreyb58uQAzw-bRKuH251nNQie5oudfI8mDtFGlCKSXcZv-1Lez44mkbfEMRgempl-aENjC0qN9juDqHznNMzNyFcOz-k4TO7q9iFfEfNXe4C29E47vVAaSQaDBgd95cDPwxp2drzmZ6UEZYecz3bj9bj-0ZryisEMaduMVkMH40s0a&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrzGEnWwU1G9M3hRZxdB_nd8_uDPSrRHh9OSxO_O_w80TmuabGR3Gne3VuM0Qt_16mW49la9VMEeIzDWAvvh9e6gTI-lur2koIeZnB8Ft_ZqPY2ec7O5kVcCdlzsrnoq4h0YkzXA8o2hJUjI0F-w9aPLglSvue0pPgrK4D9uL5dCRZt&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp8AnzTYWa45bRayn7Bm_mj4mwgi2KG4eMrVhbJE4Xz8OBOG94gCUCagzEpF37P2oWztXJniwyCxBqkkvGO3JQwGvCDHykHOcUyt2xxqUo6v5A3WjIu6HwYw67rYEvqfs0qzSFCo6CgSC-AwL2hitvis0KuE5Rw1a-ZxdZ-9x7it1Jm&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.1 (529 reviews)",
     "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Barbecue",
-    "Address": "2850 NY-43, Averill Park, NY 12018, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
+    "Cuisine": "Restaurant, American",
+    "Address": "196 Lark St, Albany, NY 12210, USA",
+    "Location": {
+      "lat": 42.65632919999999,
+      "lng": -73.7635635
+    },
+    "OpenStatus": "✅ Open (Closes today at 2:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Allie B's Cozy Kitchen",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrgQ53Do_zV8WPT-XH9upx0VJW6zL-z85c70EqBMUsBneVJHDO5-RcUzwRtEce3yRz-N598ucv_UK-MpB7bBh5kM56umy0it60x4SdElCPWNO6Qg1zmGj2GRsa7lUQNdWoq62ZLy9baMehesCEPmrWCPGc2TEl_SypT5wXnAan1ijgZ&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoD6_7rqMFMcp6YGMDYeSOI_w4mWZPElIsEGyONjdjRBtmg-U3W09o7cFpuemIRQPnyE6qkBNwDBjFY-eCqcsLr8KavCYR-kiA-eKh7VwE8nfaS4HSsTzevWcbp80OTmmIKnJZvzJ3QH1xGV8XCYBZFzkcQxqRLGv-pWEUYo_kksqMx&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpnyOzzrB95kQd6iS2MahYPCE-XLT2ASwcX3vS8ViIWwG7jh2ZYQHqYRbrwBgssKm_cUnAsrRyAia_5ZJIJDXMML8xX6jowv1VMwhW0_kwHmBMSroxGEzg8svUDPdAsbLFOK7Li3dSlMpHicX4qKCGIvSBG7PQwRK4UA01E87MXzi7F&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrDEorTxc4cgE04aP9u9jUBJGrJf6GbsPkwfvgf1JaAzn1i8pJFxr88gt_kFSxBX1gAli_4pf0_skmlHq9e0PN4hYOuYHJNn-ey1pco0_mG6KCInnzmiWH7Tt1Nca2niQHJACWxzgCO6Q0ZDGBbMWJy0d_BzD7t-KYZknJYEJPLL9jN&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoYV6iGnGOMj9LZepOKqt-fBWVfncQGaiw3LMoyK0MxMUygURGPb6ItAfxuMLJvD6LdhgdSrFm1GWQ4ml1MzyI4EBF2fSfs1NzRrBJFJfUgeMBCRlmA4GhxHIrg7IAYh9dQ6py5kfUv32JxzfDzTpikpedy_dnnXWYvh_6zWcNH09B_&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.3 (390 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Restaurant, American",
+    "Address": "353 Clinton Ave #3102, Albany, NY 12206, USA",
+    "Location": {
+      "lat": 42.6613386,
+      "lng": -73.76195779999999
+    },
+    "OpenStatus": "❌ Closed (Opens Wednesday at 1:00 PM)",
     "WheelchairAccessible": "♿ No"
   },
   {
-    "Name": "Namu Korean BBQ",
+    "Name": "Cafe Madison",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOdTkpkpLRaQCf6JruGDp56sAKbu0dwWunfHWLrNeEIWB7Qb5kSZkrwgDRQwliILdSdEUwNgtEStyF4hingkWo01XqHU2whw8K5FO4Z90iUfnLyIeBrQm6dFAoow7KIDOZr9pw20eRbT-c0kV8Zy7EO2QtLNF8eS268TmPsIHKhCT49&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM83cgCqjsPS6LgfNd3ViiqMgwU4VPqFqnYiUsOhP0eQegepoQ_4NiLnyRPtNQ8GPLe5CqWDWaEwo8YXC7C7-Vp5DGO49VdmQEVB78R3bGX-wnCmSDUk9XSJPtC6IKV_YQeDt9Sxq9j8nJFKpxyzXzMPJOTF-8L2N8yASax11MJoeAI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM-dh3ftNDVGhk4LsqJ18SKBnrwRkDfCqzB7qf4GzRGSEZPHYtOSikEtC23FWa2QWYjgImEOVrfh0yYydD4Awtg9d1v1tF5JYPuFHwXyd704vTrqmJi3XG0tP0xVnjQ6oRVYrfsTVIYlDp5m5eberzKpCGeiXWwOWlD1kzRtLzHpUxB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP0NUi8-1l9xyHgdGk4iH5gljBDmklMuivxinWzokeulum4tH_1mkVNzFEqRLNVt1_MqljRw80urDeze1ZUYaOb_-OpeqSDKZv6Kf-vzC95mtvjDaJVJluMwJ5kesCxfSdVP5OohEAG80YsvBCWsyMvDvnJy6ydP6LVv7gjf7Y83XVe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNaRVIuji0-LkwzA2eONCcAoz28o2Bcj5wcAJkS-iLrgNrjhaAX5Ups_Ylmwiztp0r8qOJW1DSMGlIXtcwZXYG1aOM8nVFrwPpsk0x9ouT8ERqKxLW3rYGCxx3Wt2CDi0lY-XNl4JmHiFx4UrhOc1A-ZeHf6vB0LBf6dT32VDLu2Nn4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrMpM2GRc3xbJgsnq9l01d1FP15wAskUveY-hjH2tDiRqRh0mqBxc-1uKzasEFC-6KW5G5qCVYAIPDIqDOON_gIxDYjJc5KC5v6Vue8-NTbk1mb8lKz_oGxIpA9PgxO9j6a5dHDCaXpqMth60cdpCFQakM-A-_fTCy7qKK5pxqbEsfV&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWonerFkig-2hCigPMEW1Tg-j626RUd1d04SnLmxrK3-UEqYUGyV-y3efUqBdPpLCta-qm9P8qEFE6ABXc7rSoAqi1o7ocr7bp2ehZkR8CEErU5fkCuyemWFe1t__fZ9X0tXMgYChvbGYxKDboa_5iWlKNfJfLXanHm9czh797FQTojq&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpwabjfR6nsmMyhuitgZQY3glTzVo-TWqhmgFh4Q1adaKnK373xmHEtYRmwKmDqwgHNC10hGq_984fQDu41ejcpA1rY5CALj-4FPMeBrce9z46o6_rBBiFvyBzfs7kLoZQ4aHbIrisW7Ey86U3OMBOMesx46gWx9f7ZoXXdCJMpXmaC&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqlbolC-VaoyqwOaU7DXXPdurencqL-FvxqMJcmNkSGGs9kj__nWaI9Qh9GJWFTaR7eBlTHeouENAmSEHrdxqYON3SoAj8TaCX-DtV-NzUbGTEL3BjW-y6JpWAZ98zuaVNf_xdcyXD7jEuq1l-HMy01oK6-D9jZvfq6MuoeeOA2DYBZ&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrOGLe3Nj_y3QBpC35hpgbisn6D9ACvkwYjQ0IwRaZq4L37Zp83W5sxUKGm3wSg329jTrKy0nogqTWTzBmnfgjLzMBnlnqw9FLXzYhXcI6Vz9_6yJE-qHqGOTi0FGR1dJ73XtAk3tylOw-hfbxfBkXTTpQMj5RwJeoYNdOby9L25zuq&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.1 (421 reviews)",
+    "Rating": "4.4 (712 reviews)",
     "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Barbecue",
-    "Address": "1770 Central Ave, Albany, NY 12205, USA",
+    "Cuisine": "Restaurant, American",
+    "Address": "359 Northern Blvd, Albany, NY 12204, USA",
+    "Location": {
+      "lat": 42.6760041,
+      "lng": -73.7486187
+    },
+    "OpenStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Panama Bread",
+    "Photos": [],
+    "Rating": "2 (1 reviews)",
+    "Price": "N/A",
+    "Cuisine": "Restaurant, American",
+    "Address": "601 Troy-Schenectady Rd, Latham, NY 12110, USA",
+    "Location": {
+      "lat": 42.7529163,
+      "lng": -73.7673432
+    },
+    "OpenStatus": "N/A",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Juniors Bar and Grill",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpJwAM1qXbd3yo4gfBzkx4vGsYnZnm0_7dLgsZX3DIH2L0QhQoalBUq_vS__3BNkVIWcm3fGWqwGz0ZgugBoS5SROZo0VrilNDNP_8dszJHyl0-Gb4fB-tDC8iULhGtOLI6UHgwd2PAlxq3O5kNKz1whddf0cO132wsSzXHqkdy7vgh&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp2oIUIUgUhzJSM63DRGoqWQ-s_w6oTXIpO0jLPmV9BGIrf2rgMRiYo0SQp51Sb5IZuidzJYpCs80iXMSjLIM60H8RAoZMz8jXB-NWGrQv989bROBrGm1wmeLSx-jThQBdBfIblEFsTaSATzqFHNnpZ7P-6J4D33dmb2C-mi2RL9DOJ&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoMJ3K8GySnzjsi5vNs5wvebET6Mav-VGqIr0_Fgnt5dOKboFtmhU-25TlTerWJ7B7weAiZo7z07-OC6QwOurI6bryvxVHknQTPT1UuN73KT39txo3WGgxayigFYN-6Un8KE4Pyw55NbT-2YyhPIPDWeG44NqBRryxUi_hzyzGkBKxv&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqo6pewjemujExo4jc075ndKRSx9C6NJOw9B_01rBvdqAvpypO9U9vDUSczHNkHjAL7mChj3eTVcnRNdjvVR9QuO6t2wl6z3SxayJgKFJ1fKJjm8i1s8_1645Yozpu3M2_0ey-64-w4xO9P9enLRquraZeHiDtbWkeGLIho2VfzaaqH&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp4rFSFtKBK2u_9zozCgWMlocPTTcJ-UIlEL1ynL9ZsrUB8vmaW8rQkl7F2DCGUa9b6DqU73flC_AA9CK9OwwnsGFhXECdM2XXiElyAEC_NiQ_-RhurCelfs4JyKKQca9aieKaOLwcZirafIxAoJTq38awR4PQONdAyhfh6WtxvsBYl&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.2 (1333 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "1094 Madison Ave, Albany, NY 12208, USA",
+    "Location": {
+      "lat": 42.6659119,
+      "lng": -73.7915771
+    },
+    "OpenStatus": "✅ Open (Closes today at 11:00 PM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "110 Grill Latham",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrmoqIf5tj1FSuvFrUwi4ZB_tnWsAQvNQKMDWGEjj2RwOkRxdcWR4Acean6Efm12THSRHnkNzqY1HpHwXqq4gC-EYuOtZiT1BhiN_iCkNUq7nHuzEDlnk2xeU5uWMDvhk4wmF7yrUd-K5sL0PdtPOaeoKDnoafAboWmFFlw9AbeTwnT&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqS5K-8HM8T-lQLSxqDBi9VWC89eB42xEuSp6PEp1mNCgMBGoCNM0JCWJktcmfAU3V1HPcmLcXCneRhvJGXcWD1nqA0Y0Bcc4CMjjwiVWwyCzihtC_i8zj_KgS2LRHFzrXDERBrLne6dCPpmGxHSoSAl_KcbCIkhkkXgysCNNkkFK3Z&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWou7pP774wXexQVbu_IT5-0a4g1PY1BoAB88DUI9phQ-Aw9A922BkvoIpu8m8M9bFzjj8XTQ0FrQAP-R-FWoRHsrkKNdCYmksn8oXQwKj56VU90gMaSPUiuXg_-BkM7xAnbzyPhJLB09UnVo2u58D4wXkrq0SZAvDET1pMPaXNfkcTe&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWofPE3rju-nJxzLKrZT0zcSw85nZiXXrLz90NbrBWLe4-5mrYrxuAneVjbk83j5xTOFM4QhoPSMGdAYzwzTOqQqU0OgonGL55XQLMDBP4x8ZfOsqM8g-YmRCZqipHnBhk-Iz_Ci3_-C_SBS91-F1AyNqzI6nyrNk2lVCJGK7C5YAjja&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWo95uGc47IfRoywe64TcAAAZKNzguQIaMpUgHY_ISiFSKk5R6KSgE9ALsiJkt3OxuWsC-sDsMxwZanTspBtRY2EFs0ugZeVBgZ3GjzM5vKhYTpug06pvScdbkekgfVNLJ7LWyKsv9kaSHmuCPeLeYH8e8NWBh3Qu1fFuCS3YSWBYVjd&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.2 (681 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "664 Loudon Rd, Latham, NY 12110, USA",
+    "Location": {
+      "lat": 42.7366612,
+      "lng": -73.7642228
+    },
+    "OpenStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "Manory's",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqCTbvVPWV8le2fivYQSXf35_K4_rBaDcERxjOF7U_zpwGfpu_DDFVGI_S86IsjU6IAT5OQ1_MsCoEKziTj46i7flrXYWEp8UGE2XL_V08SQhX06LXAaL48vxr51Vrw4h7Yvu8THnyBhiNlZEBavI90_1RjhpihtCoO4Ku_GSCMvrc1&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpEOsk517MehC1zFhHqFQmAswqz0t8Jfgu6Rc_lGfXwpG6-RsdNweQSFJJPEfpgV9YHkqCRuZzaT_dvOvufO6f7_WZuzaZR0omYs1Bblv3K4xB6RhA0tmSvtxc3OhnQxr3YGimpdnBA1EB8shbVuPS-9_kmCvwDY9yxp3w7Cnhv_v8&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrq856VEXySOIrKQ9RCDh8K3W_x5wN_NRBNHZZ5TyNtpwHEjFS6EGp9UBsJwpY8aZhHWW_w-I2XPHhCWzs_sazVwfUH_8kdXz50R9KztAuH3NMLN6Yn-74Kb0YqfHUXsSo4cAGl0m9JPVfyP4ZgI8hy10ZmPGRCVWQPpt0TbypqBrCB&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrSw1X46jljQSq5BR3EMXvfsrbzxU0DFwVInyf_8AayWjAfrSelqhHaU2vOkkizaXQePCRM9qHwi2Rs9mJg-L-_CpkwnZR8fbqy1Qo8PjZbMO-wiIWrp3gBfSIly3Q8TSKM9udo6uLTumHsNMlwgnX1vcKVJ1u3gX0Hpvr1CA7J8IdN&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrFdxc-UYzX1Wx7YWG9nXuXT45Du26MW_EqGxLRhHIwaybD0EYmrAG_q7IDhn1Q-SBo8b7jduC0nj1zhRsxF3b6skjCeyqz1Z5JeXfcNIFPbi22znk0oCYpRIxt6u0bCwh_BZlX3N9XqkA1g4Z7GPnSI15jtBvpSrZTNYApbsnv-W_-&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.5 (1120 reviews)",
+    "Price": "💰 ($11-30)",
+    "Cuisine": "Cafe, Restaurant, American",
+    "Address": "99 Congress St, Troy, NY 12180, USA",
+    "Location": {
+      "lat": 42.7287264,
+      "lng": -73.6894153
+    },
+    "OpenStatus": "❌ Closed (Opens tomorrow at 7:30 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "The Restaurant At The Pointe",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpT5vovMLpyiYtD8k6uzP_1HwNYz99lrP5vx6w4z3J1LxF4fblE2VLTiL2CNb6nPFNLnbG8oIubb7gOrpQVfNikTJPbMM7Q8DxVLsx6yRJrWf1oIZrMv-BEas1No820ZX8sncjaUiZNRRIboWP82y5WPVNhWmP6TZ2q_vLzWWK4B65u&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrtrGKYMfIwMKerVlTt0XIDVI0vRHLK3yBhpf8cIf-kIdO-n19q1rrU99gyJPWdoGmBfEcq7IehmqLpWMkn9XeE_uRLos4I2VXTC_hvJLsFnrJy4shmW8lbjmzUWCdv6q2cjX91dSEqARVHsuf4T75ztbe7DnzqGlkotzyDHD-6hUGn&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWooOL_9CehNF9OfLB6J7KuQVR3qA0KYKjc-NHlgw_i481crDvZ5kW5WIcEUEARi4Fi0-hm8Xco31ybWo1wEccN8ZwqcVzkBNA0U-wHaM0t20VVqW3KhrzkypHARnZpZ7S-bihgNRabUf74DlEY7ZgLyr-Du4zB8e5Iwp9v1NBwJOsSu&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrrcTV7chfkt5fu9um_76wEaq8sUXa_1Xt5mu8g1BooN8LA-4gJb9ut34JMTIqUEUYIxcjhzUTl-Fewd78lSFcUjo5NjZgtxqlpcUzJ90tcVTlDvHQQ8Oi_OYPuCQ3DQDtHYthGb--A28u4eKEbDL0z34p2cud7XmPaFy3STLck3gsd&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoJU94VLClT7M_fMloIbSEtttoe96u9Vd_l8mI6tpSk8VhOnIV7BDOM2yOITC0LCChzrqt7cRaSsVfYF_7xoyWldvjdkK7iq1rxWJ6XfGfd1dJb4ig1h9sNrmkFErawxY6MkIsBlrio15tuNmWr81k0vlVzXef-BSUo478uFoqYmckM&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.3 (58 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Restaurant, American",
+    "Address": "1 Bell Tower Dr, Watervliet, NY 12189, USA",
+    "Location": {
+      "lat": 42.7324771,
+      "lng": -73.7327612
+    },
+    "OpenStatus": "❌ Closed (Opens today at 9:00 AM)",
+    "WheelchairAccessible": "♿ Yes"
+  },
+  {
+    "Name": "The Olde English Pub and Pantry",
+    "Photos": [
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrbMNXbW5y3rSc8IQdn0KPpn32fLdwk0paTvii1HhqRseFhLEDtWv1r7XRc3pjBlHR9bSOUEmbmkRC4VtSIfOLqywjOSgCQXKe6_GnITdr5onaNo4cEcX7QYRy4TZNzGAIm6CCkpJYEwX1sLT270mHU5UG1B9qluKJOPiJaQ0aiyfPh&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqsljNC8D-SmNalTraxajOtswfP4EqDAWAYfIZKv6udyWbRjEziyMB75Gh1EnsU2U_Dsu-NdCCz6F0D_bItMzo4aihv8BEsltGGEZ63hjC7XnT0A96xco40Bt-MmrlZj1cRKcBpP-HtOhfZg6MyS0tYmibqkKkVrTW1f5QoHwQDZ-xL&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWopsLdnIhMdfOF_EH0iT2gKkQnkywn8CBA-eaYbERGCJOV-WgAJy4XGYEn6yNFwlGsF3o9IOYC4M61bzY6SXC76PooKawfk8Zy-JGf3GVmSvZpuW5f6loglfmyCRcI_Z4bPyhYAFl9KPG94YiFQDbCxdJT3dOpgqPPAj35cTWX3XI4m&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWplo_0K1Btb6WES5TEwR2tSZWLtwV8HKW7JcLwHL8RLcGX4uaibRmXJXF7AGrMsf-tOU2F7cz4tTrshMYYy730nRZ_D_KWvKtacAcGwMTLV5skuTiFR_v2JP4Y0WcdJs0i3Xt6ItYLeYA9fhCaOMOehGAqLp8L5T3NFrsixoqWcoLfv&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrIZpLTEr-DkrLrFv7-atEGCAcRVJ-ry20rtF_n9900s310NGujGWhbZKHdDUdPc28LyhT6vG5QcHfPjBfRhDtU6Ks9wicHkA4sIvYYDVTWODloaRCa95m-I37mk1vdUTbj9olFINjJST66KVFjH546CnXfdrlR7t03jP_MeeRdYB2t&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
+    ],
+    "Rating": "4.4 (1249 reviews)",
+    "Price": "💰💰 ($31-60)",
+    "Cuisine": "Bar, Restaurant, American",
+    "Address": "683 Broadway, Albany, NY 12207, USA",
+    "Location": {
+      "lat": 42.65401000000001,
+      "lng": -73.7484724
+    },
     "OpenStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
-    "WheelchairAccessible": "♿ Yes"
+    "WheelchairAccessible": "♿ No"
   },
   {
-    "Name": "Black Bear Inn",
+    "Name": "Circle Diner",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNktcsrYIbT3cBzsGwncjYguPt-iXIWsm-UK-icipKZLHJGwVlhimhB-rvpZst6oeYd5jSb7JQrBkDDfTUmOyqCXmoJvSBXc8Qh1OhjuqxFZ9H97U-TX-V54fg0Au1-2xXV_bLYXhr6m1BBVK1dHazvOOXl-hfak258WLZf_BBMXAXb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMGPCDJ0XT8_xVXRoi_F0si6TI11yt-gy09Rv9qiMHEuzQBtvayVUH7HhQAUyU-IgnXJlGveIfYfQ47cEghSrC_uDMy1i5oWoLaPbzCrM4DscRcHa2rosGp7XahsNb_hMgZvTf7gRBzbv-MY0uU2IOdYrp_TnF-Oe6DPfJZEaUTc3F_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkTSmWgiLFcR5SiH-Y-Bl5tDLo-YcyE8-doahexgs9khEQ5y5FgAPhsAAK5cIzXFX1LRVdRKXcFD1lFTUucLeXS5bt5an1QruP4GVgDJXnazk5YNfv23ExVkkwzGT46dBG2q_PZFCZ9uoTWuB4Mp5sq12onbC87jUB-Q-F1551iYMb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDCfYP7h_Ze0LdN1gV4hSQvVRv4dER1rJMZjKbY5wU_RqaJG0oW9FUTG2AA4Pwwf14hAN1HCul6P2gaDeTd-CN_7eOAk8DH6EtBH3xiL-D8ZC7f_tRdCFgBR2rkZle-sHjzhAt-yYosO_DP5Mur87pajaxmTlNHbzV-3g2lQ_896yf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNUBUMVVGKvcxydMurJZS6ITRokChAx9xVeYBUHuugPfE6UqKhnbWzLTvc07jfOCeNqdipYkSAnKOrY0DjNIvA7NUaoMWSgnivKZkCkkXOMOLA-AkGpxSOuV6UA0of6O3a6OJ4xGHuQFENyqtO1Udfr0lhrRE3GT2eLkwlO_4s36Mz3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoo5dWFAGwuYLOp_iQuobtEcNn5uQe6S1PBFqaDapvh8OCW_MehiSOI2EyOVyE3mJIudOJKc_C9AUm5UEvyx1XhfDMN9u4o8QS1mTw26Lv_v7qxA-5x80zvmTitFWV7aFW6UuEZnzxZsIkalVec-VobIt_ArQ3BQJo_MGSaZ7OAgGal&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpkfMBoRybGOYKpKiMLjPYUoWOWCBDXlVnN8XijG_w54I2aVaSbWxSyDKe0jHDb_qQy2v4pbZm66_H82q_MRFOwevnS5dqc7DTy1aILiS_lXAdNSSYFtz2Ryn-g-SgConLUvFtTZ3oP5h9ZGTaiOtlYyWhWNZUVFx_QxiGH3e2yyVJt&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp8pPpMOUSIxN2fZqdwAx2uJbqsPk8iNNHuS7F5GITmHTXN7Vm0grAMoPuZNH5RSF519X3eZ8dKgm-BI5-vSYheTksB093KlDN3ZPeh8IT3A8FwTyfUSR5Tqx5_BHzkkDvazgK50Zgz6uZALbQsQQ4GbgAUFj8oJ7PUslu_ZUxTWM12&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWp3_vkLhpWYZRIl0jQEuedNTAVnvS6TWvUX8_QYmffH8knP0OuflbzuuAR1pNyCbSmHydus66rb5FGVExQRpyw0W95DM5A91nPe-WHlsUvKlM2_Jod5lj5Uh5ap_Caa6Ra1S4Sd4XTZlFM5qk2oRMlAscgN8_O2NyDys2oqsxXHEjHw&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqYDLs8q4amLiuKBg-1vAEzNtLZXCTRueFNEuVTFen6vCHIr7JAmSa70G7549QyuTgPjeprbQS-xLV13w2DWnvWlx7T1H4zzGnifxv6gWHsPnLbsrs6d9o5dFxo3B5jRqUPv_ONI-PpxdGkgoh3YBLpk0VD4UQnRAnrtap5m4ZTG-5M&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.5 (481 reviews)",
+    "Rating": "4.3 (246 reviews)",
     "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Bar, Barbecue",
-    "Address": "310 19th St, Watervliet, NY 12189, USA",
-    "OpenStatus": "✅ Open (Closes today at 12:00 AM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Sawa Sushi Bistro",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMfIG6TSlW08TLDfBWyDKqynv05NRUMnkqVv0Ct3Zgu-yS8Npktdo4yFa-V3GxcKqOVlLI8_XiFyIGz0emRf1qdi0M_2kEeoUYFY8G1LICQGjUoAo8APytP82pkBiVofnEMWcpR9QYOQ3m2rgAhqnbkJqCrCXrMo6dw5taBYkYFY8B_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN1XWITWnaV768inGZNzGSQHeTnS4DeIYgzaucUcSAJrZTRZpXZx4UETz2lCBUiobmHCaEy295RwYptQ6sfIoD7wifUu2orsvVaVi20ttKJtATpCdCm-Bu7vgzBHj4zbRs_qFdYuBF-_e6ezd8UB-ppP83dZt6nfEHPGle3ger2YslA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPoV9xnEkB6A1DqeEslsQ5zaYYI4XNNsUaZxLkShG4m-2BuznwLr4A3OpZaMxhtoqPvNCACZ1pWE_K6as8GKGXFv16gYU_iNaORtb44D5ONasgv0QaQuxFr_gLhOJd3g5OGBjOLpnVZFyjIWNUL2JpVI6-0YCZxLxqgZaH8RdeB_58C&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPjznvRkNMv8hAVfdqaIhJ0yM8STzH0D3zxi1N4VFtiws7DHhZ5kdE72NVahTt63Y_xL-dFu0eSo4mZfMasNUi_VKjkbLOfpCsuCTcsxwBBGjISrM6Bsevbfd0WnbRv9dNYklLvZ4MLjw0xRcXlJXrT5zrnUNehACBoZ-uN5LBsXCB_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMLcd2nxUgBt4rDTm5W0XYw2Ui3mxNIAzlBa1OXQ7OEa1S5r-3g3LwRhzZjWIMuCiJ3f5fN5w_z1fu2I_eTJNmiG0rapim1WeQ_q0dQe8OGRXZhkOS-9nhR8ue9rd9E2ImPKpwONbzhT12D5LQHKryGRYEqIn04XjvfHdozWccQ7WbA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (170 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "392 Feura Bush Rd, Glenmont, NY 12077, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
+    "Cuisine": "Restaurant, American",
+    "Address": "813 Loudon Rd, Latham, NY 12110, USA",
+    "Location": {
+      "lat": 42.7484684,
+      "lng": -73.7602904
+    },
+    "OpenStatus": "❌ Closed (Opens today at 7:30 AM)",
     "WheelchairAccessible": "♿ Yes"
   },
   {
-    "Name": "Kuma Ani",
+    "Name": "Latham '76 Diner",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMgOP6LVTbrs5nkhF0wdEQfihQjNc6u0vh780tCvOLG1RwjnAMIkm-wo_8x5M53sKhC7XZXLcFWt9def9eTk222hxMS4wBWxs4E9XEZQwdJhmtqfKSxMMqdMv0HWWxZ9CrPHnd_2fozfPl7pkNcDKwBjwOTcTGauOxL2uMWY5SSgcxw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONTISSt3LT4e2MvoGb1HFfXqN4LE2Kw8cO6P0HpRmZADd2jnsOwXoTgr9PZyRGgXo6VrHC6C22BaHTTyulGnS5qGOpA7OublRlJYUUnEQqxH7bEXxL0HwswHePvOgmK5XRVvG5Fst7JmCSdbecm-3wOwRud4jfPogWcUQAvWjD9OLt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNBaT8_gb3-ZlIbZz9gGCwNjQ_fQdfLfGVzl9YF2t85xfnP2R1gaCYECK2uZii4bGw8O51WuNo7uMVeowLxF9fUOr9GU3A_ehmlkJyTN017nv15WTj1GhqAziDjeJV7hbwxRSseDZoOg1RXz4iZdFiXM534pRpLtBK_Ykt6HRAF7BX7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOHK8PJucWBcxYmSVDQhCGDieb7VfCyaqC1b0bxQ8Yxp8MBNHll2C_5PdfK4pCp7_ussFy0zIn-i9J-BvY0MLq_26BfVVGaE6JVN-JWUZNL8SuIKc0PmwmrYrKLXhOVzAEpGuBw_0BjtjyH-IhyZ4pJ-LPHjsd9eTb0pdMMyrUQavo3&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5oVVRNJSeudfDgI1qmtiuA-5a1o_Xg7tkyVtbii_2Co8UllCT25hOGzmMyClCQFzSlhSU-EyqqXOIg3eVEIMK_525avsKHI-SW7GVOPJUbPBaj_jkB-SO5alHp7M_3inqvBhqoFGXu2k3DDVEUS7loDz4Q4WYzlW-lA5i-U0CwCuV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpnS-BPq3mLnHwjn58UlSfehDFAOnkNRrpNhoE0MX5BNcGPfvB1-M7ZeFPPaDEKnr9UBneTrsbF6jfNk4cKc53iEm-Yoe3stNLV0moyQJVlJluSLUjQ1H_22LAszbvjRtE3oFutlLDVUJ_E4zsJifrwRUdbW7pQGLuGGluQjHp3xTJE&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqAjsSf0T42H5UrGyr4kNr5VhWinONwcbdShk_OPfcbsD9i-GH-_uGHaZ18pQCm-Su85Y68xyCFYtKVqSZWnY0WHZebdUQ32H3zgEOjo2cp2kKRhVF5EtYIfwiG77PAIZDDVrQaptyaLES7De2_lHPyD9lj3b0C--IARPI0CDGiWcls&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWo7jd6VZEiR5-fcQrzTIaLPcuClES5hMEqRRgaqOzUy9VH3n-ZehD8wAtdYz6y94qB_bXE5KW4lKrpdbSHeSyPUmVFHRF_qy5ZOYjp9q5jsbYnpIW0RqrstNCygo0MRedbuD_uzrVn7DeoyqZ_yltKu3SQbQ1BNMnZaiMVrfT5yFDZr&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWryDpF48FZGrr7SdZLOL9a5VXlnebg7gCDxjqyXU2NDbWDqmhRhGgewwBHtWvPrvFPkjMNL9aSZJAFU2tv8D_CQge8lwkkCw0TCzoKEdryePRrgYMDC6s5DeTOUNBX1iapUYZpkA1q_sarqsqO1u2hYzK2VHj9sW9YUKEdXrXCKFMXo&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoImCVLECRcbTYK7-jMWY9JTdUSS0HnwqYTW0BXgsFXqo_bb0GnVqiBR-YjtKDvKDO7o4bTDGm5fUGWKbVclaahL7_6b6bFoV0GkdGENX0DNbejv_Ymbp4K4cMnb9oA4zTGZwn5fksAjk__3XSbcjG0nYR0Oc2_x0pmt6eh0OjTphDg&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.6 (122 reviews)",
+    "Rating": "4.3 (3133 reviews)",
     "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1521 6th Ave, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 2:30 PM)",
+    "Cuisine": "Cafe, Restaurant, American",
+    "Address": "722 Loudon Rd, Latham, NY 12110, USA",
+    "Location": {
+      "lat": 42.7402901,
+      "lng": -73.76254089999999
+    },
+    "OpenStatus": "❌ Closed (Opens today at 6:00 AM)",
     "WheelchairAccessible": "♿ Yes"
   },
   {
-    "Name": "Sushi Tei",
+    "Name": "Jack's Diner",
     "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPWZlGOTHbDGMjCv285zRo-mTQgh1JGSa3EPDTO2AskSsxpOfvvG4WHe9HlD0hAkxUiuCa-Jisv1HVGq0amduQtZk9DD1uSwgWy2l-gjivqD9EZt5Mh4bpf4BSv52oJKr8k88FAtfqVCtCqky_wq0_ESWInPkqlRRskRBx4LWbdYovJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPi15wcH0nJCXM90UR8kEwVvVc7fjgAc3oCnnpUfWWarE54KIzsjEWurCTFnZxIni0stu861KG1Pwx-1ZZTftTYvdKdtniKpJYLcWNoR77H3pGtXhhH4SjPhgnvZVxSt44oDwh9NvQ_ExAp0M6I2AT8PgNhXRDbl-rGyCjc8V9sOxe2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMSAiD949sYD9j-8TFm9qqiryQKyYCviicOQrDkjOjQVsLQRun2B5ubeWh7EZrJ__655N4GYIqFPTH-zfrMQrrd_U6vBeSpVmOWDggXi-RCWrN1LQKh6guaerbeyvnM-chbsTpxK-tkjT-s770q0lOcEX3Vd3t3n9N7-db4Oc4KRyrv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPHxciwRRGp_sPABdfT96cSBol5gT5GrIjbIC7rDD_OeriqKoAicjOB6CocEH61qpT9j-aOlsAgMQ3-1N-cMqg2yG9wONtNUZqqZ3QLmbBmNBBSQxTlt9QZ23AdPFKpvpAZcDQ2JRRQ3KIIWmrz1B3VR5TxXkkOtwzy4gyVUUpAELRz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOdDHWsishBmsJmf6hZ49161C2YOZXjjzn07Vw0TVSLiDBhKDz1OeGagVMTCqxCKPs8sOUgoWkGvYdVz8DjTrM24pbS4hbTrdEDdyf9QiCcckO3ZAxR5Xk3lpB--P5UssEE2ZJ9EzpXSCFEmV-dhUiHejY0P7x1av7vv-icDERHxU_t&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoddxV8l4fjNKWq200NcyWSgBcyYrNPCzPfVZqWemLo_zo3fR6nztnEyC4WzCETVsbLj4qxvp1eBQQ8K9Va8qwsi8Q4ZaDYBXjmNDxRUiobA_Z37NkNWrNWq_xiFbmo3ABLwDPKH_SMMX_n_FkHatg2TJM8LFNPc6QMEGR4YEuwVS3g&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWraJid_aI7g_FsyticiKMqULRp8OiO93Hk5zMFYatEQQCuZJHPnEMJlpHhKhXzcoVgO_zKRmfDETuCkL6lBXoAv1KZDMW4r8PUVo1bQ5fBHZegSYAh1zIF7Joh7H3IjqozDoTGFt3PXNHFVPtA-wDAur8tr6clEtHIY_Qc-zBkxT2Lg&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpirUBwpQHBH2DSU8IVCvg54o6tAcBdTKpHTvhOQfp8GY5TbyGzC8zuLj18Ur1-lMY7gdx807E3DlD2EJswedZvlOusJ_e869_l_lx9PrtYI7og--ZY8ScqY2xaXXz_SEfrpY3FouB1fg_WUicatdKIRx0oeuiqDmn6M_rYccn_kAOE&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpbFdgaTkBH3Ejpq-8seB1o4PyBHTl2jG2jOEnU76ygZv9I3vBL3Q2JizNjDJCQ1ognqIpO7KPv-alKkHosmyyY7GgTd3qF3IYR3wpVKTWqyt1JO2it9EOBbijny5p7V1tzBLo4tRrP-3FUsLJqd8F3LEXyi8HF5TtTuVmbumxbXn4i&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWonmj97MuQbRw-Sez5G8Y7cC_1ZwtHPYuwLeT-Gy0XVEJDEa1WZetzH3PWbZGtvCpVAWYSQJasbyp4uWHF5oTuduEKO9BDpTXMaQFtsLqaTZAEgTDiBv9GXf_4GRlf09GY8o2wBHSHh5Ucko2-KvRI6QSbeok1LBjwju8pKo6wFLqnK&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM"
     ],
-    "Rating": "4.6 (650 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1800 Western Ave, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Nishiki Sushi",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMFl6EVf3-y5znrj_a9vtabrtHQo6HEtiPOQdjbAwcexY0fVHqyqE56Ae7NMQBIqjmHmelPc7zG-q_dmntGYDcFXsikKDd8tJiR3dA6zSuA6y_1QTKxMjWGpjRO5nUqLUK0yqq6szHVytvxWu9pnSaZqdf331_YHCs5QMaZM_X4BqXK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOqsDGUbQhmXywLRnpT0IJtYQ3a7yKki34fv3U7zEdfgED5q-Ns2rzCqJ7-NRSqm7vtWJh5bECR-mYbxZg4KnJpTrRfA13kDCTOIzr7SiiGGSsEYkYhpbCw3xNQ4Ur6wPjExOzmSwVS5FChp9FmD5YRBD-u9OAr5DJBT241KuR__oGk&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM3KGCC5rfbuimOD06XO_v8I9LpWoKnpruPY5ciecJazHEsDsKZgm-aTYlEsj8uPvX1l6YEuMGPECt3SDsVBdhALUqQWpiUaH16oyHz6yZNdY6xeBRoQ_dz110NB7wZKCY8zIHM8PNLEPutLxu2bUOQPEaMh-FZOSNHTzTeGGuoksRz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP2em56ire2LHfD2XZh4SNQMDLAlUHm_HhSSlxh06EzbchM3EU5gdIa4BbaG1hFALcpwmGYbR9Q3j5IYI-0vcccm3aEl58q7TUWAUftKnu1MpDdgMGJju1rrBi9S1c11pokOMJoXypCJreyBHF0FABxEkFoi-1rAkbR0MrpzgFzWPF1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMz4oyHOo3I_f6L69HGJucgLtLqp_FSRQT-NpNTzCdJ4saieKVt7MyuJJ865qWS5FWxbtUnLC7qDTcle5lvh6BIrcoRGlIbUFgmMmP0Tg09w8rGdmTe1ksMDWgOqMBpls_0JZ7HSZDFphtIiKTcHPCBJgjeSzrZtjA7_NYy9R7w8wO7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (214 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "501 Columbia Turnpike #59, Rensselaer, NY 12144, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Kobe Hibachi",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFOHtnP_iRRvL87Du-gLi1Rtbchd5n28Ucoz1ZFc31Dwms-bPzMieGV1op7VbjAgJc2SN2IieBRceN7Va6392nlyuCpbhTzaQt9GUmRrPt0qaSOKkMGu8juuRXlQh1Q9lnhH1O4Cn_cajsl37CVW4svXcrxLUD5xlPAjUPEnqB99R_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP4FP2z8IBYgPbtaIo6VfBMwddzuPUL6WKB4GIrEcvrQA9mvA3qMBeDGpMgG_v5xeD9d2xbTVzLtXopkqyQxm8ibEjUCOCtl-DDTG19NDMtewJ_cyp2sgzq5c_PaB2SYl704XG0mUUVQq1tuDUl3e4TMQ2_5gmVaeEld_xioZmvwQCq&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPcBxO8ZQMFGeOgoKmwz6KK-PqOTX4QfqCjcgPLnmINMvUqOM28BYb8v51cVXMV-TQUtBQZ9cwRCzcdW3jou75fkTW3Wuayj7LtvBaTnXrUky2P7GCmI2c6JuHEZ8dEiIkS0pIVooOSg52I8YjnU5LsZe6vtaQzIFjkSumOFyeacx0h&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNMgb9lEBRfSDd6sQTT2jlH-SvNgehbdU3ixZN5UroHDr9YqtlhBQnkEuVBBD4MX0G0_OzURXVXN8oY_5Mh7wP8f3oK7PFXkSbShBj0skUjJXP4_BhOcdoWE5CHtdhqB9N_oivf4hGHH8ADCyeYPIM4YpEG0HLwGUId8-8HbUl0SCGP&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMgTQGGO6cFs5zNRH6Si5FEFX9Cutcd37KZ27bnnrkgJNCjK8Y6aueITZjDWt2vhJfRkx93som837KV9tJlBMPRZTL0oUsa73hfqlRMUv18AwkTPxig9jAF2DF0AR-GOBsKcH0A52DvTdGVHYAPo6A-XQHXxAHxaIVvUk0ILHpMa8Ls&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (46 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1214 Troy-Schenectady Rd, Latham, NY 12110, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Mr. Fuji Sushi & Hibachi - Clifton Park",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNX6gPDaDwfeF0kta-IhEAV0LCj8i-naliLnrdHTUoQh17tCUJijyz3uVno-wJCGZGTXnlC-L04dm9DZMbTKNDqrSR3jS1fdjRu4yya_LEGJ6n_ZRza49n86Mmt_8s-XhSo3gu32M4xu8feoVQ-ElF4m1D_HXU6F1iflSIt81X0M7mx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO3W0r2AWeAO4thKidt3B79_wp7H4xNJQmrQ3cnMtIL5w_Qjt65ROPNnkiusnbqfHLxGq5__YMLrgEsMyjl049IKZj5M5dv_N2vK6toQ9VhyJZdyWeA8BCiS2v_YpQJmeQR-zgi7YpmVmKwEDXOZyVpHfSYeBD6jI24IUvRGyf_FzCH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMucjxPHs2fK9u1yEYe32mub5ti5rjzyTHg_nSuxQcfz3sgY1C21WOFNE2skcZYfE23d5_CqDIqUu4cMIeTwK4Yjx4qMoC0oFP_EDDB1JK1RVgE3tbexViKAViVv3kmgMDQ2fCxjppkIjnZe_Km4N4cvFfM9F5WjRAXZDrina_B6Lpz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMWOBAtcNliY-Ga1I_CvIdXVk3ABbGMGw1HKnp-9vbcFcVJFmwBYtmn9zL1zfN3vxauP_x_ikoTeq4ZMvk_YDH68PlXWWOe317Kvo0BPpkQazrysRxw5KfqPQ-28Z8K8JdOHe-Y61nnTNkljCPMudsnNZiN9ONSNT6bSAPspYLviJY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgTaxbmGiTUaD_nUqkvvBEEykSEvqTcNr68usKspD4c3LbCIXQaVYt4ZJlcr7hUyujPFivsT6bliCFUSyA9k1sKJ6zL-7e3F3NGnCSEPHE4tLRaqQ4uA2CQwnl1FdRpzHmcAc0rwdjghOIs8TwKwK_klg-yoLO1J5oPR_QSjQVlHtv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (542 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "19 Clifton Country Rd, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Koi Ramen",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMbfZjyQW2fdlAMKrzF9iYm9OZ9Qqoxgtyodz_IjGMwRln-CHc0wxGwDjZB-gN35TmK_b_t0jznMCRMVOgGLxa_qBDIQyhDZ5_49MPbkJnFs-WmQwOysPH9or4ieif0BW0TRcKgqKdhKXWGyeWvmqG6Q28it5JJCnqSRpftN9oEeDBX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM2jlvaYa8wMeTo592lmkKaiHB7J2WBpgZc4DsoVj9V4lcFFgLC9_LzTSxl1zPz_QF0WRmfpueeuFIlTejRhT6M2KdQm4-r4lRM6AYahbieOAjvuIyK5Zm2meoz0iGXarko567cCIei4DrYxE22F6SN29rRGEC09HQVcQbjxvbCRnfu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPWgWAfzyt2BIZCE2I-7PvFuyI9b5vJJP2MBSCqPTKbR-MzOb-0cmz60ouVrp0Eb01v7zhU96zBxPccQ9YHd4cSHYL8xWM3h5oZXqHyDwKZdKbNYpI9cR4PywDVut53c9MX0m7dgOdzHz349N6SDiIjYam0qArQ4ZvEn_SiSW0NNZwU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNb_nlGqf-cDQXgL2PU-POOC20AXIwFpxW-O9oaSVqAyGaJKvmaMMCVssZ7g6enPMQezRzDxShwjueOwStNfnJ7-7TqZsolH-tn-2tB-FMJxz1xR7S0XDxb11IOCBIoVwiHYkKMbi8nHBivbb2tgsjWuteEzH1yuQnyxWH-GVeUbv_c&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMI1lXt3vj-smt7KTr5E91nvruV5MwdU6RgzQlJiTukw-dZ_Q44n9GqFFlbnIa8kCmb-EXyIbUp0211E95G3ZkwkYIiMV44U6LAXDz1bm-rD_6IuDvaXyrb9eAurbZs46mTzU1Z8IaV8lfE01cvgPdhMWqihYUbnczyOdjTdadkraXx&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (136 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "602 Plank Rd suit 2, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Albany Wasabi",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFSPXJubMp-2n--_w8YPdt2CQlSRs0uUkGCWgbCSIAzfcr7QXVL9Mz4yOkXkdeBoSC1vB7au83Ldk63qhzixl6dubLtyJwGIuUo3GDU3JXI71aL30kDlYE4q9TbbcFuVR86Po0ZZqnYDkVmVx1awAsg34HF9jJrnE_B6j_bLTjcfHH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMy6F3RbQmKgIBIzOOYccHpdW0zSEUoLULKIbch-0QwNE3F4nsPHxTjRTDnir3sXNRD321VTC0cwphU1Cgdw_onCUPrpnzWDPgX5QQIZqc-_rksqH-oxIzylxigfDIWdz34toKBXcAFUZhfVUTa2mMgKlYJHiMakmvK81iQHb_qXtRs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYihvlaBD0-_1XTnZPbxsWtaXNJJSVvM3bQMUWaA-oRGwz3IGtPb8bP_Ind86Y152LqsBQhKS6hkIADnYUx_jrTlCKO4sK4BXldMJ-Ytqe9NK7FTXeONKyVfGEKyAQHxK_EwAVHxc7swIQ-gbJ-Ky9T3NaOBihiXd0Tm7tbHT34KnH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNyOzMEq69CGIEFyGcXzktG0Cjo-NdmvRzF8pnPSbADfmSrwdNkM9D0KU9GuLE62qikLFpev8p6uABQP0yTh791iqVLSbwz7pMteOnBbc1HuBZYBsBVffYWubZipvIUuidfo7PLj46vMsSVLZJqM5vO514YFOkUQWupLsVPnQ1PJABR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMEEtR2jLIK-0uYiQKez5rAhyGGz45DpoSjAMW8mta471gvphSHBPhh6ZRypVRpUy6CuOmhNqSZ9EiWHewzytajiRgmyBwWWX2d9ACCpMca0egXaY6qnAH2eX-JvvGjNHpgeuauck0FomnaUg2WVAtUnAMIbhGQT-6AP8zaMv7ZDwC1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (964 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "195 Wolf Rd, Albany, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 3:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Kazan Sushi, Ramen & BBQ",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMyNWtwEqxuVcudvSb5vfY9BNRbDjCKiaCxIJ91hn3Je8eFV2-QanA5h54yzVkAfI7yuxVX2uBTa5xtYLl_0SZqWyR44CDENPfFS6yQrMh49uZN_QL-xZeKTKFyaaoIkTT0jpYki_pjt6NkzSOXO1Ka6OFweJ6OO6h3uQcX0gnAd20-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPop1ebWajHE1EmIACuxZVl19F0KypkFQvFop4h8aaYN11r0l3cQY6fDct0MXMo0IY--t62yEDx224adKnnCAe1evrSwqrbm29vyTNRg_k6zr5qZQO4-WYF8QGWtgjr2Gdzj_nLK0sr9qMWd829LQeItKlEGOfo_qn5SG0pORS8Vg5k&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOzIgGSbgvVnCsgh1A-lX1bWq9huC4_jZPb9cFJehSoapZBzK3EdmLLm_78FUxHfu5D_oejjkweIxHjx5F-ke4PXz85lM25AiAVjnBLb36zOBxPZ9OPmYdxo6ANJz0vNf4I7A4wVBJzUeBW5aIdjAVSOQLOvwc0odwJpvlvGx18Z7o&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOaRLert9bc48itpHQH1ByW8niqezicR5p3zRUlQRBHi5q-BTbWOSWL1WJGUxw0xGv3gZu3WbC_ThsMWhHuQBaGBhh-Z3Dxu-rY9xy_HGQfMgXlJBFkgCYwc30pDt8Q6ySnUoPe74p7oVWWJhNrvpHtIGT-fJhsBFujjhBHy9RYq9Ce&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNhDppZiE326Wm53Q_J12Ew-LNWAJ9ZPDaRfdBa6CQzm6s0fAu4ltFR9Kr6fobsTeD08mNOY53gOYKnFmFAjDXiIBNDTitMNPate9_BU4BFlsCGDtp7SgjxumyeCDoqs56FDDNst7WDQa3ZuIOOre5O0GmO4y2xz_h4MLmK2t_JOmi6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.3 (353 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Japanese",
-    "Address": "1 Crossgates Mall Rd, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Sushi Thai at The Park",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOM7Lt41Nl8XbI6PPfy8drJ7gVH2YbDYH845kHi-ADdvujzghESXzf0fQL3Q_sD11iVusF9_pYmuiZ_L1Mg9j9FxElcuHX_Uup_g4cNS2_jim-u2nreXE1wzjij2d1HN-gqhz8oV7AmFFPQMgVPNN87dUUVXKq_p157sebOu7GBZWzR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMa4oYKWLYSbwUlI2YWBg61HN7tCQN7KOLZzsciBGP72wUbrUtIBtOlj2eV-vjJLzS0Myq1DhlO18SS97oFB13bMAY6g2nNsjqxpNTwWk0FzcPSjkh6utYRVME_xv_W2qHWycQQ2hpZWJt-Iw752GS7posm8zf0FVpntNoW_OOEpV2S&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOGUwMOwgCt5jLJgahJCjGavfYuL1d0tPScaaM2IWyxx9ppYNxRygAyMVMLvakjXPa5y94s6Sdx-QTttKpJEzTQKwWUq4emBVPF1nCgVCf6p946SVtM-K6S8ZyjR7OUi6WHvCd-i3aElRHwLqtLdTsqMY0zuBf3rIeEAFTRok3xjVJY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DORL9y11zL0-2DybNOEc-hWVdfa8LsqR_ptkqMumVpvwhPVKbS0AB_sn0RhTIkMP8JyZ65_gLsUxBSZiebj4UjxNxo4QAueogsr4FfUPoWjBqTKg8FLx9ukfU7Sl_1tGWUi5RZ7qCygUx2WvBXM_sFr2OLfAatIekeUam67hLOGfuNa&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNyqtiwU-Pzx3i9SITw5tN9Bn0s-tcSkcreKfqBEjpbnaaTbXR1i4Dt0mwSTzWAWrNoNSKlHrMMeVbdArvFHvnIol38uyaOcCB_C_q5xQRRrPO0MtP7MWHM0VkmRohijiCHNXJJ1_VwnmFJiIbxvj8dHnxJnTPNXCOXdfRROoJejpw8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (551 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1707 US-9 #100a, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 3:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Koto",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO7yrlcrhcYkC4n-QRcp7nyRuLh0u26B52u-EPzyU9Z9PH0HEEiKpUZS63v0G7heOx1niXclA3LuLKX8BglQ4zKR4GUi_8JfPZDv7HH2M1lFacDDxhhc3s5Acn8Bf4JwP7PV4jy6BhrYqxpgwVsxdtWpeJE4iWvlWtuvDbSWOGNQFJe&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP7SZ7NE3F1LjCe56gAew9wiZMvWWK4N0vkfQJwZ-jLKrSwnPZzd6dT_SOvanQcyDcQ1ooZJUqOrTNUDTlQ_0dL8W1kqsrv5bMncu891r6axlN1nL2SWyYTG2DUqBoQcJMwj4MTX88CEXLofATU7MlpGHBbbvI90lUjhpL22_eJbqpF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPuTGh9IY1WbFjvyKoRLRPb7RTQwufLGlSAXbKJBvQy3NHglACllk08Qhvx7rq4nec9eJ1yyUodSbnMtBXmONB2yxztHRRmZvucAyQQgVhmY7zZFAmZEKRxoG8ZhpQPg7mhvR_iBkexq6tEVSFYWP0bOxxTva788rq3K9XNFTTxxFvz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMIIC-1zhiSB4fZX4jPsFogRVeuC9deRcIxLmjK52MTM61M_ifEMrPTYO0LC0Or5dwgGD5E1OTfemjqDUz7lfwCQ2YIhMuz5VHFOAE3wuBipLj6G-0Wt3UmjgAUlP3OVSFH13-aMCzIXKFgIkuo0k2p5TNv9Uh5p4hf1zhBLLl82B4T&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOVjpCCFkbUILsc8stzDHhuvj18JPMM-_Mf8rPpyfQ8R-K-fLgu97JbQ-c04gI2VAxynkgIJ4DKloRTSkGq3NR7kb_E-PUBaygPD5W8JsgNlc8Kpcwx7SwYB6ryT2-4RC45SpUn2c2vscUwflD5yN95S8yPYFnAA1oJpAX3eOk2oyoY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.3 (1257 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "260 Wolf Rd, Latham, NY 12110, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Yuan Japanese Asian Restaurant",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMbHGsVqWX9iCUGNVwaJ-FySbxrmw825hgayrWXvxiSuE8E2fkgaRBxGXDW5yCUGgvTPu4DhbEsziwP8NWX3uHn80Fqb5k-EGNBz9z-tKtR02j3waGguiQhW0P8UNfj8Wh8R4pr2STlVidlRG12pmzKz26Dwtl1Lzj4wjKtAdOhiz0h&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP4R9TsL8v3pfHEPlwW4FtUsd0qHiTtk4Zd4DkIAuSn2FFYmbxFD4pNO48UJ3bHjEu9cbs6MTOFRHWfYJR2lkuD_ooznJ-3FAo-sUHQJ7X5WfgF1BlxCNcWGi7cVY5in8LzToHUGiK1w7ufR7XrIPS1P83IABhyRI8z2g-ShdDG8mwB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMfdTMey8MYpE5zVNQcUor77azmXRgz2IS0GSBqqzEPwvc_9Oj8gNJPlptXNEH-5AWIUAWoROsowYltlyAelr_CxOmMtoeb_xZJLkXcb2ath0W4_Apd4-x_lnhCh797_w1VzYZ-QtlvqxeKHgvqcBFZz_ZBc-I3U3N_A4U7Xb1hUQ1Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2PYECkQRWA0HwbJa7TVkx2wqRWMh0S79z81Yf1vm_b23CNBgd_AzS9ufUXGR_hEfEik7DwBGZB44VvMo7yT7GPRAqk8tMOxnByjYfvAtaIs3Ai82tJbmHcQw235liPdrUyzOOEzWJqiTGBf1TRLYm2-cBDSBPFSZGR050SGopnOqV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOybSuvq3CdbOQ3sB0ICbxFld75wG82MOT6dx3x0x6up9BCQZfNIcdJteKobRuoBMKnPgAWDXhzMmeJ_bugB1h-pRmpI9zpZ4EFPAtjiOxoHW5_K36eTeNMXPhIkO57LkP7QG-wofIsNCHUHSMUAXdOnAKEJxUPxZkCx9v7I_U02tBB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (315 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "177 Remsen St, Cohoes, NY 12047, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Sushi King",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOhCSS0v3YjZKtrjbSMlhjVdExrCG0pUUxhJQyFVxEwiXuIIMj531mx_tcpsmz2X1GQ7Wlqb8W6OzsHa_5l_6KaWGL8MRvn-yTQfWkC3F-fL0OQWqd4lmkkjTop62tSbzyWUxxdlm1p9hQuBROTSFcn3P5Uj2VYT-7nmjld7y7CFPWG&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOHrRi18Cz9-FKLk_rM-mB4nYO7m3msrxsouxefrCOQuG5b7zQsf1hVW9R3mBYTB1pYV78sniW5dGuJcRxIg6zDNKT8msSUDyk5_Z8fSYw_RBkXGIJVkLrQ9sNHv7FdMknAjHzjkkWwvHOX4VxjCf4kdO-DNEMLl1ZP_s9YIrhzn6Sf&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMAbiKxM1FS6kfJCDiyYFNQjFdlycLZF6r6yZ-sCg3J842RWb9PgS5aZZvtBoZD1ToomrSsXu4CvO3gxTeZoFQ82R3aHvKcqhqvOHmXBhPwlDTLxvUJ9leSrRQoBuxoTT14lVkGAKffeSZWBrmO3zhfefikPkCzzUOFYgADavnvXsXE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNOmYcWA3Gj7SysgUVYkjRT2fflnu0bvQtQwd-bd4SJ9ZG-tMdtKA9Vy8IObtj_sGUHx1Ivo4_elVTNEyArcLzhYYHwFZkLNbD8TvdhJuBE87etsvzy4SavqWTw73pBwEx8E_4xDlQZjAWg4jlDQD6fuv1njn-YishIICndr_fIeBF9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNRodhjLRI9XqeHpXz2CwDFZ7tbF6ng-CyBRTlYfevlZlbAYSoXDMEMl_RNZJ6KBhAIrWJkSbUSltx76EsmxisllZLyc02we72mfgvLw10tgJfVQ81xlEOxxRF3_LVa8HyBKK0M7_KyRwn7XRfwyrwgrA3M7F7PhyeLsZ1ZbDpiXd8A&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.1 (219 reviews)",
+    "Rating": "4.5 (967 reviews)",
     "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "200 Broadway #101, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Kuma Ani (Wolf Road, Colonie NY)",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMKFLaopI1KSmE9HjLIwSeJMwMOT-H4OSg7ixiYX2yw9MeivNcYRxOvzrb3KxsP7dyExECTJX3m9RlxK1fPfRPGUHFT-rShiUNsjyup7XyNkzE_0sZ2HGz-IeC-M0YJDawUjryHgCe5lBlNT9yThJJ3OsxQIESgs7pggz3sJkw7hQej&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOVoGXujFkvU7c0F_ZE6upslSGMpendpxsJoxPB7yUr5-u986xmz7jNnhNqXBCn5gXWWnYOAfGFqjXSrMZXTrYPvuB7Ym3MdxMOHzIoAW2l7bAIUUUowjFvRxkch_0lU5wdH9ZNL-EsaXsUMLu7PapE7V4AINqYjYYrCKKdXXYJRxGc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMN_PkkP2TgU1jyYiWU4Q2vnZjGOSFQYxaAIpJ2lPiHYLN3cXSi7VOgWJHYEHeqDhoDVNmxNRkqiUCj2f9OIo1cZEO36cWHLoi5fL1hgYsYsr0U4ne0hRB42zpoUFbwMYOjH8KiwUi7YPtTxOYgRk2swiCqaIJeLGHuL6ToDG5a-5xF&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO30Ff2iIwgE5FnD8kPsTcvmDH3ZBOSjpnfopu468MhhvFlXzwnRyiez8cyfCcuxyc5WHPRKIIE1WBpRQEXLtx103jESMRZvZRYy7fGtR8Mc86ExjIRPrVINaZo1-egeg_pvYTi9lbOnoZRODlh_23e7wVbAad03xxim973j9La8c96&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNdPjkGleO0ESGb573bHss7CB5s4iR-AhPmg403WyXa97pkcYB4KAs4rLSgUZKlzDFtCWW-1yYXj9WAl2M2xr1IM-bSkiNkXbAQgHVYsG9gXcTG-qIhbCsh4zmmXCMcvSoBBbuS-3Rxv2npJNrsbQq7eT7Z8iD15nC9PbXOG4ze9L52&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (613 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "109 Wolf Rd, Albany, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Akira Albany (Glenmont Location)",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONmtOgfkvsrGLg0iH82kpYnCKAcs_qAbPMLSF_oh5M0zLj1-jia2Ete2lDBfeXiXNhV-0XvHtFrBKxdNV2_7rxdJzQz51qmmNIG6JuPy17pvKRlSDXYDVlwsG6KYx4O09t7LbY8OhqNa6qUrFtnXstLPV7Jj-eFjd7x067Cm-Db1q2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNmX37Xa6RCghc2bP_SO8pzDYr40BBczBucSWv14wqU4Whwsd8IySRuQF65QX_-0xEOJBavu-y5jeyfN2GgeU62wcg8oF1RtBo2MIs2R9lRk9XV_fs7P0eMk0FNk14R2O-ijt8g87d8P7xhf3VuHwOTvgH81af5tgsxsDRYtcVD-4Oc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNzRpO8mjUDCfrPNQHrK0kvsKORSkKqYSlDAQjTzTvIQ-hRIp_pWiZoeH-PsFnv8t0XeXQYuYGsuchJjdz9_fHZ6J6i_kE6ChoknYj-kOrTp2UxD3D9JHR79VZq08qpmQ-vEgqymqOZzvUrHLIEIdX8dTEu3GLg6mlqly_FGbiq8CB_&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM20ZqBQWidxVR2MFCh3-Doio6GdA2gCAqxkrr2DvnEk_pTgBIJ8ZVNzchKaBO5dAAacHGQYpUmKkEVQZiuIcI-7AwXU_v56Ugr2xuB0bkPSFkz1UdTdoi8x24Z-oMgoAOU4avfQqueC5Ip5fgjBomjGu6G7t-01HR9MNqmhCU0tEfv&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPY1AIY5NhjFnUKDdq8ie8NxypmJ2JcQxBzDkoZSVJqicJLg-I4ZB4tyDD-CRh9lHJLwrJGU75rddkz0hH45QFxWjirRWfKdxgPN4po3sQtHzF1FLqjXz9UdWdw46BsLMwxEs74f7x_qiwRvDGzM6sxn76KMyLM5_0YVFK8v-iqjnAh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (600 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Japanese",
-    "Address": "385 Rte 9W, Glenmont, NY 12077, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Shogun",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPuUiomv_8MnnCssd943Z3WFLnuBzMH52U2VRUHzqUqKWr8wM5anVaHZ-o_f6BqCHPU3Jk7h8mGmsUEsR_fv1g_yqH9y5TEgs3UdROzSiWIdvghrLFuyPI4b5ctMKi5UoZeBkj2TLfxEjE9xbkp_Q-6H0YF9pGKHiWd2UScDzM3bDiI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOkzR58WwRUKhODKJByQwwPcMW_Fxa1dku8LUX2jUmWTqX6iIMBZihwNhnAAC_f4DB0_sS0Dn61mjl_0oLd5YYNDiATVQvLZwPDZoIsH1T6H91t8jIzZxsJTL42v-ZKQJ0b52e9YnAhP3zB9bC0uwZJphraJXyIS3Yv54Mv1exH7Br-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPopg_LJdyl2Egm3kBoknfXFokk5mLl6QCUu3i9M-EQy5q_1G2lk-yU9w9UoJ4kqVDVHr-r6h-dIVsPDhuyLmbCMFZkXP79kbIX3qeLRyjMEwNZUgQVihjsejjA-4r7C__QcWdUhbtG5kjnw5KeCMQxBRvJoGUtVXYyD9-NYdvYXRaX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONApCpaMKfAiys7w_uw-lecfqmp1qbU1W6-RYOb4qo0bdmxWhPAOIKhZEwm-l8nVPucLW2EUrTiJeEZoAUzrtnp5RTs-QVGh2zyWhHJnCM0Fx2oEyI-BIK46FiCrkZ7X-OX-ay3_utbfEik0_ptdE4awMmi1CDB7cauvfjMEm7H_Ny&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMkvpwFygqzx_KaovVTO8_t-jULv0M0jRdR2cyBILpZiWaAT59-B7itNqQ1S0O4-kTLu4sgA1OnmtRTPuZaHDJnwY9V0FQcHlPqeJ8Iv9_Rl1zUMjtXsPd9PJjevSyN_GHnTQXHziIGMiakS1neYaNI83UQJOhQ01oiV9RKYog80gWV&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (602 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Japanese",
-    "Address": "457 Madison Ave, Albany, NY 12210, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Mr. Fuji Sushi - Albany",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPiV8rRzu6yarSsGgPIEm1155QB2QGzMMU25JV6HVBSY08SGNA2pX_8oNlbdMhmKj4WyJ932dThZi_MyeT3enakuD9gUg8-stnld9tCs6nukJEibcamyqvOXzdJTzZyXzR6Aa4vFn5-kVO6pD7dTPtKofUNUWHnzpcn0c650QFPBgc7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOgRVA8UEKRbVO_O8BweYEbWdvDCqfgToYHlVbgVCh6rVhDuURSq6kckcT_qHZLQCg3qnyD-iI9AsjHxG1HZcT5h4yP28ow8rd0AiAKyhnHG7rvRzybn3iu1GL0TRyfjRMhxz2i6n-vTVwf2GezV9F2zxpdiqSz6re55O7QSsvAqQHz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONDMRCyvvoI-nQecZeRbfM5U_ilE2I7Jb4ZxhMiOWsDkNi4kmlK6aXnCATrB3cowb1MBzjDCgeUzgYaIBeiNbdzxPXajYaa3r_WPxLApJluWrVYZQL738b1C-CVPhnAe9CpgyLRPxq0B0G10FAkTU1U5HZL2ro2_3pE1cRqNSEMrc-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDHQyBzkFGqp48hynukXu4Z7C1dZWwAf7hPf6BC-9RJ1orgQext0DvhMbWnHfMxta2wt1j3kuy3w6VcAvY6Hl_uIoMzWA_jjrXHBZm8-bXzH3g5X0P_ZxiKaVuntdhvhdigdVZUS1r2tFguW3ZPp1E-MsWTEyEhW6rr0xYEaTE0MDa&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMzX3mHUAcVprkCvql__5rTVg9aJVQZD_rGlOgq1z6DOS6ELKgfGLrta2xUOPaLP3Q_v_u4FqYXgsTJNmUxwDrjmFsOPAQzB-h99Q02hiLiL2UXLjBFiism9mHSFOjrxDRghSSHSon3UMGVb-S15v3lkPfgEmUm6E9MTnaf6jYg1NZB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.3 (227 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1475 Western Ave, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Samurai Japanese Restaurant",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DME12JvXwI22I4ITrhP-n-f3xcuuvlpsjxGdu9PVAu8IiDFPvveeaR3WBPV5XjWGj5p-iGZJBvU7rFdXzVz87b6LBsxCzeNNwMULR2TQl81fP8mKaSdlQxwFU_5XsbwjoYLuBzuW5aI0fUJsWNrQPJncvlXYmRL9YJPOjuJeo6TmMtz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMifBR2_RvEsncQJoYo4zeaI0UTqkK9qu1uFwwj2ta4d7gZlpenBxJMZltuF8exQfSg1OhJ6j3plMxrJ3Gfs2bEcficUz-LtzHOVc2ubQJ4jHZL5kGymYJGDyQF1UYMBxGbLcTFULgNBij8Arm-tSjj-kZ5TBKjs9M4P8hNYzz3Zi9X&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNSme_iP9-FJSAj2kqDIVpIJNvb_fcGjxIPEd_lHfE6HIWrW4wMZXgPMzmsC274O6q2qPfaN5mDu4SIBwy54CU5mp8ZK-ZU2g6o_4og8MWCujxdCE9AsqI2jDKTyF8h0AMCLuOIMlY40N5nYnBfiSORRGcfb3UFKQcRXpOIJadpZuoJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNWR8Np1cM1BfvnHkboXc2b2LVEgT0lJaChBA7i6lSZbGcNgtOEPgJlhLT_uMlAAcua5hzdf4IAVOphhPEIAZ1_kWaBXj4bDnmURFeXfw1ZIm1rb3QQE5ZLXVRu_N9MGY6IC8YzbeCUd1kYvShcgqfcFY1-S8NRls3LjkWgWnKoBM3F&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNAvd46U-v4pLepRA62pHzBycQ4s0zA0_V_HwOavDT__B_YPRbacjqNi7W_hLvz6q3KNe2unxrtesEeoiaEOCFCiRgS6PAjLYyLs6YX1bkPUr4I_wriGaJSuIUhQ-sQ5TtRBA4c1WV6bubjmosbh3ji8vigIxSDqA42nigdJbDE4te1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (1070 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Japanese",
-    "Address": "158 Wolf Rd, Albany, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Sake Bon 1",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOrzfWz-6zSSeCehhgoKDzEk2dMBHftrYf9M105_sqv3Ox8gfP8y0dW3nW_mDsWfAncoW-kJrNBs8VbWqBcCf0Ujm5F8u4MPMR6Xq-HwUkCeLDbijnf2zngxdfzPe3Y62OKihYcDtmFFucM0UzEezrgs7MfkCzlceysPEnWTBbiQsBA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPhAt9NyxMyNyFR3f7SAbttnWQ32qpxIghGbBlpumgK6N4-d06-sk-rVi49M_A8ut3HCetxNK5G3APZTclbXUuSj1oRygIGXd1NFaC7mmgNQnJsWT0neqiCjnD_s9O6dkvLv_M0I8yaTNkRQb2ZpJGroCauH4bJyTYucMuYkpL98qpY&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMJvUZlIA8L-Aj0jAN10jUjcgOtUEkRhxL-otf0n4QPpOYSorAfzCMCs6qhbYh6FAUFKZnxCysisDhqD2wR_Q5JDNefmg8_vEw-pR3PQOtaYuBnZF-kl3zHrqo2bBPHvYCYo9p8KRlrEysukIfX8F7C__GGFp8X2MjhSH-l-dGGUfG7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMjncF7G-uJkclCJZMffmaG_VeYYocRBsr3V5__T127xk_ngUOKZ3kUco4OGQ5h3CvJ9TPirtWbYyKE18rLuyfhtonqmbYTYxFRBxooGktwdQm13v29BDUPhFaCupabTNCMUBnyWe8MJgzKka-dLU0q3moYFQdL_PoCIHof0AqlKAke&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPgLsLb0XXZXP3Mmz1AHIGJKCXEZew8A8i9pCHJ_XkRUrLyvUyPuazW7mnuXCcxrblKsXTyRQsF9msMNgpzW3v5W0IcW7MK-BSQtuNNL7DMVlD-7kJC9t94kwnNxj0uRhxhL_otAPfM_KFmG3pY_E4MA-5ozfHbgxVoMDEsmTRua3B4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (731 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "15 Park Ave, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Oishi Sushi (Western Ave, Albany)",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNkGMzfx8SSgMB9qWte90L_qLN-Uq41e1cVPoX2v2bYOHBj-nuKZy_DHJipkO39lVNew8kw2fxFFmoovG1qKVgJ4hHaYkzmSzFDsAm8id2h0pqipzO7qHj2rFRorz56_oxEg7zKBjsNzQcBz3yAqT5wfzKYbIuBThc18ciSkSJlcwao&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM5Q3lXpmcWQaod9aQbMbWZgKSl59e8u3UiQZO8qGdbMIR2gWKppVH14_7JffjOhQQAXl6Gov-jjATgpicbXJgjusL6FxeV9qwW56DEjR7iVvShMx3g0d-s1jxpMYdH6RiQ667HZbWT420buTmkQPJbJ07WkfAt7NNOYBNWinLl1miJ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMdk16YarFwdSOIlf7sJByaQo8uh0wW9-sAYnSFO4RrNpPYv-JQhkujWIIjlea_xOgck9yLZtERQrhUt4YQ5KfbmKRIgCWKfiD8ZzQHSeV-mTUxS73gVov_tGYuQwzgRCf2YHLWs9oNXCP4S6Rp-dsijBZ0uTf5Kbq1eKp4gEgFOpVS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyBVZUJ7WxTBH-vAThJUFytctS8bknsTBHgWqAvbPvCQTkQ_KhRbsrevsKnQDwolKzfSXK-CQwWi0LDJbSeO4UJ2jeDlheYlSoA-ynzXs7coaQRlfoTkTS9J9OzjFJzINwRwRXQSw4FTUvV9shm8QyN4tjpBCEtaxvQQdQwqZFS0rQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMQ7r6LLAmGHLGeB9JWQmUYItZxuRUFkataX3oID2MUfvuIeRU7kBYbdXqhA6TvufYWV7P6mnePCaIav_jTCf3AuxgzJ5AUOO6S2MXVTiQ2zIWzVnqtA9045IWp_KZuKTKg601KKkG-a8hxw1UzkHOW1Rh8Jz1fZWBvBlMlLjOCA9jP&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.2 (25 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Japanese",
-    "Address": "1232 Western Ave, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
+    "Cuisine": "Restaurant, American",
+    "Address": "547 Central Ave, Albany, NY 12206, USA",
+    "Location": {
+      "lat": 42.67074239999999,
+      "lng": -73.77888460000001
+    },
+    "OpenStatus": "❌ Closed (Opens today at 7:00 AM)",
     "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Sofia's of Clifton Park",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPsErnx6TGS4NpmzITdg1sKVR6_x_C5u4aI2Ly62deymgKQXQ3x_YlB71I-tngvwKPAfTE8DT3gryiy4zChfsP68z2z_S9qFOprhF-sYOiGZdQ4jpcTUsPViV32daYsaX1q05htGAjqNvqsSNAi_G2NbODAXW0KFPMQmDOvpj_odYGX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN5LpPbn7EWbW8dIA7cXR0WmJ5DXweanMeIde8_pgkFHEA5ZNlkBHkxpn0ms59918r15mj0KF2Ap0LFVpiy0nlKuxtnIJzRIAOGBH2T6F_Il0t4-JIDgiVAUGcPVA7g4f-gCGHmzJRX7uChVHVxgEz6riVJjpDI-D0yoEhKK93mCL0Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMCCN9SUfrdfQmL9VHrBDdbC60VO33lCCW1vbqmzO9QUSOqR6av5NxrwCG5xyuZUOiO2JM4SbWkZoAIzBj-LyWGK9R1dxQm1ZfljufaWeo8IvRPA1e4O_eZY5bo6cRdwxMgz05PtlSAwvkKaiHwhPKONummNduC8rJ-l0jCRI15xyRD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPipFCzhldTK2IEZWEylWH6B3lirTwr6xldE-7CErj1CSejvlMQeoH5AGF19ejLU6tAVQL-W3kU8OkZ--d7z_JM9cpoYuraTza066Atlvmv0pb8V5g89oZUpu1oCx4d6ymb7AODVvp78DY9XDp3-JiXvunaCTEs7W2yeqUIh1PQPjvt&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNyKJW5YZhOeSr-oy_Votw8uKaFzFbeP72Ii5n22CkARt5lmUv8Jk0uEUqdENZQQisI_saFzU3pvcZIoKE63lOwaWuJfoesmBtQT3tIj6S59GuIMgOwmJmHm8ZJmAg0eVmH6kp9xs8OovWmyaWj7N6eIGyJ6MFtaN7xDsffnqlJpcGc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.3 (166 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "54 Clifton Country Rd, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Emma Jayne’s Restaurant",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNKSNYI_Bx5OENMDMET8mBxJu6RQ2C9y9Uekcw3APCitFyZ4nG2VVcgTBiC7V2HezYhz1b80aU3DMt_UHXqaKfbV1hk9RUxlnbURXnW9GJ69z3mvgnpD0Tbqc5dNDzO_YO8YgCMKg6Ktym13PDQPybVQLHT66BeNkbo4_grXHI32mgR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNQ76Re6TyLryQYW42hfiJx9-iztcoftNGB_Um8iRFOtjdP-79sBskadKWF_d2erqOWExkdWjypDkS1oqCZm21vVkfD08JMU1uUY3ZObjrMCj743G_osSP8E07sqzJGuZFYgikX8htWu5a7j0DC2xUy3nSXdCx2tgVhsw5G00U_W84b&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyz1J5Qw3BMGC8OReT8Jazo_DwChCpXGdB7bGA-RJhFJSRG-aUxkel900sJmDVtxJirdpUZtSdJyi88EEzYLtlDjwKnMt0BBn36a2YkdbgziJ23foc_4BdnUg5KyjLC_KHYwKtnxu5Aqcoc9ah55BXLrqQsiB6-cN3POU65iUD7ts-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOJhaguSy9nCOhiClk__b8GiRQuAEqRbmUkpVh8AFPjb9N9KXvFNKy7fudN3PeZHEQO27Ni6VVjb8-WT1oTE452Ulmto-GZc70SMxhH-AKA2e1B75pckaalXtImewBMQyfsbvn0YYtokAW3h2UO3c75uJw_xgXIrdYZGm2_YfFTH5gD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNxMZjtZmjrDH2duCb4ZtA_my4aA-fqaSMyQAdL4QJoK3QBujaXFKiafo_49ztHHP4lld0jGFBRwda0awt7lXebLOsYi2-UUV0wf6lmjbNdPdiC9upJ7NEvQ6qpaX6qvxelvTOVBD-p8u6jURRi3Xv-3KeBZ9ZNGd2eJJXI2hC63IOW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (376 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "1475 US-9, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Cafe Calabria II",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP4jZgK8w11SL_MGyIafuABHzu5a_el_4eEPazrkYL_bUVMhCA53hrWwxwRbuGSMj_vJIygm7l07-8S4VPaLLwRTZJtdXRHJDk9rp3tgQu4UCTlD0lfw6pCpaz1WUA8D8prVZfzttoW5CNY7mA6PDrTLlrD20XWcl833cjsOZhGARzj&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNupcbJBf4a7xc10gCXUm9ZMSsmuJYoCbHA7YbdGjakKtACVTNW7AFZsWyDc6V7CSwNcWhFCB6Wm8tE1d9lXeEMjkpCL2cBqimKZ2OXxV4WYnUPJ3xK7RAGBv55wWA_7pbBVefOIgRr4ACKsbBVy85Q8rHLiZg6FPnwldox2H03Ha0D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOMgi7Oy_lD-EMkyIwKG1z-wseKMGobGM_9gjBfGchM5ADeZNxnz-IDLLX76_CCQp__NTULiB9-XIPOyOwR2q-qmQv9n3gK3mTmK7kcPT6KczKhgrGc0AqX4-VkpWie_KSbbv7gdHGQZneY6c5v5x9OTBRU--OmGKmcYssyBbHVMSdb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM7qdaqgl6B8Pk3SPD22cvX2VnL3z6_oMZT1-vCCR-H9EJqHy9Ezilj-sBlZ00CAbbKRAaQGZKOLZ9BAknl_i5YcFmDJXrMjsGx7SrK9kHc0xrAPPIcehVvZR0QMlCjwxDHs6yCsE_wjjD-lOQZbhE-WvXp9Zu-x7LNcc1-_DQSMlDz&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNNyL0zgmioKmatxMRULkWsEC4F2QlfqlIKENRC6bcLtMCrwEMoPTQUICfOgvzKrzimueXkukwVY3Cjq4Znx7gosqKS-Ej0qeW-mLvXfhP7xFozn2Py1F3rKcR_-inNFnirw6oxwzJZJGlL64o31p79jDotSfWCqyJtShnp4Qe87zGw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (327 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "1736 Western Ave, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Upper Crust",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6N9dtMOXG8M7wRIgLVY0o8FZfB8w8Agk4c0ku3MT4lkJkm9WbzL2nt2ocvcpSaN_vfOhoAksJbvfVf3xOXM-94EBVm8RqybOph_oKJnOWzCUiSSDOx8Uaze-NOSV3Unfd6Wv7CKeywSW875liV-qkbQy54c0YzsGxwMFQGYFOiIlh&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOCmSFwDy5_Vd46rZzcCMPFLPd95SBLz4GH97SdU2PcUXbK8g_YQ64LKfkmIfaN1G-hGDWoVsk2HZaxyVQgX3XjJJ3LeQMljuDs7HMRnfeU3uEI7M0T8bzzgHl9rhjQB-zUDjlCZ800rO6aT2cQPmnsRYoAs4xJ55ktRquFoaW_gdrp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNlVTV4VLCflMR794C8m6l4uRCJ0jmK3hVweh_iexHzYd8TxhWrjduTpfVGk4FKxaq1Y3nSxOJT1jIzFhrLg5EuqfrD_Ul6lK1V485G3uZlmzDwHbyPi3-brZnQcjeF-WbNSah0CP9LNrKarH4W3TjLP67cmwm_XY9-Zfnnwm_JWG9Z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO86zzsP9aG2oun069W4WsTdoWgIjk9U3idaExgFrIZ-fxeiuI5crXk9TuaGRZEBJbFbf_U1wiNARfxMEJNCT0S9NmPUr4KS_lPNZgS8l5LtGiT1U_BHBtsRTr_QFxIbOWU5B8OjHd23N_KwFRPmbrfNCuGb6xeFoXHjNBIPJls36JI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DP6XXBdvpig_jrBJIyp9BhYdbCtGUCHXSquDxBV_JJpZdC9KbVlKmcgkJb9UvmgT3uKPz39_4boEknmRV0L5V2WJx2V33Un1-j0ejcdqx0AchkewC_Ywo-t7WTfwxJQd-BQ7iHnyW8Sl7SIoR3pKIkI-vq31En475y7n9iqVYuN8Myo&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (249 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "641 Grooms Rd, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Sovrana Grocery Bakery & Deli",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNErmAGv-OXSFC-aTE36eQruBYjrgbci1b-ta6fq7833OG_4nA2ZVPMwLS_GHisD3SPX6b3ez4Knq1abSxa08uypsRVmQpSqDPPF0EAzLG_cSfx3h_x7y8h4StX1ErGQuBpGMftuOPbZ9Tkk6KxVpHSm6jBw8wU18pS90hyi8ReooH-&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFm4OmL0NaMlkCnStofFCpN8ZDOfJnOdpv0vEX0RbDL6jZa4KAbumrIAwcJX0O5d9B8Hj1NOMIRL9IqA0XQnx0SmhPlCj37F_bhLdzVp9gigolYLph7q0X4VmI7zjNUTy1dYJRImOz5BzSkcueV9v3g-1J-4HKrUnv-6xaJVCM-qzp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DONzkkBfYdOJGzWfcA1mV0C80H1mTQxw9bkBAQHarhhjzqaj0Ie6faqAkqE8NP4w9HS4SwnBKpnhJjK9XGOKCWkHcxo4lUOWk0aFwAIVgo-e4j_jaThotANlptyXXHXtNr_Rs_IpQaob5wEZghZ5Ry3q-2lzcjMcOBKDBTDgXrYt8RH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN2rKXKb__f48b2RmnXC__aBU2gUL4GMc1Da8xjcnV4Vl81TKXgK-K7aTSmwhjjEhaaLJX-vGAscVIMBSW1XyGC8v59l0Tij02yGIxJ800v7wLn2OVIJnPpCNz1sCMqH68V3qA55LUses1_Eq3jlMwSOJ4nj48IJUey_alCRN50pyI&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMs66K5KphfoFE3DdfOMmX14YZB1ajnMkKCMy8h0LqDipUa-DesEe7JOxgRZaCalHxrroTa486brY1CfpXRLtrWvnU9F4d0mwBQfwFm543syIF0rd2fR6iYqZXOBeSwwXinZxIvonbrpnFkBbM4g6Bzu2PRWAkWgjgBWcW-d09ZwsFu&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (685 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "63 N Lake Ave, Albany, NY 12206, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "La Famiglia Pizza",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPnT3ToZ_RbclIodLG2XBfgBG2X9nEz5G5rYSa6baYJnO6SugD83XU_w4oMJ_HUCi30KO7Js81vSaXej36MeAzBl0H7ZwYGutRLIJFbqfHanA_TWW2JusTVsz9JFYEqKnc9e5SRfXuF1hXuIefZPpeTwEhaYhbyZ1ahDSyVD_aI5jdR&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM05J6XzBOLZiTqzMJ755A4xKbEtH45zyBx0UNoyOrhPAjecya1hEi4QIqFtvIksXn0e3CBwG7l4ab80t1hdI3T17S7jIG7tM5JbrMgKfD_NUL6RkpQGdT-GdSt35GQp1sFDMWAAAIy1zq7Cv_puT0hH_DCxSzcppU356VU0ZuGZ_S2&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOEcuIm9-9cUmbV_xAHKqXqo6aepb8z38OgjEFLWQHf-k6wEjZ5e1GKEPJww5crfHsbEEm2MY0oKFvnhdXCdnk9LspAOoydTh_-IiaaCWJlJ9eN0zSbCcX4Mp8edi555OC9IopQXBIQBwcj4iR-Nhl_-su-qE5li8gjiK4YSOE4QhR5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNVGH_Xvtqv_UgHRm9q_tXZYRKvg_zZixSqzVjvJx4BR9Gis-7BR6UX5_5xaVa3nDmeyRiOy_QgwBNTZdnMtY47QxuzHH_QaZZ4s5fNMVr8myt6P52QEsYLBkL_xlJnXcOlABNkqlaeaGqihvKHxFw8XqaoCJrYt3hGc34iZ67NJ4Dm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN46jFhphKmQLu_7GAjOYo1QPiwhm7rowsX2XHuSHGcECXXwxlG3pl3srtrwwmMzDHVYBJJ1nPHZK2MNbhjQbl6Rm6vg5Sw1VJemFDk2Bbkx2BGniBSyZC-Tt_8zVJQaeqlpWjISFXRZ6TX3yUL4aw3ka-3cOYt-AUhByOWkG9SLUS7&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (333 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "1770 Central Ave, Colonie, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Venezia Pizza & Pasta",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOys60inMJ5lAtAiZNpUYu0dM00Kxuz1aUGYyeVRw1LahwxbPU6WovobqzhFZiohWKdWAkHx3HKTnc0cdDARU-qhDFq9OnIHz1HtqRoSoeJZa5PqLtzi2JybfY5iCiw3UUV8zSNGtZwn3T9Ti1khXrDFRcMnMhz1S7-xsdz9tEUYth8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOF41U-54AYNztqUCmoblUCU9a5_rI2VqXQm1MFaXAVxzdPVSOxKzKnec-l2wh6-rifYhFsLb_iBoAQLMWa7cqZydPVHKBk7DN2ACh277nhWFcVZRqTW9T7rDxstVx9Rh98alBZhieyszLh9FhaGx0sQpG6u9YXGs-1Rd5QZmfq4OaL&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOJwjTVvm0xqWP92W0NJXfT5uy1bFjv8gUhRgFocByZzeWlzgMe97885gdzxYcU6JjdjtAJjBuCHdmEAKBDDQyYOf_3QrqbeyTo9cN78Yysnunj2fZ3OdU7IAVcQH0g0zKL3BOywiylJLnPm_qdmg4ifMcDP23fwE3rkSoDZFkWMq46&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPoYVyCPOlGwn63U2PamVtKz8yFM_4ONSbbiLe7Qwf0LV3RiXBK2fnryg4pgmI29Jj6qufFV63nPsYOoE9ECu3ZUA-cqkE9PM6qdTp2qSIPr1h-VQlKRygMFkH7VPQNkYVRULjt7HSO-qDiGLMtc1oAGxKuHZJRQFK0-boOCIe6v3rB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN69hv6isMame1bXpTmAtSBGztKmweA4oLy4Xfs49JbT7086B9rZgk6FZQuJtYXYAQQwcwM2435o-Qxn8TKsOgSNXLpHQROlD2IMfu3ZY6eJhaadqpvUDJOLS4c6vqtC7WejD9GAlu3fgUJINCJ0OZ4O00IVNAuLCdJ_cJABxv_G4hW&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (600 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "629 Plank Rd, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "De Fazio's",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0XP1TVyDhbuctAeg2neaDeUH_rc8XWTtse8UGCjiiTwiCzd9RqoHPTHBZmLzA0RB5aQuJVUS0JdtowPK3ywW5SSLyC7kUTujGyabBuv6TI2gu9knmGgMWW9V2pjwp4XCPr-1dsEHDLvDWj577C7LMFNNDaeTAPYkXU531w0mIl4wH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOeTq47mHb3HG_jJbj2cEQrtrB2Ng0rQ_ksFUiUcKBagVGtOdWBKDBNytL2dsTsc7-nDmCWEGsVrkhAgCim6kdN4jCyybRyHYoU3sJZdfTtgYg_F48-YFDyHOPTafjS01NiYndImHcrGItDt--Pm35_247UO08Vzaap4OHEA-fy1u0V&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNtdIlORbPcx8tax2wKgO4qpeSIH8_JTrUJAaUzUc-cKge5Zqqv4WVbx2950RxeQBwN2TRlP-2ksypB1c0cTcg1IByCwDP4ezOP17TCZ9YpK0fTNGnEmC-RJ_m-o52HNM_jn8nDFIDvSAyxya9G5kA4gYzKG7L3sjOVBkQs7PMyeeL0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMDOPWLQ4Dm2tgM_FG_O-c9TJYGkHoBc2DcoohVBvqfLawwCRwLnzZaHe2O7Osxp_m__neGCYlZFlDQ8MMl_z5n_6Tbdo01_mOQvXm0z1Jd7vIu3ELbA8Xydpfyfe1Ibdg98aVIlEs4HUgxMgusaq_PriM_u4oUWGldfG-ltGfU-LK8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNB9vE33T7f2CMqkuNd9LEUxPY6ObmnLlmfgyzSorWRJ8mL4eDBzww7gW3O6dWRWHQl76PV7mtDfHFvqe3eSUBr8HoWLkYPMiQAfzpnrMnaYrFEQfg87RDKpTT5gkTbvxMDbYSkf9CUQOKq8iBmQokEd91nTjM2pL7uzhhx78XWRp0b&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (1076 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "266 4th St, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:30 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Zotto's The Pine",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPg6aUXnw1IIolGXzWfJQTVa4xL2N4UvSwTsusJMw9T8Ncp2SCLvBjTG3MOdjHeVXRTAKNdx5qrmuUv0BH_6H7VO7tZscWJNwrme9NrWHLo_ZGw1s7GCPaZs78tmN5-Xo8B7BPmoabh2-8CARgvIOy3j33fZ6aA_CT6cncFJ9FxKhKT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM6uD0_E_WumBx1GH24vig_MxGxEUbbkm1GMtbuRG3tIFKc6oEmMRPFRKrg_xYHxZMYDWKGwYkiDwU7K3ve4R6urpCnwyGDdEToLknZAWDOJO_VXFeuPR0lqdCYgaO87Q_K8K-og0CGqXVvTnuGAlXiJ9QP5OOgA-DSDPOJXqhUDiRU&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPr7DgMfofLSN-P8ZeLWK1tk1QIUftWjMx6qkup9IzrA_8bq6ELfGU5_Qt6FGUrxIVsSumQ9yploLkD4pd6yL_NGt5MSoVrtYP_fISxEuqpDQCJuO0xLuL49fMuy4_mcnJ28_2fv9mwYPBJQGACQ7Fr9ZhsYdutvlXcBmql7BwmRyBS&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNcYmJ4HSdyhIcfsDeogZBGUjVOqLZzK14TJFlMxC-qe5hDfQDK0JhhY55-8Yv2nBN1UuryEcLnZoRzr1YqYCfucgB34TkeZHtmLnOTfE_x_BlXOZf1sCctwbTiFAHlPzhe0uPRia6J67yd3pzMQZCfZT_bwMa_GqcJ_HEgJKVitF-D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOzQkmMVeCTtd5YuTJCV1b5rU8d772TR5llZbZwXKelZEReKOndXcwreGL3lkeZQDX9HI0hvSHgnFeoOS8ibD6gd4jSKyCeukDkYV8e3XBqG2d2yLSMumkimOd22d_YYBbj5yxPPsX3sgOph8l7IwaOtbBGueSjl2VWocBlvE-n6Su8&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (141 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "814 Hoosick Rd, Troy, NY 12180, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Villa Pizza",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMNhWmrbvBldhwVbpqFpjme3OphIjCVpgli3_tjeWSAhPFfr6x-bdca_A_SWCeD04JYGLp259QiR6_rqV-rt6USwj9Mj1wEXcjliOamQ28d0lBnk74MUeTfSOz3LyfRys2ib-xWMgW-JvaHGrKRhYRZkl-L662jSIyedFySlgBJ7qYm&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMLNSjIgUa0SufviqII7oCg4_h5tI6-l_KVKdCbDPHTa9TEPeMMdcbcWouoWKZXHYqEePNK8g8oM-xEZVZPxMu9-l982Jv69GUEtD4QBuYZ83pMadGDq8Hykmlb-8Iej9uELOjmX3509Idc5XhbIeSENJqUjVLsrpXLMEEhCENAwcuH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNFD6krzEMqVJvSou96Y9_HiTPZcFplVkb82xxFaBzratLMyC_dMt9xkdKD1itMMsbsFPrMVg79AW1K5ee4oyD_uDK8xipgxfuZuLVyfQl4_jvGwWd9NjUHUocny_Vjai2HlrIx2OaIt-yF5uwFFmjIVqnf3E_SuIRxVPdt72SaTtNX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMEmmN-PWCmPlgRNYQ1vADLyYjwuajsQOuA-_o0xF-sCJ4tHbjKjir_f-jUVCPdVNWTbnJLImKaB6-sUs2vcP0At_G9DsJ3oW9hz9mnEtz_WdRxPJev5nYMRbDDZbCBiwR8OR1dHAaH6MmcCa0YOiExrlwTQ0sniPbJ75R-l0VIXSMK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOdtzxnWe6xsM_bPSeSgcdezKraQZ8N9aNaqe7JmJB9pryCWJeFvtpkIGzaQaHrTQAfsafltHz4ueaCfchUNdbFIfHA4lNW26sdRBg35Cb92cHttpJ0g06OUeI9R9f2sqhwbnABXvsyk7Jz8CAs31RXDVnoEv-6JqlMQ3abkjV-T6FZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (254 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "22 Clifton Country Rd # 81, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Primavera Pizza",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNJlaSeXk8qUJXuqs4Vdh6Ta8XCewGgQ5GrJFnyfNyNmnyWiYTp6xUUparvEFuTzoeEf6G4-P80B4p9lywjscFnXsDD6gZR2otJyrrpjLNctxrXjhwe51V7KUhkPaA158s_gLVrilkFmPg4pm8T3Y36ywkFofotiZ8W0o4GiPVSC4fA&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOvl47Z_Lng2nt89-2q1rKRM_xj1s2WWfp86gp9kuNSPFFfmkofDHicFkRqYADjzhLICF6rSeTjElpU3rurMf9E14QxITkqwP9lZW1fbdtB2wVxR8FMI7_awwnYuuBW5aP7g9vns9LBxOYvJucSBrk4riuH8kZwvGWKqkuCRyrGDwBZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPh9dCGyfIcEytcKcjV1KmhK3h0dF9ng6TN81rm9hzVpXTfb8J1xQ5Q_E0AwoiyIYub6EaVl2y9m68uy7-jYlnWioAOh4um-csyu5mUJlqqvi4__hhXl6taD5xAUkgpNBjqjtX6X51H8zqZs98FzXIXbzNFy1DTH4kt-BcwrGnDVgFQ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNqHwao_dHZXsV9GOHZDocZ4U1U5-3d7wwruN4dFwbkW2pPPiVo_ZpWFZD8iweW9IU3lBCONJQrP-tGSomZVWDTGHJ3Z4LgxjFEt9KiNc6nGAz8vIRWu00hkHhlzXZq3gn21A6Rb6-d9dz8Ok8ZQVaF44o4322XuoHILr8vOwXiNpZH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPZxwNB2qCL0BYmCRkFyQUse_ne6p86tOa4QjMmWo7gONiPvMNyBdBgZ59YH9UjDduAI6FNDS9_PD5X0MiaxkPOtBOkEF2t1SshpFqg-B4jC9i-hpMy09qK-gynsk-xgo5vriI-6uTi2_u2cPEMKzUspG978epYyxIHRMyt24DQ2K1H&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (473 reviews)",
-    "Price": "💰 ($11-30)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "1758 US-9, Clifton Park, NY 12065, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Lanie's Cafe",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOHfGldbJlR9ahY_Kta5sJpqp09dFGTqq5bB5LYqmYJRHhpoMjQ8mTnY8kchd3D3dbVjadVOPutkjPVZpbEHMUAfD0J3GlXtSguDP-lon9J64xh2vR1Qf-Vv2sITgBvux3Hhktwv_rH8exRadU_Ze1W_oX4cD0dLik8mtAHpNtDMmxK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPYT5AAbU5sstgNklVkDQWhMMFRQEfVZ3A-nzs16plmyzgZJhSUAK0VJ3KCly-5wbsARK0FR_cPwVOiu6aHpRkkO8-G7yqC1KCF5wf_q6siFpTwnIacG2d1u5Bl9XWRILW43ApAoYQHZoleI49biOpXTh1Q_3SnkNbU5v7tfbYQ-_hb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPaswsghgs7YM2vKJZRA9XwQ0rW7NZTaoqgMKPIQQ0IOL3nzZJXlza7sG3J6bogavYSG0k-5E0IsOtKypXc8NNg92uRazrDY1k77RgjwORWzVbHJyK--2MUE4qD_78KXeU21nwoTllTJlDa0utNU_KFQ3FOcmUnMQakmFvBK4ViGqgc&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOiG-rEcSF77lXSHFG3VWqYxV2fYrR5g-N2BCtjsH2Wo9k82EszdwHpnwT8xcCtiO-tT638cvTQLB9iVpGZdDkAIsJIcpJLdn2q5hxY3_4Bbc1-oYBlWvIrE0tDtHaCBdYeI30r91Li1IdP9NZZoQMu6DdQBeBGTm_sM2wJ-WQ34C_0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPAotr_peI_Fd-q4rkXJbF2OUuSVJSk6Xer-ehoH023dgN0qwbfMYc-0MjWDuN1FjHyi1cwe_fj7pOXpp9ol2CfhxxbI5KzLZrH0gtaJUKqCv4A-UAszA6OPQZZmp8RTS056VVDhXjHda7SoCPiB7wA7Qb69oWDb_ejhhn1-dBPptBs&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (1839 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Italian",
-    "Address": "471 Albany Shaker Rd, Loudonville, NY 12211, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Ralph's Tavern",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPBDbxLPMtAuD4CRWiUo_1PmB095u2oewJ3faQbb3DqnO1Df_IDD9beolJOTro6rJQOUqEJ8JdO2UTQZXWalC25MeV-CIlJFIILfkilgLK07mSPZ6b7gH2De3pN4lbZCKMwGiRLr7nO7OXloMGf9nuiyn9Tfyrrk92dhze4kUlv2TOw&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPGxnNP6S0u91dg7gcYuwqDl6fQmCNSstcpanchUHJE7F9eISGchsNNhgGj76CBGlpbjqHFL79_y5Kdy06-LPhHCkjBf6uWOsKPA5PoHVq9hrqSFuwSoZf-HuCC6HGuA-KBLn9VQdtPAR_jMmdEpOO7lbfSeNbZObJMzttRcFVefDG4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMcz8seUTSGMNSFFgYoZgxHv6MfnmkajtzkrLa4isBss7_r1uHzousPa21012lAIVrfEizaQpAtiNzI0AX-Dm1SNbpIOZ3xWlpZhVIz--YjOwx9kvOLocBUpnxLiB27oPHHhYaU49Or-kGh4xciynDMtzLv7iD8TzSf8vsp9Lh3n-nX&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNUZPAVQZUZJ4I-KIv2ahw-9rPYxLMbzCW3y8ZMKcBAWVVfRXnSI8-wI2FdeMLqSfPM-qnoiw00tl3oMnzZiRdLUUYHBE9qrwjlaLyMH9xO2TT1kIoQlDwcb16TlsXWGe51aa3Mchal0-jt1I4h260TPIFUYXHiNv9FQt3SyUBxxkcg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNEWbHoDHgghtfo7BZmSO4_GMu-0niiQSJLACem4Sj-eKYEL0kNb6RjBOAVMaeqDcbPLwS07QeY2h8ul9fxuyF1o3CE66lVoedmAB9paNy4nKGZkEqg4kJ0VQiH28VJuGo2SB934M2_79YZ6Jgf1Af33NyPB8BpcysueEor1LQfw-8I&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (1560 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Bar, Restaurant, Italian",
-    "Address": "1328 Central Ave, Albany, NY 12205, USA",
-    "OpenStatus": "✅ Open (Closes today at 1:00 AM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "Rosanna's",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMK2oQ4WF41l0AbkRYdk-rMxHQVGe58SrAj41i98Q4wmSMDk4Ezo_SZ52ovOdUN7Urzu-4gCXSqJV7_h1fnbex7tmF2C-0VNnFwfSUXEIhAUjBNLqTZKj1T_0vrqztBK-BoaccSxG6XVCTDX1suL94kT_Cbu1yT29BgyZsr0R3JYD6a&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO2incbs0zdR_hoYf_M1aRlo5fXoeb8lbl2UClabSDAbaQGVobXQD38YNbPpTjNvwNhXzwBVI542AsNqSy7sLkISwvZh_Hcbb2xu5wRqTRAv1C7ncL3LMKRTU7j35CJNzgIJrNtJUgJL7P4UocCpiGf8vnl5YTEAdPTlDwPnZYvNekb&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN12EN2k9IoIsFCCFIq9cyyEd6PCWRvXDRDUJupSpQjpyyQitoLIjPx41n9JdZTrlZM8mOLGqJcTF7Bf8dI-20BOuNfbBjsSx30rzFAxmJEpjjgqymHcaE3zyyD57vMvi_aBm2I5_5GGDFxVNSscnPCq9YSNEEJLgz7aBM95gc09mEH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNChzzS-Kl-3X7brVJt-rOqLVWxf6GMlxd9FB6Eaw_boojGvO8OJ2PUBr4NGhtOqdZGNVysWPkzcoM4klcStpdiSnZ3DKGull7otDiXVntGUcbWZJXOIumBdFZHfSPOGSFpdKoIfLNiz_FuoWxqMCqnMeeg1cWNU6FwNBgfc2byVDjd&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNVAfyYfsUeh4WleNXX7qpDgyGjs-HKPoVE5lqsEk5mSLZqPliUyBjer1E_Iul1wtTAFBuXrWW9gVj8nuIF4NBhhmfwgrFCS6IDrBHL9CHmaKrPu2ce4Kr17EU-PKTh0jxr5w3Xnws0MAcdweH_RJ6BpGn-s29ULcx_vAHmxq5AnagZ&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.6 (210 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "23 Dove St, Albany, NY 12210, USA",
-    "OpenStatus": "✅ Open (Closes today at 2:00 PM)",
-    "WheelchairAccessible": "♿ No"
-  },
-  {
-    "Name": "D'Raymonds",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMLc-6oDudeweOspJnoyT5eZUwOKroENjuMV-ff6q7bqoX5cPLQf-FzfyILUwe1F9anQXVDDMaomTNbUKouGUHpRYxvcxayRvBae7L3UXnHtADNgMb7VQw6TXb0Q2i1Yd0oTm9AIIDwuFGWTNpUbdNORyMfPtircav3Zy03kurcw7du&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPphHSWzRKFLjenGch5SoPQILZjEcinIUy9YcSc1Zn3r3V2eisKtJ0eltc2VGRgw4VYy07Qx69hDD0mV3Gxp5zyE5ov3I3nRrFrh28BBTRkoEV0rvqvyWs0cD_Vvxyhpe5TBw4FUlEb-RrqZ-JCOjrFLjzGI2Ad4I19O8YqmkUZdZVp&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOW90b79KyOSjDTukqYp2wSOf5FaRF5qFvogbmZDCjhjJa7nPaUM9sH2OUBheUVc1JU84NBvJXSaK8VTl8upkinCLyj7hwijIkw-pXZSzTi55Q_RorfYA56mjR4I4Bw0Eki-vh0x-IXlt0bru4CdwYw5HY2N21YrxAIwzO9ALfH9gwD&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPJ5QC0M1cup4I738pLouFuBqB8Cx9Aw09eVhcvbdbw_-wVVevyTJKRAEQmmsvINWE-vygCK86yvqgkAxiOm8zv6VdKijnzMxzK7s2GJ509dnifT1FByq-X3VKywOYpD229hNryCn_jlabpVvMi2hzHXm3Rr4dhmqgUy_j66_Mdbst6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMZlvK9DsPfCpSSSqTVLWROgk0C4t1R1_9az-TrXYJaBzudxItzDJl6qhnc-Ax-XjUs49iXms0bvJdFyP45EQUBVmYbzHCGYKNdOZ5WvP2i-3yEz11YelIs1a-Fy72WT7dkjqCAeioBoFEcWh6_nkGUCqEStAnvNx9yjdsmRas9sgj6&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (1090 reviews)",
-    "Price": "💰💰💰 ($61-100)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "269 Osborne Rd, Loudonville, NY 12211, USA",
-    "OpenStatus": "✅ Open (Closes today at 2:30 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Pastina",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM4GKdQ7qgLkjE4EI3iU0aJ5hdNM8NVuz_jPvKwYYbN_kUEHxM-tQTAim8LMEg5rkabNo90UkFJsSNhpg5XMu2EMJPw7lsLIL46CQSO_szhdjflY7ZWfzyrLreDcqhLcj2pmkg-ZHOOdSoyYmKrL3uhJ76F30kxPN_3zkoOaNG0ZH-b&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNOlodAxnSAGOCzjoUC5vTMNHvJNL1gk8nmzqEQT2WVTZOkM1VHv_7B17H691xO9A7xFD9mCOBVYjAXFrSWpa9fmOqWEX0AulV1rUDgww-KQ-72l2cUf_Oh72l5l0xtIFdNUvuDVcyOYcop22ssesPAvI7c5g8QIdsAoUYBUfJnuH9E&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPriAVGj3TaCBbOkpdSSIU18pRZ7FMVCDhYN3by9oNwQ5l6ZGrYfy5L6edp6AUyTevehkkwi394eHskMXBMqiBGhjlG5jjXNTFKYhMPfjqwEDdsH6X3Am-Nhty05uFLi8dsJsn_pAez3eObdWd8Fz8sQ3Xp3i0qRj5IC4uT35eBVKFT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPwIURBYeQr3MivSMmFO6sqjiFqwClQ_51lvO7gSLrxGpO36cTAYrltDTUxGrOrLidYrOFZ45y9LI67CPSiqR1hqgoxdklZeje-GcYWL97MrTqez9Vg79fdBq9ri37lVGNyiuXGDQ3JnDe5zGxugGgRR0N2HECBbWl9X1yt99NlXmxH&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOW9m9xuNnQJA52fBQfJzSX-kmn8AkgIMgTy178tGSXfkz2gOouMBQkTtzVcY3KO-O_wnlyoCqMkHw0mTafa4V8P3TeYEuLqzWJi4lSZTAFW2wXgzcZ3fULSKXZa2rK_qL1Xwdruwh1FiOqib_K51Cu2neKC2vJ5qyICOGn2LrCXVla&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.7 (96 reviews)",
-    "Price": "N/A",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "384 Kenwood Ave, Delmar, NY 12054, USA",
-    "OpenStatus": "❌ Closed (Opens tomorrow at 5:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Testo's Restaurant",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPAhUqzP8cNe2qsxDmTb1GfnkYPDryE2MNx6H38yUdJeTCGjk2DJsFz_AepfFPZi_yB4RQogTq1M7uchg1wM7ooC5QK8xA8DsOww8czxQs2K48czNhiMvujGJD34s5f_CEietbraCdur0SajTxUnTbbZGSHg188zkoyD4digi3BsSH1&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOsEBLxLJbanu9bnc_XaAYL1VRmDyZEp2aEofPGziuEEAW9lp9AYSvNFFDC5CiUvW9vUgrcM5olmFFkvKjIyyvqWqarRkfRaVHk4LzpC02xVZ0fIKYUMVlkyYAGs-qcS7fpU6kQJp7e6KV1cgrQ-xhQl0BFf4VodbFvTEdLj0Iq7c1z&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPDBTn0S5d7fR8n354P5dm90CzAm021eGBmdigzKzPxIuo5EfIPq4RZMTTx86DjuGKayJ6LQQD2cksBsJ051KqB33Se_odoFPdEiNIK3LbpvhCw2SForoItysnTRfaecCWxg0nWPd9C91PH_oJXh48fZk5-MZtBB-q_mSVC4e0fUH9D&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO12IV-ygpdgC22m03atfubtKhlSpD24E53dgyO0jM3Qv0YbRcDCtu2EDrmqvWzr6RPxNZQee-LAG9C6_B1kp4_Ru30nm4rU8MxdBxQ6dMcmj_aLCcNdBAiBNAVuz-aLV9Qcu3uHXbGtSftfSE-wLbpsSamFLPHewlhlRAAukgA0lFa&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DOyO99KdgLVUjNF2Sr91sQe3-fHuNAmb_bsfvMywxlT2_vAQQrXmRYVODVL36YaPGTOijW4VkzcFiXYe8CWz53qJuP2UPiruwFa5b8XTaYYE9U6bgO2k8ZIXdyl5A9L_DbKX9SZk-5xpTWxRZnzq3RM73I_kGLffWdSafPBBL4sEUHN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.5 (718 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "853 4th Ave, Troy, NY 12182, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Jacob & Anthony Italian",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNlS7rrlZERIw8W3Cutdp7FQW0RY3JA5DwViL3oEEW5uibSfKtvYSu9gM1uzh4iAsa4R8PWhzzFFBVmq4V8W0F8AJemSEqCjGBbOOVXtS6yhNhdxRcRoJhr9xWuPgqLtJ7lS01tzKE_Gwe6xDb1PMNPtzsDEPj0wOZwE1V5jxXKyt3B&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO_tDQPOWZiKeYkJxLoKO4tXu4HuewP_bUBjhX--oIyM6bJpyHnyqzF-v4vL9ktaTcoJ9-h27M6sTnj9V4Vu7C_LvoLqDO84FZZMKzGC7XU2cWmfve6nebmC_OW8wKULrF7XgOyZpTH73sgi3JEMC5wlwIiHahgWvA7jOM6QwmZSC1B&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMcmevdAVMeYMs1yVZWaXgW5IwEAQQLLLFmtLm-jmWwfRQm44H3bX3IKVmE5Id5dhNPLcsvNDa5utSy8j26rZeFHdToINXL0hXNEGQhUcdy0kNIjkiH3iMOLhAwfztPxDHuFtcJvDiDavgEtZzfp6u1A_tn0TcCWamRegVNraTxYBv9&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPfxNzKPBq4gSjJMWvUPHmWWcpfXL8OJ2NrGLML6L-56yOfHPXrtUEHgMP_yLn5kXhQKVCobFfkZ-fc1CuwD6JUSSb_TfALoofA193v_82dAvF5cNR7eV8Kq5KSQLBGs81B_XzzKEPlsDkt_fG1zyMxo_kJ94b4MbgoFeUZizDtuAtB&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMU2nJgM63HcnpcEVjagHz56epNhD9uN5gDe-xZMo2P_pVIhyrFpvCil4_Osp9gN4UFJeOQeRGnDWH6rNrjw17GF_FyHQJsWS4KA9mNa5rdgKakVdzurahE4ViOM-mSoJnScgxtPmnMzdHV2_W-_T6CH9ys5fVATg66mnaX6qjzsLsC&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.3 (658 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "1475 Western Ave, Albany, NY 12203, USA",
-    "OpenStatus": "✅ Open (Closes today at 9:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Taste of Italy 23",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMnEMHoHGpsKVvQw8P3KCoSYzUB10yL-tcg7e_yZbjQB3FzH6iNHHwljokRR6tXjSfWxewSdnVcao1iQDOGZUKlGJBTbmSdMG1jdYyIEFQlSsyltSPFKKw6AtASaqjZ6vo46GGesbL0_nAxYX-rgZbJMwBR83oW8hx3lXORYBsqsHk5&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DM21c7fiJcSOSCO_YkJZbdt8Ls2bcS_AQa6IptILKoLP2sH2qSanZSXTs7IVy1HFjL-wCgTXuEylwDD0xBsQ0N7dRA5umsrdE2buScOIXlTM7kIV3VoRwtxsOAqKbRtrR94BB8P0N0BSbmoDeJKsOFDBfJXdDffF6vfPKmdFNYA6SL4&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DPyOVCkjs0vA2dssLg47L7Hl-C6WbqE1z0ArwzRd2_UlqykOU_7OcpVFNIqSatO9QC8C0hmsfy7BkYflqjgCaef2dFJbNizssayjyU3cuQgQ110OFlZ1lq0vSDyLraCnbJoGIaUXrJsKs8Mk_qwmRBzPLZxDhXONkniOnCVVGxq-9dg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO-GGa25OdQkcWng9kfvxK3-J8GnRoGowU0swY3SCRDPbcKTgKgvjyTTTItzktqbIlgD3xgulrKzJgauCX3qn8ZZOVRkBsttIwrstO1mT2sTSKeMw0sxUEZUFzSyGmvo4tfyeNuA9rROoRCICPXNPXphQJNWlaGj0HHWGGdZFBai4CK&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DO0SH6skYRZ5CpSSQXdsqMCzcW7pSNX7MQvQVnw1eqLeQhHc6L3_0XxQnSQSAqV5myqTgX1HhFdBAU_rFZUbKQyrbSgkr31OwGJE4vtmXem36uahZHjMyK6VvIZWcuEjWGT0k_t9i2o2Q3VaWKvlO5_GpUUOBmIlh7a6I38CbNZpJhN&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.2 (394 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "800 Loudon Rd #960, Latham, NY 12110, USA",
-    "OpenStatus": "✅ Open (Closes today at 10:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
-  },
-  {
-    "Name": "Labella Pizza of Wynantskill",
-    "Photos": [
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DON_c6Uw1BCKZuKubQzOS4bwi_WPMEYUrL2Nq8dGJ2SokTetB674unHQ7UCC5tY2PJ3flxGYXOmt64yfKlQepr7lLMDsfkvoCK6gtkV2cS0sMpGBFw2U0YZSjr5NRewGyAZkj_-lBE2pPrIdnKY5nUbKs3YJk1WWNRI0A-4-j8nXu_f&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DMtNGSLZgeFI-pNyqrD1mkNte24N3LmSeDefdFigNQMhgBar_9TTAvG6AhMRZDNU_RBeU--xgbUJO1WYT3h0r1hND85HrM-frpmKeUja7Nw2y_BE61z03JYDuoZlDzrUl0EojuXT6OQckL8qf4-K7nzERG1mxuhwnSkXm9G4Y03ndLT&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNo4l_cjgvworINDXgynLRYGKH9zyQojGBvMzJLTUgQPNNXFcTP3WmSfyD1mLmvZFe7ZNaLgks4ykBMP9M0PaTx5sMObwYk45sa98EEzdWnqrt0du69VrKx51XpOR-JxjeG1ZTy3pJjhdpf4QpVLY2btPcjvarSWmkkholPu1Qo9UEg&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DN1hkIzt4gwlnsVUyV_UPsUe_CsysMGXfq8bgsztg1a607-4wHS18P8cJ8anZVJFzWHGo9K8Ul6pr5L8Yeysddf1Xp84UXZXyaRSAKSaz2ldDsyD8VQAX0VJtMS3AksUBXkABy7C9K8Vwc2CbV3YvEBBkLSdNaS7ZoXtT-09WfEXaz0&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg",
-      "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdCG2DNX5viRqb6uYIawxlCz0BYCR-dLzLBDldQXsrIJISzMZC_jk2atSM2TZPWanMuYUhgc3QThaQbThla4Ft7Mei0CWfucwiph7znNLhniY3SNrSNdyjQ1JwMWlfbyxiMubSRUV22QDPHe3DPGcDO2yfuiwJIy0JOyE8HZUrSp1_lpZxVE&key=AIzaSyCNmaRwOhKryM9pF2ga4W4iKLBtYs203qg"
-    ],
-    "Rating": "4.4 (665 reviews)",
-    "Price": "💰💰 ($31-60)",
-    "Cuisine": "Restaurant, Italian",
-    "Address": "174 Main Ave Suite 2, Wynantskill, NY 12198, USA",
-    "OpenStatus": "✅ Open (Closes today at 8:00 PM)",
-    "WheelchairAccessible": "♿ Yes"
   }
 ]

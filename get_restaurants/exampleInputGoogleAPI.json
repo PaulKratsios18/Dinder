@@ -1,46 +1,13 @@
 [
   {
-    "Name": "Spongebob",
-    "Cuisine": "Barbecue",
+    "Name": "Varun",
+    "Cuisine": "American",
     "Price": [
-      2,
+      3,
       3
     ],
-    "Rating": 3,
-    "Distance": 16093.4,
-    "Location": "42.7284117,-73.69178509999999"
-  },
-  {
-    "Name": "Spongebob",
-    "Cuisine": "Japanese",
-    "Price": [
-      2,
-      3
-    ],
-    "Rating": 3,
-    "Distance": 16093.4,
-    "Location": "42.7284117,-73.69178509999999"
-  },
-  {
-    "Name": "Patrick",
-    "Cuisine": "Barbecue",
-    "Price": [
-      1,
-      2
-    ],
-    "Rating": 4,
-    "Distance": 6437.36,
-    "Location": "42.7284117,-73.69178509999999"
-  },
-  {
-    "Name": "Patrick",
-    "Cuisine": "Italian",
-    "Price": [
-      1,
-      2
-    ],
-    "Rating": 4,
-    "Distance": 6437.36,
+    "Rating": 3.5,
+    "Distance": 8046.7,
     "Location": "42.7284117,-73.69178509999999"
   }
 ]

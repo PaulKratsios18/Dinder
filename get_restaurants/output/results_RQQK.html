@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinder Results - RQQK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .restaurant-card {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .restaurant-photos {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .restaurant-photo {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .score {
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dinder Results (Session: RQQK)</h1>
+    <div id="restaurants-container">Loading restaurants...</div>
+
+    <script>
+        const rankedRestaurants = [
+  {
+    "name": "Smith's Public House",
+    "rating": "4.4 (535 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.0 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "171 Remsen St, Cohoes, NY 12047, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrbPbH30Cp7jYoO2We2pCpwBGLCmRnxF2vsCPGNJ_GBHgvmfBjk4q6inL44RZxYOugvm2bJymXhHoZswVoKpYb3fnY1h__dVmsaPofMAve7IrKCAcuSbVJCq63wCSJZHEDEC-z1QHbqmQipcYQVelySCU-xsOwRNVQ5GdfTAuiWWyBF&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 12:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Herbie's Burgers (Troy)",
+    "rating": "4.2 (164 reviews)",
+    "price": "N/A",
+    "distance": "0.3 miles",
+    "cuisine": "Restaurant, American",
+    "address": "415 Fulton St, Albany, NY 12208, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpLIWcMED_WAm_5nnfOkq0tiak60UssEh2SKjbTMc7jucuDMuVZL2YETptgte4mLxQXnl8n1Hmx0XrxPUCBNO-TWPIuWRJ5YqfK6SUL-BWSR6NTJaBxYsQhgL5M9qZBFX0WYpgDQROucKxXBZmJlkcjYnJ4f4KwKhhV9ESRnW4GB3gB&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Nighthawks",
+    "rating": "4.6 (549 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "0.3 miles",
+    "cuisine": "Restaurant, American",
+    "address": "461 Broadway, Troy, NY 12180, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWo-vWClrq78-jTAOVBM3GqtxqTPtQioV6RBOdVdbtRVQCuzaABb5Oe9oZozeYhhZIUerO2G72SBeqahakzMALVb6zNVe6g58D9RGWfpB6o6AE7J2VHbd3rtyeegjFLGpIWPpX3sskwyBtQQ0DYMrtl1-z_4Gcjgvm9yFktETT_Npx2w&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 11:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Bob's Diner",
+    "rating": "4.2 (1653 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "1.0 miles",
+    "cuisine": "Restaurant, American",
+    "address": "929 19th St, Watervliet, NY 12189, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrUU9bGH3KkEeclgH24zGQGkUrL8-Z1xfNF61nDVxvd5JmX6RMREd3ptyeU9ypZ_u2tMZQTjTq6ZJqz8ZbtH7ZPcFGIDQbN-rZzBJzRFqRXO4jJEd1Db2xAZ19HsYYvO59NfP6UDqL6qm6kOenMIVtU3NrlwnQCXlYWv1pywFCVxbFs&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 11:59 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Naughter's",
+    "rating": "4.9 (300 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "0.3 miles",
+    "cuisine": "Restaurant, American",
+    "address": "1809 5th Ave, Troy, NY 12180, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrHS9bUTSE2Kkm16psmGDy-KlHn53EnVWPKRlj30a30tppCNkh55uvA4wGERJVtNVVAr9FkPi5bLr4VR578EoGbs4cEiGBxwseunys0_6PR1hQILQwXZa-JAll0U3a1930gMXZYVi2pB0Yy3by_hwKiX6iUEwt8DqmRTWZPz51hxKWG&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens Wednesday at 8:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Country View Diner",
+    "rating": "4 (1284 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.6 miles",
+    "cuisine": "Restaurant, American",
+    "address": "855 Hoosick Rd, Troy, NY 12180, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpEN_RMM0tKEpgFWt-i-NIDiMlpLAbs8tDWT4mDgCXLoRkJsKLZHHow0EUnXZPCIjfAytRGdHB4BUvIc3I0tTKYrh3GN-F4_u9HMUQgXpezy7tz5_0-po7-3FH0kySH1SchCRKrVxqxdIycK5o-s3X6U1FXZNDEInjjjKMmbLaDmKoM&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Cafe Madison",
+    "rating": "4.4 (712 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "4.6 miles",
+    "cuisine": "Restaurant, American",
+    "address": "359 Northern Blvd, Albany, NY 12204, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrMpM2GRc3xbJgsnq9l01d1FP15wAskUveY-hjH2tDiRqRh0mqBxc-1uKzasEFC-6KW5G5qCVYAIPDIqDOON_gIxDYjJc5KC5v6Vue8-NTbk1mb8lKz_oGxIpA9PgxO9j6a5dHDCaXpqMth60cdpCFQakM-A-_fTCy7qKK5pxqbEsfV&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "110 Grill Latham",
+    "rating": "4.2 (681 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.7 miles",
+    "cuisine": "Restaurant, American",
+    "address": "664 Loudon Rd, Latham, NY 12110, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrmoqIf5tj1FSuvFrUwi4ZB_tnWsAQvNQKMDWGEjj2RwOkRxdcWR4Acean6Efm12THSRHnkNzqY1HpHwXqq4gC-EYuOtZiT1BhiN_iCkNUq7nHuzEDlnk2xeU5uWMDvhk4wmF7yrUd-K5sL0PdtPOaeoKDnoafAboWmFFlw9AbeTwnT&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 11:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Manory's",
+    "rating": "4.5 (1120 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "0.1 miles",
+    "cuisine": "Cafe, Restaurant, American",
+    "address": "99 Congress St, Troy, NY 12180, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqCTbvVPWV8le2fivYQSXf35_K4_rBaDcERxjOF7U_zpwGfpu_DDFVGI_S86IsjU6IAT5OQ1_MsCoEKziTj46i7flrXYWEp8UGE2XL_V08SQhX06LXAaL48vxr51Vrw4h7Yvu8THnyBhiNlZEBavI90_1RjhpihtCoO4Ku_GSCMvrc1&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens tomorrow at 7:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "The Restaurant At The Pointe",
+    "rating": "4.3 (58 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "2.1 miles",
+    "cuisine": "Restaurant, American",
+    "address": "1 Bell Tower Dr, Watervliet, NY 12189, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpT5vovMLpyiYtD8k6uzP_1HwNYz99lrP5vx6w4z3J1LxF4fblE2VLTiL2CNb6nPFNLnbG8oIubb7gOrpQVfNikTJPbMM7Q8DxVLsx6yRJrWf1oIZrMv-BEas1No820ZX8sncjaUiZNRRIboWP82y5WPVNhWmP6TZ2q_vLzWWK4B65u&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 9:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Circle Diner",
+    "rating": "4.3 (246 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "3.7 miles",
+    "cuisine": "Restaurant, American",
+    "address": "813 Loudon Rd, Latham, NY 12110, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoo5dWFAGwuYLOp_iQuobtEcNn5uQe6S1PBFqaDapvh8OCW_MehiSOI2EyOVyE3mJIudOJKc_C9AUm5UEvyx1XhfDMN9u4o8QS1mTw26Lv_v7qxA-5x80zvmTitFWV7aFW6UuEZnzxZsIkalVec-VobIt_ArQ3BQJo_MGSaZ7OAgGal&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 7:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Latham '76 Diner",
+    "rating": "4.3 (3133 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "3.7 miles",
+    "cuisine": "Cafe, Restaurant, American",
+    "address": "722 Loudon Rd, Latham, NY 12110, USA",
+    "score": 6,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpnS-BPq3mLnHwjn58UlSfehDFAOnkNRrpNhoE0MX5BNcGPfvB1-M7ZeFPPaDEKnr9UBneTrsbF6jfNk4cKc53iEm-Yoe3stNLV0moyQJVlJluSLUjQ1H_22LAszbvjRtE3oFutlLDVUJ_E4zsJifrwRUdbW7pQGLuGGluQjHp3xTJE&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 6:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Panama Bread",
+    "rating": "2 (1 reviews)",
+    "price": "N/A",
+    "distance": "4.2 miles",
+    "cuisine": "Restaurant, American",
+    "address": "601 Troy-Schenectady Rd, Latham, NY 12110, USA",
+    "score": 5,
+    "maxScore": 10,
+    "photo": "default-restaurant-image.jpg",
+    "openStatus": "N/A",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Dan's Place Two",
+    "rating": "4.7 (394 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "6.2 miles",
+    "cuisine": "Restaurant, American",
+    "address": "494 Washington Ave #1230, Albany, NY 12203, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpSnWiZnMG2GIU5Xjute-fTL-FFcnyvtp04-AOZNwKVVZvkEBa1hBazn7UjTc8ASZPR7weYnxtJpHS_hvSt3HKDMvrvEdpsEgtAnhK2qQX_GAOwyphFZpdr8RcH77WVNNrjfSFr1Lf5vuRqK___W-wO3ek_d6bZ2IXJOme-uyCoim9R&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens tomorrow at 5:30 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Iron Gate Cafe",
+    "rating": "4.7 (2004 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "6.2 miles",
+    "cuisine": "Cafe, Restaurant, American",
+    "address": "182 Washington Ave, Albany, NY 12210, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWqd3D0X0VO-iMoQeUDkTubq9UxImGHvKEz4q8AQouoUmllLg22msU6noxetlxzJQXYSvkOUren4QIsDZ3v6C2rPNPbr6WSi0ZkASeYviJzOVcA2picdQuTrHK3v1kfIN6r-GAEwc2pRkXAawTYLo9aGC-CJZ3XjU74ywgJ2eu76Bsob&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 8:30 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Herbie's Burgers",
+    "rating": "4.1 (529 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "6.2 miles",
+    "cuisine": "Restaurant, American",
+    "address": "196 Lark St, Albany, NY 12210, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWr2hxnyOW_2xD77M21bvyrj-ko_-WX4tewa7w-1L0sUGedIfkv59iBPrbvJu3WLoXnsbB0XFherlUarl9qvDVYCxpB35YpsKyfL5fIoVDXZabp81chy_Sl1t_EcrrECssie1LWmJdSRpq7a3Ygp7oxZDoMBjD892siuDevVvNn1U2Rp&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 2:00 AM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "Allie B's Cozy Kitchen",
+    "rating": "4.3 (390 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "5.8 miles",
+    "cuisine": "Restaurant, American",
+    "address": "353 Clinton Ave #3102, Albany, NY 12206, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrgQ53Do_zV8WPT-XH9upx0VJW6zL-z85c70EqBMUsBneVJHDO5-RcUzwRtEce3yRz-N598ucv_UK-MpB7bBh5kM56umy0it60x4SdElCPWNO6Qg1zmGj2GRsa7lUQNdWoq62ZLy9baMehesCEPmrWCPGc2TEl_SypT5wXnAan1ijgZ&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens Wednesday at 1:00 PM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Juniors Bar and Grill",
+    "rating": "4.2 (1333 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "6.7 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "1094 Madison Ave, Albany, NY 12208, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWpJwAM1qXbd3yo4gfBzkx4vGsYnZnm0_7dLgsZX3DIH2L0QhQoalBUq_vS__3BNkVIWcm3fGWqwGz0ZgugBoS5SROZo0VrilNDNP_8dszJHyl0-Gb4fB-tDC8iULhGtOLI6UHgwd2PAlxq3O5kNKz1whddf0cO132wsSzXHqkdy7vgh&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "✅ Open (Closes today at 11:00 PM)",
+    "wheelchairAccessible": "♿ Yes"
+  },
+  {
+    "name": "The Olde English Pub and Pantry",
+    "rating": "4.4 (1249 reviews)",
+    "price": "💰💰 ($31-60)",
+    "distance": "5.9 miles",
+    "cuisine": "Bar, Restaurant, American",
+    "address": "683 Broadway, Albany, NY 12207, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWrbMNXbW5y3rSc8IQdn0KPpn32fLdwk0paTvii1HhqRseFhLEDtWv1r7XRc3pjBlHR9bSOUEmbmkRC4VtSIfOLqywjOSgCQXKe6_GnITdr5onaNo4cEcX7QYRy4TZNzGAIm6CCkpJYEwX1sLT270mHU5UG1B9qluKJOPiJaQ0aiyfPh&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens tomorrow at 11:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  },
+  {
+    "name": "Jack's Diner",
+    "rating": "4.5 (967 reviews)",
+    "price": "💰 ($11-30)",
+    "distance": "6.0 miles",
+    "cuisine": "Restaurant, American",
+    "address": "547 Central Ave, Albany, NY 12206, USA",
+    "score": 3,
+    "maxScore": 10,
+    "photo": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=AdDdOWoddxV8l4fjNKWq200NcyWSgBcyYrNPCzPfVZqWemLo_zo3fR6nztnEyC4WzCETVsbLj4qxvp1eBQQ8K9Va8qwsi8Q4ZaDYBXjmNDxRUiobA_Z37NkNWrNWq_xiFbmo3ABLwDPKH_SMMX_n_FkHatg2TJM8LFNPc6QMEGR4YEuwVS3g&key=AIzaSyA1tvRnIh39mFBp2-s08niVjUUE5vmM_EM",
+    "openStatus": "❌ Closed (Opens today at 7:00 AM)",
+    "wheelchairAccessible": "♿ No"
+  }
+];
+        
+        function displayRankedRestaurants() {
+            const container = document.getElementById('restaurants-container');
+            try {
+                container.innerHTML = rankedRestaurants
+                    .map(restaurant => `
+                        <div class="restaurant-card">
+                            <h2>${restaurant.name} <span class="score">(Score: ${restaurant.score}/${restaurant.maxScore})</span></h2>
+                            <div class="restaurant-photos">
+                                <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name}" onerror="this.style.display='none'">
+                            </div>
+                            <div class="restaurant-info">
+                                <p><strong>Rating:</strong> ${restaurant.rating}</p>
+                                <p><strong>Price Range:</strong> ${restaurant.price}</p>
+                                <p><strong>Distance:</strong> ${restaurant.distance}</p>
+                                <p><strong>Cuisine:</strong> ${restaurant.cuisine}</p>
+                                <p><strong>Address:</strong> ${restaurant.address}</p>
+                                <p><strong>Status:</strong> ${restaurant.openStatus}</p>
+                                <p><strong>Accessibility:</strong> ${restaurant.wheelchairAccessible}</p>
+                            </div>
+                        </div>
+                    `)
+                    .join('');
+            } catch (error) {
+                container.innerHTML = 'Error loading restaurants. Please try again later.';
+                console.error('Error loading ranked restaurants:', error);
+            }
+        }
+
+        // Display restaurants when page loads
+        displayRankedRestaurants();
+    </script>
+</body>
+</html> 
