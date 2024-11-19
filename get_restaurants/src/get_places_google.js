@@ -160,10 +160,14 @@ async function getRestaurants(location, radius = 1000, cuisines = ['restaurant']
                             Photos: photoUrls,
                             Rating: `${details.rating || 'N/A'} (${details.user_ratings_total || 0} reviews)`,
                             Price: price,
-                            Cuisine: cuisineType,  // Now includes both API types and search keyword
+                            Cuisine: cuisineType,
                             Address: details.formatted_address,
+                            Location: {
+                                lat: place.geometry.location.lat,
+                                lng: place.geometry.location.lng
+                            },
                             OpenStatus: `${openStatus}${nextChange}`,
-                            WheelchairAccessible: details.wheelchair_accessible_entrance ? '♿ Yes' : '♿ No'
+                            WheelchairAccessible: details.wheelchair_accessible_entrance ? '♿ Yes' : '♿ No',
                         }));
 
                     } catch (detailsError) {

@@ -1,40 +1,18 @@
 const haversine = require('haversine');
-const axios = require('axios');
 require('dotenv').config();
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-
-async function getGpsFromAddress(address) {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_MAPS_API_KEY}`;
-
-    try {
-        const response = await axios.get(url);
-
-        if (response.data.status === 'OK' && response.data.results.length > 0) {
-            const location = response.data.results[0].geometry.location;
-            return { lat: location.lat, lng: location.lng };
-        }
-        return null;
-    } catch (error) {
-        return null;
-    }
-}
-
-async function calculateDistance(location, endAddress) {
-    if (!endAddress) {
+async function calculateDistance(startLocation, restaurant) {
+    if (!restaurant.Location) {
         return -1;
     }
 
     try {
-        const [lat1, lon1] = location.split(',').map(Number);
-        const location2 = await getGpsFromAddress(endAddress);
-
-        if (!location2) {
-            return -1;
-        }
-
+        const [lat1, lon1] = startLocation.split(',').map(Number);
         const start = { latitude: lat1, longitude: lon1 };
-        const end = { latitude: location2.lat, longitude: location2.lng };
+        const end = { 
+            latitude: restaurant.Location.lat, 
+            longitude: restaurant.Location.lng 
+        };
 
         const distance = haversine(start, end, { unit: 'mile' });
         return distance;
@@ -46,18 +24,18 @@ async function calculateDistance(location, endAddress) {
 async function rankingAlgorithm(restaurants, preferencesArray, location) {
     const restaurantScores = [];
     const WEIGHTS = {
-        price: 4,    // Most important
-        distance: 3, // Second most important
-        cuisine: 2,  // Third most important
-        rating: 1    // Least important
+        price: 4,
+        distance: 3,
+        cuisine: 2,
+        rating: 1
     };
 
     for (const restaurant of restaurants) {
         let totalScore = 0;
         let distance = -1;
 
-        // Calculate distance once for each restaurant
-        distance = await calculateDistance(location, restaurant.Address);
+        // Calculate distance using stored coordinates
+        distance = await calculateDistance(location, restaurant);
 
         // Score for each user separately
         for (const preferences of preferencesArray) {
