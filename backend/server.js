@@ -13,6 +13,9 @@ const { Server } = require('socket.io');
 const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const { getRestaurants } = require('./services/restaurants/get_places_google');
+const { rankingAlgorithm } = require('./services/restaurants/ranking_algorithm');
+const { getSessionPreferences } = require('./services/restaurants/session_preferences');
 
 dotenv.config();
 const app = express();
@@ -226,59 +229,49 @@ app.post('/api/sessions/start', async (req, res) => {
         const { roomCode } = req.body;
         console.log('Starting session for room:', roomCode);
         
-        const outputPath = path.join(__dirname, `../get_restaurants/output/results_${roomCode}.html`);
-        console.log('Expected output path:', outputPath);
-
-        const mainProcess = spawn('node', [
-            path.join(__dirname, '../get_restaurants/src/main.js'),
-            roomCode
-        ], {
-            env: {
-                ...process.env,
-                MONGODB_URI: process.env.MONGODB_URI,
-                DB_NAME: 'dinder',
-                PATH: process.env.PATH
-            },
-            cwd: path.join(__dirname, '../get_restaurants')
+        // Get and aggregate preferences
+        const aggregatedPreferences = await getSessionPreferences(roomCode);
+        
+        // Get restaurants from Google Places API
+        const restaurants = await getRestaurants(
+            aggregatedPreferences.location,
+            aggregatedPreferences.distance,
+            aggregatedPreferences.cuisines
+        );
+        
+        // Deduplicate restaurants
+        const uniqueRestaurants = Array.from(new Map(
+            restaurants.map(restaurant => [restaurant.Name, restaurant])
+        ).values());
+        
+        // Get user preferences and rank restaurants
+        const userPreferences = await getUserPreferencesFromDB(roomCode);
+        const consolidatedPreferences = consolidatePreferences(userPreferences);
+        const rankedRestaurants = await rankingAlgorithm(
+            uniqueRestaurants, 
+            consolidatedPreferences, 
+            aggregatedPreferences.location
+        );
+        
+        // Format restaurants for template
+        const formattedRestaurants = rankedRestaurants.map(restaurant => 
+            formatRestaurantForTemplate(restaurant)
+        );
+        
+        // Generate HTML
+        const outputPath = await generateHTML(formattedRestaurants, roomCode);
+        
+        res.json({
+            success: true,
+            resultsUrl: `/results/${roomCode}`,
+            restaurants: formattedRestaurants
         });
-
-        let stdoutData = '';
-        let stderrData = '';
-
-        mainProcess.stdout.on('data', (data) => {
-            stdoutData += data;
-            console.log(`Main.js output: ${data}`);
-        });
-
-        mainProcess.stderr.on('data', (data) => {
-            stderrData += data;
-            console.error(`Main.js error: ${data}`);
-        });
-
-        await new Promise((resolve, reject) => {
-            mainProcess.on('close', (code) => {
-                console.log('Process exited with code:', code);
-                console.log('stdout:', stdoutData);
-                console.log('stderr:', stderrData);
-                
-                if (code !== 0) {
-                    reject(new Error(`Process failed with code ${code}: ${stderrData}`));
-                    return;
-                }
-                resolve();
-            });
-        });
-
-        if (!fs.existsSync(outputPath)) {
-            throw new Error(`Output file was not created at: ${outputPath}`);
-        }
-
-        res.status(200).json({ message: 'Session started successfully' });
+        
     } catch (error) {
-        console.error('Error starting session:', error);
-        res.status(500).json({ 
-            error: 'Failed to start session',
-            details: error.message 
+        console.error('Error processing restaurants:', error);
+        res.status(500).json({
+            error: 'Failed to process restaurants',
+            details: error.message
         });
     }
 });
