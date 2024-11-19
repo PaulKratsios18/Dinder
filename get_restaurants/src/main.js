@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { getSessionPreferences } = require('./session_preferences');
-const { getRestaurants } = require('./get_places_google');
+// const { getRestaurants } = require('./get_places_google');
+const { getRestaurants } = require('./get_places_yelp');
 const { rankingAlgorithm } = require('./ranking_algorithm');
 const path = require('path');
 const fs = require('fs');
