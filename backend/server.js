@@ -55,11 +55,14 @@ io.on('connection', (socket) => {
       // Update session in database
       const session = await Session.findOne({ session_id: roomCode });
       if (session) {
-        // Add participant if not already present
-        const existingParticipant = session.participants.find(p => p.name === userName);
-        if (!existingParticipant) {
-          session.participants.push({ name: userName, isHost });
-          await session.save();
+        // Only add non-host participants here
+        // Host is already added during session creation
+        if (!isHost) {
+          const existingParticipant = session.participants.find(p => p.name === userName);
+          if (!existingParticipant) {
+            session.participants.push({ name: userName, isHost });
+            await session.save();
+          }
         }
 
         // Emit updated participants list to all clients in the room
@@ -84,27 +87,29 @@ io.on('connection', (socket) => {
   });
 
   socket.on('submitVote', async ({ sessionId, userId, restaurantId, vote }) => {
+    console.log('Received vote:', { sessionId, userId, restaurantId, vote });
     try {
-      const result = await handleVote(sessionId, userId, restaurantId, vote);
-      
-      // Broadcast vote update to all users in the session
-      io.to(sessionId).emit('voteUpdate', {
-        restaurantId,
-        votes: result.votes
-      });
-
-      // If there's a match, notify all users
-      if (result.isMatch) {
-        io.to(sessionId).emit('matchFound', {
-          restaurantId: result.restaurantId
+        const result = await handleVote(sessionId, userId, restaurantId, vote);
+        console.log('Vote handler result:', result);
+        
+        // Broadcast vote update to all users in the session
+        io.to(sessionId).emit('voteUpdate', {
+            restaurantId,
+            votes: result.votes
         });
-      }
+        console.log('Emitted voteUpdate:', {
+            restaurantId,
+            votes: result.votes
+        });
+
+        // If there's a match, notify all users with complete data
+        if (result.isMatch && result.matchData) {
+            console.log('Emitting matchFound event with data:', result.matchData);
+            io.to(sessionId).emit('matchFound', result.matchData);
+        }
     } catch (error) {
-      console.error('Error handling vote:', error);
-      socket.emit('error', { 
-        message: 'Failed to process vote',
-        details: error.message 
-      });
+        console.error('Error handling vote:', error);
+        socket.emit('error', { message: 'Failed to process vote' });
     }
   });
 });
@@ -112,43 +117,45 @@ io.on('connection', (socket) => {
 // Existing REST routes
 app.post('/api/preferences', async (req, res) => {
   try {
-    const { roomCode, name, preferences } = req.body;
+    const { roomCode, name, preferences, host_id } = req.body;
 
-    // Create/update user
-    const user = new User({
-      roomCode,
-      name,
-      preferences
-    });
-    const savedUser = await user.save();
-
-    // Add user to existing session
+    // Find the session first
     const session = await Session.findOne({ session_id: roomCode });
     if (!session) {
-      throw new Error('Session not found');
+      return res.status(404).json({ error: 'Session not found' });
     }
 
-    // Update or add participant
-    const participantIndex = session.participants.findIndex(p => p.name === name);
-    if (participantIndex >= 0) {
-      session.participants[participantIndex] = {
-        user_id: savedUser.user_id,
-        name: savedUser.name,
-        preferences: savedUser.preferences
-      };
-    } else {
+    // If this is the host saving preferences
+    if (host_id) {
+      // Remove any existing "Host" entry
+      session.participants = session.participants.filter(p => p.name !== "Host");
+      
+      // Add host with their preferences
       session.participants.push({
-        user_id: savedUser.user_id,
-        name: savedUser.name,
-        preferences: savedUser.preferences
+        user_id: host_id,
+        name: name,
+        preferences: preferences,
+        isHost: true
+      });
+    } else {
+      // For non-host participants
+      session.participants.push({
+        user_id: Math.random().toString(36).substr(2, 9),
+        name: name,
+        preferences: preferences,
+        isHost: false
       });
     }
 
     await session.save();
 
+    // Emit participants update through socket if available
+    if (io) {
+      io.to(roomCode).emit('participantsUpdate', session.participants);
+    }
+
     res.status(200).json({
       message: 'Preferences saved successfully',
-      user: savedUser,
       session: session
     });
   } catch (error) {

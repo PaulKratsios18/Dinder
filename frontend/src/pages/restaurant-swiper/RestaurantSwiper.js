@@ -9,8 +9,35 @@ const RestaurantSwiper = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [votes, setVotes] = useState({});
     const [socket, setSocket] = useState(null);
+    const [matchFound, setMatchFound] = useState(null);
 
     useEffect(() => {
+        const newSocket = io('http://localhost:5000');
+        setSocket(newSocket);
+
+        // Join the session room
+        newSocket.emit('joinRoom', { 
+            sessionId, 
+            userId: localStorage.getItem('userId') 
+        });
+
+        // Listen for vote updates
+        newSocket.on('voteUpdate', (data) => {
+            console.log('Vote update received:', data);
+            setVotes(prev => ({
+                ...prev,
+                [data.restaurantId]: data.votes
+            }));
+        });
+
+        // Listen for match found
+        newSocket.on('matchFound', (data) => {
+            console.log('Match found received:', data);
+            setMatchFound(data);
+            // Stop further voting by setting currentIndex to a high number
+            setCurrentIndex(1000);
+        });
+
         const fetchRestaurants = async () => {
             const response = await fetch(`http://localhost:5000/api/sessions/${sessionId}/ranked-restaurants`);
             const data = await response.json();
@@ -19,28 +46,25 @@ const RestaurantSwiper = () => {
             }
         };
 
-        const newSocket = io('http://localhost:5000');
-        setSocket(newSocket);
-
-        newSocket.emit('joinRoom', { 
-            sessionId, 
-            userId: localStorage.getItem('userId') 
-        });
-
-        newSocket.on('voteUpdate', ({ restaurantId, votes }) => {
-            setVotes(prev => ({
-                ...prev,
-                [restaurantId]: votes
-            }));
-        });
-
         fetchRestaurants();
 
-        return () => newSocket.close();
+        return () => {
+            newSocket.off('matchFound');
+            newSocket.off('voteUpdate');
+            newSocket.close();
+        };
     }, [sessionId]);
 
     const handleVote = async (vote) => {
-        if (currentIndex >= restaurants.length) return;
+        if (matchFound) {
+            console.log('Match already found, no more voting allowed');
+            return;
+        }
+
+        if (currentIndex >= restaurants.length) {
+            console.log('No more restaurants to vote on');
+            return;
+        }
 
         const restaurant = restaurants[currentIndex];
         
@@ -51,12 +75,20 @@ const RestaurantSwiper = () => {
             vote
         });
 
-        socket.on('matchFound', (matchData) => {
-            alert(`Everyone matched on ${matchData.restaurantName}!`);
-        });
-
         setCurrentIndex(prev => prev + 1);
     };
+
+    if (matchFound) {
+        return (
+            <div className="match-overlay">
+                <h2>It's a Match! 🎉</h2>
+                <h3>{matchFound.restaurantName}</h3>
+                <p>{matchFound.address}</p>
+                <p>Rating: {matchFound.rating}</p>
+                <img src={matchFound.photo} alt={matchFound.restaurantName} />
+            </div>
+        );
+    }
 
     if (currentIndex >= restaurants.length) {
         return <div className="voting-complete">Voting Complete!</div>;
@@ -81,8 +113,7 @@ const RestaurantSwiper = () => {
                     <p>Distance: {currentRestaurant.distance}</p>
                     
                     <div className="vote-count">
-                        👍 {votes[currentRestaurant.id]?.yes || 0}
-                        👎 {votes[currentRestaurant.id]?.no || 0}
+                        👍 {votes[currentRestaurant.id]?.yes || 0} / {votes[currentRestaurant.id]?.totalParticipants || '?'}
                     </div>
                 </div>
             </div>
