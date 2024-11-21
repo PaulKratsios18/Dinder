@@ -426,7 +426,9 @@ function formatRestaurantForTemplate(restaurant) {
 app.get('/api/sessions/:sessionId/restaurants', async (req, res) => {
     try {
         const { sessionId } = req.params;
-        const restaurants = await Restaurant.find({ sessionId });
+        const restaurants = await Restaurant.find({ sessionId: sessionId })
+            .sort({ score: -1 }) // Sort by score in descending order
+            .exec();
         
         res.json({
             success: true,
