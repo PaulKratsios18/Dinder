@@ -32,6 +32,9 @@ async function getSessionPreferences(sessionCode) {
         throw new Error('No participants have set their preferences yet');
     }
 
+    // Log participants with preferences
+    console.log('Participants with preferences:', participantsWithPreferences);
+
     // Get location from first participant with preferences
     const firstParticipant = participantsWithPreferences[0];
     let location;
@@ -73,14 +76,20 @@ async function getSessionPreferences(sessionCode) {
         }));
     });
 
-    // Write preferences to input file
-    fs.writeFileSync('exampleInputGoogleAPI.json', JSON.stringify(preferences, null, 2));
+    // Log transformed preferences
+    console.log('Transformed preferences:', preferences);
 
     // Aggregate preferences
     const aggregatedOptions = {
         ...aggregatePreferences(preferences),
         location
     };
+
+    // Log aggregated preferences
+    console.log('Aggregated preferences:', aggregatedOptions);
+
+    // Write preferences to input file
+    fs.writeFileSync('exampleInputGoogleAPI.json', JSON.stringify(preferences, null, 2));
 
     // Write aggregated preferences
     fs.writeFileSync('aggregated_preferences.json', JSON.stringify(aggregatedOptions, null, 2));

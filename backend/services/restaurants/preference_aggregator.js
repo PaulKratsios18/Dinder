@@ -2,6 +2,11 @@ function aggregatePreferences(preferences) {
     // Use location from the first preference
     const location = preferences[0].Location;
 
+    // Validate location
+    if (!location || typeof location !== 'object') {
+        throw new Error('Invalid location data');
+    }
+
     // Find the maximum distance among all users
     const distance = Math.max(...preferences.map(pref => pref.Distance));
 

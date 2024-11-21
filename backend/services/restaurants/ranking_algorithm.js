@@ -3,10 +3,15 @@ require('dotenv').config();
 
 async function calculateDistance(startLocation, restaurant) {
     if (!startLocation || !restaurant.Location) {
+        console.error('Invalid start location or restaurant location');
         return -1;
     }
 
     try {
+        if (typeof startLocation === 'object' && startLocation.lat && startLocation.lng) {
+            startLocation = `${startLocation.lat},${startLocation.lng}`;
+        }
+
         const [lat1, lon1] = startLocation.split(',').map(Number);
         const start = { latitude: lat1, longitude: lon1 };
         const end = { 
@@ -15,9 +20,10 @@ async function calculateDistance(startLocation, restaurant) {
         };
 
         const distance = haversine(start, end, { unit: 'mile' });
+        console.log(`Calculated distance from ${startLocation} to ${restaurant.Name}: ${distance} miles`);
         return distance;
     } catch (error) {
-        console.error('Error calculating distance:', error);
+        console.error('Error calculating distance:', error.message);
         return -1;
     }
 }
@@ -76,24 +82,24 @@ async function rankingAlgorithm(restaurants, preferencesArray, location) {
             let userScore = 0;
 
             // Price score
-            if (restaurant.Price && preferences.preferences.price) {
+            if (restaurant.Price && preferences.price) {
                 const priceLevel = getPriceLevel(restaurant.Price);
-                const preferredPrice = Array.isArray(preferences.preferences.price) 
-                    ? preferences.preferences.price[0] 
-                    : preferences.preferences.price;
+                const preferredPrice = Array.isArray(preferences.price) 
+                    ? preferences.price[0] 
+                    : preferences.price;
                 userScore += WEIGHTS.price * (1 - Math.abs(priceLevel - preferredPrice) / 4);
             }
 
             // Distance score
             if (distance >= 0) {
-                const maxDistance = preferences.preferences.distance || 5000;
+                const maxDistance = preferences.distance || 5000;
                 userScore += WEIGHTS.distance * (1 - Math.min(distance / maxDistance, 1));
             }
 
             // Cuisine score
-            if (restaurant.Cuisine && preferences.preferences.cuisines) {
+            if (restaurant.Cuisine && preferences.cuisines) {
                 const restaurantCuisines = restaurant.Cuisine.toLowerCase().split(',').map(c => c.trim());
-                const preferredCuisines = preferences.preferences.cuisines.map(c => c.toLowerCase());
+                const preferredCuisines = preferences.cuisines.map(c => c.toLowerCase());
                 const matchingCuisines = restaurantCuisines.filter(c => preferredCuisines.includes(c));
                 userScore += WEIGHTS.cuisine * (matchingCuisines.length / preferredCuisines.length);
             }
@@ -102,9 +108,9 @@ async function rankingAlgorithm(restaurants, preferencesArray, location) {
             if (restaurant.Rating) {
                 const ratingMatch = restaurant.Rating.match(/(\d+(\.\d+)?)/);
                 const rating = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
-                const minRating = Array.isArray(preferences.preferences.rating) 
-                    ? preferences.preferences.rating[0] 
-                    : preferences.preferences.rating || 3;
+                const minRating = Array.isArray(preferences.rating) 
+                    ? preferences.rating[0] 
+                    : preferences.rating || 3;
                 userScore += WEIGHTS.rating * Math.max(0, (rating - minRating) / 2);
             }
 
@@ -114,6 +120,8 @@ async function rankingAlgorithm(restaurants, preferencesArray, location) {
         // Ensure valid score
         const averageScore = totalScore / (preferencesArray.length || 1);
         const finalScore = isNaN(averageScore) ? 0 : parseFloat(averageScore.toFixed(2));
+        
+        console.log(`Final score for ${restaurant.Name}: ${finalScore}`);
         
         restaurantScores.push({
             ...restaurant,

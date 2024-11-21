@@ -13,12 +13,16 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
         const lat = location.lat;
         const lng = location.lng;
         
-        // First API call - Nearby Search
+        // Log the constructed URL
         const keywordQuery = cuisines.join('|');
         const searchUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=restaurant&keyword=${keywordQuery}&key=${apiKey}`;
+        console.log('Constructed Places Nearby Search URL:', searchUrl);
         
         console.log('Making Places Nearby Search API request');
         const searchResponse = await axios.get(searchUrl);
+        
+        // Log the API response
+        console.log('Nearby Search API response:', searchResponse.data);
         
         if (!searchResponse.data.results) {
             console.log('No results from Nearby Search');
@@ -83,7 +87,7 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
         return detailedPlaces;
 
     } catch (error) {
-        console.error('Error fetching restaurants:', error);
+        console.error('Error fetching restaurants:', error.message);
         return [];
     }
 }
