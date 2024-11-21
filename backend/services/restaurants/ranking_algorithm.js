@@ -81,25 +81,30 @@ async function rankingAlgorithm(restaurants, preferencesArray, location) {
         for (const preferences of preferencesArray) {
             let userScore = 0;
 
-            // Price score
+            // Updated Price score
             if (restaurant.Price && preferences.price) {
                 const priceLevel = getPriceLevel(restaurant.Price);
                 const preferredPrice = Array.isArray(preferences.price) 
                     ? preferences.price[0] 
                     : preferences.price;
-                userScore += WEIGHTS.price * (1 - Math.abs(priceLevel - preferredPrice) / 4);
+
+                if (preferredPrice === 'no preference' || priceLevel <= preferredPrice) {
+                    userScore += WEIGHTS.price; // Full score if price is within or below preference
+                } else {
+                    userScore += WEIGHTS.price * (1 - Math.abs(priceLevel - preferredPrice) / 4);
+                }
             }
 
             // Distance score
             if (distance >= 0) {
-                const maxDistance = preferences.distance || 5000;
+                const maxDistance = preferences.distance === 'no preference' ? Infinity : preferences.distance || 5000;
                 userScore += WEIGHTS.distance * (1 - Math.min(distance / maxDistance, 1));
             }
 
             // Cuisine score
             if (restaurant.Cuisine && preferences.cuisines) {
                 const restaurantCuisines = restaurant.Cuisine.toLowerCase().split(',').map(c => c.trim());
-                const preferredCuisines = preferences.cuisines.map(c => c.toLowerCase());
+                const preferredCuisines = preferences.cuisines.includes('no preference') ? restaurantCuisines : preferences.cuisines.map(c => c.toLowerCase());
                 const matchingCuisines = restaurantCuisines.filter(c => preferredCuisines.includes(c));
                 userScore += WEIGHTS.cuisine * (matchingCuisines.length / preferredCuisines.length);
             }
@@ -111,7 +116,11 @@ async function rankingAlgorithm(restaurants, preferencesArray, location) {
                 const minRating = Array.isArray(preferences.rating) 
                     ? preferences.rating[0] 
                     : preferences.rating || 3;
-                userScore += WEIGHTS.rating * Math.max(0, (rating - minRating) / 2);
+                if (minRating === 'no preference') {
+                    userScore += WEIGHTS.rating; // Full score if no preference
+                } else {
+                    userScore += WEIGHTS.rating * Math.max(0, (rating - minRating) / 2);
+                }
             }
 
             totalScore += userScore;
