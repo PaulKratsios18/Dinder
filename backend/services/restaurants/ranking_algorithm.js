@@ -1,25 +1,52 @@
 const haversine = require('haversine');
 require('dotenv').config();
 
-async function calculateDistance(startLocation, restaurant) {
-    if (!startLocation || !restaurant.Location) {
-        return -1;
-    }
-
+async function calculateDistance(startLocation, endLocation) {
     try {
-        const [lat1, lon1] = startLocation.split(',').map(Number);
-        const start = { latitude: lat1, longitude: lon1 };
-        const end = { 
-            latitude: restaurant.Location.lat, 
-            longitude: restaurant.Location.lng 
+        console.log('Calculating distance between:', {
+            start: startLocation,
+            end: endLocation
+        });
+
+        // Extract coordinates, handling different location object structures
+        const start = {
+            lat: startLocation.lat || startLocation.latitude,
+            lng: startLocation.lng || startLocation.longitude
+        };
+        
+        const end = {
+            lat: endLocation.Location?.lat || endLocation.lat,
+            lng: endLocation.Location?.lng || endLocation.lng
         };
 
-        const distance = haversine(start, end, { unit: 'mile' });
+        if (!start.lat || !start.lng || !end.lat || !end.lng) {
+            console.error('Invalid coordinates:', { start, end });
+            return -1;
+        }
+
+        // Calculate distance using Haversine formula
+        const R = 6371; // Earth's radius in km
+        const dLat = toRad(end.lat - start.lat);
+        const dLon = toRad(end.lng - start.lng);
+        
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(toRad(start.lat)) * Math.cos(toRad(end.lat)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = R * c;
+
+        console.log(`Calculated distance: ${distance.toFixed(2)} km`);
         return distance;
     } catch (error) {
-        console.error('Error calculating distance:', error);
-        return -1;
+        console.error('Error in calculateDistance:', error);
+        return -1; // Return -1 for invalid distances
     }
+}
+
+// Helper function to convert degrees to radians
+function toRad(degrees) {
+    return degrees * (Math.PI / 180);
 }
 
 function getPriceLevel(priceString) {

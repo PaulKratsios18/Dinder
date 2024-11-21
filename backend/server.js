@@ -39,9 +39,6 @@ app.use(cors({
 
 app.use(express.json());
 
-// Connect to MongoDB
-connectDB();
-
 // Socket.IO connection handling
 io.on('connection', (socket) => {
   console.log('A user connected');
@@ -202,26 +199,30 @@ const PORT = process.env.PORT || 5000;
 let currentPort = PORT;
 
 const startServer = async () => {
-  try {
-    await new Promise((resolve, reject) => {
-      server.listen(currentPort)
-        .once('listening', resolve)
-        .once('error', (err) => {
-          if (err.code === 'EADDRINUSE') {
-            console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
-            currentPort++;
-            server.listen(currentPort);
-          } else {
-            reject(err);
-          }
+    try {
+        // Connect to MongoDB first
+        await connectDB();
+        
+        // Then start the server
+        await new Promise((resolve, reject) => {
+            server.listen(currentPort)
+                .once('listening', resolve)
+                .once('error', (err) => {
+                    if (err.code === 'EADDRINUSE') {
+                        console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
+                        currentPort++;
+                        server.listen(currentPort);
+                    } else {
+                        reject(err);
+                    }
+                });
         });
-    });
-    
-    console.log(`Server running on http://localhost:${currentPort}`);
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
+        
+        console.log(`Server running on http://localhost:${currentPort}`);
+    } catch (error) {
+        console.error('Failed to start server:', error);
+        process.exit(1);
+    }
 };
 
 app.use('/', preferencesRouter);
@@ -292,9 +293,13 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
         );
 
         // 5. Save restaurants to database
+        console.log('About to save restaurants. Count:', rankedRestaurants.length);
+        console.log('First restaurant to save:', rankedRestaurants[0]);
+
         const savedRestaurants = await Promise.all(rankedRestaurants.map(async (restaurant, index) => {
             try {
                 const uniqueId = `${sessionId}_${index}_${restaurant.Name.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+                console.log(`Attempting to save restaurant ${index + 1}/${rankedRestaurants.length}: ${restaurant.Name}`);
                 
                 const restaurantDoc = new Restaurant({
                     sessionId: sessionId,
@@ -313,7 +318,7 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
                 });
 
                 const saved = await restaurantDoc.save();
-                console.log(`Saved restaurant: ${saved.name} with ID: ${saved.restaurantId}`);
+                console.log(`Successfully saved restaurant: ${saved.name} (ID: ${saved.restaurantId})`);
                 return saved;
             } catch (error) {
                 console.error('Error saving restaurant:', error);

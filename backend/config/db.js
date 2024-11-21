@@ -4,25 +4,37 @@ require('dotenv').config(); // Load environment variables from .env file
 
 // Connect to MongoDB using credentials from .env file
 const connectDB = async () => {
+  const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+    maxPoolSize: 10
+  };
+
   try {
-    const uri = process.env.MONGODB_URI.replace(
-      '<db_username>',
-      process.env.DB_USERNAME
-    ).replace(
-      '<db_password>',
-      process.env.DB_PASSWORD
-    );
-
     console.log('Attempting to connect to MongoDB...');
-    console.log('Database name:', uri.split('/').pop().split('?')[0]);
-
-    await mongoose.connect(uri);
-    console.log('Connected to database:', mongoose.connection.name);
-
+    console.log('MongoDB URI:', process.env.MONGODB_URI);
+    
+    await mongoose.connect(process.env.MONGODB_URI, options);
+    
     console.log('MongoDB connected successfully');
+    
+    // Add connection error handler
+    mongoose.connection.on('error', err => {
+      console.error('MongoDB connection error:', err);
+    });
+
+    // Add disconnection handler
+    mongoose.connection.on('disconnected', () => {
+      console.log('MongoDB disconnected. Attempting to reconnect...');
+    });
+
   } catch (error) {
     console.error('MongoDB connection error:', error);
-    process.exit(1);
+    // Wait 5 seconds before retrying
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    return connectDB();
   }
 };
 
