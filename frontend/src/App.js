@@ -11,6 +11,7 @@ import JoinPreferences from './pages/preferences-join/PreferencesJoin';
 import LobbyHost from './pages/lobby-host/LobbyHost';
 import LobbyJoin from './pages/lobby-join/LobbyJoin';
 import HostPreferences from './pages/preferences-host/PreferencesHost';
+import RestaurantSwiper from './pages/restaurant-swiper/RestaurantSwiper';
 import './App.css';
 
 function AppLayout() {
@@ -65,6 +66,7 @@ function App() {
         <Route path="/preferences-host" element={<AppLayout />} />
         <Route path="/lobby-host" element={<AppLayout />} />
         <Route path="/lobby-join" element={<AppLayout />} />
+        <Route path="/sessions/:sessionId/restaurants" element={<RestaurantSwiper />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

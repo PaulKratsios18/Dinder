@@ -11,7 +11,6 @@ const RestaurantSwiper = () => {
     const [socket, setSocket] = useState(null);
 
     useEffect(() => {
-        // Fetch restaurants
         const fetchRestaurants = async () => {
             const response = await fetch(`http://localhost:5000/api/sessions/${sessionId}/ranked-restaurants`);
             const data = await response.json();
@@ -20,7 +19,6 @@ const RestaurantSwiper = () => {
             }
         };
 
-        // Setup socket connection
         const newSocket = io('http://localhost:5000');
         setSocket(newSocket);
 
@@ -51,6 +49,10 @@ const RestaurantSwiper = () => {
             userId: localStorage.getItem('userId'),
             restaurantId: restaurant.id,
             vote
+        });
+
+        socket.on('matchFound', (matchData) => {
+            alert(`Everyone matched on ${matchData.restaurantName}!`);
         });
 
         setCurrentIndex(prev => prev + 1);

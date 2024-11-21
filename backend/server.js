@@ -18,6 +18,7 @@ const { rankingAlgorithm } = require('./services/restaurants/ranking_algorithm')
 const { getSessionPreferences } = require('./services/restaurants/session_preferences');
 const Restaurant = require('./models/Restaurant');
 const Vote = require('./models/Vote');
+const { handleVote } = require('./services/votes/voteHandler');
 
 dotenv.config();
 const app = express();
@@ -80,6 +81,31 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('User disconnected');
+  });
+
+  socket.on('submitVote', async ({ sessionId, userId, restaurantId, vote }) => {
+    try {
+      const result = await handleVote(sessionId, userId, restaurantId, vote);
+      
+      // Broadcast vote update to all users in the session
+      io.to(sessionId).emit('voteUpdate', {
+        restaurantId,
+        votes: result.votes
+      });
+
+      // If there's a match, notify all users
+      if (result.isMatch) {
+        io.to(sessionId).emit('matchFound', {
+          restaurantId: result.restaurantId
+        });
+      }
+    } catch (error) {
+      console.error('Error handling vote:', error);
+      socket.emit('error', { 
+        message: 'Failed to process vote',
+        details: error.message 
+      });
+    }
   });
 });
 
