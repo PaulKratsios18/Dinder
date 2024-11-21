@@ -93,29 +93,33 @@ function LobbyHost() {
 
   const handleStartSession = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/sessions/start', {
+      // Make sure we're using the correct sessionId
+      console.log('Starting session with ID:', roomCode);
+      
+      const response = await fetch(`http://localhost:5000/api/sessions/${roomCode}/start`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          roomCode
-        })
+          'Content-Type': 'application/json'
+        }
       });
 
       if (!response.ok) {
-        throw new Error('Failed to start session');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to start session');
       }
 
       const data = await response.json();
-      console.log('Session started:', data);
       
-      // Wait a moment for the results to generate
-      setTimeout(() => {
-        window.location.href = `http://localhost:5000/results/${roomCode}`;
-      }, 2000);
+      if (data.success) {
+        console.log('Session started successfully');
+        // Navigate to the results page
+        navigate(`/results/${roomCode}`);
+      } else {
+        throw new Error(data.message || 'Failed to start session');
+      }
     } catch (error) {
       console.error('Error starting session:', error);
+      // Add user feedback here (e.g., toast notification)
     }
   };
 

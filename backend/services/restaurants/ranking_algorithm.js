@@ -1,130 +1,132 @@
 const haversine = require('haversine');
-const axios = require('axios');
 require('dotenv').config();
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-
-async function getGpsFromAddress(address) {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_MAPS_API_KEY}`;
-
-    try {
-        const response = await axios.get(url);
-
-        if (response.data.status === 'OK' && response.data.results.length > 0) {
-            const location = response.data.results[0].geometry.location;
-            return { lat: location.lat, lng: location.lng };
-        }
-        return null;
-    } catch (error) {
-        return null;
-    }
-}
-
-async function calculateDistance(location, endAddress) {
-    if (!endAddress) {
+async function calculateDistance(startLocation, restaurant) {
+    if (!startLocation || !restaurant.Location) {
         return -1;
     }
 
     try {
-        const [lat1, lon1] = location.split(',').map(Number);
-        const location2 = await getGpsFromAddress(endAddress);
-
-        if (!location2) {
-            return -1;
-        }
-
+        const [lat1, lon1] = startLocation.split(',').map(Number);
         const start = { latitude: lat1, longitude: lon1 };
-        const end = { latitude: location2.lat, longitude: location2.lng };
+        const end = { 
+            latitude: restaurant.Location.lat, 
+            longitude: restaurant.Location.lng 
+        };
 
         const distance = haversine(start, end, { unit: 'mile' });
         return distance;
     } catch (error) {
+        console.error('Error calculating distance:', error);
         return -1;
     }
 }
 
+function getPriceLevel(priceString) {
+    if (!priceString) return 1;
+    
+    // Handle different price formats
+    if (typeof priceString === 'number') return priceString;
+    if (priceString.includes('💰')) {
+        return priceString.split('💰').length - 1;
+    }
+    if (priceString.includes('$')) {
+        return priceString.split('$').length - 1;
+    }
+    
+    // Try to extract number from string like "💰 ($11-30)"
+    const match = priceString.match(/\$(\d+)-(\d+)/);
+    if (match) {
+        const avgPrice = (parseInt(match[1]) + parseInt(match[2])) / 2;
+        if (avgPrice <= 15) return 1;
+        if (avgPrice <= 30) return 2;
+        if (avgPrice <= 60) return 3;
+        return 4;
+    }
+    
+    return 1; // default price level
+}
+
 async function rankingAlgorithm(restaurants, preferencesArray, location) {
+    if (!restaurants || !preferencesArray || !location) {
+        console.error('Missing required parameters for ranking algorithm');
+        return restaurants;
+    }
+
+    console.log('Starting ranking algorithm with:', {
+        restaurantsCount: restaurants.length,
+        preferencesCount: preferencesArray.length,
+        location
+    });
+
     const restaurantScores = [];
     const WEIGHTS = {
-        price: 4,    // Most important
-        distance: 3, // Second most important
-        cuisine: 2,  // Third most important
-        rating: 1    // Least important
+        price: 4,
+        distance: 3,
+        cuisine: 2,
+        rating: 1
     };
 
     for (const restaurant of restaurants) {
         let totalScore = 0;
-        let distance = -1;
-
-        // Calculate distance once for each restaurant
-        distance = await calculateDistance(location, restaurant.Address);
+        let distance = await calculateDistance(location, restaurant);
 
         // Score for each user separately
         for (const preferences of preferencesArray) {
-            let userScore = 0;  // Track each user's score separately
+            let userScore = 0;
 
-            // Rating Score (0 or 1 point)
+            // Price score
+            if (restaurant.Price && preferences.preferences.price) {
+                const priceLevel = getPriceLevel(restaurant.Price);
+                const preferredPrice = Array.isArray(preferences.preferences.price) 
+                    ? preferences.preferences.price[0] 
+                    : preferences.preferences.price;
+                userScore += WEIGHTS.price * (1 - Math.abs(priceLevel - preferredPrice) / 4);
+            }
+
+            // Distance score
+            if (distance >= 0) {
+                const maxDistance = preferences.preferences.distance || 5000;
+                userScore += WEIGHTS.distance * (1 - Math.min(distance / maxDistance, 1));
+            }
+
+            // Cuisine score
+            if (restaurant.Cuisine && preferences.preferences.cuisines) {
+                const restaurantCuisines = restaurant.Cuisine.toLowerCase().split(',').map(c => c.trim());
+                const preferredCuisines = preferences.preferences.cuisines.map(c => c.toLowerCase());
+                const matchingCuisines = restaurantCuisines.filter(c => preferredCuisines.includes(c));
+                userScore += WEIGHTS.cuisine * (matchingCuisines.length / preferredCuisines.length);
+            }
+
+            // Rating score
             if (restaurant.Rating) {
-                const ratingMatch = restaurant.Rating.match(/(\d+\.?\d*)/);
-                if (ratingMatch) {
-                    const rating = parseFloat(ratingMatch[1]);
-                    if (!isNaN(rating) && rating >= preferences.Rating) {
-                        userScore += WEIGHTS.rating;
-                    }
-                }
+                const ratingMatch = restaurant.Rating.match(/(\d+(\.\d+)?)/);
+                const rating = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
+                const minRating = Array.isArray(preferences.preferences.rating) 
+                    ? preferences.preferences.rating[0] 
+                    : preferences.preferences.rating || 3;
+                userScore += WEIGHTS.rating * Math.max(0, (rating - minRating) / 2);
             }
 
-            // Price Score (0 or 4 points)
-            if (restaurant.Price && restaurant.Price !== 'N/A') {
-                const priceLevel = (restaurant.Price.match(/💰/g) || []).length;
-                if (priceLevel > 0 && 
-                    priceLevel >= preferences.Price[0] && 
-                    priceLevel <= preferences.Price[1]) {
-                    userScore += WEIGHTS.price;
-                }
-            }
-
-            // Distance Score (0 or 3 points)
-            if (distance !== -1) {
-                const maxDistanceMiles = preferences.Distance * 0.000621371;
-                if (distance <= maxDistanceMiles) {
-                    userScore += WEIGHTS.distance;
-                }
-            }
-
-            // Cuisine Score (0 or 2 points)
-            if (restaurant.Cuisine && preferences.Cuisines) {
-                const restaurantCuisines = restaurant.Cuisine.toLowerCase();
-                if (preferences.Cuisines.some(cuisine => 
-                    restaurantCuisines.includes(cuisine.toLowerCase()))) {
-                    userScore += WEIGHTS.cuisine;
-                }
-            }
-
-            // Add this user's score to the total
             totalScore += userScore;
         }
 
-        // Print score breakdown
-        // console.log('\n=== Score Breakdown for', restaurant.Name, '===');
-        // console.log('Total Score:', totalScore, `/${preferencesArray.length * 10}`);
-        // console.log('Price:', restaurant.Price || 'N/A');
-        // console.log('Rating:', restaurant.Rating || 'N/A');
-        // console.log('Distance:', distance !== -1 ? `${distance.toFixed(1)} miles` : 'Unknown');
-        // console.log('Cuisines:', restaurant.Cuisine || 'N/A');
-        // console.log('----------------------------------------');
-
-        // Push restaurant with its score and all original properties
+        // Ensure valid score
+        const averageScore = totalScore / (preferencesArray.length || 1);
+        const finalScore = isNaN(averageScore) ? 0 : parseFloat(averageScore.toFixed(2));
+        
         restaurantScores.push({
-            ...restaurant,  // Spread all original restaurant properties
-            score: totalScore,  // Add the score
-            maxScore: preferencesArray.length * 10,  // Add the max possible score
-            distance: distance !== -1 ? `${distance.toFixed(1)} miles` : 'Unknown'
+            ...restaurant,
+            score: finalScore,
+            distance: typeof distance === 'number' ? distance.toFixed(1) : 'Unknown'
         });
     }
 
-    // Sort restaurants by score (highest to lowest)
-    return restaurantScores.sort((a, b) => b.score - a.score);
+    // Sort by score descending
+    restaurantScores.sort((a, b) => b.score - a.score);
+    
+    console.log(`Ranked ${restaurantScores.length} restaurants`);
+    return restaurantScores;
 }
 
 module.exports = { rankingAlgorithm }; 

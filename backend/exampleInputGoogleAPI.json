@@ -1,0 +1,13 @@
+[
+  {
+    "Name": "Pail",
+    "Cuisine": "American",
+    "Price": [
+      2,
+      2
+    ],
+    "Rating": 3,
+    "Distance": 4828.0199999999995,
+    "Location": "42.7284117,-73.69178509999999"
+  }
+]

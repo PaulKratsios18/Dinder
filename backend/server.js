@@ -16,6 +16,8 @@ const fs = require('fs');
 const { getRestaurants } = require('./services/restaurants/get_places_google');
 const { rankingAlgorithm } = require('./services/restaurants/ranking_algorithm');
 const { getSessionPreferences } = require('./services/restaurants/session_preferences');
+const Restaurant = require('./models/Restaurant');
+const Vote = require('./models/Vote');
 
 dotenv.config();
 const app = express();
@@ -224,74 +226,282 @@ const startServer = async () => {
 
 app.use('/', preferencesRouter);
 
-app.post('/api/sessions/start', async (req, res) => {
+app.post('/api/sessions/:sessionId/start', async (req, res) => {
     try {
-        const { roomCode } = req.body;
-        console.log('Starting session for room:', roomCode);
-        
-        // Get and aggregate preferences
-        const aggregatedPreferences = await getSessionPreferences(roomCode);
-        
-        // Get restaurants from Google Places API
-        const restaurants = await getRestaurants(
-            aggregatedPreferences.location,
-            aggregatedPreferences.distance,
-            aggregatedPreferences.cuisines
+        const { sessionId } = req.params;
+        console.log('Starting session:', sessionId);
+
+        // Get preferences from participants
+        const userPreferences = await getUserPreferencesFromDB(sessionId);
+        console.log('User preferences:', userPreferences);
+
+        // Get all unique cuisines from preferences
+        const cuisines = [...new Set(userPreferences
+            .flatMap(p => p.preferences.cuisine)
+            .filter(c => c))];
+
+        console.log('Raw preferences cuisines:', userPreferences.map(p => p.preferences.cuisine));
+        console.log('Filtered unique cuisines:', cuisines);
+
+        if (cuisines.length === 0) {
+            cuisines.push('restaurant'); // Default search if no cuisines specified
+        }
+
+        console.log('Searching for cuisines:', cuisines);
+
+        // Get restaurants for each cuisine
+        let allRestaurants = [];
+        for (const cuisine of cuisines) {
+            console.log(`Attempting to fetch restaurants for cuisine: ${cuisine}`);
+            console.log('Using location:', userPreferences[0].preferences.location);
+
+            const restaurants = await getRestaurants(
+                userPreferences[0].preferences.location,
+                5000,
+                [cuisine]
+            );
+            console.log(`Results for ${cuisine}:`, restaurants ? restaurants.length : 0, 'restaurants');
+            if (restaurants && restaurants.length > 0) {
+                console.log('First restaurant example:', restaurants[0]);
+            }
+
+            if (restaurants && restaurants.length > 0) {
+                allRestaurants = [...allRestaurants, ...restaurants];
+            }
+        }
+
+        // Remove duplicates based on place ID
+        const uniqueRestaurants = Array.from(
+            new Map(allRestaurants.map(r => [r.PlaceId, r])).values()
         );
-        
-        // Deduplicate restaurants
-        const uniqueRestaurants = Array.from(new Map(
-            restaurants.map(restaurant => [restaurant.Name, restaurant])
-        ).values());
-        
-        // Get user preferences and rank restaurants
-        const userPreferences = await getUserPreferencesFromDB(roomCode);
-        const consolidatedPreferences = consolidatePreferences(userPreferences);
+
+        console.log('Total restaurants before deduplication:', allRestaurants.length);
+        console.log('Unique restaurants after deduplication:', uniqueRestaurants.length);
+
+        if (uniqueRestaurants.length === 0) {
+            throw new Error('No restaurants found for the given preferences');
+        }
+
+        console.log(`Found ${uniqueRestaurants.length} unique restaurants`);
+
+        // 4. Rank restaurants
         const rankedRestaurants = await rankingAlgorithm(
-            uniqueRestaurants, 
-            consolidatedPreferences, 
-            aggregatedPreferences.location
+            uniqueRestaurants,
+            userPreferences,
+            userPreferences[0].preferences.location
         );
-        
-        // Format restaurants for template
-        const formattedRestaurants = rankedRestaurants.map(restaurant => 
-            formatRestaurantForTemplate(restaurant)
+
+        // 5. Save restaurants to database
+        const savedRestaurants = await Promise.all(rankedRestaurants.map(async (restaurant, index) => {
+            try {
+                const uniqueId = `${sessionId}_${index}_${restaurant.Name.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+                
+                const restaurantDoc = new Restaurant({
+                    sessionId: sessionId,
+                    restaurantId: uniqueId,
+                    name: restaurant.Name,
+                    rating: restaurant.Rating,
+                    price: restaurant.Price,
+                    distance: restaurant.distance || 'Unknown',
+                    cuisine: restaurant.Cuisine,
+                    address: restaurant.Address,
+                    photo: restaurant.Photos?.[0] || '/default-restaurant.jpg',
+                    openStatus: restaurant.OpenStatus,
+                    wheelchairAccessible: restaurant.WheelchairAccessible,
+                    score: restaurant.score || 0,
+                    location: restaurant.Location
+                });
+
+                const saved = await restaurantDoc.save();
+                console.log(`Saved restaurant: ${saved.name} with ID: ${saved.restaurantId}`);
+                return saved;
+            } catch (error) {
+                console.error('Error saving restaurant:', error);
+                return null;
+            }
+        }));
+
+        // Filter out failed saves
+        const validRestaurants = savedRestaurants.filter(r => r !== null);
+
+        // 6. Update session status
+        await Session.findOneAndUpdate(
+            { session_id: sessionId },
+            { 
+                status: 'active',
+                restaurants: validRestaurants.map(r => r._id)
+            }
         );
+
+        console.log(`Successfully saved ${validRestaurants.length} restaurants for session ${sessionId}`);
+
+        res.json({
+            success: true,
+            message: `Successfully started session with ${validRestaurants.length} restaurants`,
+            restaurantCount: validRestaurants.length
+        });
+
+    } catch (error) {
+        console.error('Error in start session endpoint:', error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Failed to start session'
+        });
+    }
+});
+
+async function getUserPreferencesFromDB(sessionId) {
+    try {
+        const session = await Session.findOne({ session_id: sessionId });
+        if (!session || !session.participants) {
+            throw new Error('Session or participants not found');
+        }
         
-        // Generate HTML
-        const outputPath = await generateHTML(formattedRestaurants, roomCode);
+        // Filter participants that have preferences and format them
+        const participantsWithPreferences = session.participants
+            .filter(p => p.preferences)
+            .map(p => ({
+                name: p.name,
+                preferences: {
+                    cuisine: p.preferences.cuisine || [],
+                    price: p.preferences.price || ['$'],
+                    rating: p.preferences.rating || [3],
+                    distance: p.preferences.distance || 5000,
+                    location: p.preferences.location || {
+                        lat: 42.7284,
+                        lng: -73.6918
+                    }
+                }
+            }));
+        
+        if (participantsWithPreferences.length === 0) {
+            throw new Error('No participants with preferences found');
+        }
+
+        console.log('Formatted preferences:', participantsWithPreferences);
+        return participantsWithPreferences;
+    } catch (error) {
+        console.error('Error getting user preferences:', error);
+        throw error;
+    }
+}
+
+function consolidatePreferences(participants) {
+    return participants.map(participant => ({
+        name: participant.name,
+        preferences: {
+            cuisines: participant.preferences.cuisine || [],
+            price: participant.preferences.price || [1],
+            rating: participant.preferences.rating || [3],
+            distance: participant.preferences.distance || 5000,
+            location: participant.preferences.location || {
+                lat: 42.7284,
+                lng: -73.6918
+            }
+        }
+    }));
+}
+
+function formatRestaurantForTemplate(restaurant) {
+    return {
+        id: restaurant._id || Math.random().toString(36).substr(2, 9),
+        name: restaurant.Name,
+        rating: restaurant.Rating,
+        price: restaurant.Price,
+        distance: restaurant.Distance || 'Distance unknown',
+        cuisine: restaurant.Cuisine,
+        address: restaurant.Address,
+        photo: restaurant.Photos?.[0] || 'default-restaurant-image.jpg',
+        openStatus: restaurant.OpenStatus,
+        wheelchairAccessible: restaurant.WheelchairAccessible,
+        score: restaurant.score || 0
+    };
+}
+
+app.get('/api/sessions/:sessionId/restaurants', async (req, res) => {
+    try {
+        const { sessionId } = req.params;
+        const restaurants = await Restaurant.find({ sessionId });
         
         res.json({
             success: true,
-            resultsUrl: `/results/${roomCode}`,
-            restaurants: formattedRestaurants
+            restaurants
         });
-        
     } catch (error) {
-        console.error('Error processing restaurants:', error);
+        console.error('Error fetching restaurants:', error);
         res.status(500).json({
-            error: 'Failed to process restaurants',
+            success: false,
+            error: 'Failed to fetch restaurants',
             details: error.message
         });
     }
 });
 
-// Serve the results page
-app.get('/results/:roomCode', async (req, res) => {
-  try {
-    const roomCode = req.params.roomCode;
-    const filePath = path.join(__dirname, `../get_restaurants/output/results_${roomCode}.html`);
-    
-    if (!fs.existsSync(filePath)) {
-      console.error(`Results file not found: ${filePath}`);
-      return res.status(404).json({ error: 'Results file not found. Please try again.' });
+app.get('/api/sessions/:sessionId/ranked-restaurants', async (req, res) => {
+    try {
+        const { sessionId } = req.params;
+        const restaurants = await Restaurant.find({ sessionId })
+            .sort({ score: -1 }); // Sort by score descending
+        
+        if (!restaurants || restaurants.length === 0) {
+            return res.status(404).json({
+                success: false,
+                error: 'No restaurants found for this session'
+            });
+        }
+
+        res.json({
+            success: true,
+            restaurants: restaurants.map(restaurant => ({
+                id: restaurant._id,
+                name: restaurant.name,
+                rating: restaurant.rating,
+                price: restaurant.price,
+                distance: restaurant.distance,
+                cuisine: restaurant.cuisine,
+                address: restaurant.address,
+                photo: restaurant.photo,
+                openStatus: restaurant.openStatus,
+                wheelchairAccessible: restaurant.wheelchairAccessible,
+                score: restaurant.score
+            }))
+        });
+    } catch (error) {
+        console.error('Error fetching ranked restaurants:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to fetch restaurants',
+            details: error.message
+        });
     }
-    
-    res.sendFile(filePath);
-  } catch (error) {
-    console.error('Error serving results:', error);
-    res.status(500).json({ error: 'Failed to serve results' });
-  }
+});
+
+app.post('/api/sessions/:sessionId/vote', async (req, res) => {
+    try {
+        const { sessionId } = req.params;
+        const { userId, restaurantId, vote } = req.body;
+
+        const voteDoc = new Vote({
+            sessionId,
+            userId,
+            restaurantId,
+            vote
+        });
+
+        await voteDoc.save();
+
+        res.json({
+            success: true,
+            message: 'Vote recorded successfully'
+        });
+    } catch (error) {
+        console.error('Error recording vote:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to record vote',
+            details: error.message
+        });
+    }
 });
 
 startServer();
