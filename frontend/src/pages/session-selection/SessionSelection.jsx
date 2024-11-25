@@ -17,7 +17,6 @@ const Starter = () => {
   return (
     <div className="get-started-container">
       <h1 className="greeting">Hi there!</h1>
-      <span>{<br/>}{<br/>}{<br/>}</span>
       <h2 className="intro-text">
         Say goodbye to indecision, find the perfect spot in seconds.
         Start your own session or join an existing group below:

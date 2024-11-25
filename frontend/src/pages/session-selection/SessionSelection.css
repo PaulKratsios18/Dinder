@@ -6,6 +6,9 @@ flex-direction: column;
 align-items: center;
 background-color: #ed7874;
 height: 89vh;
+padding: 40px 20px;
+justify-content: center;
+gap: 30px;
 }
 
 .greeting {
@@ -58,9 +61,33 @@ margin-left: 10px;
 }
 
 .divider {
-font-size: 1rem;
-margin: 10px 0;
-color: #333;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.divider h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #ed7874;
+  display: inline-block;
+  padding: 0 20px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
 }
 
 .contact-link {
@@ -72,7 +99,7 @@ text-decoration: underline;
 
 .get-started-container h1 {
 font-family: 'Fredoka One', cursive;
-font-size: 6rem;
+font-size: 5rem;
 text-align: left;
 margin-top: 50px;
 color: #fff;
@@ -80,7 +107,7 @@ color: #fff;
 
 .get-started-container h2 {
 font-family: 'Fredoka One', cursive; 
-font-size: 2.8rem;
+font-size: 2.3rem;
 text-align: center;
 padding: 80px;
 font-weight: 400; 

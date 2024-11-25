@@ -130,7 +130,13 @@ function HostPreferences() {
   const [activeTab, setActiveTab] = useState('cuisine');
   const [name, setName] = useState('');
 
-  const tabs = ['Cuisine', 'Price', 'Rating', 'Distance', 'Location'];
+  const tabs = [
+    { name: 'Cuisine', emoji: '🍽️' },
+    { name: 'Price', emoji: '💰' },
+    { name: 'Rating', emoji: '⭐' },
+    { name: 'Distance', emoji: '📍' },
+    { name: 'Location', emoji: '🗺️' }
+  ];
 
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
   const [priceNoPreference, setPriceNoPreference] = useState(false);
@@ -224,13 +230,13 @@ function HostPreferences() {
   };
 
   const renderTabContent = () => {
-    switch (activeTab.toLowerCase()) {
+    switch (activeTab) {
       case 'cuisine':
         return (
           <div className="tab-content">
             <h3>Select Cuisine Preferences</h3>
             <p className="tab-description">
-              Choose your preferred type(s) of cuisine. Select multiple options or check "No Preference" to consider all cuisines.
+              Choose your preferred cuisines or select "No Preference" to see all options.
             </p>
             <div className="cuisine-options">
               <label className="no-preference">
@@ -267,7 +273,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Price Preferences</h3>
             <p className="tab-description">
-              Select your budget range. $ = Inexpensive, $$ = Moderate, $$$ = Expensive, $$$$ = Very Expensive. Choose multiple options or select "No Preference".
+              Choose your preferred price ranges or select "No Preference" to see all options.
             </p>
             <div className="price-options">
               <label className="no-preference">
@@ -303,7 +309,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Rating Preferences</h3>
             <p className="tab-description">
-              Choose minimum acceptable ratings for restaurants. Select multiple ratings or check "No Preference" to consider all ratings.
+              Choose your minimum acceptable ratings or select "No Preference" to see all options.
             </p>
             <div className="rating-options">
               <label className="no-preference">
@@ -361,7 +367,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Distance Preferences</h3>
             <p className="tab-description">
-              Choose the maximum distance you're willing to travel. Select one option or check "No Preference" for any distance.
+              Choose the maximum distance you're willing to travel or select "No Preference" for any distance.
             </p>
             <div className="distance-options">
               <label className="no-preference">
@@ -392,7 +398,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Your Location</h3>
             <p className="tab-description">
-              Enter your starting location. This will be used as the center point for distance calculations. Search for a place or drop a pin on the map.
+              Enter your starting location to help us find restaurants within your preferred distance.
             </p>
             <div className="location-options">
               <LocationSearch 
@@ -428,11 +434,12 @@ function HostPreferences() {
           <div className="tabs-section">
             {tabs.map((tab) => (
               <button
-                key={tab}
-                className={`tab-button ${activeTab === tab.toLowerCase() ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.toLowerCase())}
+                key={tab.name}
+                className={`tab-button ${activeTab === tab.name.toLowerCase() ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab.name.toLowerCase())}
+                data-emoji={tab.emoji}
               >
-                {tab}
+                {tab.name}
               </button>
             ))}
           </div>

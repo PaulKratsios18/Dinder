@@ -52,3 +52,57 @@ section.about .grid {
     align-items: center;
     justify-content: center;
 }
+
+.description {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member p {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-links a {
+    color: #ed7874;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ed7874;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #ed7874;
+    color: white;
+}
+
+.social-link-disabled {
+    color: #ed7874;
+    padding: 5px 10px;
+    border: 1px solid #ed7874;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    cursor: default;
+}

@@ -56,17 +56,28 @@ border: none;
 background: none;
 cursor: pointer;
 border-radius: 5px;
-transition: background-color 0.3s;
+transition: all 0.3s ease;
 font-size: 1.3rem;
+font-family: 'Fredoka One', cursive;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.tab-button::before {
+content: attr(data-emoji);
+font-size: 1.4rem;
 }
 
 .tab-button:hover {
-background-color: #f0f0f0;
+background-color: rgba(237, 120, 116, 0.1);
+transform: translateX(5px);
 }
 
 .tab-button.active {
-background-color: #e0e0e0;
-font-weight: bold;
+background-color: rgba(237, 120, 116, 0.2);
+font-weight: normal;
+color: #000;
 }
 
 .content-section {
@@ -99,9 +110,11 @@ flex: 1;
 }
 
 .input-group label {
-margin-bottom: 0.5rem;
-font-weight: bold;
-color: #333;
+font-family: 'Fredoka One', cursive;
+color: #023047;
+font-size: 1.2rem;
+font-weight: normal;
+margin-bottom: 8px;
 }
 
 .price-options {
@@ -246,10 +259,9 @@ margin-left: -16px;
 
 .tab-content h3 {
 font-family: 'Fredoka One', cursive;
-font-size: 1.6rem;
-text-align: left;
-font-weight: 200; 
-color: #ed7874; 
+font-size: 2rem;
+color: #023047;
+margin-bottom: 1rem;
 }
 
 .location-search {
@@ -305,10 +317,35 @@ color: #ed7874;
 }
 
 .tab-description {
-   color:#666;
-   font-size: 1rem;
-   margin: 10px 0 20px 0;
-   line-height: 1.4;
-   padding: 0 10px;
-   text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: left;
+    width: 100%;
+}
+
+.input-group label {
+    font-family: 'Fredoka One', cursive;
+    color: #023047;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.input-section input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #023047;
+    font-weight: normal;
+}
+
+.input-section input::placeholder {
+    color: #023047;
+    opacity: 0.6;
 }
