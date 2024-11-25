@@ -105,7 +105,7 @@ function LobbyJoin() {
         </div>
 
         <div className="members-panel">
-          <h4>Members:</h4>
+          <h4>Members: ({participants.length})</h4>
           <div className="participants-list">
             {participants && participants.length > 0 ? (
               participants.map((participant, index) => (
