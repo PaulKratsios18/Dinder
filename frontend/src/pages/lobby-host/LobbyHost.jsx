@@ -18,16 +18,23 @@ function LobbyHost() {
   });
   const [socket, setSocket] = useState(null);
   const [preferencesSet, setPreferencesSet] = useState(false);
+  const [copiedInvite, setCopiedInvite] = useState(false);
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [notification, setNotification] = useState(null);
+  const [isStartLoading, setIsStartLoading] = useState(false);
+  const [isPreferencesLoading, setIsPreferencesLoading] = useState(false);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
-    // alert('Invite link copied to clipboard!');
+    setCopiedInvite(true);
+    setTimeout(() => setCopiedInvite(false), 1500); // Reset after 1.5 seconds
   };
 
   const copyGroupCode = () => {
     navigator.clipboard.writeText(roomCode);
-    // alert('Group code copied to clipboard!');
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 1500); // Reset after 1.5 seconds
   };
 
   useEffect(() => {
@@ -71,19 +78,33 @@ function LobbyHost() {
     const newSocket = io('http://localhost:5000');
     setSocket(newSocket);
 
-    // Join session room with the userId from location state
+    // Join session room
     newSocket.emit('joinSession', { 
-        roomCode, 
-        userName: 'Host',
-        userId: hostId,
-        isHost: true 
+      roomCode, 
+      userName: 'Host',
+      userId: hostId,
+      isHost: true 
     });
 
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
-        console.log('Received participants update:', updatedParticipants);
-        const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
-        setParticipants(filteredParticipants);
+      console.log('Received participants update:', updatedParticipants);
+      const prevCount = participants.length;
+      const newCount = updatedParticipants.length;
+      
+      // Show notification when someone joins
+      if (newCount > prevCount) {
+        const newParticipant = updatedParticipants[updatedParticipants.length - 1];
+        setNotification(`${newParticipant.name} joined the session`);
+      }
+      // Show notification when someone leaves
+      else if (newCount < prevCount) {
+        setNotification('A participant left the session');
+      }
+      
+      // Update participants list
+      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
+      setParticipants(filteredParticipants);
     });
 
     // Cleanup on unmount
@@ -92,6 +113,17 @@ function LobbyHost() {
         newSocket.close();
     };
   }, [roomCode, hostId]);
+
+  // Add a separate useEffect to handle notification timeout
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => {
+        setNotification(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
 
   useEffect(() => {
     console.log('Current hostId:', hostId);
@@ -142,18 +174,30 @@ function LobbyHost() {
           <div className="room-code-display">
             {roomCode}
           </div>
-          <button onClick={copyInviteLink} className="lobby-button">
+          <button 
+            onClick={copyInviteLink} 
+            className={`lobby-button ${copiedInvite ? 'copied' : ''}`}
+          >
             <span className="icon">📋</span>
-            <h2>Copy invite link</h2>
+            <h2>{copiedInvite ? 'Copied!' : 'Copy invite link'}</h2>
           </button>
-          <button onClick={copyGroupCode} className="lobby-button">
+          <button 
+            onClick={copyGroupCode} 
+            className={`lobby-button ${copiedCode ? 'copied' : ''}`}
+          >
             <span className="icon">📋</span>
-            <h2>Copy group code</h2>
+            <h2>{copiedCode ? 'Copied!' : 'Copy group code'}</h2>
           </button>
         </div>
 
+        {notification && (
+          <div className="notification">
+            {notification}
+          </div>
+        )}
+
         <div className="members-panel">
-          <h4>Members:</h4>
+          <h4>Members: ({participants.length})</h4>
           <div className="participants-list">
             {participants && participants.length > 0 ? (
               participants.map((participant, index) => (
@@ -172,20 +216,22 @@ function LobbyHost() {
         <button 
           className="preferences-button" 
           onClick={handleSelectPreferences}
-          disabled={participants.some(participant => {
-            console.log('Checking participant:', JSON.stringify(participant, null, 2));
-            console.log('Comparing:', participant.user_id, 'vs', hostId);
-            return participant.user_id === hostId;
-          })}
+          disabled={participants.some(participant => participant.user_id === hostId) || isPreferencesLoading}
         >
-          Select Preferences
+          <div className="button-content">
+            {isPreferencesLoading && <div className="loading-spinner" />}
+            Select Preferences
+          </div>
         </button>
         <button 
           className="start-button" 
           onClick={handleStartSession}
-          disabled={participants.length === 0}
+          disabled={participants.length === 0 || isStartLoading}
         >
-          Start Session
+          <div className="button-content">
+            {isStartLoading && <div className="loading-spinner" />}
+            Start Session
+          </div>
         </button>
       </div>
     </section>
