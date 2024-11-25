@@ -520,5 +520,27 @@ app.post('/api/sessions/:sessionId/vote', async (req, res) => {
         });
     }
 });
+
+// Add this new endpoint to get session participants
+app.get('/api/sessions/:roomCode/participants', async (req, res) => {
+  try {
+    const session = await Session.findOne({ session_id: req.params.roomCode });
+    
+    if (!session) {
+      return res.status(404).json({ error: 'Session not found' });
+    }
+
+    res.status(200).json({
+      participants: session.participants
+    });
+  } catch (error) {
+    console.error('Error getting session participants:', error);
+    res.status(500).json({
+      error: 'Failed to get session participants',
+      details: error.message
+    });
+  }
+});
+
 startServer();
 

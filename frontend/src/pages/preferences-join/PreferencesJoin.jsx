@@ -68,7 +68,25 @@ function JoinPreferences() {
     }
     
     try {
-        // Always generate a new user ID for joiners
+        // First, check the current number of participants in the session
+        const checkResponse = await fetch(`http://localhost:5000/api/sessions/${roomCode}/participants`);
+        const sessionData = await checkResponse.json();
+
+        if (!checkResponse.ok) {
+          if (sessionData.error === 'Session not found') {
+            setErrorMessage('Invalid room code. Please check and try again.');
+            return;
+          }
+          throw new Error(sessionData.error || `HTTP error! status: ${checkResponse.status}`);
+        }
+
+        // Check if session is full (10 participants max)
+        if (sessionData.participants.length >= 10) {
+          setErrorMessage('This session is full (maximum 10 participants). Please join another session.');
+          return;
+        }
+
+        // If not full, proceed with saving preferences
         const userId = `user_${Math.random().toString(36).substr(2, 9)}`;
         localStorage.setItem('userId', userId);
 
