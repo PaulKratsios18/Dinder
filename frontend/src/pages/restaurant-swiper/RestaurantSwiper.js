@@ -15,13 +15,15 @@ const RestaurantSwiper = () => {
         const newSocket = io('http://localhost:5000');
         setSocket(newSocket);
 
-        // Join the session room
+        // Get the correct user ID based on whether it's host or participant
+        const userId = localStorage.getItem('userId') || localStorage.getItem('currentUserId');
+        console.log('Current user ID:', userId);
+
         newSocket.emit('joinRoom', { 
             sessionId, 
-            userId: localStorage.getItem('userId') 
+            userId 
         });
 
-        // Listen for vote updates
         newSocket.on('voteUpdate', (data) => {
             console.log('Vote update received:', data);
             setVotes(prev => ({
@@ -55,27 +57,20 @@ const RestaurantSwiper = () => {
         };
     }, [sessionId]);
 
-    const handleVote = async (vote) => {
-        if (matchFound) {
-            console.log('Match already found, no more voting allowed');
-            return;
+    const handleVote = async (restaurantId, vote) => {
+        try {
+            const userId = localStorage.getItem('userId') || localStorage.getItem('currentUserId');
+            console.log('Submitting vote as user:', userId);
+            
+            socket.emit('submitVote', {
+                sessionId,
+                userId,
+                restaurantId,
+                vote
+            });
+        } catch (error) {
+            console.error('Error submitting vote:', error);
         }
-
-        if (currentIndex >= restaurants.length) {
-            console.log('No more restaurants to vote on');
-            return;
-        }
-
-        const restaurant = restaurants[currentIndex];
-        
-        socket.emit('submitVote', {
-            sessionId,
-            userId: localStorage.getItem('userId'),
-            restaurantId: restaurant.id,
-            vote
-        });
-
-        setCurrentIndex(prev => prev + 1);
     };
 
     if (matchFound) {
@@ -119,8 +114,8 @@ const RestaurantSwiper = () => {
             </div>
 
             <div className="vote-buttons">
-                <button onClick={() => handleVote(false)} className="vote-no">✗</button>
-                <button onClick={() => handleVote(true)} className="vote-yes">✓</button>
+                <button onClick={() => handleVote(currentRestaurant.id, false)} className="vote-no">✗</button>
+                <button onClick={() => handleVote(currentRestaurant.id, true)} className="vote-yes">✓</button>
             </div>
         </div>
     );

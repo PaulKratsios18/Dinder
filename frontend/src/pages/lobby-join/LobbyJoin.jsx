@@ -8,6 +8,7 @@ function LobbyJoin() {
   const [participants, setParticipants] = useState([]);
   const roomCode = location.state?.roomCode;
   const userName = location.state?.userName;
+  const [userId, setUserId] = useState(null);
   const [waiting, setWaiting] = useState(true);
 
   useEffect(() => {
@@ -28,6 +29,13 @@ function LobbyJoin() {
       setParticipants(filteredParticipants);
     });
 
+    // Listen for userId assignment from server
+    socket.on('userIdAssigned', ({ userId }) => {
+      console.log('Received userId:', userId);
+      localStorage.setItem('currentUserId', userId); // Store with different key
+      setUserId(userId);
+    });
+
     // Listen for session started event
     socket.on('sessionStarted', (data) => {
       console.log('Session started by host:', data);
@@ -40,6 +48,7 @@ function LobbyJoin() {
     // Cleanup on unmount
     return () => {
       socket.off('sessionStarted');
+      socket.off('userIdAssigned');
       socket.emit('leaveSession', { roomCode });
       socket.close();
     };
