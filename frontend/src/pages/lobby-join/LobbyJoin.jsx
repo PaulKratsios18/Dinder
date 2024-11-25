@@ -8,6 +8,7 @@ function LobbyJoin() {
   const [participants, setParticipants] = useState([]);
   const roomCode = location.state?.roomCode;
   const userName = location.state?.userName;
+  const [waiting, setWaiting] = useState(true);
 
   useEffect(() => {
     // Connect to WebSocket
@@ -27,8 +28,18 @@ function LobbyJoin() {
       setParticipants(filteredParticipants);
     });
 
+    // Listen for session started event
+    socket.on('sessionStarted', (data) => {
+      console.log('Session started by host:', data);
+      if (data.success) {
+        // Redirect to restaurant swiper page
+        window.location.href = `/sessions/${data.sessionId}/restaurants`;
+      }
+    });
+
     // Cleanup on unmount
     return () => {
+      socket.off('sessionStarted');
       socket.emit('leaveSession', { roomCode });
       socket.close();
     };
@@ -88,9 +99,11 @@ function LobbyJoin() {
         </div>
       </div>
 
-      <div className="waiting-message">
-        Waiting for host to start the session...
-      </div>
+      {waiting && (
+        <div className="waiting-message">
+          Waiting for host to start the session...
+        </div>
+      )}
     </section>
   );
 }

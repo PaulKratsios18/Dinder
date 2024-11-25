@@ -49,28 +49,48 @@ io.on('connection', (socket) => {
 
   socket.on('joinSession', async ({ roomCode, userName, isHost }) => {
     try {
-      console.log(`User ${userName} joining room ${roomCode}`);
+      console.log('=== Join Session Request ===');
+      console.log('Room Code:', roomCode);
+      console.log('User Name:', userName);
+      console.log('Is Host:', isHost);
+      
       socket.join(roomCode);
       
       // Update session in database
       const session = await Session.findOne({ session_id: roomCode });
+      console.log('Found existing session:', {
+        sessionId: session.session_id,
+        existingParticipants: session.participants.map(p => ({
+          name: p.name,
+          isHost: p.isHost
+        }))
+      });
+
       if (session) {
-        // Only add non-host participants here
-        // Host is already added during session creation
         if (!isHost) {
           const existingParticipant = session.participants.find(p => p.name === userName);
           if (!existingParticipant) {
+            console.log('Adding new participant:', userName);
             session.participants.push({ name: userName, isHost });
             await session.save();
+            console.log('Updated session participants:', 
+              session.participants.map(p => ({
+                name: p.name,
+                isHost: p.isHost
+              }))
+            );
+          } else {
+            console.log('Participant already exists:', userName);
           }
         }
 
-        // Emit updated participants list to all clients in the room
+        // Emit updated participants list
         const participants = session.participants.map(p => ({
           name: p.name,
           isHost: p.isHost || false
         }));
         
+        console.log('Broadcasting updated participants:', participants);
         io.to(roomCode).emit('participantsUpdate', participants);
       }
     } catch (error) {
@@ -118,19 +138,21 @@ io.on('connection', (socket) => {
 app.post('/api/preferences', async (req, res) => {
   try {
     const { roomCode, name, preferences, host_id } = req.body;
+    console.log('=== Saving Preferences ===');
+    console.log('Room Code:', roomCode);
+    console.log('User Name:', name);
+    console.log('Is Host:', !!host_id);
+    console.log('Preferences:', preferences);
 
-    // Find the session first
     const session = await Session.findOne({ session_id: roomCode });
-    if (!session) {
-      return res.status(404).json({ error: 'Session not found' });
-    }
+    console.log('Found session:', {
+      sessionId: session.session_id,
+      currentParticipants: session.participants.map(p => p.name)
+    });
 
-    // If this is the host saving preferences
     if (host_id) {
-      // Remove any existing "Host" entry
+      console.log('Updating host preferences');
       session.participants = session.participants.filter(p => p.name !== "Host");
-      
-      // Add host with their preferences
       session.participants.push({
         user_id: host_id,
         name: name,
@@ -138,7 +160,7 @@ app.post('/api/preferences', async (req, res) => {
         isHost: true
       });
     } else {
-      // For non-host participants
+      console.log('Adding participant preferences');
       session.participants.push({
         user_id: req.body.userId,
         name: name,
@@ -148,8 +170,14 @@ app.post('/api/preferences', async (req, res) => {
     }
 
     await session.save();
+    console.log('Updated session participants:', 
+      session.participants.map(p => ({
+        name: p.name,
+        isHost: p.isHost,
+        hasPreferences: !!p.preferences
+      }))
+    );
 
-    // Emit participants update through socket if available
     if (io) {
       io.to(roomCode).emit('participantsUpdate', session.participants);
     }
@@ -367,6 +395,12 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
         );
 
         console.log(`Successfully saved ${validRestaurants.length} restaurants for session ${sessionId}`);
+
+        // Broadcast session start to all participants
+        io.to(sessionId).emit('sessionStarted', {
+            success: true,
+            sessionId: sessionId
+        });
 
         res.json({
             success: true,
