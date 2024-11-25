@@ -82,41 +82,24 @@ io.on('connection', (socket) => {
   });
 
   socket.on('submitVote', async ({ sessionId, restaurantId, vote }) => {
-    // Use the userId stored in socket instead of from message
-    const userId = socket.userId;
-    console.log('Processing vote from user:', userId);
-    
     try {
-      const session = await Session.findOne({ session_id: sessionId });
-      const participant = session.participants.find(p => p.user_id === userId);
-      
-      if (!participant) {
-        console.error('User not found in session:', userId);
-        socket.emit('error', { message: 'User not authorized to vote' });
-        return;
-      }
-
-      const result = await handleVote(sessionId, userId, restaurantId, vote);
-      console.log('Vote handler result:', result);
-      
-      // Broadcast vote update to all users in the session
-      io.to(sessionId).emit('voteUpdate', {
-        restaurantId,
-        votes: result.votes
-      });
-      console.log('Emitted voteUpdate:', {
-        restaurantId,
-        votes: result.votes
-      });
-
-      // If there's a match, notify all users with complete data
-      if (result.isMatch && result.matchData) {
-        console.log('Emitting matchFound event with data:', result.matchData);
-        io.to(sessionId).emit('matchFound', result.matchData);
-      }
+        const result = await handleVote(sessionId, socket.userId, restaurantId, vote);
+        
+        if (result.showResults) {
+            io.to(sessionId).emit('showResults', {
+                topRestaurants: result.topRestaurants
+            });
+        } else if (result.isMatch) {
+            io.to(sessionId).emit('matchFound', result.matchData);
+        } else {
+            io.to(sessionId).emit('voteUpdate', {
+                restaurantId,
+                votes: result.votes
+            });
+        }
     } catch (error) {
-      console.error('Error handling vote:', error);
-      socket.emit('error', { message: 'Failed to process vote' });
+        console.error('Error handling vote:', error);
+        socket.emit('error', { message: 'Failed to process vote' });
     }
   });
 

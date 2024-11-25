@@ -63,7 +63,7 @@ function LobbyJoin() {
   }, [roomCode, userName, location.state?.userId, navigate]);
 
   const copyInviteLink = () => {
-    const link = `${window.location.origin}/join?code=${roomCode}`;
+    const link = `${window.location.origin}/preferences-join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
     setCopiedInvite(true);
     setTimeout(() => setCopiedInvite(false), 1500);
