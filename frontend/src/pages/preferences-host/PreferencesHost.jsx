@@ -131,11 +131,31 @@ function HostPreferences() {
   const [name, setName] = useState('');
 
   const tabs = [
-    { name: 'Cuisine', emoji: '🍽️' },
-    { name: 'Price', emoji: '💰' },
-    { name: 'Rating', emoji: '⭐' },
-    { name: 'Distance', emoji: '📍' },
-    { name: 'Location', emoji: '🗺️' }
+    { 
+        name: 'Cuisine', 
+        emoji: '🍽️',
+        tooltip: 'Select your favorite types of food'
+    },
+    { 
+        name: 'Price', 
+        emoji: '💰',
+        tooltip: 'Choose your comfortable price range'
+    },
+    { 
+        name: 'Rating', 
+        emoji: '⭐',
+        tooltip: 'Set minimum restaurant rating'
+    },
+    { 
+        name: 'Distance', 
+        emoji: '📍',
+        tooltip: 'How far you\'re willing to travel'
+    },
+    { 
+        name: 'Location', 
+        emoji: '🗺️',
+        tooltip: 'Set your starting location'
+    }
   ];
 
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
@@ -229,6 +249,23 @@ function HostPreferences() {
     }
   };
 
+  const isTabCompleted = (tabName) => {
+    switch (tabName.toLowerCase()) {
+      case 'cuisine':
+        return cuisineNoPreference || cuisinePreferences.length > 0;
+      case 'price':
+        return priceNoPreference || pricePreferences.length > 0;
+      case 'rating':
+        return ratingNoPreference || ratingPreferences.length > 0;
+      case 'distance':
+        return distanceNoPreference || distancePreferences !== null;
+      case 'location':
+        return locationPreference !== null;
+      default:
+        return false;
+    }
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'cuisine':
@@ -266,6 +303,15 @@ function HostPreferences() {
                 </label>
               ))}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setCuisinePreferences([]);
+                setCuisineNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'price':
@@ -273,7 +319,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Price Preferences</h3>
             <p className="tab-description">
-              Choose your preferred price ranges or select "No Preference" to see all options.
+              Choose your price range by selecting the minimum and maximum prices you're comfortable with.
             </p>
             <div className="price-options">
               <label className="no-preference">
@@ -284,16 +330,35 @@ function HostPreferences() {
                 /> 
                 No Preference
               </label>
-              {['$', '$$', '$$$', '$$$$'].map(price => (
+              {['$', '$$', '$$$', '$$$$'].map((price, index) => (
                 <label key={price}>
                   <input 
                     type="checkbox" 
                     disabled={priceNoPreference}
                     onChange={(e) => {
                       if (e.target.checked) {
-                        setPricePreferences([...pricePreferences, price]);
+                        // Find the lowest and highest checked prices
+                        const currentChecked = [...pricePreferences, price];
+                        const indices = currentChecked.map(p => ['$', '$$', '$$$', '$$$$'].indexOf(p));
+                        const minIndex = Math.min(...indices);
+                        const maxIndex = Math.max(...indices);
+                        
+                        // Add all prices between min and max to preferences
+                        const newPreferences = ['$', '$$', '$$$', '$$$$']
+                          .filter((_, i) => i >= minIndex && i <= maxIndex);
+                        setPricePreferences(newPreferences);
                       } else {
-                        setPricePreferences(pricePreferences.filter(item => item !== price));
+                        // Remove this price and update range if needed
+                        const remainingPrices = pricePreferences.filter(p => p !== price);
+                        if (remainingPrices.length > 0) {
+                          const indices = remainingPrices.map(p => ['$', '$$', '$$$', '$$$$'].indexOf(p));
+                          const minIndex = Math.min(...indices);
+                          const maxIndex = Math.max(...indices);
+                          setPricePreferences(['$', '$$', '$$$', '$$$$']
+                            .filter((_, i) => i >= minIndex && i <= maxIndex));
+                        } else {
+                          setPricePreferences([]);
+                        }
                       }
                     }}
                     checked={pricePreferences.includes(price)}
@@ -302,6 +367,15 @@ function HostPreferences() {
                 </label>
               ))}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setPricePreferences([]);
+                setPriceNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'rating':
@@ -309,14 +383,19 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Rating Preferences</h3>
             <p className="tab-description">
-              Choose your minimum acceptable ratings or select "No Preference" to see all options.
+              Choose the minimum star rating you'd like to see, or select "No Preference" to see all options.
             </p>
             <div className="rating-options">
               <label className="no-preference">
                 <input 
                   type="checkbox" 
                   checked={ratingNoPreference}
-                  onChange={(e) => setRatingNoPreference(e.target.checked)}
+                  onChange={(e) => {
+                    setRatingNoPreference(e.target.checked);
+                    if (e.target.checked) {
+                      setRatingPreferences([]);
+                    }
+                  }}
                 /> 
                 No Preference
               </label>
@@ -327,18 +406,13 @@ function HostPreferences() {
                 return (
                   <label key={rating} className="rating-option">
                     <input 
-                      type="checkbox"
+                      type="radio"
+                      name="rating"
                       disabled={ratingNoPreference}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setRatingPreferences([...ratingPreferences, rating]);
-                        } else {
-                          setRatingPreferences(ratingPreferences.filter(item => item !== rating));
-                        }
-                      }}
+                      onChange={() => setRatingPreferences([rating])}
                       checked={ratingPreferences.includes(rating)}
                     />
-                    <span>{rating}</span>
+                    <span>{rating}+ stars</span>
                     <div className="star-display">
                       {[...Array(fullStars)].map((_, index) => (
                         <img 
@@ -360,37 +434,60 @@ function HostPreferences() {
                 );
               })}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setRatingPreferences([]);
+                setRatingNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'distance':
         return (
           <div className="tab-content">
-            <h3>Select Distance Preferences</h3>
+            <h3>Select Distance Preference</h3>
             <p className="tab-description">
-              Choose the maximum distance you're willing to travel or select "No Preference" for any distance.
+              Drag the slider to set your maximum travel distance, or select "No Preference" for any distance.
             </p>
-            <div className="distance-options">
-              <label className="no-preference">
-                <input 
-                  type="checkbox" 
-                  checked={distanceNoPreference}
-                  onChange={(e) => setDistanceNoPreference(e.target.checked)}
-                /> 
-                No Preference
-              </label>
-              {[1, 2, 3, 4, 5, 10, 15, 20].map((miles) => (
-                <label key={miles}>
-                  <input 
-                    type="radio"
-                    name="distance"
-                    disabled={distanceNoPreference}
-                    onChange={() => setDistancePreferences(miles)}
-                    checked={distancePreferences === miles}
-                  />
-                  {`${miles} ${miles === 1 ? 'mile' : 'miles'}`}
-                </label>
-              ))}
+            <label className="no-preference">
+              <input 
+                type="checkbox" 
+                checked={distanceNoPreference}
+                onChange={(e) => {
+                  setDistanceNoPreference(e.target.checked);
+                  if (e.target.checked) {
+                    setDistancePreferences(null);
+                  }
+                }}
+              /> 
+              No Preference
+            </label>
+            <div className="distance-slider">
+              <input 
+                type="range"
+                min="1"
+                max="25"
+                step="1"
+                disabled={distanceNoPreference}
+                value={distancePreferences || 5}
+                onChange={(e) => setDistancePreferences(parseInt(e.target.value))}
+              />
+              <div className="distance-value">
+                {distanceNoPreference ? 'Any Distance' : `${distancePreferences || 5} miles`}
+              </div>
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setDistancePreferences(null);
+                setDistanceNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'location':
@@ -400,15 +497,18 @@ function HostPreferences() {
             <p className="tab-description">
               Enter your starting location to help us find restaurants within your preferred distance.
             </p>
-            <div className="location-options">
-              <LocationSearch 
-                onLocationSelect={(location) => {
-                  setLocationPreference(location);
-                  console.log('Selected location:', location);
-                }} 
-                selectedLocation={locationPreference}
-              />
-            </div>
+            <LocationSearch 
+              onLocationSelect={setLocationPreference}
+              selectedLocation={locationPreference}
+            />
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setLocationPreference(null);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       default:
@@ -435,9 +535,11 @@ function HostPreferences() {
             {tabs.map((tab) => (
               <button
                 key={tab.name}
-                className={`tab-button ${activeTab === tab.name.toLowerCase() ? 'active' : ''}`}
+                className={`tab-button ${activeTab === tab.name.toLowerCase() ? 'active' : ''} 
+                            ${isTabCompleted(tab.name) ? 'completed' : ''}`}
                 onClick={() => setActiveTab(tab.name.toLowerCase())}
                 data-emoji={tab.emoji}
+                title={tab.tooltip}
               >
                 {tab.name}
               </button>
