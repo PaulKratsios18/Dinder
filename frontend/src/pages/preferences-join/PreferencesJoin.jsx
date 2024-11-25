@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PreferencesJoin.css';
 import { useNavigate } from 'react-router-dom';
 import fullStar from '../../assets/full-star.png';
@@ -25,6 +25,15 @@ function JoinPreferences() {
   const [distancePreferences, setDistancePreferences] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   
+
+  useEffect(() => {
+    // Get room code from URL query parameters
+    const params = new URLSearchParams(window.location.search);
+    const codeFromUrl = params.get('code');
+    if (codeFromUrl) {
+      setRoomCode(codeFromUrl.toUpperCase());
+    }
+  }, []);
 
   const validatePreferences = () => {
     const errors = [];

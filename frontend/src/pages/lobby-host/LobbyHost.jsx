@@ -25,7 +25,7 @@ function LobbyHost() {
   const [isPreferencesLoading, setIsPreferencesLoading] = useState(false);
 
   const copyInviteLink = () => {
-    const link = `${window.location.origin}/join?code=${roomCode}`;
+    const link = `${window.location.origin}/preferences-join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
     setCopiedInvite(true);
     setTimeout(() => setCopiedInvite(false), 1500); // Reset after 1.5 seconds
