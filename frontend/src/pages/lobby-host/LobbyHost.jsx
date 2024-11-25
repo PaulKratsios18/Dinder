@@ -17,6 +17,7 @@ function LobbyHost() {
     })();
   });
   const [socket, setSocket] = useState(null);
+  const [preferencesSet, setPreferencesSet] = useState(false);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
@@ -92,7 +93,14 @@ function LobbyHost() {
     };
   }, [roomCode, hostId]);
 
+  useEffect(() => {
+    console.log('Current hostId:', hostId);
+    console.log('Current participants:', participants);
+    participants.forEach(p => console.log('Full participant object:', JSON.stringify(p, null, 2)));
+  }, [participants, hostId]);
+
   const handleSelectPreferences = () => {
+    setPreferencesSet(true);
     navigate('/preferences-host', { 
       state: { roomCode, hostId }
     });
@@ -161,10 +169,22 @@ function LobbyHost() {
       </div>
 
       <div className="bottom-buttons">
-        <button className="preferences-button" onClick={handleSelectPreferences}>
+        <button 
+          className="preferences-button" 
+          onClick={handleSelectPreferences}
+          disabled={participants.some(participant => {
+            console.log('Checking participant:', JSON.stringify(participant, null, 2));
+            console.log('Comparing:', participant.user_id, 'vs', hostId);
+            return participant.user_id === hostId;
+          })}
+        >
           Select Preferences
         </button>
-        <button className="start-button" onClick={handleStartSession}>
+        <button 
+          className="start-button" 
+          onClick={handleStartSession}
+          disabled={participants.length === 0}
+        >
           Start Session
         </button>
       </div>
