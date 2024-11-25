@@ -1,6 +1,22 @@
 /* Import all styles from host component */
 @import '../lobby-host/LobbyHost.css';
 
+@keyframes ellipsis {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75% { content: "..."; }
+}
+
+.waiting-message::after {
+  content: "";
+  display: inline-block;
+  width: 3ch;
+  animation: ellipsis 2s steps(4) infinite;
+  margin-left: 0;
+  text-align: left;
+  position: absolute;
+}
 
 .waiting-message {
   text-align: center;
@@ -10,13 +26,14 @@
   font-family: 'Fredoka One', cursive;
   font-size: 1.5rem;
   color: #001f3f;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  position: relative;
 }
 
 .connection-status.disconnected {
   background-color: #fff3cd;
   color: #856404;
-} */
+}
 
 .error-message {
   padding: 12px;
@@ -27,142 +44,7 @@
   text-align: center;
 }
 
-.participants-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.participants-list li {
-  padding: 8px 12px;
-  margin: 4px 0;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-}
-
-.participants-list li.host {
-  background-color: #e3f2fd;
-  font-weight: 500;
-}
-
 .lobby-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.lobby-section {
-  min-height: calc(100vh - 200px);
-  background-color: #ed7874;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  height: 84.3vh;
-}
-
-.join-instructions {
-  padding: 15px;
-  text-align: center;
-  color: black;
-  font-size: 1.2rem;
-  transform: translateY(-10px);
-}
-
-.join-instructions h1 {
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  text-align: center;
-  font-weight: 200; 
-  color: #fff; 
-}
-
-.highlight {
-  font-weight: bold;
-}
-
-.lobby-content {
-  display: flex;
-  justify-content: space-between;
-  padding: 40px;
-  flex: 1;
-  position: relative;
-}
-
-.left-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  left: 35%;
-  transform: translateX(-360px) translateY(-40px) scale(1.5);
-  font-family: 'Fredoka One', cursive;
-  margin-top: 60px;
-  flex: 0 1 auto;
-  padding: 0 20px;
-}
-
-.room-code-display {
-  font-family: 'Fredoka One', cursive;
-  font-size: 3rem;
-  color: #001f3f;
-  background-color: white;
-  padding: 8px 30px;
-  border-radius: 22px;
-  margin: 5px 0;
-  text-align: center;
-  letter-spacing: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: fit-content;
-}
-
-.lobby-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: transparent;
-  border: 2px solid #000000;
-  border-radius: 22px;
-  padding: 8px 20px;
-  margin: 2px 0;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  width: fit-content;
-  transform: scale(0.8);
-}
-
-.lobby-button h2 {
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-.members-panel {
-  background-color: #FAF1E5;
-  padding: 30px;
-  border-radius: 12px;
-  min-width: 500px;
-  position: absolute;
-  right: 35%;
-  transform: translateX(430px) translateY(-50px);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.members-panel h4 {
-  font-family: 'Fredoka One', cursive;
-  color: #001f3f;
-  font-size: 2rem;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.participants-list {
-  padding-left: 20px;
-  text-align: left;
-}
-
-.participant-item {
-  font-size: 1.2rem;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
