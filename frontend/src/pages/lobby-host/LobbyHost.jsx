@@ -9,7 +9,13 @@ function LobbyHost() {
   const [roomCode, setRoomCode] = useState(location.state?.roomCode || '');
   const [participants, setParticipants] = useState([]);
   const [hostName] = useState('');
-  const [hostId] = useState(() => `host_${Math.random().toString(36).substr(2, 9)}`);
+  const [hostId] = useState(() => {
+    return localStorage.getItem('userId') || (() => {
+      const id = `host_${Math.random().toString(36).substr(2, 9)}`;
+      localStorage.setItem('userId', id);
+      return id;
+    })();
+  });
   const [socket, setSocket] = useState(null);
 
   const copyInviteLink = () => {

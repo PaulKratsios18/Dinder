@@ -59,6 +59,9 @@ function JoinPreferences() {
     }
     
     try {
+      const userId = localStorage.getItem('userId') || `user_${Math.random().toString(36).substr(2, 9)}`;
+      localStorage.setItem('userId', userId);
+
       const response = await fetch('http://localhost:5000/api/preferences', {
         method: 'POST',
         headers: {
@@ -68,6 +71,7 @@ function JoinPreferences() {
         body: JSON.stringify({
           roomCode,
           name,
+          userId,
           preferences: {
             cuisine: cuisineNoPreference ? [] : cuisinePreferences,
             cuisineNoPreference,

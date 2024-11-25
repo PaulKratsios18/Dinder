@@ -178,6 +178,8 @@ function HostPreferences() {
     }
     
     try {
+      const userId = localStorage.getItem('userId');
+      
       const response = await fetch('http://localhost:5000/api/preferences', {
         method: 'POST',
         headers: {
@@ -187,7 +189,7 @@ function HostPreferences() {
         body: JSON.stringify({
           roomCode,
           name,
-          host_id: hostId,
+          host_id: userId,
           preferences: {
             cuisine: cuisineNoPreference ? [] : cuisinePreferences,
             cuisineNoPreference,

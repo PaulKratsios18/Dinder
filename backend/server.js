@@ -140,7 +140,7 @@ app.post('/api/preferences', async (req, res) => {
     } else {
       // For non-host participants
       session.participants.push({
-        user_id: Math.random().toString(36).substr(2, 9),
+        user_id: req.body.userId,
         name: name,
         preferences: preferences,
         isHost: false
