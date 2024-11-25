@@ -17,6 +17,9 @@ function LobbyHost() {
     })();
   });
   const [socket, setSocket] = useState(null);
+  const [isCreatingSession, setIsCreatingSession] = useState(false);
+
+  console.log('Component rendering, isCreatingSession:', isCreatingSession);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
@@ -30,42 +33,58 @@ function LobbyHost() {
   };
 
   useEffect(() => {
-    if (!roomCode) {
-      const generateRoomCode = () => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let code = '';
-        for (let i = 0; i < 4; i++) {
-          code += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return code;
-      };
+    console.log('Session creation effect running');
+    const createHostSession = async () => {
+      if (isCreatingSession || roomCode) {
+        console.log('Skipping session creation:', { isCreatingSession, roomCode });
+        return;
+      }
       
-      const newCode = generateRoomCode();
-      setRoomCode(newCode);
+      console.log('Creating new session');
+      setIsCreatingSession(true);
+      
+      if (!roomCode) {
+        const generateRoomCode = () => {
+          const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          let code = '';
+          for (let i = 0; i < 4; i++) {
+            code += characters.charAt(Math.floor(Math.random() * characters.length));
+          }
+          return code;
+        };
+        
+        const newCode = generateRoomCode();
+        setRoomCode(newCode);
 
-      fetch('http://localhost:5000/api/sessions/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          roomCode: newCode,
-          hostName: hostName,
-          host_id: hostId
+        fetch('http://localhost:5000/api/sessions/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            roomCode: newCode,
+            hostName: hostName,
+            host_id: hostId
+          })
         })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Session created:', data);
-        if (data.session?.participants) {
-          setParticipants(data.session.participants);
-        }
-      })
-      .catch(error => console.error('Error creating session:', error));
-    }
-  }, [roomCode, hostName, hostId]);
+        .then(response => response.json())
+        .then(data => {
+          console.log('Session created:', data);
+          if (data.session?.participants) {
+            setParticipants(data.session.participants);
+          }
+        })
+        .catch(error => console.error('Error creating session:', error));
+      }
+    };
+
+    createHostSession();
+  }, []);
 
   useEffect(() => {
+    console.log('Socket effect running', { roomCode, hostId });
+    if (!roomCode || !hostId) return;
+    
     // Connect to WebSocket
     const newSocket = io('http://localhost:5000');
     setSocket(newSocket);
@@ -73,8 +92,9 @@ function LobbyHost() {
     // Join session room
     newSocket.emit('joinSession', { 
       roomCode, 
-      userName: 'Host',
-      isHost: true 
+      userName: hostName || 'Host',
+      isHost: true,
+      hostId: hostId
     });
 
     // Listen for participants updates
@@ -89,7 +109,7 @@ function LobbyHost() {
       newSocket.emit('leaveSession', { roomCode });
       newSocket.close();
     };
-  }, [roomCode]);
+  }, [roomCode, hostId]);
 
   const handleSelectPreferences = () => {
     navigate('/preferences-host', { 

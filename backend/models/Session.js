@@ -5,13 +5,9 @@ const sessionSchema = new mongoose.Schema({
   session_id: {
     type: String,
     required: true,
-    unique: true,
-    default: () => Math.random().toString(36).substr(2, 9) // Generate random ID if none provided
+    unique: true
   },
-  host_id: {
-    type: String,
-    required: true
-  },
+  host_id: String,
   created_at: {
     type: Date,
     default: Date.now
@@ -24,13 +20,31 @@ const sessionSchema = new mongoose.Schema({
   participants: [{
     user_id: String,
     name: String,
-    preferences: Object
+    preferences: Object,
+    isHost: Boolean
   }],
-  code: {
-    type: String,
-    required: true,
-    unique: true
-  }
+  restaurants: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Restaurant'
+  }]
 });
 
-module.exports = mongoose.model('Session', sessionSchema);
+// Drop the old index if it exists when the application starts
+const Session = mongoose.model('Session', sessionSchema);
+
+async function dropOldIndex() {
+  try {
+    await Session.collection.dropIndex('code_1');
+    console.log('Successfully dropped old code index');
+  } catch (error) {
+    // If the index doesn't exist, that's fine
+    if (error.code !== 27) {
+      console.error('Error dropping index:', error);
+    }
+  }
+}
+
+// Call this when the model is loaded
+dropOldIndex();
+
+module.exports = Session;

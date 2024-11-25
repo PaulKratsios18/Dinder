@@ -55,15 +55,15 @@ class WebSocketServer {
         try {
             const sessionCode = this.generateSessionCode();
             const session = new Session({
-                code: sessionCode,
-                hostId: message.userId,
+                session_id: sessionCode,
+                host_id: message.userId,
                 participants: [{
-                    userId: message.userId,
+                    user_id: message.userId,
                     name: message.userName,
                     isHost: true
                 }],
                 status: 'waiting',
-                createdAt: new Date()
+                created_at: new Date()
             });
 
             await session.save();
@@ -104,11 +104,11 @@ class WebSocketServer {
 
         try {
             const session = await Session.findOneAndUpdate(
-                { code: sessionCode },
+                { session_id: sessionCode },
                 { 
                     $addToSet: { 
                         participants: {
-                            userId,
+                            user_id: userId,
                             name: userName,
                             isHost: false
                         }

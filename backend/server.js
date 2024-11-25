@@ -47,47 +47,61 @@ connectDB();
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  socket.on('joinSession', async ({ roomCode, userName, isHost }) => {
+  socket.on('joinSession', async ({ roomCode, userName, isHost, hostId }) => {
     try {
       console.log('=== Join Session Request ===');
       console.log('Room Code:', roomCode);
       console.log('User Name:', userName);
       console.log('Is Host:', isHost);
+      console.log('Host ID:', hostId);
       
       socket.join(roomCode);
       
-      // Update session in database
       const session = await Session.findOne({ session_id: roomCode });
-      console.log('Found existing session:', {
-        sessionId: session.session_id,
-        existingParticipants: session.participants.map(p => ({
-          name: p.name,
-          isHost: p.isHost
-        }))
-      });
-
+      
       if (session) {
-        if (!isHost) {
-          const existingParticipant = session.participants.find(p => p.name === userName);
-          if (!existingParticipant) {
-            console.log('Adding new participant:', userName);
-            session.participants.push({ name: userName, isHost });
-            await session.save();
-            console.log('Updated session participants:', 
-              session.participants.map(p => ({
-                name: p.name,
-                isHost: p.isHost
-              }))
+        if (isHost) {
+          // Check if this host already has a named entry (e.g., 'paul')
+          const existingHost = session.participants.find(p => 
+            p.user_id === hostId && p.preferences
+          );
+          
+          if (!existingHost) {
+            // Only add temporary host entry if no named entry exists
+            const hasNamedHost = session.participants.some(p => 
+              p.isHost && p.preferences
             );
-          } else {
-            console.log('Participant already exists:', userName);
+            
+            if (!hasNamedHost) {
+              console.log('Adding temporary host entry');
+              session.participants.push({ 
+                name: userName, 
+                user_id: hostId,
+                isHost: true 
+              });
+              await session.save();
+            }
+          }
+        } else {
+          // Non-host participant logic remains the same
+          if (!session.participants.find(p => p.name === userName)) {
+            const userId = `user_${Math.random().toString(36).substr(2, 9)}`;
+            console.log('Adding new participant:', userName, 'with ID:', userId);
+            session.participants.push({ 
+              name: userName,
+              user_id: userId, 
+              isHost: false 
+            });
+            socket.emit('userIdAssigned', { userId });
+            await session.save();
           }
         }
 
         // Emit updated participants list
         const participants = session.participants.map(p => ({
           name: p.name,
-          isHost: p.isHost || false
+          isHost: p.isHost || false,
+          user_id: p.user_id
         }));
         
         console.log('Broadcasting updated participants:', participants);
@@ -137,36 +151,44 @@ io.on('connection', (socket) => {
 // Existing REST routes
 app.post('/api/preferences', async (req, res) => {
   try {
-    const { roomCode, name, preferences, host_id } = req.body;
+    const { roomCode, name, preferences, host_id, user_id } = req.body;
     console.log('=== Saving Preferences ===');
     console.log('Room Code:', roomCode);
     console.log('User Name:', name);
     console.log('Is Host:', !!host_id);
+    console.log('User ID:', user_id || host_id);
     console.log('Preferences:', preferences);
 
     const session = await Session.findOne({ session_id: roomCode });
-    console.log('Found session:', {
-      sessionId: session.session_id,
-      currentParticipants: session.participants.map(p => p.name)
-    });
+    
+    if (!session) {
+      throw new Error('Session not found');
+    }
 
     if (host_id) {
-      console.log('Updating host preferences');
-      session.participants = session.participants.filter(p => p.name !== "Host");
-      session.participants.push({
-        user_id: host_id,
-        name: name,
-        preferences: preferences,
-        isHost: true
-      });
-    } else {
-      console.log('Adding participant preferences');
-      session.participants.push({
-        user_id: req.body.userId,
-        name: name,
-        preferences: preferences,
-        isHost: false
-      });
+      // Update or replace host entry
+      const hostIndex = session.participants.findIndex(p => p.user_id === host_id);
+      if (hostIndex !== -1) {
+        // Update existing host
+        session.participants[hostIndex] = {
+          user_id: host_id,
+          name: name,  // Update to new name (paul)
+          preferences: preferences,
+          isHost: true
+        };
+      } else {
+        // Add new host entry
+        session.participants.push({
+          user_id: host_id,
+          name: name,
+          preferences: preferences,
+          isHost: true
+        });
+      }
+      // Remove any temporary "Host" entries
+      session.participants = session.participants.filter(p => 
+        p.name !== 'Host' || p.user_id === host_id
+      );
     }
 
     await session.save();
@@ -174,6 +196,7 @@ app.post('/api/preferences', async (req, res) => {
       session.participants.map(p => ({
         name: p.name,
         isHost: p.isHost,
+        user_id: p.user_id,
         hasPreferences: !!p.preferences
       }))
     );
@@ -189,8 +212,8 @@ app.post('/api/preferences', async (req, res) => {
   } catch (error) {
     console.error('Error saving preferences:', error);
     res.status(500).json({
-      error: 'Failed to save preferences',
-      details: error.message
+      success: false,
+      error: error.message || 'Failed to save preferences'
     });
   }
 });
@@ -222,41 +245,48 @@ app.get('/api/test', async (req, res) => {
 
 // New endpoint to create session
 app.post('/api/sessions/create', async (req, res) => {
-  try {
-    const { roomCode, hostName, host_id } = req.body;
-    
-    const session = new Session({
-      session_id: roomCode,
-      host_id: host_id,
-      status: 'waiting',
-      participants: [],
-      code: generateUniqueCode(),
-      created_at: new Date()
-    });
+    try {
+        console.log('\n=== Creating New Session ===');
+        console.log('Request body:', req.body);
+        
+        const sessionCode = req.body.roomCode || generateSessionCode();
+        const { hostName, host_id } = req.body;
+        
+        // Create new session with single code
+        const session = new Session({
+            session_id: sessionCode,
+            host_id: host_id,
+            created_at: new Date(),
+            status: 'waiting',
+            participants: []
+        });
 
-    const savedSession = await session.save();
-    console.log('Session created:', savedSession);
+        const savedSession = await session.save();
+        console.log('Created single session:', {
+            sessionId: savedSession.session_id,
+            hostId: savedSession.host_id
+        });
 
-    res.status(201).json({
-      message: 'Session created successfully',
-      session: savedSession
-    });
-  } catch (error) {
-    console.error('Error creating session:', error);
-    res.status(500).json({
-      error: 'Failed to create session',
-      details: error.message
-    });
-  }
+        res.status(201).json({
+            success: true,
+            session: savedSession
+        });
+    } catch (error) {
+        console.error('Error creating session:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to create session'
+        });
+    }
 });
 
-function generateUniqueCode(length = 4) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = '';
-  for (let i = 0; i < length; i++) {
-    code += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return code;
+function generateSessionCode() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let code = '';
+    for (let i = 0; i < 4; i++) {
+        code += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return code;
 }
 
 const PORT = process.env.PORT || 5000;
