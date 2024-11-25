@@ -121,6 +121,26 @@
   color: white;
 }
 
+.start-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.start-button:disabled::after {
+  content: "Waiting for participants to join";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #001f3f;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .members-panel {
   background-color: #FAF1E5;
   padding: 30px;
@@ -164,4 +184,24 @@
   margin-top: 3px;
   margin-bottom: 3px;
   text-align: center;
+}
+
+.preferences-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.preferences-button:disabled::after {
+  content: "Preferences already set";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #001f3f;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
