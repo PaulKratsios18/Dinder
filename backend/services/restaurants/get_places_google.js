@@ -35,11 +35,43 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
         const detailedPlaces = await Promise.all(
             searchResponse.data.results.map(async (place) => {
                 try {
-                    const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=name,rating,price_level,formatted_address,photos,business_status,wheelchair_accessible_entrance,opening_hours&key=${apiKey}`;
+                    const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place.place_id}&fields=name,rating,price_level,formatted_address,photos,wheelchair_accessible_entrance,opening_hours&key=${apiKey}`;
                     
                     console.log(`Fetching details for ${place.name}`);
                     const detailsResponse = await axios.get(detailsUrl);
                     const details = detailsResponse.data.result;
+
+                    function formatOpeningStatus(openingHours) {
+                        if (!openingHours) return 'Hours not available';
+                        
+                        const now = new Date();
+                        const isOpen = openingHours.open_now;
+                        
+                        if (isOpen) {
+                            return 'Open now';
+                        } else {
+                            // Find next opening time from periods
+                            if (openingHours.periods) {
+                                const today = now.getDay();
+                                const currentTime = now.getHours() * 100 + now.getMinutes();
+                                
+                                for (let i = 0; i < 7; i++) {
+                                    const checkDay = (today + i) % 7;
+                                    const period = openingHours.periods.find(p => p.open.day === checkDay);
+                                    
+                                    if (period) {
+                                        if (i === 0) {
+                                            return `Opens at ${period.open.time.replace(/(\d{2})(\d{2})/, '$1:$2')}`;
+                                        } else {
+                                            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                                            return `Opens ${days[checkDay]} at ${period.open.time.replace(/(\d{2})(\d{2})/, '$1:$2')}`;
+                                        }
+                                    }
+                                }
+                            }
+                            return 'Closed';
+                        }
+                    }
 
                     return {
                         Name: details.name || place.name,
@@ -52,14 +84,14 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
                                 `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo.photo_reference}&key=${apiKey}`
                             ) : 
                             ['default-restaurant.jpg'],
-                        OpenStatus: details.business_status || place.business_status || 'Unknown',
                         WheelchairAccessible: details.wheelchair_accessible_entrance ? 'Yes' : 'Unknown',
                         Location: {
                             lat: place.geometry.location.lat,
                             lng: place.geometry.location.lng
                         },
                         PlaceId: place.place_id,
-                        OpeningHours: details.opening_hours?.weekday_text || []
+                        OpeningHours: details.opening_hours?.weekday_text || [],
+                        openStatus: formatOpeningStatus(details.opening_hours),
                     };
                 } catch (error) {
                     console.error(`Error fetching details for ${place.name}:`, error.message);
@@ -71,7 +103,7 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
                         Cuisine: cuisines[0],
                         Address: place.vicinity || 'Address unknown',
                         Photos: ['default-restaurant.jpg'],
-                        OpenStatus: place.business_status || 'Unknown',
+                        OpenStatus: place.openingHours || 'Unknown',
                         WheelchairAccessible: 'Unknown',
                         Location: {
                             lat: place.geometry.location.lat,

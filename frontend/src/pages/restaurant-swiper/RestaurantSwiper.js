@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
 import './RestaurantSwiper.css';
+import Results from '../results/Results';
 
 const RestaurantSwiper = () => {
     const { sessionId } = useParams();
@@ -10,6 +11,8 @@ const RestaurantSwiper = () => {
     const [votes, setVotes] = useState({});
     const [socket, setSocket] = useState(null);
     const [matchFound, setMatchFound] = useState(null);
+    const [showResults, setShowResults] = useState(false);
+    const [topRestaurants, setTopRestaurants] = useState([]);
 
     useEffect(() => {
         // Note: When testing multiple users, use different browsers or incognito mode
@@ -52,6 +55,12 @@ const RestaurantSwiper = () => {
             setCurrentIndex(1000);
         });
 
+        newSocket.on('showResults', (data) => {
+            console.log('Results received:', data);
+            setShowResults(true);
+            setTopRestaurants(data.topRestaurants);
+        });
+
         const fetchRestaurants = async () => {
             const response = await fetch(`http://localhost:5000/api/sessions/${sessionId}/ranked-restaurants`);
             const data = await response.json();
@@ -65,6 +74,7 @@ const RestaurantSwiper = () => {
         return () => {
             newSocket.off('matchFound');
             newSocket.off('voteUpdate');
+            newSocket.off('showResults');
             newSocket.close();
         };
     }, [sessionId]);
@@ -104,8 +114,17 @@ const RestaurantSwiper = () => {
         );
     }
 
+    if (showResults) {
+        return <Results topRestaurants={topRestaurants} />;
+    }
+
     if (currentIndex >= restaurants.length) {
-        return <div className="voting-complete">Voting Complete!</div>;
+        return (
+            <div className="voting-complete">
+                <h2>Voting Complete!</h2>
+                <p>Waiting for other participants to finish voting...</p>
+            </div>
+        );
     }
 
     const currentRestaurant = restaurants[currentIndex];
@@ -121,14 +140,17 @@ const RestaurantSwiper = () => {
                 />
                 <div className="restaurant-info">
                     <h2>{currentRestaurant.name}</h2>
-                    <p>Rating: {currentRestaurant.rating}</p>
-                    <p>Price: {currentRestaurant.price}</p>
-                    <p>Cuisine: {currentRestaurant.cuisine}</p>
-                    <p>Distance: {currentRestaurant.distance}</p>
-                    
-                    <div className="vote-count">
-                        👍 {votes[currentRestaurant._id]?.yes || 0} / {votes[currentRestaurant._id]?.total || '?'}
-                    </div>
+                    <p><strong>Rating:</strong> {currentRestaurant.rating} ⭐</p>
+                    <p><strong>Price:</strong> {currentRestaurant.price}</p>
+                    <p><strong>Cuisine:</strong> {currentRestaurant.cuisine}</p>
+                    <p><strong>Address:</strong> {currentRestaurant.address}</p>
+                    {currentRestaurant.openStatus !== 'Unknown' && (
+                        <p><strong>Hours:</strong> {currentRestaurant.openStatus}</p>
+                    )}
+                    {currentRestaurant.wheelchairAccessible !== 'Unknown' && (
+                        <p><strong>Accessibility:</strong> {currentRestaurant.wheelchairAccessible === 'Yes' ? '♿ Accessible' : 'Not wheelchair accessible'}</p>
+                    )}
+                    <p><strong>Distance:</strong> {currentRestaurant.distance} km</p>
                 </div>
             </div>
 
