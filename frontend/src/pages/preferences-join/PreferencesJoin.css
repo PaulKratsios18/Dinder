@@ -303,3 +303,12 @@ color: #ed7874;
     margin: 5px 0;
     color: #666;
 }
+
+.tab-description {
+   color:#666;
+   font-size: 1rem;
+   margin: 10px 0 20px 0;
+   line-height: 1.4;
+   padding: 0 10px;
+   text-align: left;
+}

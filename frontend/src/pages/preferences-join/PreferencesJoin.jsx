@@ -133,6 +133,9 @@ function JoinPreferences() {
         return (
           <div className="tab-content">
             <h3>Select Cuisine Preferences</h3>
+            <p className="tab-description">
+              Choose your preferred type(s) of cuisine. Select multiple options or check "No Preference" to consider all cuisines.
+            </p>
             <div className="cuisine-options">
               <label className="no-preference">
                 <input 
@@ -167,6 +170,9 @@ function JoinPreferences() {
         return (
           <div className="tab-content">
             <h3>Select Price Preferences</h3>
+            <p className="tab-description">
+              Select your budget range. $ = Inexpensive, $$ = Moderate, $$$ = Expensive, $$$$ = Very Expensive. Choose multiple options or select "No Preference".
+            </p>
             <div className="price-options">
               <label className="no-preference">
                 <input 
@@ -200,6 +206,9 @@ function JoinPreferences() {
         return (
           <div className="tab-content">
             <h3>Select Rating Preferences</h3>
+            <p className="tab-description">
+              Choose minimum acceptable ratings for restaurants. Select multiple ratings or check "No Preference" to consider all ratings.
+            </p>
             <div className="rating-options">
               <label className="no-preference">
                 <input 
@@ -255,6 +264,9 @@ function JoinPreferences() {
         return (
           <div className="tab-content">
             <h3>Select Distance Preferences</h3>
+            <p className="tab-description">
+              Choose the maximum distance you're willing to travel. Select one option or check "No Preference" for any distance.
+            </p>
             <div className="distance-options">
               <label className="no-preference">
                 <input 
