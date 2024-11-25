@@ -5,46 +5,57 @@ const Restaurant = require('../../models/Restaurant');
 async function handleVote(sessionId, userId, restaurantId, vote) {
     try {
         const session = await Session.findOne({ session_id: sessionId });
-        console.log('Found session:', {
+        const participant = session.participants.find(p => p.user_id === userId);
+        
+        if (!participant) {
+            throw new Error('Unauthorized user attempting to vote');
+        }
+
+        console.log('Processing vote for:', {
             sessionId,
-            participantsCount: session.participants.length,
-            participants: session.participants.map(p => p.name)
+            userId,
+            userName: participant.name,
+            isHost: participant.isHost,
+            restaurantId,
+            vote
         });
         
         // Save the vote with explicit vote field
         const savedVote = await Vote.findOneAndUpdate(
-            { sessionId, userId, restaurantId },
-            { vote: vote, timestamp: new Date() },
-            { upsert: true, new: true }
+            { 
+                sessionId, 
+                userId,
+                restaurantId 
+            },
+            { 
+                $set: {
+                    vote: vote,
+                    timestamp: new Date(),
+                    sessionId,
+                    userId,
+                    restaurantId
+                }
+            },
+            { 
+                upsert: true, 
+                new: true,
+                setDefaultsOnInsert: true
+            }
         );
-        console.log('Saved vote:', {
-            userId,
-            restaurantId,
-            vote: savedVote.vote
+
+        // Get all votes for this restaurant (both positive and negative)
+        const allVotesForRestaurant = await Vote.find({
+            sessionId,
+            restaurantId
         });
 
         // Get all positive votes for this restaurant
-        const allVotes = await Vote.find({
-            sessionId,
-            restaurantId,
-            vote: true
-        });
-        console.log('All positive votes for restaurant:', {
-            restaurantId,
-            positiveVotesCount: allVotes.length,
-            votes: allVotes.map(v => ({userId: v.userId, vote: v.vote}))
-        });
+        const positiveVotes = allVotesForRestaurant.filter(v => v.vote === true);
 
         // Get total number of actual participants
         const totalParticipants = session.participants.length;
-        console.log('Match check:', {
-            positiveVotes: allVotes.length,
-            totalParticipants,
-            isMatch: allVotes.length === totalParticipants && totalParticipants > 0
-        });
 
-        // Check if we have a match
-        const isMatch = allVotes.length === totalParticipants && totalParticipants > 0;
+        const isMatch = positiveVotes.length === totalParticipants && totalParticipants > 0;
 
         let matchData = null;
         if (isMatch) {
@@ -71,7 +82,7 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
             isMatch,
             matchData,
             votes: {
-                yes: allVotes.length,
+                yes: positiveVotes.length,
                 total: totalParticipants
             }
         };

@@ -54,38 +54,38 @@ function JoinPreferences() {
   const handleSavePreferences = async () => {
     const errors = validatePreferences();
     if (errors.length > 0) {
-      setErrorMessage(`Please fill out the following: ${errors.join(', ')}`);
-      return;
+        setErrorMessage(`Please fill out the following: ${errors.join(', ')}`);
+        return;
     }
     
     try {
-      const userId = localStorage.getItem('userId') || `user_${Math.random().toString(36).substr(2, 9)}`;
-      localStorage.setItem('userId', userId);
+        // Always generate a new user ID for joiners
+        const userId = `user_${Math.random().toString(36).substr(2, 9)}`;
+        localStorage.setItem('userId', userId);
 
-      const response = await fetch('http://localhost:5000/api/preferences', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          roomCode,
-          name,
-          userId,
-          preferences: {
-            cuisine: cuisineNoPreference ? [] : cuisinePreferences,
-            cuisineNoPreference,
-            price: priceNoPreference ? [] : pricePreferences,
-            priceNoPreference,
-            rating: ratingNoPreference ? [] : ratingPreferences,
-            ratingNoPreference,
-            distance: distanceNoPreference ? null : distancePreferences,
-            distanceNoPreference,
-            location: locationPreference
-          },
-          isJoinPreferences: true
-        })
-      });
+        const response = await fetch('http://localhost:5000/api/preferences', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                roomCode,
+                name,
+                userId,
+                preferences: {
+                    cuisine: cuisineNoPreference ? [] : cuisinePreferences,
+                    cuisineNoPreference,
+                    price: priceNoPreference ? [] : pricePreferences,
+                    priceNoPreference,
+                    rating: ratingNoPreference ? [] : ratingPreferences,
+                    ratingNoPreference,
+                    distance: distanceNoPreference ? null : distancePreferences,
+                    distanceNoPreference,
+                    location: locationPreference
+                }
+            })
+        });
 
       const data = await response.json();
 
@@ -103,7 +103,8 @@ function JoinPreferences() {
       navigate('/lobby-join', { 
         state: { 
           roomCode: roomCode,
-          userName: name 
+          userName: name,
+          userId: userId 
         } 
       });
       

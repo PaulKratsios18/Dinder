@@ -12,18 +12,32 @@ const RestaurantSwiper = () => {
     const [matchFound, setMatchFound] = useState(null);
 
     useEffect(() => {
+        // Note: When testing multiple users, use different browsers or incognito mode
+        // as localStorage is shared within the same browser
+        
         const newSocket = io('http://localhost:5000');
         setSocket(newSocket);
 
-        // Join the session room
-        newSocket.emit('joinRoom', { 
-            sessionId, 
-            userId: localStorage.getItem('userId') 
+        // Get the userId from localStorage that was set during join/host
+        const userId = localStorage.getItem('userId');
+        console.log('RestaurantSwiper connecting with userId:', userId);
+
+        // Store userId in socket for this connection
+        newSocket.auth = { userId };
+        
+        newSocket.emit('joinSession', { 
+            roomCode: sessionId,
+            userId: userId
         });
 
-        // Listen for vote updates
+        // Debug logging
+        newSocket.on('connect', () => {
+            console.log('Connected with userId:', userId);
+        });
+
+        // Add debug logging for vote updates
         newSocket.on('voteUpdate', (data) => {
-            console.log('Vote update received:', data);
+            console.log('Vote update received for user:', userId, data);
             setVotes(prev => ({
                 ...prev,
                 [data.restaurantId]: data.votes
@@ -56,22 +70,22 @@ const RestaurantSwiper = () => {
     }, [sessionId]);
 
     const handleVote = async (vote) => {
-        if (matchFound) {
-            console.log('Match already found, no more voting allowed');
-            return;
-        }
-
-        if (currentIndex >= restaurants.length) {
-            console.log('No more restaurants to vote on');
-            return;
-        }
+        if (matchFound || currentIndex >= restaurants.length) return;
 
         const restaurant = restaurants[currentIndex];
+        const userId = localStorage.getItem('userId');
+        
+        console.log('Submitting vote:', {
+            userId,
+            restaurantId: restaurant._id,
+            vote,
+            sessionId
+        });
         
         socket.emit('submitVote', {
             sessionId,
-            userId: localStorage.getItem('userId'),
-            restaurantId: restaurant.id,
+            userId,
+            restaurantId: restaurant._id,
             vote
         });
 
@@ -113,7 +127,7 @@ const RestaurantSwiper = () => {
                     <p>Distance: {currentRestaurant.distance}</p>
                     
                     <div className="vote-count">
-                        👍 {votes[currentRestaurant.id]?.yes || 0} / {votes[currentRestaurant.id]?.totalParticipants || '?'}
+                        👍 {votes[currentRestaurant._id]?.yes || 0} / {votes[currentRestaurant._id]?.total || '?'}
                     </div>
                 </div>
             </div>

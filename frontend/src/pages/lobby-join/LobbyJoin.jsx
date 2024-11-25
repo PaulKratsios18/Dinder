@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import './LobbyJoin.css';
 
 function LobbyJoin() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [participants, setParticipants] = useState([]);
   const roomCode = location.state?.roomCode;
   const userName = location.state?.userName;
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     // Connect to WebSocket
     const socket = io('http://localhost:5000');
+    setSocket(socket);
 
-    // Join session room
+    // Join session room with the correct userId from navigation state
     socket.emit('joinSession', { 
       roomCode, 
       userName,
+      userId: location.state?.userId,  // Use the userId passed from PreferencesJoin
       isHost: false 
     });
 
@@ -27,12 +31,17 @@ function LobbyJoin() {
       setParticipants(filteredParticipants);
     });
 
+    // Listen for navigation event
+    socket.on('navigateToRestaurants', ({ sessionId }) => {
+        navigate(`/sessions/${sessionId}/restaurants`);
+    });
+
     // Cleanup on unmount
     return () => {
       socket.emit('leaveSession', { roomCode });
       socket.close();
     };
-  }, [roomCode, userName]);
+  }, [roomCode, userName, location.state?.userId, navigate]);
 
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;

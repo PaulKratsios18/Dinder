@@ -70,26 +70,27 @@ function LobbyHost() {
     const newSocket = io('http://localhost:5000');
     setSocket(newSocket);
 
-    // Join session room
+    // Join session room with the userId from location state
     newSocket.emit('joinSession', { 
-      roomCode, 
-      userName: 'Host',
-      isHost: true 
+        roomCode, 
+        userName: 'Host',
+        userId: hostId,
+        isHost: true 
     });
 
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
-      console.log('Received participants update:', updatedParticipants);
-      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
-      setParticipants(filteredParticipants);
+        console.log('Received participants update:', updatedParticipants);
+        const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
+        setParticipants(filteredParticipants);
     });
 
     // Cleanup on unmount
     return () => {
-      newSocket.emit('leaveSession', { roomCode });
-      newSocket.close();
+        newSocket.emit('leaveSession', { roomCode });
+        newSocket.close();
     };
-  }, [roomCode]);
+  }, [roomCode, hostId]);
 
   const handleSelectPreferences = () => {
     navigate('/preferences-host', { 
@@ -99,8 +100,6 @@ function LobbyHost() {
 
   const handleStartSession = async () => {
     try {
-        console.log('Starting session with ID:', roomCode);
-        
         const response = await fetch(`http://localhost:5000/api/sessions/${roomCode}/start`, {
             method: 'POST',
             headers: {
@@ -111,9 +110,10 @@ function LobbyHost() {
         const data = await response.json();
         
         if (response.ok && data.success) {
-            console.log('Session started successfully');
-            // Force navigation to the restaurant swiper
-            window.location.href = `/sessions/${roomCode}/restaurants`;
+            // Emit session started event to all users
+            socket.emit('sessionStarted', { sessionId: roomCode });
+            // Navigate host to restaurant page
+            navigate(`/sessions/${roomCode}/restaurants`);
         } else {
             throw new Error(data.message || 'Failed to start session');
         }

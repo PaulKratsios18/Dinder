@@ -45,33 +45,28 @@ connectDB();
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  // Store userId in socket instance
+  const userId = socket.handshake.auth.userId;
+  socket.userId = userId;
+  console.log('User connected with ID:', userId);
 
-  socket.on('joinSession', async ({ roomCode, userName, isHost }) => {
+  socket.on('joinSession', async ({ roomCode, userId }) => {
     try {
-      console.log(`User ${userName} joining room ${roomCode}`);
+      console.log(`User joining room ${roomCode} with ID ${userId}`);
       socket.join(roomCode);
       
       // Update session in database
       const session = await Session.findOne({ session_id: roomCode });
       if (session) {
-        // Only add non-host participants here
-        // Host is already added during session creation
-        if (!isHost) {
-          const existingParticipant = session.participants.find(p => p.name === userName);
-          if (!existingParticipant) {
-            session.participants.push({ name: userName, isHost });
-            await session.save();
-          }
+        // Check if user already exists in participants
+        const existingParticipant = session.participants.find(p => p.user_id === userId);
+        if (!existingParticipant) {
+          // Only add if user doesn't exist
+          session.participants.push({ user_id: userId });
+          await session.save();
         }
-
-        // Emit updated participants list to all clients in the room
-        const participants = session.participants.map(p => ({
-          name: p.name,
-          isHost: p.isHost || false
-        }));
         
-        io.to(roomCode).emit('participantsUpdate', participants);
+        io.to(roomCode).emit('participantsUpdate', session.participants);
       }
     } catch (error) {
       console.error('Error in joinSession:', error);
@@ -86,51 +81,64 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
   });
 
-  socket.on('submitVote', async ({ sessionId, userId, restaurantId, vote }) => {
-    console.log('Received vote:', { sessionId, userId, restaurantId, vote });
+  socket.on('submitVote', async ({ sessionId, restaurantId, vote }) => {
+    // Use the userId stored in socket instead of from message
+    const userId = socket.userId;
+    console.log('Processing vote from user:', userId);
+    
     try {
-        const result = await handleVote(sessionId, userId, restaurantId, vote);
-        console.log('Vote handler result:', result);
-        
-        // Broadcast vote update to all users in the session
-        io.to(sessionId).emit('voteUpdate', {
-            restaurantId,
-            votes: result.votes
-        });
-        console.log('Emitted voteUpdate:', {
-            restaurantId,
-            votes: result.votes
-        });
+      const session = await Session.findOne({ session_id: sessionId });
+      const participant = session.participants.find(p => p.user_id === userId);
+      
+      if (!participant) {
+        console.error('User not found in session:', userId);
+        socket.emit('error', { message: 'User not authorized to vote' });
+        return;
+      }
 
-        // If there's a match, notify all users with complete data
-        if (result.isMatch && result.matchData) {
-            console.log('Emitting matchFound event with data:', result.matchData);
-            io.to(sessionId).emit('matchFound', result.matchData);
-        }
+      const result = await handleVote(sessionId, userId, restaurantId, vote);
+      console.log('Vote handler result:', result);
+      
+      // Broadcast vote update to all users in the session
+      io.to(sessionId).emit('voteUpdate', {
+        restaurantId,
+        votes: result.votes
+      });
+      console.log('Emitted voteUpdate:', {
+        restaurantId,
+        votes: result.votes
+      });
+
+      // If there's a match, notify all users with complete data
+      if (result.isMatch && result.matchData) {
+        console.log('Emitting matchFound event with data:', result.matchData);
+        io.to(sessionId).emit('matchFound', result.matchData);
+      }
     } catch (error) {
-        console.error('Error handling vote:', error);
-        socket.emit('error', { message: 'Failed to process vote' });
+      console.error('Error handling vote:', error);
+      socket.emit('error', { message: 'Failed to process vote' });
     }
+  });
+
+  socket.on('sessionStarted', ({ sessionId }) => {
+    // Broadcast to all users in the session
+    io.to(sessionId).emit('navigateToRestaurants', { sessionId });
   });
 });
 
 // Existing REST routes
 app.post('/api/preferences', async (req, res) => {
   try {
-    const { roomCode, name, preferences, host_id } = req.body;
-
-    // Find the session first
+    const { roomCode, name, preferences, host_id, userId } = req.body;
     const session = await Session.findOne({ session_id: roomCode });
+    
     if (!session) {
       return res.status(404).json({ error: 'Session not found' });
     }
 
-    // If this is the host saving preferences
     if (host_id) {
-      // Remove any existing "Host" entry
+      // Host logic remains the same
       session.participants = session.participants.filter(p => p.name !== "Host");
-      
-      // Add host with their preferences
       session.participants.push({
         user_id: host_id,
         name: name,
@@ -138,9 +146,9 @@ app.post('/api/preferences', async (req, res) => {
         isHost: true
       });
     } else {
-      // For non-host participants
+      // For non-host participants, use the provided userId
       session.participants.push({
-        user_id: req.body.userId,
+        user_id: userId,
         name: name,
         preferences: preferences,
         isHost: false
@@ -149,7 +157,6 @@ app.post('/api/preferences', async (req, res) => {
 
     await session.save();
 
-    // Emit participants update through socket if available
     if (io) {
       io.to(roomCode).emit('participantsUpdate', session.participants);
     }
@@ -200,25 +207,19 @@ app.post('/api/sessions/create', async (req, res) => {
     const session = new Session({
       session_id: roomCode,
       host_id: host_id,
-      status: 'waiting',
-      participants: [],
-      code: generateUniqueCode(),
-      created_at: new Date()
+      participants: [{
+        user_id: host_id,
+        name: hostName || 'Host',
+        isHost: true
+      }],
+      code: generateUniqueCode()
     });
 
-    const savedSession = await session.save();
-    console.log('Session created:', savedSession);
-
-    res.status(201).json({
-      message: 'Session created successfully',
-      session: savedSession
-    });
+    await session.save();
+    res.json({ success: true, session });
   } catch (error) {
     console.error('Error creating session:', error);
-    res.status(500).json({
-      error: 'Failed to create session',
-      details: error.message
-    });
+    res.status(500).json({ error: 'Failed to create session' });
   }
 });
 
@@ -486,7 +487,7 @@ app.get('/api/sessions/:sessionId/ranked-restaurants', async (req, res) => {
         res.json({
             success: true,
             restaurants: restaurants.map(restaurant => ({
-                id: restaurant._id,
+                _id: restaurant._id,
                 name: restaurant.name,
                 rating: restaurant.rating,
                 price: restaurant.price,
@@ -536,5 +537,5 @@ app.post('/api/sessions/:sessionId/vote', async (req, res) => {
         });
     }
 });
-
 startServer();
+
