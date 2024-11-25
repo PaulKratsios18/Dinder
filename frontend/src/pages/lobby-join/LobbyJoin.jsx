@@ -10,6 +10,9 @@ function LobbyJoin() {
   const roomCode = location.state?.roomCode;
   const userName = location.state?.userName;
   const [socket, setSocket] = useState(null);
+  const [copiedInvite, setCopiedInvite] = useState(false);
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   useEffect(() => {
     // Connect to WebSocket
@@ -28,7 +31,23 @@ function LobbyJoin() {
     socket.on('participantsUpdate', (updatedParticipants) => {
       console.log('Received participants update:', updatedParticipants);
       const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
-      setParticipants(filteredParticipants);
+      const prevCount = participants.length;
+      const newCount = updatedParticipants.length;
+      
+      // Show notification when someone joins
+      if (newCount > prevCount) {
+        const newParticipant = updatedParticipants[updatedParticipants.length - 1];
+        setNotification(`${newParticipant.name} joined the session`);
+      }
+      // Show notification when someone leaves
+      else if (newCount < prevCount) {
+        setNotification('A participant left the session');
+      }
+      
+      setParticipants(updatedParticipants);
+      
+      // Clear notification after 3 seconds
+      setTimeout(() => setNotification(null), 3000);
     });
 
     // Listen for navigation event
@@ -46,10 +65,14 @@ function LobbyJoin() {
   const copyInviteLink = () => {
     const link = `${window.location.origin}/join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
+    setCopiedInvite(true);
+    setTimeout(() => setCopiedInvite(false), 1500);
   };
 
   const copyGroupCode = () => {
     navigator.clipboard.writeText(roomCode);
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 1500);
   };
 
   return (
@@ -66,18 +89,18 @@ function LobbyJoin() {
           </div>
           
           <button 
-            className="lobby-button" 
+            className={`lobby-button ${copiedInvite ? 'copied' : ''}`}
             onClick={copyInviteLink}
           >
             <span className="icon">📋</span>
-            <h2>Copy invite link</h2>
+            <h2>{copiedInvite ? 'Copied!' : 'Copy invite link'}</h2>
           </button>
           <button 
-            className="lobby-button" 
+            className={`lobby-button ${copiedCode ? 'copied' : ''}`}
             onClick={copyGroupCode}
           >
             <span className="icon">📋</span>
-            <h2>Copy group code</h2>
+            <h2>{copiedCode ? 'Copied!' : 'Copy group code'}</h2>
           </button>
         </div>
 
@@ -100,6 +123,12 @@ function LobbyJoin() {
       <div className="waiting-message">
         Waiting for host to start the session
       </div>
+
+      {notification && (
+        <div className="notification">
+          {notification}
+        </div>
+      )}
     </section>
   );
 }

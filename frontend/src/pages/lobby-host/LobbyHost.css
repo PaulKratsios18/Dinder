@@ -82,6 +82,13 @@
   transform: scale(0.8);
   line-height: 1;
   min-height: 40px;
+  transition: all 0.3s ease;
+}
+
+.lobby-button:hover {
+  background-color: rgba(0, 31, 63, 0.1);  /* Light blue tint */
+  transform: scale(1.05);  /* Slightly enlarge */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
 }
 
 .bottom-buttons {
@@ -204,4 +211,37 @@
   background-color: rgba(255, 255, 255, 0.9);
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.lobby-button.copied {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #FAF1E5;  /* Cream color matching member list */
+  color: #001f3f;
+  border-radius: 8px;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.preferences-summary {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
