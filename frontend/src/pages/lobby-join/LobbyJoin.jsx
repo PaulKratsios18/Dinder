@@ -54,9 +54,9 @@ function LobbyJoin() {
 
   return (
     <section className="lobby-section">
-      <div className="join-instructions">
+      {/* <div className="join-instructions">
         <h1>Tell your friends to go to <span className="highlight">dindersdd.cs.rpi.edu/join</span></h1>
-      </div>
+      </div> */}
 
       <div className="lobby-content">
         <div className="left-panel">
@@ -70,7 +70,7 @@ function LobbyJoin() {
             onClick={copyInviteLink}
           >
             <span className="icon">📋</span>
-            <h2>Invite link</h2>
+            <h2>Copy invite link</h2>
           </button>
           <button 
             className="lobby-button" 
@@ -98,7 +98,7 @@ function LobbyJoin() {
       </div>
 
       <div className="waiting-message">
-        Waiting for host to start the session...
+        Waiting for host to start the session
       </div>
     </section>
   );

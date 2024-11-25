@@ -124,9 +124,9 @@ function LobbyHost() {
 
   return (
     <section className="lobby-section">
-      <div className="join-instructions">
+      {/* <div className="join-instructions">
         <h1>Tell your friends to go to <span className="highlight">dindersdd.cs.rpi.edu/join</span></h1>
-      </div>
+      </div> */}
 
       <div className="lobby-content">
         <div className="left-panel">
@@ -136,7 +136,7 @@ function LobbyHost() {
           </div>
           <button onClick={copyInviteLink} className="lobby-button">
             <span className="icon">📋</span>
-            <h2>Invite link</h2>
+            <h2>Copy invite link</h2>
           </button>
           <button onClick={copyGroupCode} className="lobby-button">
             <span className="icon">📋</span>

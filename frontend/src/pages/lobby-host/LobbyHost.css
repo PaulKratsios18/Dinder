@@ -5,14 +5,13 @@
   display: flex;
   flex-direction: column;
   height: 84.3vh;
+  justify-content: space-between;
 }
 
 .join-instructions {
   padding: 15px;
   text-align: center;
-  color: black;
-  font-size: 1.2rem;
-  transform: translateY(-10px);
+  transform: translateY(20px);
 }
 
 .join-instructions h1 {
@@ -33,6 +32,7 @@
   padding: 40px;
   flex: 1;
   position: relative;
+  margin-top: 40px;
 }
 
 .left-panel {
@@ -47,6 +47,7 @@
   margin-top: 60px;
   flex: 0 1 auto;
   padding: 0 20px;
+  width: 250px;
 }
 
 .room-code-display {
@@ -71,26 +72,25 @@
   background-color: transparent;
   border: 2px solid #000000;
   border-radius: 22px;
-  padding: 8px 20px;
-  margin: 2px 0;
+  padding: 2px 20px;
+  margin: 1px 0;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  width: fit-content;
+  min-width: 250px;
+  width: 100%;
   transform: scale(0.8);
-}
-
-.lobby-button h2 {
-  font-size: 0.9rem;
-  margin: 0;
+  line-height: 1;
+  min-height: 40px;
 }
 
 .bottom-buttons {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px 40px 40px;
   gap: 20px;
   font-family: 'Fredoka One', cursive;
-  margin-top: 40px;
+  margin-top: 0;
   z-index: 1;
 }
 
@@ -155,4 +155,13 @@
 
 .participant-item:last-child {
   border-bottom: none;
+}
+
+.left-panel h2 {
+  font-family: 'Fredoka One', cursive;
+  color: #001f3f;
+  font-size: 1.2rem;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
 }
