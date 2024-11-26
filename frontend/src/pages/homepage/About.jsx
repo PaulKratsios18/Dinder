@@ -10,9 +10,43 @@ const About = () => {
             </p>
             <span>{<br/>}</span>
             <h2>Meet the Team:</h2>
-            <p className="team">
-                Sagar Sahu{<br/>}Paul Kratsios{<br/>}Brendan Capuzzo{<br/>}Ryan Hong{<br/>}Russell Chao
-            </p>
+            <div className="team-container">
+               <div className="team-member">
+                   <p>Paul Kratsios</p>
+                   <div className="social-links">
+                       <span className="social-link-disabled">GitHub</span>
+                       <span className="social-link-disabled">LinkedIn</span>
+                   </div>
+               </div>
+               <div className="team-member">
+                   <p>Brendan Capuzzo</p>
+                   <div className="social-links">
+                       <a href="https://github.com/bcapuzzo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                       <a href="https://linkedin.com/in/brendan-capuzzo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                   </div>
+               </div>
+               <div className="team-member">
+                   <p>Sagar Sahu</p>
+                   <div className="social-links">
+                       <span className="social-link-disabled">GitHub</span>
+                       <span className="social-link-disabled">LinkedIn</span>
+                   </div>
+               </div>
+               <div className="team-member">
+                   <p>Ryan Hong</p>
+                   <div className="social-links">
+                       <span className="social-link-disabled">GitHub</span>
+                       <span className="social-link-disabled">LinkedIn</span>
+                   </div>
+               </div>
+               <div className="team-member">
+                   <p>Russell Chao</p>
+                   <div className="social-links">
+                       <span className="social-link-disabled">GitHub</span>
+                       <span className="social-link-disabled">LinkedIn</span>
+                   </div>
+               </div>
+           </div>
         </section>
     );
 };
