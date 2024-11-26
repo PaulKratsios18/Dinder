@@ -4,6 +4,7 @@ const { mongoose } = require('mongoose');
 const Session = require('../models/Session');
 const User = require('../models/User');
 
+// Define WebSocketServer class
 class WebSocketServer {
     constructor(server) {
         this.wss = new WebSocket.Server({ server });
@@ -11,10 +12,12 @@ class WebSocketServer {
         this.initialize();
     }
 
+    // Initialize WebSocket server
     initialize() {
         this.wss.on('connection', (ws) => {
             console.log('New client connected');
 
+            // Handle incoming messages
             ws.on('message', async (data) => {
                 try {
                     const message = JSON.parse(data);
@@ -28,12 +31,14 @@ class WebSocketServer {
                 }
             });
 
+            // Handle disconnect
             ws.on('close', () => {
                 this.handleDisconnect(ws);
             });
         });
     }
 
+    // Handle incoming messages
     async handleMessage(ws, message) {
         switch (message.type) {
             case 'createSession':
@@ -51,9 +56,12 @@ class WebSocketServer {
         }
     }
 
+    // Handle create session
     async handleCreateSession(ws, message) {
         try {
+            // Generate session code
             const sessionCode = this.generateSessionCode();
+            // Create new session
             const session = new Session({
                 code: sessionCode,
                 hostId: message.userId,
@@ -90,13 +98,16 @@ class WebSocketServer {
         }
     }
 
+    // Handle join session
     async handleJoinSession(ws, message) {
+        // Extract session code, user ID, and user name from message
         const { sessionCode, userId, userName } = message;
         
         try {
             // Check session status before allowing join
             const session = await Session.findOne({ code: sessionCode });
             
+            // Check if session exists
             if (!session) {
                 ws.send(JSON.stringify({
                     type: 'error',
@@ -105,6 +116,7 @@ class WebSocketServer {
                 return;
             }
 
+            // Check session status
             if (session.status !== 'waiting') {
                 ws.send(JSON.stringify({
                     type: 'error',
@@ -115,6 +127,7 @@ class WebSocketServer {
                 return;
             }
 
+            // Update session with new participant
             const updatedSession = await Session.findOneAndUpdate(
                 { code: sessionCode },
                 { 
@@ -129,6 +142,7 @@ class WebSocketServer {
                 { new: true }
             );
 
+            // Set session code and user ID
             ws.sessionCode = sessionCode;
             ws.userId = userId;
             
@@ -146,10 +160,13 @@ class WebSocketServer {
         }
     }
 
+    // Handle update preferences
     async handleUpdatePreferences(ws, message) {
+        // Extract session code, user ID, and preferences from message
         const { sessionCode, userId, preferences } = message;
         
         try {
+            // Update session preferences for the user
             await Session.updateOne(
                 { 
                     session_id: sessionCode,
@@ -162,7 +179,10 @@ class WebSocketServer {
                 }
             );
 
+            // Get the updated session
             const session = await Session.findOne({ session_id: sessionCode });
+            
+            // Broadcast the updated preferences to all participants in the session
             this.broadcastToSession(sessionCode, {
                 type: 'preferencesUpdated',
                 session: session.toObject()
@@ -176,11 +196,18 @@ class WebSocketServer {
         }
     }
 
+    // Handle disconnect
     handleDisconnect(ws) {
+        // Check if the client is associated with a session
         if (ws.sessionCode) {
+            // Get session data
             const sessionData = this.sessions.get(ws.sessionCode);
+
+            // Remove the client from the session connections
             if (sessionData) {
                 sessionData.connections.delete(ws);
+
+                // If no more clients in the session, delete the session
                 if (sessionData.connections.size === 0) {
                     this.sessions.delete(ws.sessionCode);
                 } else {
@@ -193,8 +220,12 @@ class WebSocketServer {
         }
     }
 
+    // Broadcast to session
     broadcastToSession(sessionCode, message) {
+        // Get session data
         const sessionData = this.sessions.get(sessionCode);
+
+        // Broadcast message to all clients in the session
         if (sessionData) {
             sessionData.connections.forEach(client => {
                 if (client.readyState === WebSocket.OPEN) {
@@ -204,6 +235,7 @@ class WebSocketServer {
         }
     }
 
+    // Generate session code
     generateSessionCode() {
         return Math.floor(1000 + Math.random() * 9000).toString();
     }

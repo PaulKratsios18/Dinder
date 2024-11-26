@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Define vote schema
 const voteSchema = new mongoose.Schema({
     sessionId: {
         type: String,

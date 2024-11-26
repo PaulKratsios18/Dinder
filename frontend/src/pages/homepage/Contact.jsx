@@ -2,6 +2,7 @@ import React from "react";
 import "./Contact.css";
 
 const Contact = () => {
+    // Render the contact page
     return (
         <section className="contact container section" id="contact">
             <span>{<br/>}</span>

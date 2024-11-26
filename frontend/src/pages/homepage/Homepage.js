@@ -2,6 +2,7 @@
 import React from 'react';
 
 function HomePage() {
+  // Render the homepage
   return (
     <div className="homepage">
       <header className="header">

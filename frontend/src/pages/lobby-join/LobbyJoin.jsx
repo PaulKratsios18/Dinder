@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import './LobbyJoin.css';
 
+// Render the lobby join page
 function LobbyJoin() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function LobbyJoin() {
         setNotification('A participant left the session');
       }
       
+      // Update participants list
       setParticipants(updatedParticipants);
       
       // Clear notification after 3 seconds
@@ -62,6 +64,7 @@ function LobbyJoin() {
     };
   }, [roomCode, userName, location.state?.userId, navigate]);
 
+  // Copy invite link to clipboard
   const copyInviteLink = () => {
     const link = `${window.location.origin}/preferences-join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
@@ -69,12 +72,14 @@ function LobbyJoin() {
     setTimeout(() => setCopiedInvite(false), 1500);
   };
 
+  // Copy group code to clipboard
   const copyGroupCode = () => {
     navigator.clipboard.writeText(roomCode);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 1500);
   };
 
+  // Render the lobby join page
   return (
     <section className="lobby-section">
       {/* <div className="join-instructions">

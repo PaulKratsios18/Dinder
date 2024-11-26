@@ -4,12 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import fullStar from '../../assets/full-star.png';
 import halfStar from '../../assets/half-star.png';
 
+// Render preferences join page
 function JoinPreferences() {
+  // Initialize navigation
   const navigate = useNavigate();
+
+  // Initialize state variables
   const [activeTab, setActiveTab] = useState('cuisine');
   const [roomCode, setRoomCode] = useState('');
   const [name, setName] = useState('');
 
+  // Initialize tabs
   const tabs = [
     { name: 'Cuisine', emoji: '🍽️' },
     { name: 'Price', emoji: '💰' },
@@ -17,6 +22,7 @@ function JoinPreferences() {
     { name: 'Distance', emoji: '📍' }
   ];
 
+  // Initialize no preference state variables
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
   const [priceNoPreference, setPriceNoPreference] = useState(false);
   const [ratingNoPreference, setRatingNoPreference] = useState(false);
@@ -24,15 +30,15 @@ function JoinPreferences() {
   // eslint-disable-next-line no-unused-vars
   const [locationPreference, setLocationPreference] = useState('');
 
+  // Initialize preferences state variables
   const [cuisinePreferences, setCuisinePreferences] = useState([]);
   const [pricePreferences, setPricePreferences] = useState([]);
   const [ratingPreferences, setRatingPreferences] = useState([]);
   const [distancePreferences, setDistancePreferences] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   
-
+  // Get room code from URL query parameters
   useEffect(() => {
-    // Get room code from URL query parameters
     const params = new URLSearchParams(window.location.search);
     const codeFromUrl = params.get('code');
     if (codeFromUrl) {
@@ -40,6 +46,7 @@ function JoinPreferences() {
     }
   }, []);
 
+  // Validate preferences
   const validatePreferences = () => {
     const errors = [];
     
@@ -65,6 +72,7 @@ function JoinPreferences() {
     return errors;
   };
 
+  // Handle save preferences
   const handleSavePreferences = async () => {
     const errors = validatePreferences();
     if (errors.length > 0) {
@@ -73,12 +81,13 @@ function JoinPreferences() {
     }
     
     try {
-        // First, check the session status and participant count
-        const checkResponse = await fetch(`http://localhost:5000/api/sessions/${roomCode}/participants`);
-        const sessionData = await checkResponse.json();
+      // First, check the session status and participant count
+      const checkResponse = await fetch(`http://localhost:5000/api/sessions/${roomCode}/participants`);
+      const sessionData = await checkResponse.json();
 
-        if (!checkResponse.ok) {
-          if (sessionData.error === 'Session not found') {
+      // Check if response is ok
+      if (!checkResponse.ok) {
+        if (sessionData.error === 'Session not found') {
             setErrorMessage('Invalid room code. Please check and try again.');
             return;
           }
@@ -104,6 +113,7 @@ function JoinPreferences() {
         const userId = `user_${Math.random().toString(36).substr(2, 9)}`;
         localStorage.setItem('userId', userId);
 
+        // Save preferences
         const response = await fetch('http://localhost:5000/api/preferences', {
             method: 'POST',
             headers: {
@@ -128,8 +138,10 @@ function JoinPreferences() {
             })
         });
 
+      // Get data
       const data = await response.json();
 
+      // Check if response is ok
       if (!response.ok) {
         // Handle specific error cases
         if (data.error === 'Session not found') {
@@ -139,8 +151,10 @@ function JoinPreferences() {
         throw new Error(data.error || `HTTP error! status: ${response.status}`);
       }
 
+      // Log success
       console.log('Success:', data);
       
+      // Navigate to lobby join
       navigate('/lobby-join', { 
         state: { 
           roomCode: roomCode,
@@ -159,8 +173,10 @@ function JoinPreferences() {
     }
   };
 
+  // Render tab content
   const renderTabContent = () => {
     switch (activeTab.toLowerCase()) {
+      // Render cuisine tab
       case 'cuisine':
         return (
           <div className="tab-content">
@@ -207,6 +223,7 @@ function JoinPreferences() {
             </button>
           </div>
         );
+      // Render price tab
       case 'price':
         return (
           <div className="tab-content">
@@ -274,6 +291,7 @@ function JoinPreferences() {
             </button>
           </div>
         );
+      // Render rating tab
       case 'rating':
         return (
           <div className="tab-content">
@@ -341,6 +359,7 @@ function JoinPreferences() {
             </button>
           </div>
         );
+      // Render distance tab
       case 'distance':
         return (
           <div className="tab-content">
@@ -386,11 +405,13 @@ function JoinPreferences() {
             </button>
           </div>
         );
+      // Default render
       default:
         return <div>Select your preferences</div>;
     }
   };
 
+  // Check if tab is complete
   const isTabComplete = (tabName) => {
     switch (tabName) {
       case 'cuisine':
@@ -406,6 +427,7 @@ function JoinPreferences() {
     }
   };
 
+  // Render preferences join page
   return (
     <section className="main-section">
       <div className="input-section">

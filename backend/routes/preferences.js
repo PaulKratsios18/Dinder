@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Define preferences route
 router.post('/api/preferences', async (req, res) => {
   console.log('Received request:', req.body);
   try {
@@ -12,6 +13,7 @@ router.post('/api/preferences', async (req, res) => {
   }
 });
 
+// Define join preferences route
 router.post('/api/join-preferences', async (req, res) => {
   console.log('Received request:', req.body);
   try {

@@ -15,6 +15,7 @@ import RestaurantSwiper from './pages/restaurant-swiper/RestaurantSwiper';
 import './App.css';
 
 function AppLayout() {
+  // Check if the current path matches any of the defined routes
   const location = useLocation();
   const isSessionSelectionPage = location.pathname === '/session-selection';
   const isJoinPreferencePage = location.pathname === '/preferences-join';
@@ -55,6 +56,7 @@ function AppLayout() {
   );
 }
 
+// Main App component
 function App() {
   return (
     <Router>

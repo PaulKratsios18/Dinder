@@ -4,16 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import './SessionSelection.css';
 
 const Starter = () => {
+  // Use the navigate function to navigate between pages
   const navigate = useNavigate();
 
+  // Navigate to the preferences join page
   const handleJoinSessionClick = () => {
     navigate('/preferences-join');
   };
 
+  // Navigate to the lobby host page
   const handleGroupLobbyHostClick = () => {
     navigate('/lobby-host');
   };
 
+  // Render the session selection page
   return (
     <div className="get-started-container">
       <h1 className="greeting">Hi there!</h1>

@@ -1,6 +1,7 @@
 // models/Session.js
 const mongoose = require('mongoose');
 
+// Define session schema
 const sessionSchema = new mongoose.Schema({
   session_id: {
     type: String,

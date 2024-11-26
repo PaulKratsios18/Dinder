@@ -4,12 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import dinderLogo from '../../assets/DinderLogoV1.png';
 
 function MainSection() {
+  // Navigate to the session selection page
   const navigate = useNavigate();
 
+  // Navigate to the session selection page
   const handleGetStarted = () => {
     navigate('/session-selection');
   };
   
+  // Render the main section
   return (
     <section className="main-section" id="homepage">
       <div className="text-content">
