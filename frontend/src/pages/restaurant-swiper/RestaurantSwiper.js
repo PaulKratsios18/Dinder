@@ -69,6 +69,8 @@ const RestaurantSwiper = () => {
             console.log('Results received:', data);
             setShowResults(true);
             setTopRestaurants(data.topRestaurants);
+            // Stop further voting
+            setCurrentIndex(1000);
         });
 
         const fetchRestaurants = async () => {
@@ -248,12 +250,15 @@ const RestaurantSwiper = () => {
 
     if (currentIndex >= restaurants.length) {
         return (
-            <div className="restaurant-swiper">
-                <div className="voting-complete">
-                    <h2>Voting Complete!</h2>
-                    <p>Waiting for other participants to finish voting...</p>
+            <>
+                <Header />
+                <div className="restaurant-swiper">
+                    <div className="voting-complete">
+                        <h2>Voting Complete!</h2>
+                        <p>Waiting for other participants to finish voting...</p>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 

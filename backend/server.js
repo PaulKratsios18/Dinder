@@ -98,9 +98,7 @@ io.on('connection', (socket) => {
             wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
             distance: matchedRestaurant.distance
         });
-    }
-    
-    if (result.showResults) {
+    } else if (result.showResults) {
         io.to(sessionId).emit('showResults', {
             topRestaurants: result.topRestaurants
         });
