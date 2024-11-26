@@ -85,11 +85,11 @@ io.on('connection', (socket) => {
     const result = await handleVote(sessionId, userId, restaurantId, vote);
     
     if (result.isMatch) {
-        const matchedRestaurant = await Restaurant.findById(restaurantId);
-        io.to(sessionId).emit('matchFound', matchedRestaurant);
+        io.to(sessionId).emit('matchFound', result.matchData);
     } else if (result.showResults) {
         io.to(sessionId).emit('showResults', {
-            topRestaurants: result.topRestaurants || []
+            topRestaurants: result.topRestaurants,
+            hasMatches: result.topRestaurants.length > 0
         });
     } else {
         io.to(sessionId).emit('voteUpdate', {

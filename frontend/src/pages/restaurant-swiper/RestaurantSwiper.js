@@ -76,8 +76,7 @@ const RestaurantSwiper = () => {
         newSocket.on('showResults', (data) => {
             console.log('Results received:', data);
             setShowResults(true);
-            setTopRestaurants(data.topRestaurants);
-            // Stop further voting
+            setTopRestaurants(data.topRestaurants || []);
             setCurrentIndex(1000);
         });
 
@@ -176,6 +175,7 @@ const RestaurantSwiper = () => {
         handleVote(vote);
     };
 
+    // First, check for perfect match
     if (matchFound) {
         return (
             <>
@@ -240,6 +240,7 @@ const RestaurantSwiper = () => {
         );
     }
 
+    // Second, check if we should show results
     if (showResults) {
         if (topRestaurants.length === 0) {
             return (
@@ -258,6 +259,7 @@ const RestaurantSwiper = () => {
         return <Results topRestaurants={topRestaurants} />;
     }
 
+    // Last, check if we're still waiting for others
     if (currentIndex >= restaurants.length) {
         return (
             <>
