@@ -73,7 +73,7 @@ function JoinPreferences() {
     }
     
     try {
-        // First, check the current number of participants in the session
+        // First, check the session status and participant count
         const checkResponse = await fetch(`http://localhost:5000/api/sessions/${roomCode}/participants`);
         const sessionData = await checkResponse.json();
 
@@ -83,6 +83,15 @@ function JoinPreferences() {
             return;
           }
           throw new Error(sessionData.error || `HTTP error! status: ${checkResponse.status}`);
+        }
+
+        // Check session status
+        if (sessionData.status === 'active') {
+            setErrorMessage('Error: Session has already begun.');
+            return;
+        } else if (sessionData.status === 'completed') {
+            setErrorMessage('Error: Session has ended.');
+            return;
         }
 
         // Check if session is full (10 participants max)

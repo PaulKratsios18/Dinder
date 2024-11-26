@@ -546,7 +546,8 @@ app.get('/api/sessions/:roomCode/participants', async (req, res) => {
     }
 
     res.status(200).json({
-      participants: session.participants
+      participants: session.participants,
+      status: session.status
     });
   } catch (error) {
     console.error('Error getting session participants:', error);
