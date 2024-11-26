@@ -4,8 +4,20 @@ import './Results.css';
 const Results = ({ topRestaurants }) => {
     const formatPrice = (price) => {
         if (!price) return 'Price not available';
-        return price; // Just return the '$' symbols directly
+        return price;
     };
+    
+    const formatOpeningHours = (hours) => {
+        if (!hours || hours.length === 0) return 'Hours not available';
+        return (
+            <div className="opening-hours">
+                {hours.map((day, index) => (
+                    <div key={index} className="day-hours">{day}</div>
+                ))}
+            </div>
+        );
+    };
+
     const formatWheelchair = (accessible) => accessible === 'Yes' ? '♿ Accessible' : 'Not wheelchair accessible';
 
     return (
@@ -32,8 +44,12 @@ const Results = ({ topRestaurants }) => {
                                 <p><strong>Price:</strong> {formatPrice(restaurant.price)}</p>
                                 <p><strong>Cuisine:</strong> {restaurant.cuisine}</p>
                                 <p><strong>Address:</strong> {restaurant.address}</p>
-                                {restaurant.openStatus !== 'Unknown' && (
-                                    <p><strong>Hours:</strong> {restaurant.openStatus}</p>
+                                <p><strong>Current Status:</strong> {restaurant.openStatus}</p>
+                                {restaurant.openingHours && restaurant.openingHours.length > 0 && (
+                                    <div className="hours-section">
+                                        <strong>Hours:</strong>
+                                        {formatOpeningHours(restaurant.openingHours)}
+                                    </div>
                                 )}
                                 {restaurant.wheelchairAccessible !== 'Unknown' && (
                                     <p><strong>Accessibility:</strong> {formatWheelchair(restaurant.wheelchairAccessible)}</p>

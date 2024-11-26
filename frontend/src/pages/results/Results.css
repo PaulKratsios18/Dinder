@@ -86,3 +86,17 @@
     color: #023047;
     line-height: 1.6;
 }
+
+.hours-section {
+    margin: 10px 0;
+}
+
+.opening-hours {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.day-hours {
+    padding: 2px 0;
+    color: #023047;
+}

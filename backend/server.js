@@ -85,12 +85,26 @@ io.on('connection', (socket) => {
     try {
         const result = await handleVote(sessionId, socket.userId, restaurantId, vote);
         
+        if (result.isMatch) {
+            const matchedRestaurant = await Restaurant.findById(restaurantId);
+            io.to(sessionId).emit('matchFound', {
+                name: matchedRestaurant.name,
+                address: matchedRestaurant.address,
+                rating: matchedRestaurant.rating,
+                price: matchedRestaurant.price,
+                cuisine: matchedRestaurant.cuisine,
+                photo: matchedRestaurant.photo,
+                openStatus: matchedRestaurant.openStatus,
+                openingHours: matchedRestaurant.openingHours,
+                wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
+                distance: matchedRestaurant.distance
+            });
+        }
+        
         if (result.showResults) {
             io.to(sessionId).emit('showResults', {
                 topRestaurants: result.topRestaurants
             });
-        } else if (result.isMatch) {
-            io.to(sessionId).emit('matchFound', result.matchData);
         } else {
             io.to(sessionId).emit('voteUpdate', {
                 restaurantId,
@@ -324,6 +338,7 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
                     address: restaurant.Address,
                     photo: restaurant.Photos?.[0] || '/default-restaurant.jpg',
                     openStatus: restaurant.OpenStatus,
+                    openingHours: restaurant.OpeningHours || [],
                     wheelchairAccessible: restaurant.WheelchairAccessible,
                     score: restaurant.score || 0,
                     location: restaurant.Location
@@ -429,7 +444,7 @@ function formatRestaurantForTemplate(restaurant) {
         cuisine: restaurant.Cuisine,
         address: restaurant.Address,
         photo: restaurant.Photos?.[0] || 'default-restaurant-image.jpg',
-        openStatus: restaurant.OpenStatus,
+        openStatus: restaurant.openStatus,
         wheelchairAccessible: restaurant.WheelchairAccessible,
         score: restaurant.score || 0
     };

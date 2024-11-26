@@ -41,38 +41,6 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
                     const detailsResponse = await axios.get(detailsUrl);
                     const details = detailsResponse.data.result;
 
-                    function formatOpeningStatus(openingHours) {
-                        if (!openingHours) return 'Hours not available';
-                        
-                        const now = new Date();
-                        const isOpen = openingHours.open_now;
-                        
-                        if (isOpen) {
-                            return 'Open now';
-                        } else {
-                            // Find next opening time from periods
-                            if (openingHours.periods) {
-                                const today = now.getDay();
-                                const currentTime = now.getHours() * 100 + now.getMinutes();
-                                
-                                for (let i = 0; i < 7; i++) {
-                                    const checkDay = (today + i) % 7;
-                                    const period = openingHours.periods.find(p => p.open.day === checkDay);
-                                    
-                                    if (period) {
-                                        if (i === 0) {
-                                            return `Opens at ${period.open.time.replace(/(\d{2})(\d{2})/, '$1:$2')}`;
-                                        } else {
-                                            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                                            return `Opens ${days[checkDay]} at ${period.open.time.replace(/(\d{2})(\d{2})/, '$1:$2')}`;
-                                        }
-                                    }
-                                }
-                            }
-                            return 'Closed';
-                        }
-                    }
-
                     return {
                         Name: details.name || place.name,
                         Rating: details.rating?.toString() || place.rating?.toString() || 'No rating',
@@ -91,11 +59,12 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
                         },
                         PlaceId: place.place_id,
                         OpeningHours: details.opening_hours?.weekday_text || [],
-                        openStatus: formatOpeningStatus(details.opening_hours),
+                        OpenStatus: details.opening_hours ? 
+                            (details.opening_hours.open_now ? 'Open now' : 'Closed') : 
+                            'Hours not available'
                     };
                 } catch (error) {
                     console.error(`Error fetching details for ${place.name}:`, error.message);
-                    // Return basic place info if details fetch fails
                     return {
                         Name: place.name,
                         Rating: place.rating?.toString() || 'No rating',
@@ -103,7 +72,8 @@ async function getRestaurants(location, radius = 5000, cuisines = ['restaurant']
                         Cuisine: cuisines[0],
                         Address: place.vicinity || 'Address unknown',
                         Photos: ['default-restaurant.jpg'],
-                        OpenStatus: place.openingHours || 'Unknown',
+                        OpeningHours: [],
+                        OpenStatus: 'Hours not available',
                         WheelchairAccessible: 'Unknown',
                         Location: {
                             lat: place.geometry.location.lat,

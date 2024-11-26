@@ -92,18 +92,30 @@ class WebSocketServer {
 
     async handleJoinSession(ws, message) {
         const { sessionCode, userId, userName } = message;
-        const sessionData = this.sessions.get(sessionCode);
-
-        if (!sessionData) {
-            ws.send(JSON.stringify({
-                type: 'error',
-                message: 'Session not found'
-            }));
-            return;
-        }
-
+        
         try {
-            const session = await Session.findOneAndUpdate(
+            // Check session status before allowing join
+            const session = await Session.findOne({ code: sessionCode });
+            
+            if (!session) {
+                ws.send(JSON.stringify({
+                    type: 'error',
+                    message: 'Session not found'
+                }));
+                return;
+            }
+
+            if (session.status !== 'waiting') {
+                ws.send(JSON.stringify({
+                    type: 'error',
+                    message: session.status === 'active' ? 
+                        'Session already in progress' : 
+                        'Session has ended'
+                }));
+                return;
+            }
+
+            const updatedSession = await Session.findOneAndUpdate(
                 { code: sessionCode },
                 { 
                     $addToSet: { 
@@ -119,12 +131,11 @@ class WebSocketServer {
 
             ws.sessionCode = sessionCode;
             ws.userId = userId;
-            sessionData.connections.add(ws);
-
+            
             // Broadcast to all participants
             this.broadcastToSession(sessionCode, {
                 type: 'participantJoined',
-                session: session.toObject()
+                session: updatedSession.toObject()
             });
         } catch (error) {
             console.error('Error joining session:', error);
