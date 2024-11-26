@@ -88,22 +88,40 @@ function LobbyHost() {
 
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
-      console.log('Received participants update:', updatedParticipants);
+      // console.log('Received participants update:', updatedParticipants);
+      // const prevCount = participants.length;
+      // const newCount = updatedParticipants.length;
+      
+      // // Show notification when someone joins
+      // if (newCount > prevCount) {
+      //   const newParticipant = updatedParticipants[updatedParticipants.length - 1];
+      //   setNotification(`${newParticipant.name} joined the session`);
+      // }
+      // // Show notification when someone leaves
+      // else if (newCount < prevCount) {
+      //   setNotification('A participant left the session');
+      // }
+      
+      // // Update participants list
+      // const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
+      // setParticipants(filteredParticipants);
+
+      // Filter out host before doing any comparisons or updates
+      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host' && !p.isHost);
       const prevCount = participants.length;
-      const newCount = updatedParticipants.length;
+      const newCount = filteredParticipants.length;
       
       // Show notification when someone joins
       if (newCount > prevCount) {
-        const newParticipant = updatedParticipants[updatedParticipants.length - 1];
-        setNotification(`${newParticipant.name} joined the session`);
+          const newParticipant = filteredParticipants[filteredParticipants.length - 1];
+          setNotification(`${newParticipant.name} joined the session`);
       }
       // Show notification when someone leaves
       else if (newCount < prevCount) {
-        setNotification('A participant left the session');
+          setNotification('A participant left the session');
       }
       
       // Update participants list
-      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
       setParticipants(filteredParticipants);
     });
 
