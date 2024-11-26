@@ -86,21 +86,10 @@ io.on('connection', (socket) => {
     
     if (result.isMatch) {
         const matchedRestaurant = await Restaurant.findById(restaurantId);
-        io.to(sessionId).emit('matchFound', {
-            name: matchedRestaurant.name,
-            address: matchedRestaurant.address,
-            rating: matchedRestaurant.rating,
-            price: matchedRestaurant.price,
-            cuisine: matchedRestaurant.cuisine,
-            photo: matchedRestaurant.photo,
-            openStatus: matchedRestaurant.openStatus,
-            openingHours: matchedRestaurant.openingHours,
-            wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
-            distance: matchedRestaurant.distance
-        });
+        io.to(sessionId).emit('matchFound', matchedRestaurant);
     } else if (result.showResults) {
         io.to(sessionId).emit('showResults', {
-            topRestaurants: result.topRestaurants
+            topRestaurants: result.topRestaurants || []
         });
     } else {
         io.to(sessionId).emit('voteUpdate', {
