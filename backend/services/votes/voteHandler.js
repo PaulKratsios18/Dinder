@@ -11,10 +11,36 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
             { upsert: true, new: true }
         );
 
+        // Get all votes for this restaurant
+        const restaurantVotes = await Vote.find({ sessionId, restaurantId });
+        const totalParticipants = session.participants.length;
+
+        // Check for immediate match (all participants voted yes)
+        const positiveVotes = restaurantVotes.filter(v => v.vote === true).length;
+        if (positiveVotes === totalParticipants) {
+            // Update session status to complete when match is found
+            await Session.findOneAndUpdate(
+                { session_id: sessionId },
+                { status: 'completed' }
+            );
+
+            const matchedRestaurant = await Restaurant.findById(restaurantId);
+            return {
+                success: true,
+                isMatch: true,
+                showResults: false,
+                matchData: {
+                    restaurantName: matchedRestaurant.name,
+                    address: matchedRestaurant.address,
+                    rating: matchedRestaurant.rating,
+                    photo: matchedRestaurant.photo
+                }
+            };
+        }
+
         // Get all restaurants for this session
         const allSessionRestaurants = await Restaurant.find({ sessionId });
         const totalRestaurants = allSessionRestaurants.length;
-        const totalParticipants = session.participants.length;
 
         // Get all votes for this session
         const allVotes = await Vote.find({ sessionId });
@@ -39,6 +65,12 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
         });
 
         if (allVotingComplete) {
+            // Update session status to complete when showing results
+            await Session.findOneAndUpdate(
+                { session_id: sessionId },
+                { status: 'completed' }
+            );
+
             // Get restaurants with >50% positive votes
             const restaurantVotes = await Vote.aggregate([
                 { $match: { sessionId: sessionId } },
