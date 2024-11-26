@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: 80vh; 
+  height: 90vh; 
   padding-left: 50px; 
   background-color: #ed7874;
   height: 670px;
@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column; 
 }
-
 
 .main-section h1 {
   font-family: 'Fredoka One', cursive;
