@@ -196,9 +196,11 @@ const RestaurantSwiper = () => {
 
     if (currentIndex >= restaurants.length) {
         return (
-            <div className="voting-complete">
-                <h2>Voting Complete!</h2>
-                <p>Waiting for other participants to finish voting...</p>
+            <div className="restaurant-swiper">
+                <div className="voting-complete">
+                    <h2>Voting Complete!</h2>
+                    <p>Waiting for other participants to finish voting...</p>
+                </div>
             </div>
         );
     }

@@ -473,7 +473,8 @@ app.get('/api/sessions/:sessionId/ranked-restaurants', async (req, res) => {
     try {
         const { sessionId } = req.params;
         const restaurants = await Restaurant.find({ sessionId })
-            .sort({ score: -1 }); // Sort by score descending
+            .sort({ score: -1 })
+            .limit(20);
         
         if (!restaurants || restaurants.length === 0) {
             return res.status(404).json({
