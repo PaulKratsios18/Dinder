@@ -10,7 +10,7 @@ function formatRestaurantForTemplate(restaurantData) {
         maxScore: restaurantData.maxScore || 0,
         photo: restaurantData.Photos && restaurantData.Photos.length > 0 
             ? restaurantData.Photos[0] 
-            : 'default-restaurant-image.jpg',
+            : 'default-restaurant.jpg',
         openStatus: restaurantData.openStatus || 'Status unknown',
         wheelchairAccessible: restaurantData.WheelchairAccessible || 'Unknown',
         reviewCount: restaurantData.ReviewCount || 0
