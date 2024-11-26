@@ -2,8 +2,17 @@ const Vote = require('../../models/Vote');
 const Session = require('../../models/Session');
 const Restaurant = require('../../models/Restaurant');
 
+/**
+ * Handles user votes for restaurants and determines matches
+ * @param {string} sessionId - Session identifier
+ * @param {string} userId - User identifier
+ * @param {string} restaurantId - Restaurant identifier
+ * @param {boolean} vote - User's vote (true for like, false for dislike)
+ * @returns {Promise<Object>} Vote results and match status
+ */
 async function handleVote(sessionId, userId, restaurantId, vote) {
     try {
+        // Find session and save/update vote
         const session = await Session.findOne({ session_id: sessionId });
         const savedVote = await Vote.findOneAndUpdate(
             { sessionId, userId, restaurantId },
@@ -11,14 +20,14 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
             { upsert: true, new: true }
         );
 
-        // Get all votes for this restaurant
+        // Get vote counts for current restaurant
         const restaurantVotes = await Vote.find({ sessionId, restaurantId });
         const totalParticipants = session.participants.length;
 
         // Check for immediate match (all participants voted yes)
         const positiveVotes = restaurantVotes.filter(v => v.vote === true).length;
         if (positiveVotes === totalParticipants) {
-            // Update session status to complete when match is found
+            // Update session status and return match data
             await Session.findOneAndUpdate(
                 { session_id: sessionId },
                 { status: 'completed' }
@@ -38,25 +47,24 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
             };
         }
 
-        // Get all restaurants for this session
+        // Get all restaurants and votes for session
         const allSessionRestaurants = await Restaurant.find({ sessionId });
         const totalRestaurants = allSessionRestaurants.length;
-
-        // Get all votes for this session
         const allVotes = await Vote.find({ sessionId });
 
-        // Check if all users have voted on all restaurants
+        // Track votes per user
         const votesPerUser = new Map();
         allVotes.forEach(vote => {
             const key = vote.userId;
             votesPerUser.set(key, (votesPerUser.get(key) || 0) + 1);
         });
 
-        // All users have voted on all restaurants when each user has totalRestaurants votes
+        // Check if all users have voted on all restaurants
         const allVotingComplete = session.participants.every(participant => 
             votesPerUser.get(participant.user_id) === totalRestaurants
         );
 
+        // Log voting progress
         console.log('Vote tracking:', {
             totalParticipants,
             totalRestaurants: allSessionRestaurants.length,
@@ -65,13 +73,13 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
         });
 
         if (allVotingComplete) {
-            // Update session status to complete when showing results
+            // Update session status when all voting is complete
             await Session.findOneAndUpdate(
                 { session_id: sessionId },
                 { status: 'completed' }
             );
 
-            // Get all restaurants with their vote counts and filter for >50% positive votes
+            // Aggregate votes and find restaurants with >50% positive votes
             const restaurantVotes = await Vote.aggregate([
                 { $match: { sessionId: sessionId } },
                 { $group: {
@@ -88,7 +96,7 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
                 { $limit: 3 }
             ]);
 
-            // Get top restaurants that met the 50% threshold
+            // Get detailed information for top restaurants
             const topRestaurants = restaurantVotes.length > 0 ? 
                 await Restaurant.find({
                     _id: { $in: restaurantVotes.map(r => r._id) }
@@ -108,7 +116,7 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
             };
         }
 
-        // Calculate votes for current restaurant
+        // Calculate current restaurant vote status
         const allVotesForRestaurant = await Vote.find({ sessionId, restaurantId });
         const positiveVotesCount = allVotesForRestaurant.filter(v => v.vote === true).length;
 

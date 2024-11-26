@@ -3,9 +3,11 @@ import './Results.css';
 import Header from '../../components/Header';
 
 const Results = ({ topRestaurants }) => {
+    // State for managing UI interactions
     const [showDetailsMap, setShowDetailsMap] = useState({});
     const [showHoursMap, setShowHoursMap] = useState({});
 
+    // Toggle detailed view for a restaurant
     const toggleDetails = (restaurantId) => {
         setShowDetailsMap(prev => ({
             ...prev,
@@ -13,6 +15,7 @@ const Results = ({ topRestaurants }) => {
         }));
     };
 
+    // Toggle opening hours view for a restaurant
     const toggleHours = (restaurantId) => {
         setShowHoursMap(prev => ({
             ...prev,
@@ -20,6 +23,7 @@ const Results = ({ topRestaurants }) => {
         }));
     };
 
+    // Display message when no matches are found
     if (topRestaurants.length === 0) {
         return (
             <>
@@ -35,18 +39,23 @@ const Results = ({ topRestaurants }) => {
         );
     }
 
+    // Render results page with matched restaurants
     return (
         <>
             <Header />
             <div className="results-page">
                 <h1>Top Restaurant Matches</h1>
                 <div className="results-container">
+                    {/* Map through and display each matched restaurant */}
                     {topRestaurants.map((restaurant, index) => (
                         <div key={restaurant._id} className="restaurant-card">
+                            {/* Ranking and voting information */}
                             <div className="rank-badge">{index + 1}</div>
                             <div className="vote-count-badge">
                                 {restaurant.positiveVotes}/{restaurant.totalParticipants} votes
                             </div>
+
+                            {/* Restaurant image with fallback */}
                             <img 
                                 src={restaurant.photo || '/assets/default-restaurant.jpg'} 
                                 alt={restaurant.name} 
@@ -56,6 +65,8 @@ const Results = ({ topRestaurants }) => {
                                     e.target.src = '/assets/default-restaurant.jpg';
                                 }}
                             />
+
+                            {/* Basic restaurant information */}
                             <div className={`restaurant-basic-info ${showDetailsMap[restaurant._id] ? 'hide' : ''}`}>
                                 <h2>{restaurant.name}</h2>
                                 <div className="quick-info">
@@ -64,6 +75,8 @@ const Results = ({ topRestaurants }) => {
                                     <span>{restaurant.openStatus}</span>
                                 </div>
                             </div>
+
+                            {/* Detailed restaurant information */}
                             <button className="details-button" onClick={() => toggleDetails(restaurant._id)}>
                                 {showDetailsMap[restaurant._id] ? 'Less Info ▼' : 'More Info ▲'}
                             </button>

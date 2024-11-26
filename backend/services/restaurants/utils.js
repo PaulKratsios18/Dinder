@@ -1,3 +1,8 @@
+/**
+ * Formats restaurant data for template rendering
+ * @param {Object} restaurantData - Raw restaurant data
+ * @returns {Object} Formatted restaurant object with default values
+ */
 function formatRestaurantForTemplate(restaurantData) {
     return {
         name: restaurantData.Name || 'Unknown Restaurant',
@@ -17,11 +22,19 @@ function formatRestaurantForTemplate(restaurantData) {
     };
 }
 
+/**
+ * Consolidates multiple user preferences into a single array
+ * @param {Array} preferencesArray - Array of user preferences
+ * @returns {Array} Consolidated preferences grouped by user
+ */
 function consolidatePreferences(preferencesArray) {
+    // Use Map to store unique user preferences
     const userMap = new Map();
     
+    // Process each preference
     for (const pref of preferencesArray) {
         if (!userMap.has(pref.Name)) {
+            // Create new entry for user
             userMap.set(pref.Name, {
                 Name: pref.Name,
                 Cuisines: [pref.Cuisine],
@@ -31,11 +44,13 @@ function consolidatePreferences(preferencesArray) {
                 Location: pref.Location
             });
         } else {
+            // Add additional cuisines to existing user
             const userPref = userMap.get(pref.Name);
             userPref.Cuisines.push(pref.Cuisine);
         }
     }
     
+    // Convert Map to array and return
     return Array.from(userMap.values());
 }
 

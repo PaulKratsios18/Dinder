@@ -8,8 +8,11 @@ import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 
 const RestaurantSwiper = () => {
+    // Get window dimensions for confetti effect
     const { width, height } = useWindowSize();
     const { sessionId } = useParams();
+    
+    // State management for restaurant swiping
     const [restaurants, setRestaurants] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [votes, setVotes] = useState({});
@@ -17,13 +20,18 @@ const RestaurantSwiper = () => {
     const [matchFound, setMatchFound] = useState(null);
     const [showResults, setShowResults] = useState(false);
     const [topRestaurants, setTopRestaurants] = useState([]);
+    
+    // UI state management
     const [showHours, setShowHours] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
+    const [showHoursMap, setShowHoursMap] = useState({});
+    
+    // Drag interaction state
     const [dragStart, setDragStart] = useState(0);
     const [dragOffset, setDragOffset] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
-    const [showHoursMap, setShowHoursMap] = useState({});
 
+    // Initialize socket connection and fetch restaurants
     useEffect(() => {
         // Note: When testing multiple users, use different browsers or incognito mode
         // as localStorage is shared within the same browser
@@ -91,10 +99,12 @@ const RestaurantSwiper = () => {
         };
     }, [sessionId]);
 
+    // Reset details view when changing restaurants
     useEffect(() => {
         setShowDetails(false);
     }, [currentIndex]);
 
+    // Handle voting logic
     const handleVote = async (vote) => {
         if (matchFound || currentIndex >= restaurants.length) return;
 

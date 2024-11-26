@@ -3,6 +3,11 @@ const fs = require('fs');
 const { connectToDatabase } = require('./utils/mongodb');
 const { aggregatePreferences } = require('./preference_aggregator');
 
+/**
+ * Retrieves session preferences from the database
+ * @param {string} sessionCode - ID of the session
+ * @returns {Object} Aggregated preferences object
+ */
 async function getSessionPreferences(sessionCode) {
     console.log('MongoDB URI:', process.env.MONGODB_URI);
     console.log('DB Name:', process.env.DB_NAME);
