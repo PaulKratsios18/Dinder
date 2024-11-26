@@ -66,7 +66,10 @@ function LobbyHost() {
       .then(data => {
         console.log('Session created:', data);
         if (data.session?.participants) {
-          setParticipants(data.session.participants);
+          const filteredParticipants = data.session.participants.filter(
+            p => p.user_id !== hostId && !p.isHost
+          );
+          setParticipants(filteredParticipants);
         }
       })
       .catch(error => console.error('Error creating session:', error));
@@ -234,7 +237,7 @@ function LobbyHost() {
         <button 
           className="preferences-button" 
           onClick={handleSelectPreferences}
-          disabled={participants.some(participant => participant.user_id === hostId) || isPreferencesLoading}
+          disabled={participants.some(p => p.user_id === hostId && p.preferences) || isPreferencesLoading}
         >
           <div className="button-content">
             {isPreferencesLoading && <div className="loading-spinner" />}
