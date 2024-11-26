@@ -24,7 +24,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "mongoose": "^8.7.1",
-    "react-confetti": "^6.1.0"
+    "react-confetti": "^6.1.0",
+    "react-use": "^17.5.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
