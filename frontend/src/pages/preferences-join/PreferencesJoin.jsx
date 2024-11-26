@@ -10,7 +10,12 @@ function JoinPreferences() {
   const [roomCode, setRoomCode] = useState('');
   const [name, setName] = useState('');
 
-  const tabs = ['Cuisine', 'Price', 'Rating', 'Distance'];
+  const tabs = [
+    { name: 'Cuisine', emoji: '🍽️' },
+    { name: 'Price', emoji: '💰' },
+    { name: 'Rating', emoji: '⭐' },
+    { name: 'Distance', emoji: '📍' }
+  ];
 
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
   const [priceNoPreference, setPriceNoPreference] = useState(false);
@@ -152,7 +157,7 @@ function JoinPreferences() {
           <div className="tab-content">
             <h3>Select Cuisine Preferences</h3>
             <p className="tab-description">
-              Choose your preferred type(s) of cuisine. Select multiple options or check "No Preference" to consider all cuisines.
+              Choose your preferred cuisines or select "No Preference" to see all options.
             </p>
             <div className="cuisine-options">
               <label className="no-preference">
@@ -182,6 +187,15 @@ function JoinPreferences() {
                 </label>
               ))}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setCuisinePreferences([]);
+                setCuisineNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'price':
@@ -189,7 +203,7 @@ function JoinPreferences() {
           <div className="tab-content">
             <h3>Select Price Preferences</h3>
             <p className="tab-description">
-              Select your budget range. $ = Inexpensive, $$ = Moderate, $$$ = Expensive, $$$$ = Very Expensive. Choose multiple options or select "No Preference".
+              Choose your preferred price ranges or select "No Preference" to see all options.
             </p>
             <div className="price-options">
               <label className="no-preference">
@@ -200,24 +214,55 @@ function JoinPreferences() {
                 /> 
                 No Preference
               </label>
-              {['$', '$$', '$$$', '$$$$'].map(price => (
-                <label key={price}>
-                  <input 
-                    type="checkbox" 
-                    disabled={priceNoPreference}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setPricePreferences([...pricePreferences, price]);
-                      } else {
-                        setPricePreferences(pricePreferences.filter(item => item !== price));
-                      }
-                    }}
-                    checked={pricePreferences.includes(price)}
-                  /> 
-                  {price}
-                </label>
-              ))}
+              {['$', '$$', '$$$', '$$$$'].map((price, index) => {
+                const priceArray = ['$', '$$', '$$$', '$$$$'];
+                const isSelected = pricePreferences.includes(price);
+                const minSelectedIndex = Math.min(...pricePreferences.map(p => priceArray.indexOf(p)));
+                const maxSelectedIndex = Math.max(...pricePreferences.map(p => priceArray.indexOf(p)));
+                const isInRange = index > minSelectedIndex && index < maxSelectedIndex;
+                const isEndpoint = pricePreferences.includes(price);
+
+                return (
+                  <label key={price}>
+                    <input 
+                      type="checkbox" 
+                      disabled={priceNoPreference || (isInRange && !isEndpoint)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          // Add this price to preferences
+                          setPricePreferences(prev => {
+                            const newPrefs = [...prev, price];
+                            // If we have two or more selections, fill in the range
+                            if (newPrefs.length >= 2) {
+                              const min = Math.min(...newPrefs.map(p => priceArray.indexOf(p)));
+                              const max = Math.max(...newPrefs.map(p => priceArray.indexOf(p)));
+                              return priceArray.filter((_, i) => i >= min && i <= max);
+                            }
+                            return newPrefs;
+                          });
+                        } else {
+                          // Only allow removal if it's an endpoint
+                          if (isEndpoint) {
+                            setPricePreferences(prev => prev.filter(p => p !== price));
+                          }
+                        }
+                      }}
+                      checked={isSelected || isInRange}
+                    /> 
+                    {price}
+                  </label>
+                );
+              })}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setPricePreferences([]);
+                setPriceNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'rating':
@@ -225,57 +270,66 @@ function JoinPreferences() {
           <div className="tab-content">
             <h3>Select Rating Preferences</h3>
             <p className="tab-description">
-              Choose minimum acceptable ratings for restaurants. Select multiple ratings or check "No Preference" to consider all ratings.
+              Choose your minimum acceptable ratings or select "No Preference" to see all options.
             </p>
             <div className="rating-options">
               <label className="no-preference">
                 <input 
                   type="checkbox" 
                   checked={ratingNoPreference}
-                  onChange={(e) => setRatingNoPreference(e.target.checked)}
+                  onChange={(e) => {
+                    setRatingNoPreference(e.target.checked);
+                    if (e.target.checked) {
+                      setRatingPreferences([]);
+                    }
+                  }}
                 /> 
                 No Preference
               </label>
-              {[2.0, 2.5, 3.0, 3.5, 4.0, 4.5].map((rating) => {
-                const fullStars = Math.floor(rating);
-                const hasHalfStar = rating % 1 !== 0;
-                
-                return (
-                  <label key={rating} className="rating-option">
-                    <input 
-                      type="checkbox"
-                      disabled={ratingNoPreference}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setRatingPreferences([...ratingPreferences, rating]);
-                        } else {
-                          setRatingPreferences(ratingPreferences.filter(item => item !== rating));
-                        }
-                      }}
-                      checked={ratingPreferences.includes(rating)}
-                    />
-                    <span>{rating}</span>
-                    <div className="star-display">
-                      {[...Array(fullStars)].map((_, index) => (
-                        <img 
-                          key={`full-${index}`}
-                          src={fullStar}
-                          alt="full star"
-                          className="star-image"
-                        />
-                      ))}
-                      {hasHalfStar && (
-                        <img 
-                          src={halfStar}
-                          alt="half star"
-                          className="star-image"
-                        />
-                      )}
-                    </div>
-                  </label>
-                );
-              })}
+              {['2.0', '2.5', '3.0', '3.5', '4.0', '4.5'].map(rating => (
+                <label key={rating} className="rating-option">
+                  <input 
+                    type="radio"
+                    name="rating"
+                    disabled={ratingNoPreference}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setRatingPreferences([rating]);
+                        setRatingNoPreference(false);
+                      }
+                    }}
+                    checked={ratingPreferences.includes(rating)}
+                  /> 
+                  {rating}+ stars
+                  <div className="star-display">
+                    {[...Array(Math.floor(Number(rating)))].map((_, index) => (
+                      <img 
+                        key={`full-${index}`}
+                        src={fullStar}
+                        alt="full star"
+                        className="star-image"
+                      />
+                    ))}
+                    {rating % 1 !== 0 && (
+                      <img 
+                        src={halfStar}
+                        alt="half star"
+                        className="star-image"
+                      />
+                    )}
+                  </div>
+                </label>
+              ))}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setRatingPreferences([]);
+                setRatingNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       case 'distance':
@@ -283,7 +337,7 @@ function JoinPreferences() {
           <div className="tab-content">
             <h3>Select Distance Preferences</h3>
             <p className="tab-description">
-              Choose the maximum distance you're willing to travel. Select one option or check "No Preference" for any distance.
+              Choose the maximum distance you're willing to travel or select "No Preference" for any distance.
             </p>
             <div className="distance-options">
               <label className="no-preference">
@@ -307,10 +361,34 @@ function JoinPreferences() {
                 </label>
               ))}
             </div>
+            <button 
+              className="reset-button"
+              onClick={() => {
+                setDistancePreferences(null);
+                setDistanceNoPreference(false);
+              }}
+            >
+              Reset
+            </button>
           </div>
         );
       default:
         return <div>Select your preferences</div>;
+    }
+  };
+
+  const isTabComplete = (tabName) => {
+    switch (tabName) {
+      case 'cuisine':
+        return cuisineNoPreference || cuisinePreferences.length > 0;
+      case 'price':
+        return priceNoPreference || pricePreferences.length > 0;
+      case 'rating':
+        return ratingNoPreference || ratingPreferences.length > 0;
+      case 'distance':
+        return distanceNoPreference || distancePreferences !== null;
+      default:
+        return false;
     }
   };
 
@@ -341,11 +419,15 @@ function JoinPreferences() {
           <div className="tabs-section">
             {tabs.map((tab) => (
               <button
-                key={tab}
-                className={`tab-button ${activeTab === tab.toLowerCase() ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.toLowerCase())}
+                key={tab.name}
+                className={`tab-button ${activeTab === tab.name.toLowerCase() ? 'active' : ''} ${isTabComplete(tab.name.toLowerCase()) ? 'completed' : ''}`}
+                onClick={() => setActiveTab(tab.name.toLowerCase())}
               >
-                {tab}
+                <div className="tab-left">
+                  <span className="tab-emoji">{tab.emoji}</span>
+                  <span>{tab.name}</span>
+                </div>
+                <div className="tab-indicator"></div>
               </button>
             ))}
           </div>
