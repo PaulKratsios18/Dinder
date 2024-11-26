@@ -335,31 +335,36 @@ function JoinPreferences() {
       case 'distance':
         return (
           <div className="tab-content">
-            <h3>Select Distance Preferences</h3>
+            <h3>Select Distance Preference</h3>
             <p className="tab-description">
               Choose the maximum distance you're willing to travel or select "No Preference" for any distance.
             </p>
-            <div className="distance-options">
-              <label className="no-preference">
-                <input 
-                  type="checkbox" 
-                  checked={distanceNoPreference}
-                  onChange={(e) => setDistanceNoPreference(e.target.checked)}
-                /> 
-                No Preference
-              </label>
-              {[1, 2, 3, 4, 5, 10, 15, 20].map((miles) => (
-                <label key={miles}>
-                  <input 
-                    type="radio"
-                    name="distance"
-                    disabled={distanceNoPreference}
-                    onChange={() => setDistancePreferences(miles)}
-                    checked={distancePreferences === miles}
-                  />
-                  {`${miles} ${miles === 1 ? 'mile' : 'miles'}`}
-                </label>
-              ))}
+            <label className="no-preference">
+              <input 
+                type="checkbox" 
+                checked={distanceNoPreference}
+                onChange={(e) => {
+                  setDistanceNoPreference(e.target.checked);
+                  if (e.target.checked) {
+                    setDistancePreferences(null);
+                  }
+                }}
+              /> 
+              No Preference
+            </label>
+            <div className="distance-slider">
+              <input 
+                type="range"
+                min="1"
+                max="20"
+                step="1"
+                disabled={distanceNoPreference}
+                value={distancePreferences || 1}
+                onChange={(e) => setDistancePreferences(Number(e.target.value))}
+              />
+              <div className="distance-value">
+                {distancePreferences ? `${distancePreferences} ${distancePreferences === 1 ? 'mile' : 'miles'}` : 'Select distance'}
+              </div>
             </div>
             <button 
               className="reset-button"
