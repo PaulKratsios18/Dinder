@@ -1,7 +1,7 @@
 import React from "react";
 import "./Services.css";
 
-
+// Data for the services section
 const data = [
     {
         id: 1,
@@ -24,6 +24,7 @@ const data = [
 ];
 
 const Services = () => {
+    // Render the services section
     return (
         <section className="services container section" id="services">
             <span>{<br/>}</span>

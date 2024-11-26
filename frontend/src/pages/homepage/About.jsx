@@ -2,6 +2,7 @@ import React from "react";
 import "./About.css";
 
 const About = () => {
+    // Render the about page
     return (
         <section className="about container section" id="about">
             <h1>About Us</h1>
@@ -11,13 +12,15 @@ const About = () => {
             <span>{<br/>}</span>
             <h2>Meet the Team:</h2>
             <div className="team-container">
+                {/* Team member 1 */}
                <div className="team-member">
                    <p>Paul Kratsios</p>
                    <div className="social-links">
-                       <span className="social-link-disabled">GitHub</span>
-                       <span className="social-link-disabled">LinkedIn</span>
+                       <a href="https://github.com/PaulKratsios18" target="_blank" rel="noopener noreferrer">GitHub</a>
+                       <a href="https://www.linkedin.com/in/paulkratsios/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                    </div>
                </div>
+               {/* Team member 2 */}
                <div className="team-member">
                    <p>Brendan Capuzzo</p>
                    <div className="social-links">
@@ -25,6 +28,7 @@ const About = () => {
                        <a href="https://linkedin.com/in/brendan-capuzzo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                    </div>
                </div>
+               {/* Team member 3 */}
                <div className="team-member">
                    <p>Sagar Sahu</p>
                    <div className="social-links">
@@ -32,6 +36,7 @@ const About = () => {
                        <span className="social-link-disabled">LinkedIn</span>
                    </div>
                </div>
+               {/* Team member 4 */}
                <div className="team-member">
                    <p>Ryan Hong</p>
                    <div className="social-links">
@@ -39,6 +44,7 @@ const About = () => {
                        <span className="social-link-disabled">LinkedIn</span>
                    </div>
                </div>
+               {/* Team member 5 */}
                <div className="team-member">
                    <p>Russell Chao</p>
                    <div className="social-links">

@@ -4,8 +4,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import io from 'socket.io-client';
 
 function LobbyHost() {
+  // Navigate between pages
   const navigate = useNavigate();
   const location = useLocation();
+
+  // State variables
   const [roomCode, setRoomCode] = useState(location.state?.roomCode || '');
   const [participants, setParticipants] = useState([]);
   const [hostName] = useState('');
@@ -24,6 +27,7 @@ function LobbyHost() {
   const [isStartLoading, setIsStartLoading] = useState(false);
   const [isPreferencesLoading, setIsPreferencesLoading] = useState(false);
 
+  // Copy invite link to clipboard
   const copyInviteLink = () => {
     const link = `${window.location.origin}/preferences-join?code=${roomCode}`;
     navigator.clipboard.writeText(link);
@@ -31,12 +35,14 @@ function LobbyHost() {
     setTimeout(() => setCopiedInvite(false), 1500); // Reset after 1.5 seconds
   };
 
+  // Copy group code to clipboard
   const copyGroupCode = () => {
     navigator.clipboard.writeText(roomCode);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 1500); // Reset after 1.5 seconds
   };
 
+  // Generate room code
   useEffect(() => {
     if (!roomCode) {
       const generateRoomCode = () => {
@@ -51,6 +57,7 @@ function LobbyHost() {
       const newCode = generateRoomCode();
       setRoomCode(newCode);
 
+      // Create session
       fetch('http://localhost:5000/api/sessions/create', {
         method: 'POST',
         headers: {
@@ -66,7 +73,10 @@ function LobbyHost() {
       .then(data => {
         console.log('Session created:', data);
         if (data.session?.participants) {
-          setParticipants(data.session.participants);
+          const filteredParticipants = data.session.participants.filter(
+            p => p.user_id !== hostId && !p.isHost
+          );
+          setParticipants(filteredParticipants);
         }
       })
       .catch(error => console.error('Error creating session:', error));
@@ -88,24 +98,6 @@ function LobbyHost() {
 
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
-      // console.log('Received participants update:', updatedParticipants);
-      // const prevCount = participants.length;
-      // const newCount = updatedParticipants.length;
-      
-      // // Show notification when someone joins
-      // if (newCount > prevCount) {
-      //   const newParticipant = updatedParticipants[updatedParticipants.length - 1];
-      //   setNotification(`${newParticipant.name} joined the session`);
-      // }
-      // // Show notification when someone leaves
-      // else if (newCount < prevCount) {
-      //   setNotification('A participant left the session');
-      // }
-      
-      // // Update participants list
-      // const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
-      // setParticipants(filteredParticipants);
-
       // Filter out host before doing any comparisons or updates
       const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host' && !p.isHost);
       const prevCount = participants.length;
@@ -144,11 +136,13 @@ function LobbyHost() {
   }, [notification]);
 
   useEffect(() => {
+    // Log current hostId and participants
     console.log('Current hostId:', hostId);
     console.log('Current participants:', participants);
     participants.forEach(p => console.log('Full participant object:', JSON.stringify(p, null, 2)));
   }, [participants, hostId]);
 
+  // Navigate to preferences host page
   const handleSelectPreferences = () => {
     setPreferencesSet(true);
     navigate('/preferences-host', { 
@@ -156,6 +150,7 @@ function LobbyHost() {
     });
   };
 
+  // Start session
   const handleStartSession = async () => {
     try {
         const response = await fetch(`http://localhost:5000/api/sessions/${roomCode}/start`, {
@@ -180,6 +175,7 @@ function LobbyHost() {
     }
   };
 
+  // Render the lobby host page
   return (
     <section className="lobby-section">
       {/* <div className="join-instructions">
@@ -234,7 +230,7 @@ function LobbyHost() {
         <button 
           className="preferences-button" 
           onClick={handleSelectPreferences}
-          disabled={participants.some(participant => participant.user_id === hostId) || isPreferencesLoading}
+          disabled={participants.some(p => p.user_id === hostId && p.preferences) || isPreferencesLoading}
         >
           <div className="button-content">
             {isPreferencesLoading && <div className="loading-spinner" />}

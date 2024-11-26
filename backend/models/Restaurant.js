@@ -1,6 +1,7 @@
 // models/Restaurant.js
 const mongoose = require('mongoose');
 
+// Define restaurant schema
 const restaurantSchema = new mongoose.Schema({
   sessionId: { type: String, required: true },
   restaurantId: { type: String, required: true },

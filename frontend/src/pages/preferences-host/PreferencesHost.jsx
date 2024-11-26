@@ -4,13 +4,16 @@ import './PreferencesHost.css';
 import fullStar from '../../assets/full-star.png';
 import halfStar from '../../assets/half-star.png';
 
+// Location search component
 const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
+  // State variables
   const [searchInput, setSearchInput] = useState(selectedLocation?.address || '');
   const searchBoxRef = useRef(null);
   const autocompleteRef = useRef(null);
   const mapRef = useRef(null);
   const markerRef = useRef(null);
 
+  // Create marker
   const createMarker = useCallback((map, position, title) => {
     if (markerRef.current) {
       markerRef.current.setMap(null);
@@ -23,6 +26,7 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
     });
   }, []);
 
+  // Handle place select
   const handlePlaceSelect = useCallback((map) => {
     const place = autocompleteRef.current.getPlace();
     
@@ -44,7 +48,9 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
     }
   }, [onLocationSelect, createMarker]);
 
+  // Initialize search box
   useEffect(() => {
+    // Initialize search box
     const initializeSearchBox = () => {
       console.log('Initializing map...');
       console.log('Google object available:', !!window.google);
@@ -53,6 +59,7 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
 
       if (!window.google || !searchBoxRef.current || !mapRef.current) return;
 
+      // Initialize map
       try {
         const map = new window.google.maps.Map(mapRef.current, {
           center: selectedLocation 
@@ -90,13 +97,15 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
       }
     };
 
+    // Initialize search box after 2 seconds
     const timer = setTimeout(() => {
       initializeSearchBox();
-    }, 2000);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [handlePlaceSelect, selectedLocation, createMarker]);
 
+  // Render location search
   return (
     <div className="location-search">
       <div className="location-content">
@@ -123,13 +132,16 @@ const LocationSearch = ({ onLocationSelect, selectedLocation }) => {
   );
 };
 
+// Render preferences host page
 function HostPreferences() {
+  // Initialize navigation and location
   const navigate = useNavigate();
   const location = useLocation();
   const { roomCode, hostId } = location.state || {};
   const [activeTab, setActiveTab] = useState('cuisine');
   const [name, setName] = useState('');
 
+  // Initialize tabs
   const tabs = [
     { name: 'Cuisine', emoji: '🍽️' },
     { name: 'Price', emoji: '💰' },
@@ -138,6 +150,7 @@ function HostPreferences() {
     { name: 'Location', emoji: '🗺️' }
   ];
 
+  // Initialize preferences
   const [cuisineNoPreference, setCuisineNoPreference] = useState(false);
   const [priceNoPreference, setPriceNoPreference] = useState(false);
   const [ratingNoPreference, setRatingNoPreference] = useState(false);
@@ -151,6 +164,7 @@ function HostPreferences() {
 
   const [locationPreference, setLocationPreference] = useState(null);
 
+  // Validate preferences
   const validatePreferences = () => {
     const errors = [];
     
@@ -176,6 +190,7 @@ function HostPreferences() {
     return errors;
   };
 
+  // Handle save preferences
   const handleSavePreferences = async () => {
     const errors = validatePreferences();
     if (errors.length > 0) {
@@ -184,8 +199,10 @@ function HostPreferences() {
     }
     
     try {
+      // Get user ID
       const userId = localStorage.getItem('userId');
-      
+
+      // Save preferences
       const response = await fetch('http://localhost:5000/api/preferences', {
         method: 'POST',
         headers: {
@@ -212,13 +229,16 @@ function HostPreferences() {
 
       console.log('Response:', response);
 
+      // Check if response is ok
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
+      // Get data
       const data = await response.json();
       console.log('Success:', data);
       
+      // Navigate to group lobby host
       console.log('About to navigate to group lobby host');
       navigate('/lobby-host', { state: { roomCode, hostId } });
       console.log('Navigation completed');
@@ -229,8 +249,10 @@ function HostPreferences() {
     }
   };
 
+  // Render tab content
   const renderTabContent = () => {
     switch (activeTab.toLowerCase()) {
+      // Render cuisine tab
       case 'cuisine':
         return (
           <div className="tab-content">
@@ -277,6 +299,7 @@ function HostPreferences() {
             </button>
           </div>
         );
+      // Render price tab
       case 'price':
         return (
           <div className="tab-content">
@@ -344,6 +367,7 @@ function HostPreferences() {
             </button>
           </div>
         );
+      // Render rating tab
       case 'rating':
         return (
           <div className="tab-content">
@@ -411,6 +435,7 @@ function HostPreferences() {
             </button>
           </div>
         );
+      // Render distance tab
       case 'distance':
         return (
           <div className="tab-content">
@@ -456,6 +481,7 @@ function HostPreferences() {
             </button>
           </div>
         );
+      // Render location tab
       case 'location':
         return (
           <div className="tab-content">
@@ -487,6 +513,7 @@ function HostPreferences() {
     }
   };
 
+  // Check if tab is complete
   const isTabComplete = (tabName) => {
     switch (tabName) {
       case 'cuisine':
@@ -504,6 +531,7 @@ function HostPreferences() {
     }
   };
 
+  // Render preferences host page
   return (
     <section className="main-section">
       <div className="input-section">
