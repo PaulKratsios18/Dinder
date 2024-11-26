@@ -71,7 +71,7 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
                 { status: 'completed' }
             );
 
-            // Get restaurants with >50% positive votes
+            // Get all restaurants with their vote counts and filter for >50% positive votes
             const restaurantVotes = await Vote.aggregate([
                 { $match: { sessionId: sessionId } },
                 { $group: {
@@ -88,26 +88,24 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
                 { $limit: 3 }
             ]);
 
-            if (restaurantVotes.length > 0) {
-                const topRestaurants = await Restaurant.find({
+            // Get top restaurants that met the 50% threshold
+            const topRestaurants = restaurantVotes.length > 0 ? 
+                await Restaurant.find({
                     _id: { $in: restaurantVotes.map(r => r._id) }
-                });
+                }).then(restaurants => restaurants.map(rest => ({
+                    ...rest.toObject(),
+                    positiveVotes: restaurantVotes.find(r => 
+                        r._id.toString() === rest._id.toString()
+                    ).positiveVotes,
+                    totalParticipants: session.participants.length
+                }))) : [];
 
-                return {
-                    success: true,
-                    isMatch: false,
-                    showResults: true,
-                    topRestaurants: topRestaurants.map(rest => ({
-                        ...rest.toObject(),
-                        positiveVotes: restaurantVotes.find(r => 
-                            r._id.toString() === rest._id.toString()
-                        ).positiveVotes,
-                        totalParticipants: session.participants.length,
-                        openingHours: rest.openingHours,
-                        openStatus: rest.openStatus
-                    }))
-                };
-            }
+            return {
+                success: true,
+                isMatch: false,
+                showResults: true,
+                topRestaurants: topRestaurants
+            };
         }
 
         // Calculate votes for current restaurant

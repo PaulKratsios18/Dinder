@@ -8,16 +8,18 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
+    "axios": "^1.6.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "haversine": "^1.1.1",
     "http": "^0.0.1-security",
     "mongoose": "^7.0.3",
+    "react-confetti": "^6.1.0",
+    "react-use": "^17.5.1",
     "socket.io": "^4.8.1",
-    "ws": "^8.18.0",
-    "@googlemaps/google-maps-services-js": "^3.4.0",
-    "axios": "^1.6.7",
-    "haversine": "^1.1.1"
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

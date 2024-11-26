@@ -1,45 +1,24 @@
 .results-page {
-    padding: 2rem;
+    padding: 20px 2rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 140px);
     background-color: #ed7874;
-}
-
-.results-page h1 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 3rem;
-    color: #001f3f;
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 .results-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-}
-
-.result-card {
-    position: relative;
-    background: #FAF1E5;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    transition: transform 0.2s;
-    font-family: 'Fredoka One', cursive;
-}
-
-.result-card:hover {
-    transform: translateY(-5px);
+    align-items: center;
+    padding-bottom: 2rem;
 }
 
 .rank-badge {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: #023047;
+    top: 20px;
+    right: 20px;
+    background: #FAF1E5;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -48,55 +27,42 @@
     justify-content: center;
     font-weight: bold;
     font-size: 1.2rem;
-    color: #FAF1E5;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 6;
+}
+
+.vote-count-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #FAF1E5;
+    padding: 6px 12px;
+    border-radius: 15px;
+    color: #333;
+    font-weight: bold;
+    z-index: 6;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.restaurant-image {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-}
-
-.restaurant-details {
-    padding: 1.5rem;
-    flex: 1;
-}
-
-.restaurant-details h2 {
-    color: #001f3f;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.vote-info {
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    color: #023047;
-}
-
-.vote-count {
-    background: #ed7874;
-    padding: 0.5rem 1rem;
+/* Import the relevant styles from RestaurantSwiper.css */
+.restaurant-card {
+    position: relative;
+    width: 600px;
+    max-width: 85vw;
+    height: 60vh;
     border-radius: 20px;
-    color: #FAF1E5;
+    background: #FAF1E5;
+    box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin: 20px auto;
 }
 
-.restaurant-info {
-    color: #023047;
-    line-height: 1.6;
-}
-
-.hours-section {
-    margin: 10px 0;
-}
-
-.opening-hours {
-    font-size: 0.9em;
-    margin-top: 5px;
-}
-
-.day-hours {
-    padding: 2px 0;
-    color: #023047;
+.results-page h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }

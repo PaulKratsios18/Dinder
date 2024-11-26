@@ -12,7 +12,8 @@ function formatRestaurantForTemplate(restaurantData) {
             ? restaurantData.Photos[0] 
             : 'default-restaurant-image.jpg',
         openStatus: restaurantData.openStatus || 'Status unknown',
-        wheelchairAccessible: restaurantData.WheelchairAccessible || 'Unknown'
+        wheelchairAccessible: restaurantData.WheelchairAccessible || 'Unknown',
+        reviewCount: restaurantData.ReviewCount || 0
     };
 }
 

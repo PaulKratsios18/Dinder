@@ -3,8 +3,12 @@ import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
 import './RestaurantSwiper.css';
 import Results from '../results/Results';
+import Header from '../../components/Header';
+import { useWindowSize } from 'react-use';
+import Confetti from 'react-confetti';
 
 const RestaurantSwiper = () => {
+    const { width, height } = useWindowSize();
     const { sessionId } = useParams();
     const [restaurants, setRestaurants] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,6 +22,7 @@ const RestaurantSwiper = () => {
     const [dragStart, setDragStart] = useState(0);
     const [dragOffset, setDragOffset] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
+    const [showHoursMap, setShowHoursMap] = useState({});
 
     useEffect(() => {
         // Note: When testing multiple users, use different browsers or incognito mode
@@ -101,7 +106,7 @@ const RestaurantSwiper = () => {
             sessionId
         });
         
-        socket.emit('submitVote', {
+        socket.emit('vote', {
             sessionId,
             userId,
             restaurantId: restaurant._id,
@@ -111,9 +116,11 @@ const RestaurantSwiper = () => {
         setCurrentIndex(prev => prev + 1);
     };
 
-    const toggleHours = (e) => {
-        e.stopPropagation(); // Prevent triggering other click events
-        setShowHours(!showHours);
+    const toggleHours = (restaurantId) => {
+        setShowHoursMap(prev => ({
+            ...prev,
+            [restaurantId]: !prev[restaurantId]
+        }));
     };
 
     const toggleDetails = (e) => {
@@ -159,38 +166,83 @@ const RestaurantSwiper = () => {
 
     if (matchFound) {
         return (
-            <div className="match-overlay">
-                <h2>It's a Match! 🎉</h2>
-                <h3>{matchFound.name}</h3>
-                <img src={matchFound.photo} alt={matchFound.name} />
-                <div className="match-details">
-                    <p><strong>Rating:</strong> {matchFound.rating} ⭐</p>
-                    <p><strong>Price:</strong> {matchFound.price}</p>
-                    <p><strong>Cuisine:</strong> {matchFound.cuisine}</p>
-                    <p><strong>Address:</strong> {matchFound.address}</p>
-                    <p><strong>Current Status:</strong> {matchFound.openStatus}</p>
-                    {matchFound.openingHours && matchFound.openingHours.length > 0 && (
-                        <div className="hours-section">
-                            <strong>Hours:</strong>
-                            <div className="opening-hours">
-                                {matchFound.openingHours.map((day, index) => (
-                                    <div key={index} className="day-hours">{day}</div>
-                                ))}
+            <>
+                <Header />
+                <div className="restaurant-swiper">
+                    <div className="match-title">It's a Match! 🎉</div>
+                    <div className="restaurant-card">
+                        <img 
+                            src={matchFound.photo || '/assets/default-restaurant.jpg'} 
+                            alt={matchFound.name} 
+                            className="restaurant-image"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = '/assets/default-restaurant.jpg';
+                            }}
+                        />
+                        <div className={`restaurant-basic-info ${showDetails ? 'hide' : ''}`}>
+                            <h2>{matchFound.name}</h2>
+                            <div className="quick-info">
+                                <span>{matchFound.rating} ⭐</span>
+                                <span>{matchFound.price}</span>
+                                <span>{matchFound.openStatus}</span>
                             </div>
                         </div>
-                    )}
-                    {matchFound.wheelchairAccessible !== 'Unknown' && (
-                        <p><strong>Accessibility:</strong> 
-                            {matchFound.wheelchairAccessible === 'Yes' ? '♿ Accessible' : 'Not wheelchair accessible'}
-                        </p>
-                    )}
-                    <p><strong>Distance:</strong> {matchFound.distance} km</p>
+                        <button className="details-button" onClick={toggleDetails}>
+                            {showDetails ? 'Less Info ▼' : 'More Info ▲'}
+                        </button>
+                        <div className={`restaurant-details ${showDetails ? 'show' : ''}`}>
+                            <h2>{matchFound.name}</h2>
+                            <div className="info-section">
+                                <div className="info-tag">
+                                    <span>⭐</span> {matchFound.rating}
+                                </div>
+                                <div className="info-tag">{matchFound.price}</div>
+                                <div className="info-tag">{matchFound.cuisine}</div>
+                                <div className="info-tag">🚶 {matchFound.distance} km</div>
+                                <div className="info-tag">🕒 {matchFound.openStatus}</div>
+                            </div>
+                            <div className="address-section">
+                                <div className="info-tag">📍 {matchFound.address}</div>
+                                {matchFound.wheelchairAccessible === 'Yes' && (
+                                    <div className="info-tag">♿ Accessible</div>
+                                )}
+                            </div>
+                            {matchFound.openingHours?.length > 0 && (
+                                <div className="hours-section">
+                                    <div className="info-tag hours-toggle" onClick={() => toggleHours(matchFound._id)}>
+                                        <span>🕒</span> Hours {showHoursMap[matchFound._id] ? '▼' : '▶'}
+                                    </div>
+                                    <div className={`opening-hours ${showHoursMap[matchFound._id] ? 'show' : ''}`}>
+                                        {matchFound.openingHours.map((day, index) => (
+                                            <div key={index} className="day-hours">{day}</div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    {width > 0 && height > 0 && <Confetti width={width} height={height} />}
                 </div>
-            </div>
+            </>
         );
     }
 
     if (showResults) {
+        if (topRestaurants.length === 0) {
+            return (
+                <>
+                    <Header />
+                    <div className="restaurant-swiper">
+                        <div className="no-matches">
+                            <h2>No Matches Found</h2>
+                            <p>No restaurants received more than 50% of the group's votes.</p>
+                            <p>Please try again with new preferences.</p>
+                        </div>
+                    </div>
+                </>
+            );
+        }
         return <Results topRestaurants={topRestaurants} />;
     }
 
@@ -207,77 +259,81 @@ const RestaurantSwiper = () => {
     if (!currentRestaurant) return <div>Loading...</div>;
 
     return (
-        <div className="restaurant-swiper">
-            <div 
-                className="restaurant-card"
-                style={{
-                    transform: `translateX(${dragOffset}px) rotate(${dragOffset * 0.1}deg)`,
-                    transition: isDragging ? 'none' : 'transform 0.3s ease'
-                }}
-                onMouseDown={handleDragStart}
-                onMouseMove={handleDragMove}
-                onMouseUp={handleDragEnd}
-                onMouseLeave={handleDragEnd}
-                onTouchStart={handleDragStart}
-                onTouchMove={handleDragMove}
-                onTouchEnd={handleDragEnd}
-            >
-                <img 
-                    src={currentRestaurant.photo || '/assets/default-restaurant.jpg'} 
-                    alt={currentRestaurant.name} 
-                    className="restaurant-image"
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = '/assets/default-restaurant.jpg';
+        <>
+            <Header />
+            <div className="restaurant-swiper">
+                <div 
+                    className="restaurant-card"
+                    style={{
+                        transform: `translateX(${dragOffset}px) rotate(${dragOffset * 0.1}deg)`,
+                        transition: isDragging ? 'none' : 'transform 0.3s ease'
                     }}
-                />
-                <div className="restaurant-basic-info">
-                    <h2>{currentRestaurant.name}</h2>
-                    <div className="quick-info">
-                        <span>{currentRestaurant.rating} ⭐</span>
-                        <span>{currentRestaurant.price}</span>
-                        <span>{currentRestaurant.openStatus}</span>
+                    onMouseDown={handleDragStart}
+                    onMouseMove={handleDragMove}
+                    onMouseUp={handleDragEnd}
+                    onMouseLeave={handleDragEnd}
+                    onTouchStart={handleDragStart}
+                    onTouchMove={handleDragMove}
+                    onTouchEnd={handleDragEnd}
+                >
+                    <img 
+                        src={currentRestaurant.photo || '/assets/default-restaurant.jpg'} 
+                        alt={currentRestaurant.name} 
+                        className="restaurant-image"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/assets/default-restaurant.jpg';
+                        }}
+                    />
+                    <div className={`restaurant-basic-info ${showDetails ? 'hide' : ''}`}>
+                        <h2>{currentRestaurant.name}</h2>
+                        <div className="quick-info">
+                            <span>{currentRestaurant.rating} ⭐</span>
+                            <span>{currentRestaurant.price}</span>
+                            <span>{currentRestaurant.openStatus}</span>
+                        </div>
                     </div>
-                </div>
-
-                <div className={`restaurant-details ${showDetails ? 'show' : ''}`}>
-                    <p><strong>Cuisine:</strong> {currentRestaurant.cuisine}</p>
-                    <p><strong>Address:</strong> {currentRestaurant.address}</p>
-                    {currentRestaurant.openingHours?.length > 0 && (
-                        <div className="hours-section">
-                            <div className="hours-header" onClick={toggleHours}>
-                                <strong>Hours</strong>
-                                <span className={`hours-caret ${showHours ? 'up' : 'down'}`}>
-                                    {showHours ? '▲' : '▼'}
-                                </span>
+                    <button className="details-button" onClick={toggleDetails}>
+                        {showDetails ? 'Less Info ' : 'More Info ▲'}
+                    </button>
+                    <div className={`restaurant-details ${showDetails ? 'show' : ''}`}>
+                        <h2>{currentRestaurant.name}</h2>
+                        <div className="info-section">
+                            <div className="info-tag">
+                                <span>⭐</span> {currentRestaurant.rating}
                             </div>
-                            {showHours && (
-                                <div className="opening-hours">
+                            <div className="info-tag">{currentRestaurant.price}</div>
+                            <div className="info-tag">{currentRestaurant.cuisine}</div>
+                            <div className="info-tag">🚶 {currentRestaurant.distance} km</div>
+                            <div className="info-tag">🕒 {currentRestaurant.openStatus}</div>
+                        </div>
+                        <div className="address-section">
+                            <div className="info-tag">📍 {currentRestaurant.address}</div>
+                            {currentRestaurant.wheelchairAccessible === 'Yes' && (
+                                <div className="info-tag">♿ Accessible</div>
+                            )}
+                        </div>
+                        {currentRestaurant.openingHours?.length > 0 && (
+                            <div className="hours-section">
+                                <div className="info-tag hours-toggle" onClick={() => toggleHours(currentRestaurant._id)}>
+                                    <span>🕒</span> Hours {showHoursMap[currentRestaurant._id] ? '▼' : '▶'}
+                                </div>
+                                <div className={`opening-hours ${showHoursMap[currentRestaurant._id] ? 'show' : ''}`}>
                                     {currentRestaurant.openingHours.map((day, index) => (
                                         <div key={index} className="day-hours">{day}</div>
                                     ))}
                                 </div>
-                            )}
-                        </div>
-                    )}
-                    {currentRestaurant.wheelchairAccessible !== 'Unknown' && (
-                        <p><strong>Accessibility:</strong> 
-                            {currentRestaurant.wheelchairAccessible === 'Yes' ? '♿ Accessible' : 'Not wheelchair accessible'}
-                        </p>
-                    )}
-                    <p><strong>Distance:</strong> {currentRestaurant.distance} km</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className="vote-buttons">
+                    <button onClick={() => handleVoteWithAnimation(false)} className="vote-no">✗</button>
+                    <button onClick={() => handleVoteWithAnimation(true)} className="vote-yes">✓</button>
                 </div>
             </div>
-
-            <div className="vote-buttons">
-                <button onClick={() => handleVoteWithAnimation(false)} className="vote-no">✗</button>
-                <button onClick={() => handleVoteWithAnimation(true)} className="vote-yes">✓</button>
-            </div>
-            
-            <button className="details-button" onClick={toggleDetails}>
-                {showDetails ? 'Less Info ▲' : 'More Info ▼'}
-            </button>
-        </div>
+        </>
     );
 };
 

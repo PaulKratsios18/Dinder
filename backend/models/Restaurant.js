@@ -28,7 +28,8 @@ const restaurantSchema = new mongoose.Schema({
     default: Date.now,
     expires: 86400 // Documents will be automatically deleted after 24 hours
   },
-  openingHours: [String] // Array of strings for weekday_text
+  openingHours: [String], // Array of strings for weekday_text
+  reviewCount: { type: Number, default: 0 },
 });
 
 // Create compound unique index

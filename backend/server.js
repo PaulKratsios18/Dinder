@@ -81,39 +81,34 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
   });
 
-  socket.on('submitVote', async ({ sessionId, restaurantId, vote }) => {
-    try {
-        const result = await handleVote(sessionId, socket.userId, restaurantId, vote);
-        
-        if (result.isMatch) {
-            const matchedRestaurant = await Restaurant.findById(restaurantId);
-            io.to(sessionId).emit('matchFound', {
-                name: matchedRestaurant.name,
-                address: matchedRestaurant.address,
-                rating: matchedRestaurant.rating,
-                price: matchedRestaurant.price,
-                cuisine: matchedRestaurant.cuisine,
-                photo: matchedRestaurant.photo,
-                openStatus: matchedRestaurant.openStatus,
-                openingHours: matchedRestaurant.openingHours,
-                wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
-                distance: matchedRestaurant.distance
-            });
-        }
-        
-        if (result.showResults) {
-            io.to(sessionId).emit('showResults', {
-                topRestaurants: result.topRestaurants
-            });
-        } else {
-            io.to(sessionId).emit('voteUpdate', {
-                restaurantId,
-                votes: result.votes
-            });
-        }
-    } catch (error) {
-        console.error('Error handling vote:', error);
-        socket.emit('error', { message: 'Failed to process vote' });
+  socket.on('vote', async ({ sessionId, restaurantId, vote, userId }) => {
+    const result = await handleVote(sessionId, userId, restaurantId, vote);
+    
+    if (result.isMatch) {
+        const matchedRestaurant = await Restaurant.findById(restaurantId);
+        io.to(sessionId).emit('matchFound', {
+            name: matchedRestaurant.name,
+            address: matchedRestaurant.address,
+            rating: matchedRestaurant.rating,
+            price: matchedRestaurant.price,
+            cuisine: matchedRestaurant.cuisine,
+            photo: matchedRestaurant.photo,
+            openStatus: matchedRestaurant.openStatus,
+            openingHours: matchedRestaurant.openingHours,
+            wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
+            distance: matchedRestaurant.distance
+        });
+    }
+    
+    if (result.showResults) {
+        io.to(sessionId).emit('showResults', {
+            topRestaurants: result.topRestaurants
+        });
+    } else {
+        io.to(sessionId).emit('voteUpdate', {
+            restaurantId,
+            votes: result.votes
+        });
     }
   });
 
