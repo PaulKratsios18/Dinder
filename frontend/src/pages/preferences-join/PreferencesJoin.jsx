@@ -441,7 +441,7 @@ function JoinPreferences() {
             type="text"
             placeholder="Enter Room Code"
             value={roomCode}
-            onChange={(e) => setRoomCode(e.target.value)}
+            onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
           />
         </div>
         <div className="input-group">
