@@ -466,6 +466,10 @@ function HostPreferences() {
                 value={distancePreferences || 1}
                 onChange={(e) => setDistancePreferences(Number(e.target.value))}
               />
+              <div className="distance-labels">
+                <span>1 mile</span>
+                <span>20 miles</span>
+              </div>
               <div className="distance-value">
                 {distancePreferences ? `${distancePreferences} ${distancePreferences === 1 ? 'mile' : 'miles'}` : 'Select distance'}
               </div>
