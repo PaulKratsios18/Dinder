@@ -36,14 +36,13 @@ const RestaurantSwiper = () => {
         // Note: When testing multiple users, use different browsers or incognito mode
         // as localStorage is shared within the same browser
         
-        const newSocket = io('http://localhost:5000');
+        const newSocket = io(process.env.REACT_APP_BACKEND_URL);
         setSocket(newSocket);
 
         // Get the userId from localStorage that was set during join/host
         const userId = localStorage.getItem('userId');
         console.log('RestaurantSwiper connecting with userId:', userId);
 
-        // Store userId in socket for this connection
         newSocket.auth = { userId };
         
         newSocket.emit('joinSession', { 
@@ -58,42 +57,23 @@ const RestaurantSwiper = () => {
 
         // Add debug logging for vote updates
         newSocket.on('voteUpdate', (data) => {
-            console.log('Vote update received for user:', userId, data);
-            setVotes(prev => ({
-                ...prev,
-                [data.restaurantId]: data.votes
-            }));
-        });
-
-        // Listen for match found
-        newSocket.on('matchFound', (data) => {
-            console.log('Match found received:', data);
-            setMatchFound(data);
-            // Stop further voting by setting currentIndex to a high number
-            setCurrentIndex(1000);
-        });
-
-        newSocket.on('showResults', (data) => {
-            console.log('Results received:', data);
-            setShowResults(true);
-            setTopRestaurants(data.topRestaurants || []);
-            setCurrentIndex(1000);
-        });
-
-        const fetchRestaurants = async () => {
-            const response = await fetch(`http://localhost:5000/api/sessions/${sessionId}/ranked-restaurants`);
-            const data = await response.json();
-            if (data.success) {
-                setRestaurants(data.restaurants);
+            console.log('Vote update received:', data);
+            if (data.isMatch) {
+                console.log('Match found!', data.matchData);
+                setMatchFound(data.matchData);
+            } else if (data.showResults) {
+                console.log('Show results!', data.topRestaurants);
+                setShowResults(true);
+                setTopRestaurants(data.topRestaurants);
+            } else {
+                setVotes(prev => ({
+                    ...prev,
+                    [data.restaurantId]: data.votes
+                }));
             }
-        };
-
-        fetchRestaurants();
+        });
 
         return () => {
-            newSocket.off('matchFound');
-            newSocket.off('voteUpdate');
-            newSocket.off('showResults');
             newSocket.close();
         };
     }, [sessionId]);

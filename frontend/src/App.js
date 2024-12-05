@@ -58,6 +58,8 @@ function AppLayout() {
 
 // Main App component
 function App() {
+  console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);
+
   return (
     <Router>
       <Routes>

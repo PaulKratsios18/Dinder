@@ -82,7 +82,7 @@ function JoinPreferences() {
     
     try {
       // First, check the session status and participant count
-      const checkResponse = await fetch(`http://localhost:5000/api/sessions/${roomCode}/participants`);
+      const checkResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/sessions/${roomCode}/participants`);
       const sessionData = await checkResponse.json();
 
       // Check if response is ok
@@ -114,7 +114,7 @@ function JoinPreferences() {
         localStorage.setItem('userId', userId);
 
         // Save preferences
-        const response = await fetch('http://localhost:5000/api/preferences', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/preferences`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

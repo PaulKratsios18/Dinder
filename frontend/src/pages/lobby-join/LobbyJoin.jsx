@@ -16,44 +16,32 @@ function LobbyJoin() {
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
+    console.log('Join component mounting with:', { roomCode, userName });
+    
     // Connect to WebSocket
-    const socket = io('http://localhost:5000');
+    const socket = io(process.env.REACT_APP_BACKEND_URL);
     setSocket(socket);
 
     // Join session room with the correct userId from navigation state
-    socket.emit('joinSession', { 
+    const joinData = { 
       roomCode, 
       userName,
-      userId: location.state?.userId,  // Use the userId passed from PreferencesJoin
+      userId: location.state?.userId,
       isHost: false 
-    });
+    };
+    console.log('Emitting join session with:', joinData);
+    socket.emit('joinSession', joinData);
 
-    // Listen for participants updates
     socket.on('participantsUpdate', (updatedParticipants) => {
-      console.log('Received participants update:', updatedParticipants);
-      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host');
-      const prevCount = participants.length;
-      const newCount = updatedParticipants.length;
-      
-      // Show notification when someone joins
-      if (newCount > prevCount) {
-        const newParticipant = updatedParticipants[updatedParticipants.length - 1];
-        setNotification(`${newParticipant.name} joined the session`);
-      }
-      // Show notification when someone leaves
-      else if (newCount < prevCount) {
-        setNotification('A participant left the session');
-      }
-      
-      // Update participants list
-      setParticipants(updatedParticipants);
-      
-      // Clear notification after 3 seconds
-      setTimeout(() => setNotification(null), 3000);
+      console.log('Join received raw participants:', updatedParticipants);
+      const filteredParticipants = updatedParticipants.filter(p => p.name);
+      console.log('Join filtered participants:', filteredParticipants);
+      setParticipants(filteredParticipants);
     });
 
     // Listen for navigation event
     socket.on('navigateToRestaurants', ({ sessionId }) => {
+        console.log('Received navigate event, going to restaurants page');
         navigate(`/sessions/${sessionId}/restaurants`);
     });
 

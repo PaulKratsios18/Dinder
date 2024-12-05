@@ -58,7 +58,7 @@ function LobbyHost() {
       setRoomCode(newCode);
 
       // Create session
-      fetch('http://localhost:5000/api/sessions/create', {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/sessions/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ function LobbyHost() {
 
   useEffect(() => {
     // Connect to WebSocket
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io(process.env.REACT_APP_BACKEND_URL);
     setSocket(newSocket);
 
     // Join session room
@@ -98,22 +98,26 @@ function LobbyHost() {
 
     // Listen for participants updates
     newSocket.on('participantsUpdate', (updatedParticipants) => {
-      // Filter out host before doing any comparisons or updates
-      const filteredParticipants = updatedParticipants.filter(p => p.name !== 'Host' && !p.isHost);
+      console.log('Host received raw participants:', updatedParticipants);
+      
+      // Filter out duplicates and ensure we have all participant data
+      const filteredParticipants = updatedParticipants.filter(p => {
+        console.log('Checking participant:', p);
+        return !p.isHost && p.name && p.name !== 'Host';
+      });
+      
+      console.log('Host filtered participants:', filteredParticipants);
+      
       const prevCount = participants.length;
       const newCount = filteredParticipants.length;
       
       // Show notification when someone joins
       if (newCount > prevCount) {
-          const newParticipant = filteredParticipants[filteredParticipants.length - 1];
-          setNotification(`${newParticipant.name} joined the session`);
-      }
-      // Show notification when someone leaves
-      else if (newCount < prevCount) {
-          setNotification('A participant left the session');
+        const newParticipant = filteredParticipants[filteredParticipants.length - 1];
+        console.log('New participant joined:', newParticipant);
+        setNotification(`${newParticipant.name} joined the session`);
       }
       
-      // Update participants list
       setParticipants(filteredParticipants);
     });
 
@@ -153,25 +157,25 @@ function LobbyHost() {
   // Start session
   const handleStartSession = async () => {
     try {
-        const response = await fetch(`http://localhost:5000/api/sessions/${roomCode}/start`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        const data = await response.json();
-        
-        if (response.ok && data.success) {
-            // Emit session started event to all users
-            socket.emit('sessionStarted', { sessionId: roomCode });
-            // Navigate host to restaurant page
-            navigate(`/sessions/${roomCode}/restaurants`);
-        } else {
-            throw new Error(data.message || 'Failed to start session');
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/sessions/${roomCode}/start`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Session started:', data);
+
+      // Navigate to restaurant swiper
+      navigate(`/sessions/${roomCode}/restaurants`);
     } catch (error) {
-        console.error('Error starting session:', error);
+      console.error('Error starting session:', error);
+      setErrorMessage('Failed to start session. Please try again.');
     }
   };
 

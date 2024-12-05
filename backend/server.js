@@ -23,85 +23,84 @@ const { handleVote } = require('./services/votes/voteHandler');
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
-
-// Create Socket.IO server with CORS configuration
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3001",
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
 
-// Middleware
+// Enable CORS for all origins
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
-  credentials: true
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Middleware
 app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
 
+// At the top of your file, add this
+const activeSessions = new Map();
+
 // Socket.IO connection handling
 io.on('connection', (socket) => {
-  // Store userId in socket instance
-  const userId = socket.handshake.auth.userId;
-  socket.userId = userId;
-  console.log('User connected with ID:', userId);
-
-  socket.on('joinSession', async ({ roomCode, userId }) => {
+  console.log('A user connected:', socket.id);
+  
+  socket.on('joinSession', async (data) => {
+    console.log('Join session request:', data);
+    const { roomCode, userName, userId, isHost } = data;
+    
+    // Store session data
+    if (!activeSessions.has(roomCode)) {
+      activeSessions.set(roomCode, new Set());
+    }
+    
+    // Add user to session
+    const sessionUsers = activeSessions.get(roomCode);
+    sessionUsers.add({
+      socketId: socket.id,
+      userName,
+      userId,
+      isHost
+    });
+    
+    socket.join(roomCode);
+    
+    // Get session from database
     try {
-      console.log(`User joining room ${roomCode} with ID ${userId}`);
-      socket.join(roomCode);
-      
-      // Update session in database
       const session = await Session.findOne({ session_id: roomCode });
       if (session) {
-        // Check if user already exists in participants
-        const existingParticipant = session.participants.find(p => p.user_id === userId);
-        if (!existingParticipant) {
-          // Only add if user doesn't exist
-          session.participants.push({ user_id: userId });
-          await session.save();
-        }
-        
+        console.log('Emitting updated participants for room:', roomCode);
         io.to(roomCode).emit('participantsUpdate', session.participants);
       }
     } catch (error) {
-      console.error('Error in joinSession:', error);
+      console.error('Error fetching session:', error);
     }
   });
 
-  socket.on('leaveSession', ({ roomCode }) => {
-    socket.leave(roomCode);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-
-  socket.on('vote', async ({ sessionId, restaurantId, vote, userId }) => {
-    const result = await handleVote(sessionId, userId, restaurantId, vote);
-    
-    if (result.isMatch) {
-        io.to(sessionId).emit('matchFound', result.matchData);
-    } else if (result.showResults) {
-        io.to(sessionId).emit('showResults', {
-            topRestaurants: result.topRestaurants,
-            hasMatches: result.topRestaurants.length > 0
-        });
-    } else {
-        io.to(sessionId).emit('voteUpdate', {
-            restaurantId,
-            votes: result.votes
-        });
+  socket.on('disconnect', async () => {
+    console.log('User disconnected:', socket.id);
+    // Remove user from all sessions they were in
+    for (const [roomCode, users] of activeSessions.entries()) {
+      const userArray = Array.from(users);
+      const disconnectedUser = userArray.find(u => u.socketId === socket.id);
+      if (disconnectedUser) {
+        users.delete(disconnectedUser);
+        // If session is empty, remove it
+        if (users.size === 0) {
+          activeSessions.delete(roomCode);
+        }
+        // Notify remaining users
+        const session = await Session.findOne({ session_id: roomCode });
+        if (session) {
+          io.to(roomCode).emit('participantsUpdate', session.participants);
+        }
+      }
     }
-  });
-
-  socket.on('sessionStarted', ({ sessionId }) => {
-    // Broadcast to all users in the session
-    io.to(sessionId).emit('navigateToRestaurants', { sessionId });
   });
 });
 
@@ -109,27 +108,27 @@ io.on('connection', (socket) => {
 app.post('/api/preferences', async (req, res) => {
   try {
     const { roomCode, name, preferences, host_id, userId } = req.body;
+    console.log('Received preferences for:', { roomCode, name, userId });
     const session = await Session.findOne({ session_id: roomCode });
     
     if (!session) {
       return res.status(404).json({ error: 'Session not found' });
     }
 
+    // Update participants
     if (host_id) {
-      // Host logic remains the same
       session.participants = session.participants.filter(p => p.name !== "Host");
       session.participants.push({
         user_id: host_id,
-        name: name,
-        preferences: preferences,
+        name,
+        preferences,
         isHost: true
       });
     } else {
-      // For non-host participants, use the provided userId
       session.participants.push({
         user_id: userId,
-        name: name,
-        preferences: preferences,
+        name,
+        preferences,
         isHost: false
       });
     }
@@ -137,6 +136,7 @@ app.post('/api/preferences', async (req, res) => {
     await session.save();
 
     if (io) {
+      console.log('Emitting participants update:', session.participants);
       io.to(roomCode).emit('participantsUpdate', session.participants);
     }
 
@@ -217,20 +217,20 @@ let currentPort = PORT;
 const startServer = async () => {
   try {
     await new Promise((resolve, reject) => {
-      server.listen(currentPort)
+      server.listen(currentPort, '0.0.0.0')
         .once('listening', resolve)
         .once('error', (err) => {
           if (err.code === 'EADDRINUSE') {
             console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
             currentPort++;
-            server.listen(currentPort);
+            server.listen(currentPort, '0.0.0.0');
           } else {
             reject(err);
           }
         });
     });
     
-    console.log(`Server running on http://localhost:${currentPort}`);
+    console.log(`Server running on http://0.0.0.0:${currentPort}`);
   } catch (error) {
     console.error('Failed to start server:', error);
     process.exit(1);
@@ -348,6 +348,9 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
         );
 
         console.log(`Successfully saved ${validRestaurants.length} restaurants for session ${sessionId}`);
+
+        // Notify all participants to navigate to restaurant page
+        io.to(sessionId).emit('navigateToRestaurants', { sessionId });
 
         res.json({
             success: true,

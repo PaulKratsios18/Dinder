@@ -203,7 +203,7 @@ function HostPreferences() {
       const userId = localStorage.getItem('userId');
 
       // Save preferences
-      const response = await fetch('http://localhost:5000/api/preferences', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/preferences`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
