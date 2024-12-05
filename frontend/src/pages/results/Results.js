@@ -1,8 +1,46 @@
 import React, { useState } from 'react';
+import { useWindowSize } from 'react-use';
+import Confetti from 'react-confetti';
 import './Results.css';
 import Header from '../../components/Header';
 
-const Results = ({ topRestaurants }) => {
+// Add this function at the top of the file, before the Results component
+const getCuisineEmoji = (cuisine) => {
+    const emojiMap = {
+        'Italian': '🍝',
+        'Chinese': '🥢',
+        'Japanese': '🍱',
+        'Mexican': '🌮',
+        'Indian': '🍛',
+        'American': '🍔',
+        'Thai': '🍜',
+        'Vietnamese': '🍜',
+        'Korean': '🍖',
+        'Mediterranean': '🥙',
+        'Greek': '🥙',
+        'French': '🥖',
+        'Spanish': '🥘',
+        'BBQ': '🍖',
+        'Seafood': '🦐',
+        'Pizza': '🍕',
+        'Burger': '🍔',
+        'Sushi': '🍣',
+        'Vegetarian': '🥗',
+        'Vegan': '🥬',
+        'Breakfast': '🍳',
+        'Cafe': '☕',
+        'Dessert': '🍰',
+        'Bakery': '🥨',
+        'Bar': '🍺',
+        'Pub': '🍺'
+    };
+
+    return emojiMap[cuisine] || '🍽️';
+};
+
+const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
+    const { width, height } = useWindowSize();
+    
     // State for managing UI interactions
     const [showDetailsMap, setShowDetailsMap] = useState({});
     const [showHoursMap, setShowHoursMap] = useState({});
@@ -44,15 +82,22 @@ const Results = ({ topRestaurants }) => {
         <>
             <Header />
             <div className="results-page">
-                <h1>Top Restaurant Matches</h1>
+                <h1>
+                    {isAbsoluteMatch 
+                        ? "Perfect Match Found! 🎉" 
+                        : "Top Restaurant Matches"}
+                </h1>
                 <div className="results-container">
                     {/* Map through and display each matched restaurant */}
                     {topRestaurants.map((restaurant, index) => (
                         <div key={restaurant._id} className="restaurant-card">
                             {/* Ranking and voting information */}
-                            <div className="rank-badge">{index + 1}</div>
+                            {!isAbsoluteMatch && <div className="rank-badge">{index + 1}</div>}
                             <div className="vote-count-badge">
-                                {restaurant.positiveVotes}/{restaurant.totalParticipants} votes
+                                {isAbsoluteMatch 
+                                    ? "All participants voted yes!"
+                                    : `${restaurant.positiveVotes}/${restaurant.totalParticipants} votes`
+                                }
                             </div>
 
                             {/* Restaurant image with fallback */}
@@ -68,28 +113,46 @@ const Results = ({ topRestaurants }) => {
 
                             {/* Basic restaurant information */}
                             <div className={`restaurant-basic-info ${showDetailsMap[restaurant._id] ? 'hide' : ''}`}>
-                                <h2>{restaurant.name}</h2>
-                                <div className="quick-info">
-                                    <span>{restaurant.rating} ⭐</span>
-                                    <span>{restaurant.price}</span>
-                                    <span>{restaurant.openStatus}</span>
+                                <div className="restaurant-info-left">
+                                    <h2>{restaurant.name}</h2>
+                                    <div className="quick-info">
+                                        <div className="top-row">
+                                            <span>⭐ {restaurant.rating}</span>
+                                            <span>{getCuisineEmoji(restaurant.cuisine)} {restaurant.cuisine}</span>
+                                            <span>💵 {restaurant.price}</span>
+                                        </div>
+                                        <div className="bottom-row">
+                                            <span>🕒 {restaurant.openStatus}</span>
+                                            <span>🚶 {restaurant.distance} km</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Detailed restaurant information */}
+                            {/* Button moved outside */}
                             <button className="details-button" onClick={() => toggleDetails(restaurant._id)}>
                                 {showDetailsMap[restaurant._id] ? 'Less Info ▼' : 'More Info ▲'}
                             </button>
+
+                            {/* Detailed restaurant information */}
                             <div className={`restaurant-details ${showDetailsMap[restaurant._id] ? 'show' : ''}`}>
                                 <h2>{restaurant.name}</h2>
                                 <div className="info-section">
                                     <div className="info-tag">
-                                        <span>⭐</span> {restaurant.rating}
+                                        ⭐ {restaurant.rating}
                                     </div>
-                                    <div className="info-tag">{restaurant.price}</div>
-                                    <div className="info-tag">{restaurant.cuisine}</div>
-                                    <div className="info-tag">🚶 {restaurant.distance} km</div>
-                                    <div className="info-tag">🕒 {restaurant.openStatus}</div>
+                                    <div className="info-tag">
+                                        💵 {restaurant.price}
+                                    </div>
+                                    <div className="info-tag">
+                                        {getCuisineEmoji(restaurant.cuisine)} {restaurant.cuisine}
+                                    </div>
+                                    <div className="info-tag">
+                                        🚶 {restaurant.distance} km
+                                    </div>
+                                    <div className="info-tag">
+                                        🕒 {restaurant.openStatus}
+                                    </div>
                                 </div>
                                 <div className="address-section">
                                     <div className="info-tag">📍 {restaurant.address}</div>
@@ -99,9 +162,13 @@ const Results = ({ topRestaurants }) => {
                                 </div>
                                 {restaurant.openingHours?.length > 0 && (
                                     <div className="hours-section">
-                                        <div className="info-tag hours-toggle" onClick={() => toggleHours(restaurant._id)}>
-                                            <span>🕒</span> Hours {showHoursMap[restaurant._id] ? '▼' : '▶'}
-                                        </div>
+                                        <button 
+                                            className="info-tag hours-toggle" 
+                                            onClick={() => toggleHours(restaurant._id)}
+                                            type="button"
+                                        >
+                                            🕒 Hours {showHoursMap[restaurant._id] ? '▼' : '▶'}
+                                        </button>
                                         <div className={`opening-hours ${showHoursMap[restaurant._id] ? 'show' : ''}`}>
                                             {restaurant.openingHours.map((day, index) => (
                                                 <div key={index} className="day-hours">{day}</div>
@@ -112,6 +179,9 @@ const Results = ({ topRestaurants }) => {
                             </div>
                         </div>
                     ))}
+                    {isAbsoluteMatch && width > 0 && height > 0 && (
+                        <Confetti width={width} height={height} />
+                    )}
                 </div>
             </div>
         </>

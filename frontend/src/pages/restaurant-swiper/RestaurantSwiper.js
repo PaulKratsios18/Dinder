@@ -7,6 +7,40 @@ import Header from '../../components/Header';
 import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 
+// Add this function at the top of the file, before the RestaurantSwiper component
+const getCuisineEmoji = (cuisine) => {
+    const emojiMap = {
+        'Italian': '🍝',
+        'Chinese': '🥢',
+        'Japanese': '🍱',
+        'Mexican': '🌮',
+        'Indian': '🍛',
+        'American': '🍔',
+        'Thai': '🍜',
+        'Vietnamese': '🍜',
+        'Korean': '🍖',
+        'Mediterranean': '🥙',
+        'Greek': '🥙',
+        'French': '🥖',
+        'Spanish': '🥘',
+        'BBQ': '🍖',
+        'Seafood': '🦐',
+        'Pizza': '🍕',
+        'Burger': '🍔',
+        'Sushi': '🍣',
+        'Vegetarian': '🥗',
+        'Vegan': '🥬',
+        'Breakfast': '🍳',
+        'Cafe': '☕',
+        'Dessert': '🍰',
+        'Bakery': '🥨',
+        'Bar': '',
+        'Pub': '🍺'
+    };
+
+    return emojiMap[cuisine] || '🍽️';
+};
+
 const RestaurantSwiper = () => {
     // Get window dimensions for confetti effect
     const { width, height } = useWindowSize();
@@ -22,7 +56,6 @@ const RestaurantSwiper = () => {
     const [topRestaurants, setTopRestaurants] = useState([]);
     
     // UI state management
-    const [showHours, setShowHours] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
     const [showHoursMap, setShowHoursMap] = useState({});
     
@@ -30,6 +63,12 @@ const RestaurantSwiper = () => {
     const [dragStart, setDragStart] = useState(0);
     const [dragOffset, setDragOffset] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
+
+    // Add these state variables at the top with other state declarations
+    const [showDetailsMap, setShowDetailsMap] = useState({});
+
+    // Add new state for animation
+    const [isNewCard, setIsNewCard] = useState(false);
 
     // Initialize socket connection and fetch restaurants
     useEffect(() => {
@@ -68,9 +107,9 @@ const RestaurantSwiper = () => {
         // Listen for match found
         newSocket.on('matchFound', (data) => {
             console.log('Match found received:', data);
+            // The backend is already sending us complete restaurant data
             setMatchFound(data);
-            // Stop further voting by setting currentIndex to a high number
-            setCurrentIndex(1000);
+            setShowResults(false); // Ensure we show the match view, not the top 3 results
         });
 
         newSocket.on('showResults', (data) => {
@@ -78,6 +117,13 @@ const RestaurantSwiper = () => {
             setShowResults(true);
             setTopRestaurants(data.topRestaurants || []);
             setCurrentIndex(1000);
+        });
+
+        // Listen for all voting complete
+        newSocket.on('votingComplete', (data) => {
+            console.log('All voting complete:', data);
+            setShowResults(true);
+            setTopRestaurants(data.topRestaurants || []);
         });
 
         const fetchRestaurants = async () => {
@@ -94,6 +140,7 @@ const RestaurantSwiper = () => {
             newSocket.off('matchFound');
             newSocket.off('voteUpdate');
             newSocket.off('showResults');
+            newSocket.off('votingComplete');
             newSocket.close();
         };
     }, [sessionId]);
@@ -124,7 +171,14 @@ const RestaurantSwiper = () => {
             vote
         });
 
-        setCurrentIndex(prev => prev + 1);
+        // After the swipe animation completes, show the new card animation
+        setTimeout(() => {
+            setIsNewCard(true);
+            setCurrentIndex(prev => prev + 1);
+            setDragOffset(0);
+            // Reset the new card state after animation completes
+            setTimeout(() => setIsNewCard(false), 300);
+        }, 300);
     };
 
     const toggleHours = (restaurantId) => {
@@ -134,12 +188,15 @@ const RestaurantSwiper = () => {
         }));
     };
 
-    const toggleDetails = (e) => {
-        e.stopPropagation();
-        setShowDetails(!showDetails);
+    const toggleDetails = (restaurantId) => {
+        setShowDetailsMap(prev => ({
+            ...prev,
+            [restaurantId]: !prev[restaurantId]
+        }));
     };
 
     const handleDragStart = (e) => {
+        if (e.target.closest('.details-button') || e.target.closest('.hours-toggle')) return;
         setIsDragging(true);
         setDragStart(e.type === 'mousedown' ? e.clientX : e.touches[0].clientX);
     };
@@ -156,11 +213,20 @@ const RestaurantSwiper = () => {
         setIsDragging(false);
         
         if (Math.abs(dragOffset) > 100) {
-            // Swipe threshold met
-            const vote = dragOffset > 0;
-            handleVote(vote);
+            // Swipe threshold met - complete the swipe
+            const direction = dragOffset > 0 ? 1 : -1;
+            const swipeDistance = window.innerWidth * 1.5;
+            setDragOffset(direction * swipeDistance);
+            
+            // After the swipe animation completes, handle the vote
+            setTimeout(() => {
+                const vote = direction > 0;
+                handleVote(vote);
+            }, 300);
+        } else {
+            // Threshold not met - return to center
+            setDragOffset(0);
         }
-        setDragOffset(0);
     };
 
     const animateSwipe = (direction) => {
@@ -171,95 +237,30 @@ const RestaurantSwiper = () => {
     };
 
     const handleVoteWithAnimation = (vote) => {
-        animateSwipe(vote ? 1 : -1);
-        handleVote(vote);
+        // Calculate the direction and distance for the swipe
+        const direction = vote ? 1 : -1;
+        const swipeDistance = window.innerWidth * 1.5;
+        
+        // Start the swipe animation by setting the drag offset
+        setDragOffset(direction * swipeDistance);
+        
+        // After the swipe animation completes, handle the vote
+        setTimeout(() => {
+            handleVote(vote);
+        }, 300);
     };
 
-    // First, check for perfect match
+    // First, check if we have a match
     if (matchFound) {
-        return (
-            <>
-                <Header />
-                <div className="restaurant-swiper">
-                    <div className="match-title">It's a Match! 🎉</div>
-                    <div className="restaurant-card">
-                        <img 
-                            src={matchFound.photo || '/assets/default-restaurant.jpg'} 
-                            alt={matchFound.name} 
-                            className="restaurant-image"
-                            onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.src = '/assets/default-restaurant.jpg';
-                            }}
-                        />
-                        <div className={`restaurant-basic-info ${showDetails ? 'hide' : ''}`}>
-                            <h2>{matchFound.name}</h2>
-                            <div className="quick-info">
-                                <span>{matchFound.rating} ⭐</span>
-                                <span>{matchFound.price}</span>
-                                <span>{matchFound.openStatus}</span>
-                            </div>
-                        </div>
-                        <button className="details-button" onClick={toggleDetails}>
-                            {showDetails ? 'Less Info ▼' : 'More Info ▲'}
-                        </button>
-                        <div className={`restaurant-details ${showDetails ? 'show' : ''}`}>
-                            <h2>{matchFound.name}</h2>
-                            <div className="info-section">
-                                <div className="info-tag">
-                                    <span>⭐</span> {matchFound.rating}
-                                </div>
-                                <div className="info-tag">{matchFound.price}</div>
-                                <div className="info-tag">{matchFound.cuisine}</div>
-                                <div className="info-tag">🚶 {matchFound.distance} km</div>
-                                <div className="info-tag">🕒 {matchFound.openStatus}</div>
-                            </div>
-                            <div className="address-section">
-                                <div className="info-tag">📍 {matchFound.address}</div>
-                                {matchFound.wheelchairAccessible === 'Yes' && (
-                                    <div className="info-tag">♿ Accessible</div>
-                                )}
-                            </div>
-                            {matchFound.openingHours?.length > 0 && (
-                                <div className="hours-section">
-                                    <div className="info-tag hours-toggle" onClick={() => toggleHours(matchFound._id)}>
-                                        <span>🕒</span> Hours {showHoursMap[matchFound._id] ? '▼' : '▶'}
-                                    </div>
-                                    <div className={`opening-hours ${showHoursMap[matchFound._id] ? 'show' : ''}`}>
-                                        {matchFound.openingHours.map((day, index) => (
-                                            <div key={index} className="day-hours">{day}</div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    {width > 0 && height > 0 && <Confetti width={width} height={height} />}
-                </div>
-            </>
-        );
+        return <Results topRestaurants={[matchFound]} isAbsoluteMatch={true} />;
     }
 
-    // Second, check if we should show results
+    // Second, check if all voting is complete (either with results or no matches)
     if (showResults) {
-        if (topRestaurants.length === 0) {
-            return (
-                <>
-                    <Header />
-                    <div className="restaurant-swiper">
-                        <div className="no-matches">
-                            <h2>No Matches Found</h2>
-                            <p>No restaurants received more than 50% of the group's votes.</p>
-                            <p>Please try again with new preferences.</p>
-                        </div>
-                    </div>
-                </>
-            );
-        }
         return <Results topRestaurants={topRestaurants} />;
     }
 
-    // Last, check if we're still waiting for others
+    // Last, check if current user is waiting for others
     if (currentIndex >= restaurants.length) {
         return (
             <>
@@ -281,11 +282,34 @@ const RestaurantSwiper = () => {
         <>
             <Header />
             <div className="restaurant-swiper">
+                <div className="swipe-instructions">
+                    Swipe <span className="like">right</span> or press <span className="like">✓</span> to indicate you like this restaurant,<br />
+                    and swipe <span className="dislike">left</span> or press <span className="dislike">✗</span> to indicate you don't.
+                </div>
+                {/* Add swipe indicators */}
                 <div 
-                    className="restaurant-card"
-                    style={{
-                        transform: `translateX(${dragOffset}px) rotate(${dragOffset * 0.1}deg)`,
-                        transition: isDragging ? 'none' : 'transform 0.3s ease'
+                    className="swipe-overlay swipe-left"
+                    style={{ 
+                        opacity: dragOffset < 0 ? Math.min(Math.abs(dragOffset) / 100, 1) : 0 
+                    }}
+                >
+                    <div className="swipe-icon">✗</div>
+                </div>
+                <div 
+                    className="swipe-overlay swipe-right"
+                    style={{ 
+                        opacity: dragOffset > 0 ? Math.min(dragOffset / 100, 1) : 0 
+                    }}
+                >
+                    <div className="swipe-icon">✓</div>
+                </div>
+
+                {/* Existing restaurant card */}
+                <div 
+                    className={`restaurant-card ${isNewCard ? 'new-card' : ''}`}
+                    style={{ 
+                        transform: `translateX(${dragOffset}px) rotate(${dragOffset * 0.05}deg)`,
+                        transition: 'transform 0.3s ease-out'
                     }}
                     onMouseDown={handleDragStart}
                     onMouseMove={handleDragMove}
@@ -304,25 +328,33 @@ const RestaurantSwiper = () => {
                             e.target.src = '/assets/default-restaurant.jpg';
                         }}
                     />
-                    <div className={`restaurant-basic-info ${showDetails ? 'hide' : ''}`}>
-                        <h2>{currentRestaurant.name}</h2>
-                        <div className="quick-info">
-                            <span>{currentRestaurant.rating} ⭐</span>
-                            <span>{currentRestaurant.price}</span>
-                            <span>{currentRestaurant.openStatus}</span>
+                    <div className={`restaurant-basic-info ${showDetailsMap[currentRestaurant._id] ? 'hide' : ''}`}>
+                        <div className="restaurant-info-left">
+                            <h2>{currentRestaurant.name}</h2>
+                            <div className="quick-info">
+                                <div className="top-row">
+                                    <span>⭐ {currentRestaurant.rating}</span>
+                                    <span>{getCuisineEmoji(currentRestaurant.cuisine)} {currentRestaurant.cuisine}</span>
+                                    <span>💵 {currentRestaurant.price}</span>
+                                </div>
+                                <div className="bottom-row">
+                                    <span>🕒 {currentRestaurant.openStatus}</span>
+                                    <span>🚶 {currentRestaurant.distance} km</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button className="details-button" onClick={toggleDetails}>
-                        {showDetails ? 'Less Info ' : 'More Info ▲'}
+
+                    <button className="details-button" onClick={() => toggleDetails(currentRestaurant._id)}>
+                        {showDetailsMap[currentRestaurant._id] ? 'Less Info ▼' : 'More Info ▲'}
                     </button>
-                    <div className={`restaurant-details ${showDetails ? 'show' : ''}`}>
+
+                    <div className={`restaurant-details ${showDetailsMap[currentRestaurant._id] ? 'show' : ''}`}>
                         <h2>{currentRestaurant.name}</h2>
                         <div className="info-section">
-                            <div className="info-tag">
-                                <span>⭐</span> {currentRestaurant.rating}
-                            </div>
-                            <div className="info-tag">{currentRestaurant.price}</div>
-                            <div className="info-tag">{currentRestaurant.cuisine}</div>
+                            <div className="info-tag">⭐ {currentRestaurant.rating}</div>
+                            <div className="info-tag">💵 {currentRestaurant.price}</div>
+                            <div className="info-tag">{getCuisineEmoji(currentRestaurant.cuisine)} {currentRestaurant.cuisine}</div>
                             <div className="info-tag">🚶 {currentRestaurant.distance} km</div>
                             <div className="info-tag">🕒 {currentRestaurant.openStatus}</div>
                         </div>
@@ -334,9 +366,13 @@ const RestaurantSwiper = () => {
                         </div>
                         {currentRestaurant.openingHours?.length > 0 && (
                             <div className="hours-section">
-                                <div className="info-tag hours-toggle" onClick={() => toggleHours(currentRestaurant._id)}>
-                                    <span>🕒</span> Hours {showHoursMap[currentRestaurant._id] ? '▼' : '▶'}
-                                </div>
+                                <button 
+                                    className="info-tag hours-toggle" 
+                                    onClick={() => toggleHours(currentRestaurant._id)}
+                                    type="button"
+                                >
+                                    🕒 Hours {showHoursMap[currentRestaurant._id] ? '▼' : '▶'}
+                                </button>
                                 <div className={`opening-hours ${showHoursMap[currentRestaurant._id] ? 'show' : ''}`}>
                                     {currentRestaurant.openingHours.map((day, index) => (
                                         <div key={index} className="day-hours">{day}</div>

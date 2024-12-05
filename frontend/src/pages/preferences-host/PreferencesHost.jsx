@@ -373,7 +373,7 @@ function HostPreferences() {
           <div className="tab-content">
             <h3>Select Rating Preferences</h3>
             <p className="tab-description">
-              Choose your minimum acceptable ratings or select "No Preference" to see all options.
+              Choose your minimum acceptable rating or select "No Preference" to see all options.
             </p>
             <div className="rating-options">
               <label className="no-preference">

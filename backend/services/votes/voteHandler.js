@@ -39,10 +39,20 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
                 isMatch: true,
                 showResults: false,
                 matchData: {
-                    restaurantName: matchedRestaurant.name,
+                    _id: matchedRestaurant._id,
+                    name: matchedRestaurant.name,
                     address: matchedRestaurant.address,
                     rating: matchedRestaurant.rating,
-                    photo: matchedRestaurant.photo
+                    photo: matchedRestaurant.photo,
+                    cuisine: matchedRestaurant.cuisine,
+                    price: matchedRestaurant.price,
+                    distance: matchedRestaurant.distance,
+                    openStatus: matchedRestaurant.openStatus,
+                    wheelchairAccessible: matchedRestaurant.wheelchairAccessible,
+                    openingHours: matchedRestaurant.openingHours,
+                    votes: restaurantVotes.map(v => v.vote),
+                    positiveVotes: totalParticipants,
+                    totalParticipants: totalParticipants
                 }
             };
         }
@@ -73,13 +83,12 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
         });
 
         if (allVotingComplete) {
-            // Update session status when all voting is complete
             await Session.findOneAndUpdate(
                 { session_id: sessionId },
                 { status: 'completed' }
             );
 
-            // Aggregate votes and find restaurants with >50% positive votes
+            // Get restaurants with >50% positive votes
             const restaurantVotes = await Vote.aggregate([
                 { $match: { sessionId: sessionId } },
                 { $group: {
@@ -96,24 +105,21 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
                 { $limit: 3 }
             ]);
 
-            // Get detailed information for top restaurants
-            const topRestaurants = restaurantVotes.length > 0 ? 
-                await Restaurant.find({
-                    _id: { $in: restaurantVotes.map(r => r._id) }
-                }).then(restaurants => restaurants.map(rest => ({
-                    ...rest.toObject(),
-                    positiveVotes: restaurantVotes.find(r => 
-                        r._id.toString() === rest._id.toString()
-                    ).positiveVotes,
-                    totalParticipants: session.participants.length
-                }))) : [];
+            // Get full restaurant details
+            const topRestaurants = await Restaurant.find({
+                _id: { $in: restaurantVotes.map(r => r._id) }
+            }).then(restaurants => restaurants.map(rest => ({
+                ...rest.toObject(),
+                positiveVotes: restaurantVotes.find(r => 
+                    r._id.toString() === rest._id.toString()
+                ).positiveVotes,
+                totalParticipants: totalParticipants
+            })));
 
-            return {
-                success: true,
-                isMatch: false,
-                showResults: true,
-                topRestaurants: topRestaurants
-            };
+            // Always emit votingComplete, even if no restaurants matched
+            io.to(sessionId).emit('votingComplete', {
+                topRestaurants: topRestaurants || []
+            });
         }
 
         // Calculate current restaurant vote status
@@ -123,7 +129,8 @@ async function handleVote(sessionId, userId, restaurantId, vote) {
         return {
             success: true,
             isMatch: false,
-            showResults: false,
+            showResults: true,
+            topRestaurants: topRestaurants || [],
             votes: {
                 yes: positiveVotesCount,
                 total: totalParticipants

@@ -28,7 +28,7 @@ const Starter = () => {
       
       <div className="session-buttons">
         <button className="start-session-btn" onClick={handleGroupLobbyHostClick}>
-          Start a group session <span className="arrow">→</span>
+          Create a group session <span className="arrow">→</span>
         </button>
         
         <div className="divider">

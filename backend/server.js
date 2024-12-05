@@ -88,8 +88,7 @@ io.on('connection', (socket) => {
         io.to(sessionId).emit('matchFound', result.matchData);
     } else if (result.showResults) {
         io.to(sessionId).emit('showResults', {
-            topRestaurants: result.topRestaurants,
-            hasMatches: result.topRestaurants.length > 0
+            topRestaurants: result.topRestaurants
         });
     } else {
         io.to(sessionId).emit('voteUpdate', {
