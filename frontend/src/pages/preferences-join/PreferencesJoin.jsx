@@ -36,6 +36,7 @@ function JoinPreferences() {
   const [ratingPreferences, setRatingPreferences] = useState([]);
   const [distancePreferences, setDistancePreferences] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [customCuisine, setCustomCuisine] = useState('');
   
   // Get room code from URL query parameters
   useEffect(() => {
@@ -193,24 +194,53 @@ function JoinPreferences() {
                 /> 
                 No Preference
               </label>
-              {['American', 'Barbecue', 'Chinese', 'French', 'Hamburger', 'Indian', 'Italian', 
-                'Japanese', 'Mexican', 'Pizza', 'Seafood', 'Steak', 'Sushi', 'Thai'].map(cuisine => (
-                <label key={cuisine}>
-                  <input 
-                    type="checkbox" 
-                    disabled={cuisineNoPreference}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setCuisinePreferences([...cuisinePreferences, cuisine]);
-                      } else {
-                        setCuisinePreferences(cuisinePreferences.filter(item => item !== cuisine));
-                      }
-                    }}
-                    checked={cuisinePreferences.includes(cuisine)}
-                  /> 
-                  {cuisine}
-                </label>
-              ))}
+              {[...['American', 'Bakery', 'Bar', 'Bbq', 'Breakfast', 'Burger', 'Cafe', 'Chinese', 
+                'Dessert', 'Diner', 'French', 'Greek', 'Indian', 'Italian', 'Japanese', 'Korean', 
+                'Mediterranean', 'Mexican', 'Pizza', 'Pub', 'Seafood', 'Spanish', 'Steak', 
+                'Sushi', 'Thai', 'Vegan', 'Vegetarian', 'Vietnamese'], ...cuisinePreferences]
+                .filter((cuisine, index, self) => self.indexOf(cuisine) === index) // Remove duplicates
+                .sort() // Sort alphabetically
+                .map(cuisine => (
+                  <label key={cuisine}>
+                    <input 
+                      type="checkbox" 
+                      disabled={cuisineNoPreference}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setCuisinePreferences(prev => [...prev, cuisine].sort());
+                        } else {
+                          setCuisinePreferences(prev => prev.filter(item => item !== cuisine));
+                        }
+                      }}
+                      checked={cuisinePreferences.includes(cuisine)}
+                    /> 
+                    {cuisine}
+                  </label>
+                ))}
+            </div>
+            <div className="custom-cuisine-input">
+              <input
+                type="text"
+                placeholder="Add custom cuisine"
+                value={customCuisine}
+                onChange={(e) => setCustomCuisine(e.target.value)}
+                disabled={cuisineNoPreference}
+              />
+              <button
+                className="add-cuisine-button"
+                onClick={() => {
+                  if (customCuisine.trim()) {
+                    const formattedCuisine = customCuisine.trim()
+                      .toLowerCase()
+                      .replace(/\b\w/g, letter => letter.toUpperCase());
+                    setCuisinePreferences(prev => [...prev, formattedCuisine].sort());
+                    setCustomCuisine('');
+                  }
+                }}
+                disabled={cuisineNoPreference}
+              >
+                Add
+              </button>
             </div>
             <button 
               className="reset-button"
@@ -383,15 +413,22 @@ function JoinPreferences() {
             <div className="distance-slider">
               <input 
                 type="range"
-                min="1"
+                min="0.25"
                 max="20"
-                step="1"
+                step="0.25"
                 disabled={distanceNoPreference}
-                value={distancePreferences || 1}
+                value={distancePreferences || 0.25}
                 onChange={(e) => setDistancePreferences(Number(e.target.value))}
+                list="distance-markers"
               />
+              <datalist id="distance-markers">
+                <option value="0.25" label="¼"></option>
+                <option value="20" label="20"></option>
+              </datalist>
               <div className="distance-value">
-                {distancePreferences ? `${distancePreferences} ${distancePreferences === 1 ? 'mile' : 'miles'}` : 'Select distance'}
+                {distancePreferences ? 
+                  `${distancePreferences} ${distancePreferences === 1 ? 'mile' : 'miles'}` : 
+                  'Select distance'}
               </div>
             </div>
             <button 

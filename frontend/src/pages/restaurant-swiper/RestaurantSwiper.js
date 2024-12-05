@@ -4,71 +4,65 @@ import io from 'socket.io-client';
 import './RestaurantSwiper.css';
 import Results from '../results/Results';
 import Header from '../../components/Header';
-import { useWindowSize } from 'react-use';
-import Confetti from 'react-confetti';
 
-// Add this function at the top of the file, before the RestaurantSwiper component
 const getCuisineEmoji = (cuisine) => {
     const emojiMap = {
-        'Italian': '🍝',
-        'Chinese': '🥢',
-        'Japanese': '🍱',
-        'Mexican': '🌮',
-        'Indian': '🍛',
-        'American': '🍔',
-        'Thai': '🍜',
-        'Vietnamese': '🍜',
-        'Korean': '🍖',
-        'Mediterranean': '🥙',
-        'Greek': '🥙',
-        'French': '🥖',
-        'Spanish': '🥘',
-        'BBQ': '🍖',
-        'Seafood': '🦐',
-        'Pizza': '🍕',
-        'Burger': '🍔',
-        'Sushi': '🍣',
-        'Vegetarian': '🥗',
-        'Vegan': '🥬',
-        'Breakfast': '🍳',
-        'Cafe': '☕',
-        'Dessert': '🍰',
-        'Bakery': '🥨',
-        'Bar': '',
-        'Pub': '🍺'
+        'italian': '🍝',
+        'chinese': '🥢',
+        'japanese': '🍱',
+        'mexican': '🌮',
+        'indian': '🍛',
+        'american': '🍔',
+        'thai': '🍜',
+        'vietnamese': '🍜',
+        'korean': '🍖',
+        'mediterranean': '🥙',
+        'greek': '🥙',
+        'french': '🥖',
+        'spanish': '🥘',
+        'bbq': '🍖',
+        'seafood': '🦐',
+        'pizza': '🍕',
+        'burger': '🍔',
+        'sushi': '🍣',
+        'vegetarian': '🥗',
+        'vegan': '🥬',
+        'breakfast': '🍳',
+        'cafe': '☕',
+        'dessert': '🍰',
+        'bakery': '🥨',
+        'bar': '🍺',
+        'pub': '🍺',
+        'steak': '🥩'
     };
 
-    return emojiMap[cuisine] || '🍽️';
+    return emojiMap[cuisine.toLowerCase()] || '🍽️';
 };
 
 const RestaurantSwiper = () => {
-    // Get window dimensions for confetti effect
-    const { width, height } = useWindowSize();
     const { sessionId } = useParams();
     
     // State management for restaurant swiping
     const [restaurants, setRestaurants] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [votes, setVotes] = useState({});
     const [socket, setSocket] = useState(null);
     const [matchFound, setMatchFound] = useState(null);
     const [showResults, setShowResults] = useState(false);
     const [topRestaurants, setTopRestaurants] = useState([]);
     
     // UI state management
-    const [showDetails, setShowDetails] = useState(false);
-    const [showHoursMap, setShowHoursMap] = useState({});
+    const [showDetailsMap, setShowDetailsMap] = useState({});
     
     // Drag interaction state
     const [dragStart, setDragStart] = useState(0);
     const [dragOffset, setDragOffset] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
 
-    // Add these state variables at the top with other state declarations
-    const [showDetailsMap, setShowDetailsMap] = useState({});
-
     // Add new state for animation
     const [isNewCard, setIsNewCard] = useState(false);
+
+    // Add showHoursMap state
+    const [showHoursMap, setShowHoursMap] = useState({});
 
     // Initialize socket connection and fetch restaurants
     useEffect(() => {
@@ -98,10 +92,6 @@ const RestaurantSwiper = () => {
         // Add debug logging for vote updates
         newSocket.on('voteUpdate', (data) => {
             console.log('Vote update received for user:', userId, data);
-            setVotes(prev => ({
-                ...prev,
-                [data.restaurantId]: data.votes
-            }));
         });
 
         // Listen for match found
@@ -116,7 +106,6 @@ const RestaurantSwiper = () => {
             console.log('Results received:', data);
             setShowResults(true);
             setTopRestaurants(data.topRestaurants || []);
-            setCurrentIndex(1000);
         });
 
         // Listen for all voting complete
@@ -147,8 +136,13 @@ const RestaurantSwiper = () => {
 
     // Reset details view when changing restaurants
     useEffect(() => {
-        setShowDetails(false);
-    }, [currentIndex]);
+        if (restaurants[currentIndex]) {
+            setShowDetailsMap(prev => ({
+                ...prev,
+                [restaurants[currentIndex]._id]: false
+            }));
+        }
+    }, [currentIndex, restaurants]);
 
     // Handle voting logic
     const handleVote = async (vote) => {
@@ -181,6 +175,7 @@ const RestaurantSwiper = () => {
         }, 300);
     };
 
+    // Add toggleHours function (replace the existing one)
     const toggleHours = (restaurantId) => {
         setShowHoursMap(prev => ({
             ...prev,
@@ -229,26 +224,45 @@ const RestaurantSwiper = () => {
         }
     };
 
-    const animateSwipe = (direction) => {
-        setDragOffset(direction * window.innerWidth);
+    const handleVoteWithAnimation = (vote) => {
+        if (!restaurants || !restaurants[currentIndex]) {
+            console.log('No restaurant found at index:', currentIndex);
+            return;
+        }
+        
+        const restaurant = restaurants[currentIndex];
+        if (!restaurant || !restaurant._id) {
+            console.log('Invalid restaurant data:', restaurant);
+            return;
+        }
+        
+        const direction = vote ? 1 : -1;
+        const swipeDistance = window.innerWidth * 1.5;
+        setDragOffset(direction * swipeDistance);
+        
+        const userId = localStorage.getItem('userId');
+        
+        socket.emit('vote', {
+            sessionId,
+            userId,
+            restaurantId: restaurant._id,
+            vote
+        });
+
         setTimeout(() => {
+            setCurrentIndex(prev => prev + 1);
             setDragOffset(0);
+            setIsNewCard(true);
+            setTimeout(() => setIsNewCard(false), 300);
         }, 300);
     };
 
-    const handleVoteWithAnimation = (vote) => {
-        // Calculate the direction and distance for the swipe
-        const direction = vote ? 1 : -1;
-        const swipeDistance = window.innerWidth * 1.5;
-        
-        // Start the swipe animation by setting the drag offset
-        setDragOffset(direction * swipeDistance);
-        
-        // After the swipe animation completes, handle the vote
-        setTimeout(() => {
-            handleVote(vote);
-        }, 300);
-    };
+    // Add this effect to handle completion
+    useEffect(() => {
+        if (currentIndex >= restaurants.length) {
+            console.log('User completed all restaurants');
+        }
+    }, [currentIndex, restaurants.length]);
 
     // First, check if we have a match
     if (matchFound) {
@@ -339,7 +353,7 @@ const RestaurantSwiper = () => {
                                 </div>
                                 <div className="bottom-row">
                                     <span>🕒 {currentRestaurant.openStatus}</span>
-                                    <span>🚶 {currentRestaurant.distance} km</span>
+                                    <span>🚶 {currentRestaurant.distance} miles</span>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +369,7 @@ const RestaurantSwiper = () => {
                             <div className="info-tag">⭐ {currentRestaurant.rating}</div>
                             <div className="info-tag">💵 {currentRestaurant.price}</div>
                             <div className="info-tag">{getCuisineEmoji(currentRestaurant.cuisine)} {currentRestaurant.cuisine}</div>
-                            <div className="info-tag">🚶 {currentRestaurant.distance} km</div>
+                            <div className="info-tag">🚶 {currentRestaurant.distance} miles</div>
                             <div className="info-tag">🕒 {currentRestaurant.openStatus}</div>
                         </div>
                         <div className="address-section">

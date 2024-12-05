@@ -142,3 +142,27 @@
     white-space: nowrap;
     z-index: 10;
 }
+
+.no-matches {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    color: #001f3f;
+    background: #FAF1E5;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-matches h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.no-matches p {
+    margin: 0.5rem 0;
+    color: #666;
+}

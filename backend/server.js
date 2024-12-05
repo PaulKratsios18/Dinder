@@ -82,19 +82,26 @@ io.on('connection', (socket) => {
   });
 
   socket.on('vote', async ({ sessionId, restaurantId, vote, userId }) => {
-    const result = await handleVote(sessionId, userId, restaurantId, vote);
-    
-    if (result.isMatch) {
-        io.to(sessionId).emit('matchFound', result.matchData);
-    } else if (result.showResults) {
-        io.to(sessionId).emit('showResults', {
-            topRestaurants: result.topRestaurants
-        });
-    } else {
-        io.to(sessionId).emit('voteUpdate', {
-            restaurantId,
-            votes: result.votes
-        });
+    try {
+        const result = await handleVote(sessionId, userId, restaurantId, vote, io);
+        
+        if (!result) {
+            console.error('No result returned from handleVote');
+            return;
+        }
+
+        if (result.isMatch) {
+            io.to(sessionId).emit('matchFound', result.matchedRestaurant);
+        } else {
+            // Always emit vote update
+            io.to(sessionId).emit('voteUpdate', {
+                restaurantId,
+                votesPerUser: result.votesPerUser,
+                userVoteCount: result.userVoteCount
+            });
+        }
+    } catch (error) {
+        console.error('Error handling vote:', error);
     }
   });
 

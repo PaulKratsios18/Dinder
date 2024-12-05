@@ -4,38 +4,38 @@ import Confetti from 'react-confetti';
 import './Results.css';
 import Header from '../../components/Header';
 
-// Add this function at the top of the file, before the Results component
 const getCuisineEmoji = (cuisine) => {
     const emojiMap = {
-        'Italian': '🍝',
-        'Chinese': '🥢',
-        'Japanese': '🍱',
-        'Mexican': '🌮',
-        'Indian': '🍛',
-        'American': '🍔',
-        'Thai': '🍜',
-        'Vietnamese': '🍜',
-        'Korean': '🍖',
-        'Mediterranean': '🥙',
-        'Greek': '🥙',
-        'French': '🥖',
-        'Spanish': '🥘',
-        'BBQ': '🍖',
-        'Seafood': '🦐',
-        'Pizza': '🍕',
-        'Burger': '🍔',
-        'Sushi': '🍣',
-        'Vegetarian': '🥗',
-        'Vegan': '🥬',
-        'Breakfast': '🍳',
-        'Cafe': '☕',
-        'Dessert': '🍰',
-        'Bakery': '🥨',
-        'Bar': '🍺',
-        'Pub': '🍺'
+        'italian': '🍝',
+        'chinese': '🥢',
+        'japanese': '🍱',
+        'mexican': '🌮',
+        'indian': '🍛',
+        'american': '🍔',
+        'thai': '🍜',
+        'vietnamese': '🍜',
+        'korean': '🍖',
+        'mediterranean': '🥙',
+        'greek': '🥙',
+        'french': '🥖',
+        'spanish': '🥘',
+        'bbq': '🍖',
+        'seafood': '🦐',
+        'pizza': '🍕',
+        'burger': '🍔',
+        'sushi': '🍣',
+        'vegetarian': '🥗',
+        'vegan': '🥬',
+        'breakfast': '🍳',
+        'cafe': '☕',
+        'dessert': '🍰',
+        'bakery': '🥨',
+        'bar': '🍺',
+        'pub': '🍺',
+        'steak': '🥩',
     };
 
-    return emojiMap[cuisine] || '🍽️';
+    return emojiMap[cuisine.toLowerCase()] || '🍽️';
 };
 
 const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
@@ -80,6 +80,7 @@ const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
     // Render results page with matched restaurants
     return (
         <>
+            {isAbsoluteMatch && <Confetti width={width} height={height} />}
             <Header />
             <div className="results-page">
                 <h1>
@@ -123,7 +124,7 @@ const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
                                         </div>
                                         <div className="bottom-row">
                                             <span>🕒 {restaurant.openStatus}</span>
-                                            <span>🚶 {restaurant.distance} km</span>
+                                            <span>🚶 {restaurant.distance} miles</span>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +149,7 @@ const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
                                         {getCuisineEmoji(restaurant.cuisine)} {restaurant.cuisine}
                                     </div>
                                     <div className="info-tag">
-                                        🚶 {restaurant.distance} km
+                                        🚶 {restaurant.distance} miles
                                     </div>
                                     <div className="info-tag">
                                         🕒 {restaurant.openStatus}
@@ -179,9 +180,6 @@ const Results = ({ topRestaurants, isAbsoluteMatch = false }) => {
                             </div>
                         </div>
                     ))}
-                    {isAbsoluteMatch && width > 0 && height > 0 && (
-                        <Confetti width={width} height={height} />
-                    )}
                 </div>
             </div>
         </>
