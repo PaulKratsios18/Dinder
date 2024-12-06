@@ -479,7 +479,11 @@ function JoinPreferences() {
             type="text"
             placeholder="Enter Room Code"
             value={roomCode}
-            onChange={(e) => setRoomCode(e.target.value)}
+            maxLength={4}
+            onChange={(e) => {
+              const onlyLetters = e.target.value.replace(/[^A-Za-z]/g, '');
+              setRoomCode(onlyLetters.toUpperCase());
+            }}
           />
         </div>
         <div className="input-group">
