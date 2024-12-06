@@ -26,9 +26,11 @@ async function handleVote(sessionId, userId, restaurantId, vote, io) {
         // Get session and all restaurants
         const session = await Session.findOne({ session_id: sessionId });
         const allRestaurants = await Restaurant.find({ sessionId });
-        const totalRestaurants = allRestaurants.length;
         const totalParticipants = session.participants.length;
-        const expectedTotalVotes = totalRestaurants * totalParticipants;
+        
+        // Calculate expected total votes (min of 20 and total restaurants * participants)
+        const maxRestaurantsPerUser = 20;
+        const expectedTotalVotes = Math.min(allRestaurants.length, maxRestaurantsPerUser) * totalParticipants;
 
         // Get all votes for this session
         const allSessionVotes = await Vote.find({ sessionId });
@@ -40,7 +42,8 @@ async function handleVote(sessionId, userId, restaurantId, vote, io) {
         });
         
         console.log('Vote tracking:', {
-            totalRestaurants,
+            totalRestaurants: allRestaurants.length,
+            maxRestaurantsPerUser,
             totalParticipants,
             expectedTotalVotes,
             currentTotalVotes: allSessionVotes.length,
