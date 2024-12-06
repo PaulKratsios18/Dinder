@@ -449,10 +449,7 @@ color: #ed7874;
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
     position: relative;
 }
 
@@ -463,7 +460,6 @@ color: #ed7874;
     background: rgba(237, 120, 116, 0.2);
     outline: none;
     -webkit-appearance: none;
-    margin-bottom: 20px;
 }
 
 .distance-slider input[type="range"]::-webkit-slider-thumb {
@@ -473,42 +469,22 @@ color: #ed7874;
     border-radius: 50%;
     background: #023047;
     cursor: pointer;
-    transition: all 0.2s ease;
     margin-top: -6px;
 }
 
-.distance-slider datalist {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
+.distance-markers {
     position: relative;
-    top: -10px;
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
 }
 
-.distance-slider datalist option {
-    padding: 0;
+.distance-markers span {
+    position: absolute;
+    transform: translateX(-50%);
     font-family: 'Fredoka One', cursive;
     font-size: 0.8rem;
     color: #023047;
-    position: relative;
-}
-
-.distance-slider datalist option::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    width: 2px;
-    height: 10px;
-    background: #023047;
-    transform: translateX(-50%);
-}
-
-.distance-slider input[type="range"]::-webkit-slider-runnable-track {
-    height: 8px;
-    border-radius: 5px;
-    background: rgba(237, 120, 116, 0.2);
 }
 
 .distance-value {

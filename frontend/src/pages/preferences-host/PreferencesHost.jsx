@@ -531,16 +531,17 @@ function HostPreferences() {
                 type="range"
                 min="0.25"
                 max="20"
-                step="0.25"
+                step={distancePreferences && distancePreferences >= 5 ? "1" : "0.25"}
                 disabled={distanceNoPreference}
                 value={distancePreferences || 0.25}
                 onChange={(e) => setDistancePreferences(Number(e.target.value))}
                 list="distance-markers"
               />
-              <datalist id="distance-markers">
-                <option value="0.25" label="¼"></option>
-                <option value="20" label="20"></option>
-              </datalist>
+              <div className="distance-markers">
+                <span style={{ left: '0%' }}>¼</span>
+                <span style={{ left: '50%' }}>10</span>
+                <span style={{ left: '100%' }}>20</span>
+              </div>
               <div className="distance-value">
                 {distancePreferences ? 
                   `${distancePreferences} ${distancePreferences === 1 ? 'mile' : 'miles'}` : 
