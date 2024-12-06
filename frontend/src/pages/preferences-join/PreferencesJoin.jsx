@@ -415,14 +415,19 @@ function JoinPreferences() {
                 type="range"
                 min="0.25"
                 max="20"
-                step={distancePreferences && distancePreferences >= 5 ? "1" : "0.25"}
+                step="0.25"
                 disabled={distanceNoPreference}
                 value={distancePreferences || 0.25}
                 onChange={(e) => {
-                  const value = Number(e.target.value);
-                  const step = value >= 5 ? 1 : 0.25;
-                  const roundedValue = Math.round(value / step) * step;
-                  setDistancePreferences(roundedValue);
+                  let value = Number(e.target.value);
+                  if (value >= 5) {
+                    value = Math.round(value);
+                  }
+                  setDistancePreferences(value);
+                  
+                  // Update slider color
+                  const percent = ((value - 0.25) / (20 - 0.25)) * 100;
+                  e.target.style.setProperty('--value-percent', `${percent}%`);
                 }}
               />
               <div className="distance-markers">
