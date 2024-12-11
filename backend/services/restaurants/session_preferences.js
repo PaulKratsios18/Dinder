@@ -17,7 +17,7 @@ async function getSessionPreferences(sessionCode) {
     console.log('Available collections:', collections.map(c => c.name));
     
     console.log('Searching for session with ID:', sessionCode);
-    const session = await db.collection('sessions').findOne({ session_id: sessionCode });
+    const session = await db.collection('sessions').findOne({ sessionId: sessionCode });
     console.log('Found session:', session);
     
     if (!session || !session.participants || session.participants.length === 0) {

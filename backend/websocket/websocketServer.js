@@ -41,18 +41,18 @@ class WebSocketServer {
     // Handle incoming messages
     async handleMessage(ws, message) {
         switch (message.type) {
-            case 'createSession':
-                await this.handleCreateSession(ws, message);
-                break;
-            case 'joinSession':
-                await this.handleJoinSession(ws, message);
-                break;
-            case 'updatePreferences':
-                await this.handleUpdatePreferences(ws, message);
-                break;
-            case 'leaveSession':
-                await this.handleLeaveSession(ws, message);
-                break;
+        case 'createSession':
+            await this.handleCreateSession(ws, message);
+            break;
+        case 'joinSession':
+            await this.handleJoinSession(ws, message);
+            break;
+        case 'updatePreferences':
+            await this.handleUpdatePreferences(ws, message);
+            break;
+        case 'leaveSession':
+            await this.handleLeaveSession(ws, message);
+            break;
         }
     }
 
@@ -169,7 +169,7 @@ class WebSocketServer {
             // Update session preferences for the user
             await Session.updateOne(
                 { 
-                    session_id: sessionCode,
+                    sessionId: sessionCode,
                     'participants.userId': userId 
                 },
                 { 
@@ -180,7 +180,7 @@ class WebSocketServer {
             );
 
             // Get the updated session
-            const session = await Session.findOne({ session_id: sessionCode });
+            const session = await Session.findOne({ sessionId: sessionCode });
             
             // Broadcast the updated preferences to all participants in the session
             this.broadcastToSession(sessionCode, {

@@ -24,7 +24,7 @@ async function handleVote(sessionId, userId, restaurantId, vote, io) {
         console.log(`Vote recorded - Session: ${sessionId}, User: ${userId}, Restaurant: ${restaurantId}, Vote: ${vote}`);
 
         // Get session and all restaurants
-        const session = await Session.findOne({ session_id: sessionId });
+        const session = await Session.findOne({ sessionId: sessionId });
         const allRestaurants = await Restaurant.find({ sessionId });
         const totalParticipants = session.participants.length;
         
@@ -58,7 +58,7 @@ async function handleVote(sessionId, userId, restaurantId, vote, io) {
             
             // Update session status to complete
             await Session.findOneAndUpdate(
-                { session_id: sessionId },
+                { sessionId: sessionId },
                 { status: 'complete' }
             );
 

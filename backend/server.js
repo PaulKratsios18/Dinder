@@ -26,16 +26,16 @@ const server = http.createServer(app);
 
 // Create Socket.IO server with CORS configuration
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3001",
-    methods: ["GET", "POST"]
-  }
+    cors: {
+        origin: "http://localhost:3001",
+        methods: ["GET", "POST"]
+    }
 });
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
-  credentials: true
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    credentials: true
 }));
 
 app.use(express.json());
@@ -45,202 +45,202 @@ connectDB();
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
-  // Store userId in socket instance
-  const userId = socket.handshake.auth.userId;
-  socket.userId = userId;
-  console.log('User connected with ID:', userId);
+    // Store userId in socket instance
+    const userId = socket.handshake.auth.userId;
+    socket.userId = userId;
+    console.log('User connected with ID:', userId);
 
-  socket.on('joinSession', async ({ roomCode, userId }) => {
-    try {
-      console.log(`User joining room ${roomCode} with ID ${userId}`);
-      socket.join(roomCode);
+    socket.on('joinSession', async ({ roomCode, userId }) => {
+        try {
+            console.log(`User joining room ${roomCode} with ID ${userId}`);
+            socket.join(roomCode);
       
-      // Update session in database
-      const session = await Session.findOne({ session_id: roomCode });
-      if (session) {
-        // Check if user already exists in participants
-        const existingParticipant = session.participants.find(p => p.user_id === userId);
-        if (!existingParticipant) {
-          // Only add if user doesn't exist
-          session.participants.push({ user_id: userId });
-          await session.save();
-        }
+            // Update session in database
+            const session = await Session.findOne({ sessionId: roomCode });
+            if (session) {
+                // Check if user already exists in participants
+                const existingParticipant = session.participants.find(p => p.userId === userId);
+                if (!existingParticipant) {
+                    // Only add if user doesn't exist
+                    session.participants.push({ userId: userId });
+                    await session.save();
+                }
         
-        io.to(roomCode).emit('participantsUpdate', session.participants);
-      }
-    } catch (error) {
-      console.error('Error in joinSession:', error);
-    }
-  });
-
-  socket.on('leaveSession', ({ roomCode }) => {
-    socket.leave(roomCode);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-
-  socket.on('vote', async ({ sessionId, restaurantId, vote, userId }) => {
-    try {
-        const result = await handleVote(sessionId, userId, restaurantId, vote, io);
-        
-        if (!result) {
-            console.error('No result returned from handleVote');
-            return;
+                io.to(roomCode).emit('participantsUpdate', session.participants);
+            }
+        } catch (error) {
+            console.error('Error in joinSession:', error);
         }
+    });
 
-        if (result.isMatch) {
-            io.to(sessionId).emit('matchFound', result.matchedRestaurant);
-        } else {
+    socket.on('leaveSession', ({ roomCode }) => {
+        socket.leave(roomCode);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    });
+
+    socket.on('vote', async ({ sessionId, restaurantId, vote, userId }) => {
+        try {
+            const result = await handleVote(sessionId, userId, restaurantId, vote, io);
+        
+            if (!result) {
+                console.error('No result returned from handleVote');
+                return;
+            }
+
+            if (result.isMatch) {
+                io.to(sessionId).emit('matchFound', result.matchedRestaurant);
+            } else {
             // Always emit vote update
-            io.to(sessionId).emit('voteUpdate', {
-                restaurantId,
-                votesPerUser: result.votesPerUser,
-                userVoteCount: result.userVoteCount
-            });
+                io.to(sessionId).emit('voteUpdate', {
+                    restaurantId,
+                    votesPerUser: result.votesPerUser,
+                    userVoteCount: result.userVoteCount
+                });
+            }
+        } catch (error) {
+            console.error('Error handling vote:', error);
         }
-    } catch (error) {
-        console.error('Error handling vote:', error);
-    }
-  });
+    });
 
-  socket.on('sessionStarted', ({ sessionId }) => {
+    socket.on('sessionStarted', ({ sessionId }) => {
     // Broadcast to all users in the session
-    io.to(sessionId).emit('navigateToRestaurants', { sessionId });
-  });
+        io.to(sessionId).emit('navigateToRestaurants', { sessionId });
+    });
 });
 
 // Existing REST routes
 app.post('/api/preferences', async (req, res) => {
-  try {
-    const { roomCode, name, preferences, host_id, userId } = req.body;
-    const session = await Session.findOne({ session_id: roomCode });
+    try {
+        const { roomCode, name, preferences, hostId, userId } = req.body;
+        const session = await Session.findOne({ sessionId: roomCode });
     
-    if (!session) {
-      return res.status(404).json({ error: 'Session not found' });
+        if (!session) {
+            return res.status(404).json({ error: 'Session not found' });
+        }
+
+        if (hostId) {
+            // Host logic remains the same
+            session.participants = session.participants.filter(p => p.name !== "Host");
+            session.participants.push({
+                userId: hostId,
+                name: name,
+                preferences: preferences,
+                isHost: true
+            });
+        } else {
+            // For non-host participants, use the provided userId
+            session.participants.push({
+                userId: userId,
+                name: name,
+                preferences: preferences,
+                isHost: false
+            });
+        }
+
+        await session.save();
+
+        if (io) {
+            io.to(roomCode).emit('participantsUpdate', session.participants);
+        }
+
+        res.status(200).json({
+            message: 'Preferences saved successfully',
+            session: session
+        });
+    } catch (error) {
+        console.error('Error saving preferences:', error);
+        res.status(500).json({
+            error: 'Failed to save preferences',
+            details: error.message
+        });
     }
-
-    if (host_id) {
-      // Host logic remains the same
-      session.participants = session.participants.filter(p => p.name !== "Host");
-      session.participants.push({
-        user_id: host_id,
-        name: name,
-        preferences: preferences,
-        isHost: true
-      });
-    } else {
-      // For non-host participants, use the provided userId
-      session.participants.push({
-        user_id: userId,
-        name: name,
-        preferences: preferences,
-        isHost: false
-      });
-    }
-
-    await session.save();
-
-    if (io) {
-      io.to(roomCode).emit('participantsUpdate', session.participants);
-    }
-
-    res.status(200).json({
-      message: 'Preferences saved successfully',
-      session: session
-    });
-  } catch (error) {
-    console.error('Error saving preferences:', error);
-    res.status(500).json({
-      error: 'Failed to save preferences',
-      details: error.message
-    });
-  }
 });
 
 app.get('/api/room/:roomCode/users', async (req, res) => {
-  try {
-    const { roomCode } = req.params;
-    const users = await User.find({ roomCode });
-    res.json(users);
-  } catch (error) {
-    console.error('Error fetching room users:', error);
-    res.status(500).json({ error: 'Failed to fetch users' });
-  }
+    try {
+        const { roomCode } = req.params;
+        const users = await User.find({ roomCode });
+        res.json(users);
+    } catch (error) {
+        console.error('Error fetching room users:', error);
+        res.status(500).json({ error: 'Failed to fetch users' });
+    }
 });
 
 app.get('/api/test', async (req, res) => {
-  try {
-    const users = await User.find({});
-    res.json({ 
-      message: 'Database connection test successful',
-      userCount: users.length,
-      users: users
-    });
-  } catch (error) {
-    console.error('Database test error:', error);
-    res.status(500).json({ error: 'Database test failed' });
-  }
+    try {
+        const users = await User.find({});
+        res.json({ 
+            message: 'Database connection test successful',
+            userCount: users.length,
+            users: users
+        });
+    } catch (error) {
+        console.error('Database test error:', error);
+        res.status(500).json({ error: 'Database test failed' });
+    }
 });
 
 // New endpoint to create session
 app.post('/api/sessions/create', async (req, res) => {
-  try {
-    const { roomCode, hostName, host_id } = req.body;
+    try {
+        const { roomCode, hostName, hostId } = req.body;
     
-    const session = new Session({
-      session_id: roomCode,
-      host_id: host_id,
-      participants: [{
-        user_id: host_id,
-        name: hostName || 'Host',
-        isHost: true
-      }],
-      code: generateUniqueCode()
-    });
+        const session = new Session({
+            sessionId: roomCode,
+            hostId: hostId,
+            participants: [{
+                userId: hostId,
+                name: hostName || 'Host',
+                isHost: true
+            }],
+            code: generateUniqueCode()
+        });
 
-    await session.save();
-    res.json({ success: true, session });
-  } catch (error) {
-    console.error('Error creating session:', error);
-    res.status(500).json({ error: 'Failed to create session' });
-  }
+        await session.save();
+        res.json({ success: true, session });
+    } catch (error) {
+        console.error('Error creating session:', error);
+        res.status(500).json({ error: 'Failed to create session' });
+    }
 });
 
 function generateUniqueCode(length = 4) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = '';
-  for (let i = 0; i < length; i++) {
-    code += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return code;
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = '';
+    for (let i = 0; i < length; i++) {
+        code += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return code;
 }
 
 const PORT = process.env.PORT || 5000;
 let currentPort = PORT;
 
 const startServer = async () => {
-  try {
-    await new Promise((resolve, reject) => {
-      server.listen(currentPort)
-        .once('listening', resolve)
-        .once('error', (err) => {
-          if (err.code === 'EADDRINUSE') {
-            console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
-            currentPort++;
-            server.listen(currentPort);
-          } else {
-            reject(err);
-          }
+    try {
+        await new Promise((resolve, reject) => {
+            server.listen(currentPort)
+                .once('listening', resolve)
+                .once('error', (err) => {
+                    if (err.code === 'EADDRINUSE') {
+                        console.log(`Port ${currentPort} is busy, trying ${currentPort + 1}`);
+                        currentPort++;
+                        server.listen(currentPort);
+                    } else {
+                        reject(err);
+                    }
+                });
         });
-    });
     
-    console.log(`Server running on http://localhost:${currentPort}`);
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
+        console.log(`Server running on http://localhost:${currentPort}`);
+    } catch (error) {
+        console.error('Failed to start server:', error);
+        process.exit(1);
+    }
 };
 
 app.use('/', preferencesRouter);
@@ -346,7 +346,7 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
 
         // 6. Update session status
         await Session.findOneAndUpdate(
-            { session_id: sessionId },
+            { sessionId: sessionId },
             { 
                 status: 'active',
                 restaurants: validRestaurants.map(r => r._id)
@@ -372,7 +372,7 @@ app.post('/api/sessions/:sessionId/start', async (req, res) => {
 
 async function getUserPreferencesFromDB(sessionId) {
     try {
-        const session = await Session.findOne({ session_id: sessionId });
+        const session = await Session.findOne({ sessionId: sessionId });
         if (!session || !session.participants) {
             throw new Error('Session or participants not found');
         }
@@ -527,24 +527,24 @@ app.post('/api/sessions/:sessionId/vote', async (req, res) => {
 
 // Add this new endpoint to get session participants
 app.get('/api/sessions/:roomCode/participants', async (req, res) => {
-  try {
-    const session = await Session.findOne({ session_id: req.params.roomCode });
+    try {
+        const session = await Session.findOne({ sessionId: req.params.roomCode });
     
-    if (!session) {
-      return res.status(404).json({ error: 'Session not found' });
-    }
+        if (!session) {
+            return res.status(404).json({ error: 'Session not found' });
+        }
 
-    res.status(200).json({
-      participants: session.participants,
-      status: session.status
-    });
-  } catch (error) {
-    console.error('Error getting session participants:', error);
-    res.status(500).json({
-      error: 'Failed to get session participants',
-      details: error.message
-    });
-  }
+        res.status(200).json({
+            participants: session.participants,
+            status: session.status
+        });
+    } catch (error) {
+        console.error('Error getting session participants:', error);
+        res.status(500).json({
+            error: 'Failed to get session participants',
+            details: error.message
+        });
+    }
 });
 
 startServer();
