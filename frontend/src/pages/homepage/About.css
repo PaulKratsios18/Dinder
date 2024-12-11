@@ -1,0 +1,101 @@
+.about {
+    min-height: 9vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    color: #ed7874;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+.about h2 {
+    font-family: 'Fredoka One', cursive; 
+    font-size: 2.5rem;
+    color: #ed7874;
+    margin: 20px 0 10px 0;
+}
+
+.description {
+    max-width: 1400px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    font-family: 'Fredoka', cursive;
+    font-weight: 300;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member p {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #555;
+    font-family: 'Fredoka One', cursive;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-links a {
+    color: #ed7874;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ed7874;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #ed7874;
+    color: white;
+}
+
+.social-link-disabled {
+    color: #ed7874;
+    padding: 5px 10px;
+    border: 1px solid #ed7874;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    cursor: default;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 800px;
+    margin: 0 auto;
+}
+
+section.about .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

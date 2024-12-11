@@ -1,0 +1,86 @@
+@startuml join_group_session
+
+!theme plain
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+skinparam NoteBackgroundColor #FEFECE
+skinparam NoteBorderColor #A80036
+
+actor "Join User" as User
+
+box \nFrontend (React JS/CSS) #LightBlue
+participant "Homepage\n(MainSection)" as Home
+participant "SessionSelection" as Select
+participant "LobbyJoin" as Lobby
+participant "JoinPreferences" as Prefs
+end box
+
+box \nBackend (JS) #LightGreen
+participant "WebSocketServer" as WSS
+participant "Server" as Server
+participant "Session\nModel" as Model
+end box
+
+box \nDatabase\n #LightYellow
+database "MongoDB" as DB
+end box
+
+== Session Join Initialization ==
+User -> Home: Clicks "Get Started"
+activate Home
+Home -> Select: handleGetStarted()\nnavigate('/session-selection')
+deactivate Home
+
+activate Select
+User -> Select: Clicks "Join a group session"
+Select -> Prefs: handleJoinSessionClick()\nnavigate('/preferences-join')
+deactivate Select
+
+== Preference Selection & Join ==
+activate Prefs
+User -> Prefs: Enters room code, \nname, and preferences\n(cuisine, price, rating, \ndistance, location)
+User -> Prefs: Clicks "Save Preferences"
+Prefs -> Prefs: validatePreferences()
+
+Prefs -> Server: POST /api/preferences\n{\n  roomCode,\n  name,\n  preferences: {...}\n}
+activate Server
+
+Server -> DB: Find and update session
+activate DB
+DB --> Server: Updated session
+deactivate DB
+
+Server --> Prefs: Success response
+deactivate Server
+
+Prefs -> Lobby: navigate('/lobby-join')
+deactivate Prefs
+
+== Lobby Join ==
+activate Lobby
+Lobby -> WSS: WebSocket.send({\n  type: 'joinSession',\n  roomCode,\n  userName\n})
+activate WSS
+
+WSS -> Model: Find session
+activate Model
+Model -> DB: findOne({\n  code: roomCode })
+activate DB
+DB --> Model: session data
+deactivate DB
+
+Model --> WSS: session object
+deactivate Model
+
+WSS -> WSS: Add connection \nto session
+note right: Add user to session's\nconnections set
+
+WSS --> Lobby: ws.send({\n  type: 'sessionJoined',\n  session\n})
+deactivate WSS
+
+Lobby --> User: Display room code & member list
+
+== Waiting for Host ==
+User -> Lobby: Wait for host to start
+note right: Display "Waiting for host\nto start session..."
+
+@enduml 

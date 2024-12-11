@@ -1,0 +1,57 @@
+@startuml invite_friends
+
+!theme plain
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+skinparam NoteBackgroundColor #FEFECE
+skinparam NoteBorderColor #A80036
+
+actor "Host" as Host
+actor "Friend" as Friend
+
+box \nFrontend (React JS/CSS)\n #LightBlue
+participant "LobbyHost" as Lobby
+participant "JoinPreferences" as Prefs
+end box
+
+box \nSystem Resources\n #LightGrey
+participant "<&clipboard> \nSystem\nClipboard" as Clip
+participant "<&browser> \nWeb\nBrowser" as Browser
+end box
+
+== Share Room Code ==
+Host -> Lobby: Clicks "Copy group code"
+activate Lobby
+
+Lobby -> Clip: navigator.clipboard.writeText(roomCode)
+note right: Copies 4-letter\nroom code to clipboard
+
+Lobby --> Host: Room code copied
+deactivate Lobby
+
+Host -> Friend: Shares room code\n(via external communication)
+Friend -> Clip: Copies room code to clipboard
+Friend -> Prefs: Navigate to dindersdd.cs.rpi.edu/join
+Clip --> Prefs: Pastes room code
+
+== Share Invite Link ==
+Host -> Lobby: Clicks "Invite link"
+activate Lobby
+
+Lobby -> Lobby: Generate invite URL
+note right: Constructs URL with\nroom code parameter
+
+Lobby -> Clip: navigator.clipboard.writeText(inviteLink)
+note right: Copies full URL\nto clipboard
+
+Lobby --> Host: Invite link copied
+deactivate Lobby
+
+Host -> Friend: Shares invite link\n(via external communication)
+Friend -> Browser: Click invite link
+activate Browser
+Browser --> Prefs: Directs to join page
+deactivate Browser
+Prefs -> Prefs: Extract code from URL and \nauto-populate room code
+
+@enduml 

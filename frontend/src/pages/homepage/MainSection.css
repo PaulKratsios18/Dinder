@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap');
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 90vh; 
+  padding-left: 50px; 
+  background-color: #ed7874;
+  height: 670px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column; 
+}
+
+.main-section h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 6rem;
+  text-align: left;
+  margin-top: 50px;
+}
+
+.main-section h2 {
+  font-family: 'Fredoka One', cursive; 
+  font-size: 2.5rem;
+  text-align: left;
+  font-weight: 400; 
+  color: #fff;
+  transform: translateY(-100px);
+}
+
+.main-section h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.rem;
+  text-align: left;
+  font-weight: 200; 
+  color: #fff; 
+}
+
+.eat-text {
+    color: #001f3f; 
+}
+
+.text-content {
+  color: #fff;
+  text-align: left;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-right: 400px;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  transform: translateX(10px) translateY(-90px);
+}
+
+.get-started-button {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border-radius: 22px;
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  text-align: center;
+}
+
+
+.get-started-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.icon img {
+  width: 400px;
+  margin-right: 60px;
+  margin-bottom: 300px;
+  margin-top: 75px;
+  transform: translateX(550px) translateY(-650px);
+}
+
+.icon-container {
+  display: flex;
+  align-items: flex-start; 
+}

@@ -1,0 +1,247 @@
+.lobby-section {
+  min-height: calc(100vh - 200px);
+  background-color: #ed7874;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 84.3vh;
+  justify-content: space-between;
+}
+
+.join-instructions {
+  padding: 15px;
+  text-align: center;
+  transform: translateY(20px);
+}
+
+.join-instructions h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 200; 
+  color: #fff; 
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.lobby-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  flex: 1;
+  position: relative;
+  margin-top: 40px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 35%;
+  transform: translateX(-360px) translateY(-40px) scale(1.5);
+  font-family: 'Fredoka One', cursive;
+  margin-top: 60px;
+  flex: 0 1 auto;
+  padding: 0 20px;
+  width: 250px;
+}
+
+.room-code-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3rem;
+  color: #001f3f;
+  background-color: white;
+  padding: 8px 30px;
+  border-radius: 22px;
+  margin: 5px 0;
+  text-align: center;
+  letter-spacing: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.lobby-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 22px;
+  padding: 2px 20px;
+  margin: 1px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  min-width: 250px;
+  width: 100%;
+  transform: scale(0.8);
+  line-height: 1;
+  min-height: 40px;
+  transition: all 0.3s ease;
+}
+
+.lobby-button:hover {
+  background-color: rgba(0, 31, 63, 0.1);  /* Light blue tint */
+  transform: scale(1.05);  /* Slightly enlarge */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px 40px;
+  gap: 20px;
+  font-family: 'Fredoka One', cursive;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.preferences-button, .start-button {
+  padding: 15px 30px;
+  border-radius: 22px;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  font-family: 'Fredoka One', cursive;
+  max-width: 43vw;
+}
+
+.preferences-button:hover, .start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.preferences-button {
+  background-color: white;
+}
+
+.start-button {
+  background-color: #001f3f;
+  color: white;
+}
+
+.start-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.start-button:disabled::after {
+  content: "Waiting for participants to join";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #001f3f;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.members-panel {
+  background-color: #FAF1E5;
+  padding: 30px;
+  border-radius: 12px;
+  min-width: 500px;
+  position: absolute;
+  right: 35%;
+  transform: translateX(430px) translateY(-50px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.members-panel h4 {
+  font-family: 'Fredoka One', cursive;
+  color: #001f3f;
+  font-size: 2rem;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.participants-list {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.participant-item {
+  font-size: 1.2rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Fredoka One', cursive;
+}
+
+.participant-item:last-child {
+  border-bottom: none;
+}
+
+.left-panel h2 {
+  font-family: 'Fredoka One', cursive;
+  color: #001f3f;
+  font-size: 1.2rem;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.preferences-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.preferences-button:disabled::after {
+  content: "Preferences already set";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #001f3f;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.lobby-button.copied {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #FAF1E5;  /* Cream color matching member list */
+  color: #001f3f;
+  border-radius: 8px;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.preferences-summary {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}

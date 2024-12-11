@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinder Results - {{sessionCode}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .restaurant-card {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .restaurant-photos {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .restaurant-photo {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .score {
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dinder Results (Session: {{sessionCode}})</h1>
+    <div id="restaurants-container">Loading restaurants...</div>
+
+    <script>
+        {{restaurantsData}}
+        
+        function displayRankedRestaurants() {
+            const container = document.getElementById('restaurants-container');
+            try {
+                container.innerHTML = rankedRestaurants
+                    .map(restaurant => `
+                        <div class="restaurant-card">
+                            <h2>${restaurant.name} <span class="score">(Score: ${restaurant.score}/${restaurant.maxScore})</span></h2>
+                            <div class="restaurant-photos">
+                                <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name}" onerror="this.style.display='none'">
+                            </div>
+                            <div class="restaurant-info">
+                                <p><strong>Rating:</strong> ${restaurant.rating}</p>
+                                <p><strong>Price Range:</strong> ${restaurant.price}</p>
+                                <p><strong>Distance:</strong> ${restaurant.distance}</p>
+                                <p><strong>Cuisine:</strong> ${restaurant.cuisine}</p>
+                                <p><strong>Address:</strong> ${restaurant.address}</p>
+                                <p><strong>Status:</strong> ${restaurant.openStatus}</p>
+                                <p><strong>Accessibility:</strong> ${restaurant.wheelchairAccessible}</p>
+                            </div>
+                        </div>
+                    `)
+                    .join('');
+            } catch (error) {
+                container.innerHTML = 'Error loading restaurants. Please try again later.';
+                console.error('Error loading ranked restaurants:', error);
+            }
+        }
+
+        // Display restaurants when page loads
+        displayRankedRestaurants();
+    </script>
+</body>
+</html> 

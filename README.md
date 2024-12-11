@@ -1,7 +1,7 @@
 # Welcome to Dinder!
-👥 Team: Sagar Sahu, Paul Kratsios, Brendan Capuzzo, Russell Chao, Ryan Hong
+👥 Team: Paul Kratsios, Brendan Capuzzo, Sagar Sahu, Ryan Hong, Russell Chao
 
-Dinder is a web app solution that offers an interactive interface to help friend groups discover dining and restauraunt matchmaking selection. This application takes inspiration from Tinder, a popular dating and matchmaking platform. The app integrates several APIs such as Google and Yelp in order to web-scrape and fetch data from nearby restaurants. Group members can join a session that will help them mutually decide on a place to eat. Each group member will have the opportunity to select preferences, including cuisine, price range, and distance. The app provides a fun experience by allowing each user to swipe left or right based on their liking to a restaurant choice. Ultimately, no one should be stuck with the question, “Where do you want to eat?”.
+Dinder is a web app solution that offers an interactive interface to help friend groups discover dining and restauraunt matchmaking selection. This application takes inspiration from Tinder, a popular dating and matchmaking platform. The app integrates several APIs such as Google and Yelp in order to web-scrape and fetch data from nearby restaurants. Group members can join a session that will help them mutually decide on a place to eat. Each group member will have the opportunity to select preferences, including cuisine, price range, and distance. The app provides a fun experience by allowing each user to swipe left or right based on their liking to a restaurant choice. Ultimately, no one should be stuck with the question, "Where do you want to eat?".
 
 # Swipe. Match. Eat. It's that simple.
 
@@ -18,9 +18,11 @@ Dinder is a web app solution that offers an interactive interface to help friend
    b. For Express.js, create an Express app by running `npm install express`.
 
    c. For Socket.io, run `npm install socket`.
+
 4. Open another new terminal, run `cd frontend`, name the terminal 'frontend', and install the latest version of React for the frontend components:
 
    a. For React.js, run `npm install -g create-react-app` and then create a React app with `npx create-react-app`.
+
 5. In the `frontend` terminal, run `npm start` to view the web app on your localhost.
 
 Note: Each directory, 'backend' and 'frontend', should contain a `.env` file. The backend .env should have a Google Places API key, a MongoDB URI, and a port designation. The frontend .env should have a URL to the localhost and a port number designation.
@@ -43,4 +45,10 @@ Yelp API- https://docs.developer.yelp.com/docs/fusion-intro
 
 # Troubleshooting
 
-‼️ For some MacOS users, you may encounter an issue regarding 'CORS' when starting up the application, which is a dependency for Cross-Origin Resource Sharing middleware. To address this, try installing CORS by running `npm install cors`. 
+‼️ For some MacOS users, you may encounter an issue regarding 'CORS' when starting up the application, which is a dependency for Cross-Origin Resource Sharing middleware. To address this, try installing CORS by running `npm install cors`.
+
+For additional troubleshooting:
+- Check the console for any lint errors in development mode
+- Ensure all dependencies are properly installed
+- Verify that your .env files are properly configured
+- Make sure you're using the latest version of Node.js
