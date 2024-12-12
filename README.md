@@ -1,5 +1,5 @@
 # Welcome to Dinder!
-👥 Team: Sagar Sahu, Paul Kratsios, Brendan Capuzzo, Ryan Hong, Russell Chao
+👥 Team: Paul Kratsios, Brendan Capuzzo, Sagar Sahu, Ryan Hong, Russell Chao
 
 This documentation is meant to guide first-time and returning users set up the Dinder application on their local machine, run the app on localhost through their web browser, navigate through the interface, interact with its features, and troubleshoot any potential issues. Whether you're new to this or just need a quick refresher, this guide covers all aspects of the product.
 
