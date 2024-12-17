@@ -7,6 +7,13 @@ This documentation is meant to guide first-time and returning users set up the D
 
 Dinder is a web app solution that offers an interactive interface to help friend groups discover dining and restauraunt matchmaking selection. This application takes inspiration from Tinder, a popular dating and matchmaking platform. The app integrates several APIs such as Google and Yelp in order to web-scrape and fetch data from nearby restaurants. Group members can join a session that will help them mutually decide on a place to eat. Each group member will have the opportunity to select preferences, including cuisine, price range, and distance. The app provides a fun experience by allowing each user to swipe left or right based on their liking to a restaurant choice. Ultimately, no one should be stuck with the question, "Where do you want to eat?".
 
+# Media
+<div style="display: flex; justify-content: center; flex-wrap: nowrap;">
+  <img src="./dinderImages/homepage.png" width="250" height="150" style="margin: 10px; border: 2px solid black; border-radius: 8px;" />
+  <img src="./dinderImages/HostLobby-Post-PreferenceSelection.png" width="250" height="150" style="margin: 10px; border: 2px solid black; border-radius: 8px;" />
+  <img src="./dinderImages/MatchScreen.png" width="250" height="150" style="margin: 10px; border: 2px solid black; border-radius: 8px;" />
+</div>
+
 # System Requirements
 
 🛠️ To run this application, the following operating systems are required: Windows 11 (for Windows users), or the latest version of MacOS (Sequoia 15.1.1 for Apple users), which supports both Intel and Apple Silicon processors. Additionally, this app works best on the latest web browser version of Google Chrome.
